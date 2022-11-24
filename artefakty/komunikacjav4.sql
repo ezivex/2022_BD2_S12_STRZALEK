@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS public.autobusy
     rejestracja character varying(10)[] COLLATE pg_catalog."default" NOT NULL,
     marka character varying(50)[] COLLATE pg_catalog."default" NOT NULL,
     sprawnosc boolean[] NOT NULL,
-    rodzaj integer[] NOT NULL,
+    rodzaj_autobusy integer[] NOT NULL,
     CONSTRAINT test_pkey PRIMARY KEY (id_bus)
 );
 
@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS public.kurs
     id_kurs integer[] NOT NULL,
     "nazwaLini_k" integer[] NOT NULL,
     rbus_k integer[] NOT NULL,
-    trasa_k integer[] NOT NULL,
     czas_przyjazdu_k integer[] NOT NULL,
     CONSTRAINT kurs_pkey PRIMARY KEY (id_kurs)
 );
@@ -60,8 +59,8 @@ CREATE TABLE IF NOT EXISTS public.kurs_realizacja
 CREATE TABLE IF NOT EXISTS public."przystanekwLinii"
 (
     "id_przystLin" integer[] NOT NULL,
-    ennum integer[] NOT NULL,
     linia integer[] NOT NULL,
+    "listaPrzyst" integer[] NOT NULL,
     CONSTRAINT "przystanekwLinii_pkey" PRIMARY KEY ("id_przystLin")
 );
 
@@ -70,6 +69,14 @@ CREATE TABLE IF NOT EXISTS public.przystanki
     id_przystanku integer[] NOT NULL,
     "nazwaPrzystanku" character varying(35)[] COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT przystanki_pkey PRIMARY KEY (id_przystanku)
+);
+
+CREATE TABLE IF NOT EXISTS public.raport
+(
+    id_raport integer[] NOT NULL,
+    id_rozkl integer[] NOT NULL,
+    godziny_real integer[] NOT NULL,
+    CONSTRAINT raport_pkey PRIMARY KEY (id_raport)
 );
 
 CREATE TABLE IF NOT EXISTS public.rodzaj_autobusu
@@ -86,6 +93,15 @@ CREATE TABLE IF NOT EXISTS public.rodzaj_zmiany
     g_rozp time without time zone NOT NULL,
     g_zakon time without time zone NOT NULL,
     CONSTRAINT rodzaj_zmiany_pkey PRIMARY KEY (id_rzmiany)
+);
+
+CREATE TABLE IF NOT EXISTS public.rozklad_jazdy
+(
+    id_kpw integer[] NOT NULL,
+    godzina_odjazdu integer[] NOT NULL,
+    nazwa_kursu integer[] NOT NULL,
+    id_przystankiwlini integer[] NOT NULL,
+    CONSTRAINT rozklad_jazdy_pkey PRIMARY KEY (id_kpw)
 );
 
 CREATE TABLE IF NOT EXISTS public.tryb_kursowania
@@ -111,19 +127,9 @@ CREATE TABLE IF NOT EXISTS public.uzytkownicy
     CONSTRAINT uzytkownicy_pkey PRIMARY KEY (id_uzytkownik)
 );
 
-CREATE TABLE IF NOT EXISTS public.rozklad_jazdy
-(
-    id_kpw integer[] NOT NULL,
-    godzina_startu integer[] NOT NULL,
-    nazwa_kursu integer[] NOT NULL,
-    id_przystankiwlini integer[] NOT NULL,
-    godziny_na_przystanku integer[] NOT NULL,
-    PRIMARY KEY (id_kpw)
-);
-
-ALTER TABLE IF EXISTS public.autobusy
-    ADD CONSTRAINT rodzaj FOREIGN KEY (rodzaj)
-    REFERENCES public.rodzaj_autobusu (id_rodzaj) MATCH SIMPLE
+ALTER TABLE IF EXISTS public."Linia"
+    ADD CONSTRAINT tryb_kursowaniaa FOREIGN KEY (tryb_kurs)
+    REFERENCES public.tryb_kursowania (id_tryb) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -162,14 +168,6 @@ ALTER TABLE IF EXISTS public.kurs
 
 
 ALTER TABLE IF EXISTS public.kurs
-    ADD CONSTRAINT trasa_kk FOREIGN KEY (trasa_k)
-    REFERENCES public."przystanekwLinii" ("id_przystLin") MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public.kurs
     ADD CONSTRAINT rodzaj_bus FOREIGN KEY (rbus_k)
     REFERENCES public.rodzaj_autobusu (id_rodzaj) MATCH SIMPLE
     ON UPDATE NO ACTION
@@ -180,6 +178,14 @@ ALTER TABLE IF EXISTS public.kurs
 ALTER TABLE IF EXISTS public.kurs_realizacja
     ADD CONSTRAINT bus_k FOREIGN KEY ("id_busuRel")
     REFERENCES public.autobusy (id_bus) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public.kurs_realizacja
+    ADD CONSTRAINT dzien FOREIGN KEY (dzien_rel)
+    REFERENCES public.dni_tygodnia (id_dnityg) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -201,22 +207,6 @@ ALTER TABLE IF EXISTS public.kurs_realizacja
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.kurs_realizacja
-    ADD CONSTRAINT dzien FOREIGN KEY (dzien_rel)
-    REFERENCES public.dni_tygodnia (id_dnityg) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public."przystanekwLinii"
-    ADD CONSTRAINT "przystankiE" FOREIGN KEY (ennum)
-    REFERENCES public.przystanki (id_przystanku) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
 ALTER TABLE IF EXISTS public."przystanekwLinii"
     ADD CONSTRAINT linia FOREIGN KEY (linia)
     REFERENCES public."Linia" (id_linii) MATCH SIMPLE
@@ -225,9 +215,17 @@ ALTER TABLE IF EXISTS public."przystanekwLinii"
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.uzytkownicy
-    ADD CONSTRAINT id_stanowisko FOREIGN KEY (id_stanowisko)
-    REFERENCES public.typ_stanowiska ("id_typStanowiska") MATCH SIMPLE
+ALTER TABLE IF EXISTS public."przystanekwLinii"
+    ADD CONSTRAINT przystanki FOREIGN KEY ("listaPrzyst")
+    REFERENCES public.przystanki (id_przystanku) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public.raport
+    ADD CONSTRAINT rozkla FOREIGN KEY (id_rozkl)
+    REFERENCES public.rozklad_jazdy (id_kpw) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -244,6 +242,14 @@ ALTER TABLE IF EXISTS public.rozklad_jazdy
 ALTER TABLE IF EXISTS public.rozklad_jazdy
     ADD CONSTRAINT przystankiwlini FOREIGN KEY (id_przystankiwlini)
     REFERENCES public."przystanekwLinii" ("id_przystLin") MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public.uzytkownicy
+    ADD CONSTRAINT id_stanowisko FOREIGN KEY (id_stanowisko)
+    REFERENCES public.typ_stanowiska ("id_typStanowiska") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
