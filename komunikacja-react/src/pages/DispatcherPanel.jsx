@@ -2,7 +2,7 @@ import React from 'react';
 
 function DispatcherPanel() {
     return (
-        <h1>this is the ExamplePage</h1>
+        <h1 className='titleDispatcherPanel'>nie daje brzydkich slow</h1>
     );
 }
 
