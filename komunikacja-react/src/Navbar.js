@@ -23,6 +23,9 @@ const Navbar = () => {
         <li>
           <Link to="/DispatcherPanel">DispatcherPanel</Link>
        </li>
+       <li>
+          <Link to="/AdminPanel">AdminPanel</Link>
+       </li>
       </ul>
         </div>
     </nav> );

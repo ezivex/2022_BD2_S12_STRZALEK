@@ -7,7 +7,7 @@ import ExamplePage from './pages/ExamplePage';
 import NoPage from './pages/NoPage';
 
 import BusDriverMainPage from './pages/BusDriverMainPage';
-
+import AdminPanel from './pages/AdminPanel';
 import DispatcherPanel from './pages/DispatcherPanel';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <Route path="ExamplePage" element={<ExamplePage />} />
 
         <Route path="BusDriverMainPage" element={<BusDriverMainPage />} />
-
+        <Route path="AdminPanel" element={<AdminPanel />} />
         <Route path="DispatcherPanel" element={<DispatcherPanel />} />
 
         <Route path="*" element={<NoPage />} />
