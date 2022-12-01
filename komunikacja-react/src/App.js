@@ -1,14 +1,22 @@
 import './App.css';
-import Navbar from './Navbar';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import ExamplePage from './pages/ExamplePage';
+import NoPage from './pages/NoPage';
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
-</style>
 function App() {
   return (
-    <div className="App">
-     <Navbar/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="ExamplePage" element={<ExamplePage />} />
+        <Route path="*" element={<NoPage />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
   );
 }
 
