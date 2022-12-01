@@ -17,7 +17,11 @@ const Navbar = () => {
           <Link to="/ExamplePage">ExamplePage</Link>
         </li>
         <li>
+<<<<<<< Updated upstream
           <Link to="/BusDriverMainPage">BusDriverMainPage</Link>
+=======
+          <Link to="/DispatcherPanel">DispatcherPanel</Link>
+>>>>>>> Stashed changes
         </li>
       </ul>
         </div>
