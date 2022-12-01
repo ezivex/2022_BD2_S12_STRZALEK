@@ -58,7 +58,11 @@ End - BusDriverMainPage
 .titleAdmin{
   color: red;
 }
-
+.contanerAdmin{
+  background-color: rgb(16, 204, 195);
+  padding: 20px;
+  margin: 0 auto;
+}
 
 /*
 End - AdminMainPage 
