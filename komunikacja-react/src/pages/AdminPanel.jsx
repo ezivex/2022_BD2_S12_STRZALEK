@@ -6,6 +6,7 @@ function AdminPanel() {
             <h1 className='titleAdmin'>this is the AdminPanel</h1>
             <div className="main">
                 <p className="admnintext1">cos nowego</p>
+                <p className="admnintext1">co tam u was słychać?</p>
             </div>
         </div>
     );
