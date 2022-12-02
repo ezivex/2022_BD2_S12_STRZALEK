@@ -1,8 +1,8 @@
 import React from 'react';
-
+import {Link } from "react-router-dom";
 function BusDriverMainPage() {
     return (
-        <body id="bodyBusDriverMainPage">
+        
         <div className='containerBusDriverMainPage'>
 
             <div className="logoBusDriverMainPage">
@@ -14,19 +14,23 @@ function BusDriverMainPage() {
             </div>
 
             <div className="menuBusDriverMainPage">
+            <Link to="/BusDriverDyspozycja">
             <button className="leftButtonMainPage">DYSPOZYCJA</button>
-            
+            </Link>
+    
+            <Link to="/BusDriverGrafik">
             <button className="rightButtonMainPage">SPRAWDŹ GRAFIK</button>
-            
+            </Link>
             </div>
             
-
-            <div className="footerBusDriverMainPage">
-            <p className="pbuttonLogout"><button className="buttonLogout">WYLOGUJ</button></p>
-            <p className="copyright">2022 &copy;COPYRIGHT</p>
-            </div>
+            
+            <footer className="PageFooter buttonSettings">   
+            <button className="buttonLogout">WYLOGUJ</button>
+            <p>2022 BD2 Projekt</p>
+            </footer>
+            
          </div>
-        </body>
+       
 
     );
 }

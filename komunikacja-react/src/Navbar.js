@@ -21,7 +21,7 @@ const Navbar = () => {
         </li>
 
         <li>
-          <Link to="/BusDriverDyspocyzja">BusDriverDyspozycja</Link>
+          <Link to="/BusDriverDyspozycja">BusDriverDyspozycja</Link>
         </li>
         
         <li>
