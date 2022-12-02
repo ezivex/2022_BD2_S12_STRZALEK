@@ -9,6 +9,7 @@ import NoPage from './pages/NoPage';
 import BusDriverMainPage from './pages/BusDriverMainPage';
 import AdminPanel from './pages/AdminPanel';
 import DispatcherPanel from './pages/DispatcherPanel';
+import PrzystankiPage from './pages/PrzystankiPage';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="ExamplePage" element={<ExamplePage />} />
-
+        <Route path="PrzystankiPage" element={<PrzystankiPage />} />
         <Route path="BusDriverMainPage" element={<BusDriverMainPage />} />
         <Route path="AdminPanel" element={<AdminPanel />} />
         <Route path="DispatcherPanel" element={<DispatcherPanel />} />

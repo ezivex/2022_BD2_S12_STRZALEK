@@ -32,7 +32,12 @@
 .links a:hover{
   background: #892430;
 }
-
+.btn_przystanki{
+  background-image: url("./graphics/btn_przystanki.svg");
+  width: 443px;
+  height: 212px;
+  border-style: none;
+}
 /*
 *****************************************************************************************************
  BusDriverMainPage
