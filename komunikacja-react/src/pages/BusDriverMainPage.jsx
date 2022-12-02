@@ -6,7 +6,7 @@ function BusDriverMainPage() {
         <div className='containerBusDriverMainPage'>
 
             <div className="logoBusDriverMainPage">
-            <h1>LOGO BUSY.PL</h1>
+            <p className="logoMainPage">LOGO BUSY.PL</p>
             </div>
 
             <div className="navbarBusDriverMainPage">
