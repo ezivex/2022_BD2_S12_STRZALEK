@@ -175,20 +175,21 @@ End - BusDriverDyzpozycja
 *****************************************************************************************************
 */
 
-#bodyGrafik{
-  background-color: #fff;
-  color: #fff;
-  text-align: center;
-}
-
 .containerGrafik{
-  width: 100%;
+  background-color: #fff;
+  width: 99vw;
+  height: 100vh;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  
 }
 
 .logoGrafik{
   background-color: #C33142;
+  color: #fff;
+  height: 5%;
+  text-align: center;
 }
 
 .backButton{
@@ -198,10 +199,33 @@ End - BusDriverDyzpozycja
   font-size: 15px;
 }
 
+.napisGrafik{
+  color: #C33142;
+  font-size: 25px;
+  padding-top: 10%;
+}
 
+.currentDate{
+  height: 105px;
+  width: 10vw;
+  background-color:#C33142;
+  color: #fff;
+  padding: 30px 15px;
+  margin-left: 80%;
+  
+}
 
+.displayGrafik{
+  
+  background-image: url("./graphics/btn_przystanki.svg");
+  width: 443px;
+  height: 212px;
+  border-style: none;
+  margin-left: auto;
+  margin-right: auto;
 
-
+  
+}​
 
 
 
