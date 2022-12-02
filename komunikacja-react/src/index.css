@@ -38,6 +38,40 @@
   height: 212px;
   border-style: none;
 }
+.btn_linie{
+  background-image: url("./graphics/btn_linie.svg");
+  width: 443px;
+  height: 212px;
+  border-style: none;
+}
+.btn_przystanki:hover, .btn_linie:hover{
+  cursor: pointer;
+}
+.HomeContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+  width: 99vw;
+}
+.HomeButtons{
+  display: flex;
+  justify-content: space-evenly;
+}
+.PageFooter{
+  display: flex;
+  justify-content: center;
+  width:100%;
+  font-size: 2rem;
+  color: #892430;
+
+}
+.ulLinks{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
 /*
 *****************************************************************************************************
  BusDriverMainPage
