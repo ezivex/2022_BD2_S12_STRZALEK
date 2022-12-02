@@ -7,6 +7,8 @@ import ExamplePage from './pages/ExamplePage';
 import NoPage from './pages/NoPage';
 
 import BusDriverMainPage from './pages/BusDriverMainPage';
+import BusDriverDyspozycja from './pages/BusDriverDyspozycja';
+import BusDriverGrafik from './pages/BusDriverGrafik';
 import AdminPanel from './pages/AdminPanel';
 import DispatcherPanel from './pages/DispatcherPanel';
 import PrzystankiPage from './pages/PrzystankiPage';
@@ -20,6 +22,8 @@ function App() {
         <Route path="ExamplePage" element={<ExamplePage />} />
         <Route path="PrzystankiPage" element={<PrzystankiPage />} />
         <Route path="BusDriverMainPage" element={<BusDriverMainPage />} />
+        <Route path="BusDriverDyspozycja" element={<BusDriverDyspozycja />} />
+        <Route path="BusDriverGrafik" element={<BusDriverGrafik />} />
         <Route path="AdminPanel" element={<AdminPanel />} />
         <Route path="DispatcherPanel" element={<DispatcherPanel />} />
 

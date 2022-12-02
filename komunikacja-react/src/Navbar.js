@@ -17,9 +17,17 @@ const Navbar = () => {
           <Link to="/ExamplePage">ExamplePage</Link>
         </li>
         <li>
-
           <Link to="/BusDriverMainPage">BusDriverMainPage</Link>
         </li>
+
+        <li>
+          <Link to="/BusDriverDyspocyzja">BusDriverDyspozycja</Link>
+        </li>
+        
+        <li>
+          <Link to="/BusDriverGrafik">BusDriverGrafik</Link>
+        </li>
+
         <li>
           <Link to="/DispatcherPanel">DispatcherPanel</Link>
        </li>
