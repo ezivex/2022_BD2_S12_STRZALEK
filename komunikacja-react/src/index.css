@@ -72,6 +72,67 @@
   padding: 0;
   display: flex;
 }
+.LoginContainer{
+  background-color: #C33142;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+}
+
+/* input form */
+input[type="text"],
+input[type="password"] {
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #C33142;
+  color: #C33142;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background: #8d1724;
+  color: white;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.loginForm {
+  background-color: #C33142;
+  padding: 2rem;
+  border: 5px solid rgb(255, 255, 255);
+  color: white;
+  width: 30vw;
+}
+
+.list-container {
+  display: flex;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px;
+}
+/*  */
 /*
 *****************************************************************************************************
  BusDriverMainPage

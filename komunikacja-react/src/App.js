@@ -13,7 +13,7 @@ import AdminPanel from './pages/AdminPanel';
 import DispatcherPanel from './pages/DispatcherPanel';
 import PrzystankiPage from './pages/PrzystankiPage';
 import LiniePage from './pages/LiniePage';
-
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
         <Route path="BusDriverGrafik" element={<BusDriverGrafik />} />
         <Route path="AdminPanel" element={<AdminPanel />} />
         <Route path="DispatcherPanel" element={<DispatcherPanel />} />
-
+        <Route path="LoginPage" element={<LoginPage />} />
         <Route path="*" element={<NoPage />} />
       </Route>
     </Routes>

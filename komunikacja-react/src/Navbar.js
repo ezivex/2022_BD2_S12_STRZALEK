@@ -34,6 +34,9 @@ const Navbar = () => {
        <li>
           <Link to="/AdminPanel">AdminPanel</Link>
        </li>
+       <li>
+          <Link to="/LoginPage">LoginPage</Link>
+       </li>
       </ul>
         </div>
     </nav> );
