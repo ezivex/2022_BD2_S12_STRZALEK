@@ -7,9 +7,9 @@ function LiniePage() {
             <div className="linieLista">
                 <h2 className="linieTitle">Nasze linie</h2>
                 <ul className="listaLiniData">
-                    <li className='liniaBtn'>A4</li>
-                    <li className='liniaBtn'>A4N</li>
-                    <li className='liniaBtn'>699</li>
+                    <li className='btnLinia'>A4</li>
+                    <li className='btnLinia'>A4N</li>
+                    <li className='btnLinia'>699</li>
                 </ul>
             </div>
             <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>

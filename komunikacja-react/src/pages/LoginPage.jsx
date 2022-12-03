@@ -86,14 +86,14 @@ const renderForm = (
 );
 
     return (
-        <div className="LoginContainer">
+        <div className="loginContainer">
              <div className="logoLogin"><h2>logo busy.pl</h2></div>
              
         <div className="loginForm">
              <h2 className="loginTitle">Zaloguj sie</h2>
              {isSubmitted ? console.log('done') : renderForm}
          </div>
-         <footer className="PageFooter loginPage--footer"><p>2022 BD2 Projekt</p></footer>
+         <footer className="PageFooter loginFooter"><p>2022 BD2 Projekt</p></footer>
         </div>
     );
 }
