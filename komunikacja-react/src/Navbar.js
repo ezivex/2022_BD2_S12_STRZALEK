@@ -16,24 +16,6 @@ const Navbar = () => {
         <li>
           <Link to="/ExamplePage">ExamplePage</Link>
         </li>
-        <li>
-          <Link to="/BusDriverMainPage">BusDriverMainPage</Link>
-        </li>
-
-        <li>
-          <Link to="/BusDriverDyspozycja">BusDriverDyspozycja</Link>
-        </li>
-        
-        <li>
-          <Link to="/BusDriverGrafik">BusDriverGrafik</Link>
-        </li>
-
-        <li>
-          <Link to="/DispatcherPanel">DispatcherPanel</Link>
-       </li>
-       <li>
-          <Link to="/AdminPanel">AdminPanel</Link>
-       </li>
        <li>
           <Link to="/LoginPage">LoginPage</Link>
        </li>
