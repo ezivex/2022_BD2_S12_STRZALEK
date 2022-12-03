@@ -121,8 +121,13 @@ input[type="submit"]:hover {
 }
 
 .error {
-  color: red;
-  font-size: 12px;
+  color: rgb(255, 20, 20);
+  font-size: 1rem;
+  font-weight: bold;
+  background: rgb(255, 255, 255);
+  padding: 0.5rem;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 
