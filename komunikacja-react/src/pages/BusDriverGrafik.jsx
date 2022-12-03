@@ -19,15 +19,43 @@ function BusDriverGrafik() {
                 
                 </div>    
 
-                <div className="displayGrafik">
-                    GRAFIK
-                </div>
+            <div className="displayGrafik">
+                <table className="tableGrafik">
+		            <thead>
+			            <tr>
+                            <th>ZMIANA</th>
+                            <th>PONIEDZIAŁEK</th>
+                            <th>WTOREK</th>
+                            <th>ŚRODA</th>
+                            <th>CZWARTEK</th>
+                            <th>PIĄTEK</th>
+			            </tr>
+		            </thead>
+		        <tbody>
+			            <tr>
+                            <td>I</td>
+                            <td>X</td>
+                            <td></td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td></td>
+			            </tr>
+			            <tr>
+                            <td>II&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+			            </tr>
+		            </tbody>
+	            </table>
+            </div>
 
                 <footer className="PageFooter buttonSettings">   
                 <p>2022 BD2 Projekt</p>
                 </footer>
-
-            </div>
+     </div>
         
     );
 }

@@ -304,6 +304,8 @@ End - BusDriverMainPage
   flex-direction: column;
   justify-items: space-between;
   row-gap: 75px;
+  padding-bottom: 3vw;
+  margin-left: 15%;
 
   
 }
@@ -315,14 +317,9 @@ End - BusDriverMainPage
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
-.saveDyspozycja {
-}
-
-.buttonSave {
-
-}
 
 
 /*
@@ -345,7 +342,7 @@ End - BusDriverDyzpozycja
   text-align: center;
   display: flex;
   flex-direction: column;
- 
+  
 }
 
 .logoGrafik{        /* to samo dla dyspozycji */
@@ -353,6 +350,7 @@ End - BusDriverDyzpozycja
   color: #fff;
   height: 5%;
   text-align: center;
+  
 }
 
 .backButton{        /* to samo dla dyspozycji */
@@ -361,6 +359,7 @@ End - BusDriverDyzpozycja
   border: none;
   font-size: 15px;
   padding: 10px;
+  
 }
 
 .backButton a{
@@ -376,31 +375,45 @@ End - BusDriverDyzpozycja
 .napisGrafik{     /* to samo dla dyspozycji */
   color: #C33142;
   font-size: 25px;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .currentDate{     /* to samo dla dyspozycji */
 
   background-color:#C33142;
   color: #fff;
-  padding: 30px 15px;
+  width: 10%;
+  display: flex;
   margin-left: 80%;
-  border: 2px solid black;
+  justify-content: center;
+
 }
 
 .displayGrafik{
-  
-  background-image: url("./graphics/btn_przystanki.svg");
-  width: 443px;
-  height: 212px;
-  border-style: none;
-  margin-left: auto;
-  margin-right: auto;
-
-  
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+ 
 }​
 
-
+table.tableGrafik {
+  border:px solid #C33142;
+  border-collapse:collapse;
+  padding:5px;
+}
+table.tableGrafik th{
+  border:1px solid #C33142;
+  padding:5px;
+  background: #ffffff;
+  color: #C33142;
+}
+table.tableGrafik td{
+  border:1px solid #C33142;
+  text-align:center;
+  padding:5px;
+  background: #ffffff;
+  color: #C33142;
+}
 
 /*
 End - BusDriverGrafik
