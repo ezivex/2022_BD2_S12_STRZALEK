@@ -78,7 +78,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
+  justify-content: space-between;
+}
+.logoLogin{
+  font-size: 3rem;
+  align-self: start;
+  margin-left: 5rem;
+  padding: 4rem;
+}
+.loginPage--footer{
+background-color: #fff;
 }
 
 /* input form */
@@ -114,6 +124,8 @@ input[type="submit"]:hover {
   border: 5px solid rgb(255, 255, 255);
   color: white;
   width: 30vw;
+  height: 40vh;
+  margin-bottom: 4rem;
 }
 
 .list-container {
