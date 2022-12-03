@@ -79,7 +79,7 @@ const renderForm = (
                  {renderErrMsg("pass")} 
              </div>
              <div className="button-container">
-             <input type="submit" />
+             <input type="submit" value="Dalej" />
              </div>
          </form>
  
