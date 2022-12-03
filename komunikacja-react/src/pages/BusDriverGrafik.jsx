@@ -10,13 +10,13 @@ function BusDriverGrafik() {
                     <button className="backButton"> POWRÓT </button>
                     </Link>
                 </div>
+                <div className="currentDate">
+                        DATA: 00/00/2022
+                        GODZINA: 13:54:33
+                </div>
                 <div className="navbarGrafik">
                 <p className="napisGrafik">Twój grafik, kierowco</p>
                 
-                    <div className="currentDate">
-                        DATA: 00/00/2022
-                        GODZINA: 13:54:33
-                    </div>
                 </div>    
 
                 <div className="displayGrafik">
@@ -25,7 +25,7 @@ function BusDriverGrafik() {
 
                 <footer className="PageFooter buttonSettings">   
                 <p>2022 BD2 Projekt</p>
-            </footer>
+                </footer>
 
             </div>
         

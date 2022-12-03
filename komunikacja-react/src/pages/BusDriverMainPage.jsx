@@ -24,9 +24,11 @@ function BusDriverMainPage() {
             </div>
             
             
-            <footer className="PageFooter buttonSettings">   
-                <button className="buttonLogout">WYLOGUJ</button>
+            <footer className="PageFooter buttonSettings"> 
+                
+                <button className="buttonLogout"><Link to="/LoginPage"> WYLOGUJ </Link></button>
                 <p>2022 BD2 Projekt</p>
+                
             </footer>
             
          </div>

@@ -264,6 +264,16 @@ input[type="submit"]:hover {
   margin-right: 20%;
 }
 
+.buttonLogout a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+}
+
+.buttonLogout a:hover{
+  background: #892430;
+}
+
 .buttonSettings{
   display: flex;
   flex-direction: column;
@@ -282,15 +292,37 @@ End - BusDriverMainPage
  BusDriverDyspozycja
 *****************************************************************************************************
 */
+.menuDyspozycja {
+  background-color:#fff;
+  padding-top: 5%;
+}
 
+.ulMenuDyspozycja{
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
+  row-gap: 75px;
 
+  
+}
 
+.ulMenuDyspozycja li{
+  background-color:#C33142;
+  width: 10%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.saveDyspozycja {
+}
 
+.buttonSave {
 
-
-
-
+}
 
 
 /*
@@ -304,44 +336,56 @@ End - BusDriverDyzpozycja
 *****************************************************************************************************
 */
 
-.containerGrafik{
+
+.containerGrafik{     /* to samo dla dyspozycji */
   background-color: #fff;
-  width: 99vw;
   height: 100vh;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  
+  display: flex;
+  flex-direction: column;
+ 
 }
 
-.logoGrafik{
+.logoGrafik{        /* to samo dla dyspozycji */
   background-color: #C33142;
   color: #fff;
   height: 5%;
   text-align: center;
 }
 
-.backButton{
+.backButton{        /* to samo dla dyspozycji */
   background-color: #C33142;
   color: #fff;
   border: none;
   font-size: 15px;
+  padding: 10px;
 }
 
-.napisGrafik{
+.backButton a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.backButton:hover{
+  background: #892430;
+}
+
+
+.napisGrafik{     /* to samo dla dyspozycji */
   color: #C33142;
   font-size: 25px;
   padding-top: 10%;
 }
 
-.currentDate{
-  height: 105px;
-  width: 10vw;
+.currentDate{     /* to samo dla dyspozycji */
+
   background-color:#C33142;
   color: #fff;
   padding: 30px 15px;
   margin-left: 80%;
-  
+  border: 2px solid black;
 }
 
 .displayGrafik{
