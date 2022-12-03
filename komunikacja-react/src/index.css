@@ -411,15 +411,44 @@ End - BusDriverGrafik
  AdminMainPage
 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
 */
-.titleAdmin{
-  color: rgb(255, 196, 0);
-}
-.contanerAdmin{
-  background-color: rgb(16, 204, 195);
+/*AdminPanel:*/
+.containerAdminPanel{
+  background-color: #C33142;
+  color: #FFFFFF;
   padding: 20px;
   margin: 0 auto;
+  min-block-size: 100px;
 }
-
+.logoAdminPanel{
+  text-align: center;
+  font-size: 64px;
+  font-weight: bolder;
+}
+.titleAdminPanel{
+  text-align: center;
+  font-size: 64px;
+  font-weight: bolder;
+}
+.przyciskiAdminPanel{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.przyciskAdminPanel{
+  height: 149px;
+  width: 374px;
+  margin: 50px
+}
+.stopkaAdminPanel{
+  clear: both;
+}
+.przyciskwylogujAdminPanel{
+ float: right;
+}
+.copyrightAdminPanel{
+  text-align: center;
+}
 /*
 End - AdminMainPage 
  */

@@ -2,11 +2,22 @@ import React from 'react';
 
 function AdminPanel() {
     return (
-        <div className="contanerAdmin">
-            <h1 className='titleAdmin'>this is the AdminPanel</h1>
-            <div className="main">
-                <p className="admnintext1">cos nowego</p>
-                <p className="admnintext1">co tam u was słychać?</p>
+        <div className="containerAdminPanel">
+            <div className="logoAdminPanel">
+                <p className="logografikaAdminPanel">LOGO BUSY.PL</p>
+                <p className="titleAdminPanel">Panel Administratora</p>
+            </div>
+            <div className="przyciskiAdminPanel">
+                <button className="przyciskAdminPanel">ZARZĄDZANIE LINIAMI</button>
+                <button className="przyciskAdminPanel">ZARZĄDZANIE AUTOBUSAMI</button>
+                <button className="przyciskAdminPanel">ZARZĄDZANIE KURSAMI</button>
+                <button className="przyciskAdminPanel">ZARZĄDZANIE PRZYSTANKAMI</button>
+                <button className="przyciskAdminPanel">ZARZĄDZANIE KIEROWCAMI</button>
+                <button className="przyciskAdminPanel">ZARZĄDZANIE UŻYTKOWNIKAMI</button>
+            </div>
+            <div className="stopkaAdminPanel">
+                <button className="przyciskwylogujAdminPanel">Wyloguj</button>
+                <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
             </div>
         </div>
     );
