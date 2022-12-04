@@ -4,7 +4,9 @@ function AdminPanelprzyst() {
     return (
         <div className="containerAdminPanelprzyst">
             <div className="powrotAdminPanelprzyst">
-                <button className="przyciskpowrotAdminPanelprzyst">powrót</button>
+                <Link to="/AdminPanel">
+                    <button className="przyciskpowrotAdminPanelprzyst">powrót</button>
+                </Link>
             </div>
             <div className="stronaAdminPanelprzyst">
                 <div className="listaprzystAdminPanelprzyst">

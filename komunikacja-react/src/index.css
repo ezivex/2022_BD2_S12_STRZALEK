@@ -490,7 +490,7 @@ End - BusDriverGrafik
 .copyrightAdminPanel{
   font-size: 20px;
   font-weight: lighter;
-  clear: both;
+  
 }
 /*
 End - AdminMainPage 
@@ -519,6 +519,9 @@ End - AdminMainPage
   font-size: 40px;
   font-weight: bolder;
   border: none;
+}
+.powrotAdminPanelprzyst a{
+  text-decoration: none;
 }
 .stronaAdminPanelprzyst{
   display: flex;
@@ -567,9 +570,16 @@ End - AdminMainPage
   height: 81px;
   margin-top: 70px;
 }
-.dodAdminPanelprzyst, .usuAdminPanelprzyst{
+.dodAdminPanelprzyst{
   background-color:#C33142;
-  color: #FFFFFF;
+  color: #ffffff;
+  border: none;
+  width: 374px;
+  height: 124px;
+}
+.usuAdminPanelprzyst{
+  background-color:#C33142;
+  color: #ffffff;
   border: none;
   width: 374px;
   height: 124px;
