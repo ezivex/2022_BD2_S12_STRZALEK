@@ -15,7 +15,9 @@ function AdminPanel() {
                 <Link to="/AdminPanelautobusy">
                     <button className="przyciskAdminPanel">ZARZĄDZANIE AUTOBUSAMI</button>
                 </Link>
-                <button className="przyciskAdminPanel">ZARZĄDZANIE KURSAMI</button>
+                <Link to="/AdminPanelkurs">
+                    <button className="przyciskAdminPanel">ZARZĄDZANIE KURSAMI</button>
+                </Link>
                 <Link to="/AdminPanelprzyst">
                     <button className="przyciskAdminPanel">ZARZĄDZANIE PRZYSTANKAMI</button>
                 </Link>
