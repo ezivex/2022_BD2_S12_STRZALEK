@@ -15,8 +15,10 @@ function AdminPanel() {
                 <button className="przyciskAdminPanel">ZARZĄDZANIE KIEROWCAMI</button>
                 <button className="przyciskAdminPanel">ZARZĄDZANIE UŻYTKOWNIKAMI</button>
             </div>
+            <div className="wylogujAdminPanel">
+                <p className="przyciskwylogujAdminPanel">Wyloguj</p>
+            </div>  
             <div className="stopkaAdminPanel">
-                <button className="przyciskwylogujAdminPanel">Wyloguj</button>
                 <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
             </div>
         </div>

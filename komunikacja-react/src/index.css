@@ -430,17 +430,17 @@ End - BusDriverGrafik
   color: #FFFFFF;
   padding: 20px;
   margin: 0 auto;
-  min-block-size: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
 }
-.logoAdminPanel{
+.logoAdminPanel, .titleAdminPanel{
   text-align: center;
   font-size: 64px;
   font-weight: bolder;
-}
-.titleAdminPanel{
-  text-align: center;
-  font-size: 64px;
-  font-weight: bolder;
+  margin-bottom: 20px;
 }
 .przyciskiAdminPanel{
   text-align: center;
@@ -451,16 +451,34 @@ End - BusDriverGrafik
 .przyciskAdminPanel{
   height: 149px;
   width: 374px;
-  margin: 50px
+  margin: 50px;
+  color: #C33142;
+  background-color: #FFFFFF;
+  border: none;
+  font-size: 40px;
+  font-weight: bolder;
 }
-.stopkaAdminPanel{
-  clear: both;
+.wylogujAdminPanel{
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
 }
 .przyciskwylogujAdminPanel{
- float: right;
+  height: 81px;
+  width: 224px;
+  margin: 10px;
+  background-color: #C33142;
+  color: #FFFFFF;
+  font-size: 40px;
+  font-weight: bolder;
+}
+.stopkaAdminPanel{
+  display: flex;
+  justify-content: center;
 }
 .copyrightAdminPanel{
-  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
 }
 /*
 End - AdminMainPage 
