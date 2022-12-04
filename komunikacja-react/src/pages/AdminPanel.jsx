@@ -9,7 +9,9 @@ function AdminPanel() {
                 <p className="titleAdminPanel">Panel Administratora</p>
             </div>
             <div className="przyciskiAdminPanel">
-                <button className="przyciskAdminPanel">ZARZĄDZANIE LINIAMI</button>
+                <Link to="/AdminPanellinia">
+                    <button className="przyciskAdminPanel">ZARZĄDZANIE LINIAMI</button>
+                </Link>
                 <button className="przyciskAdminPanel">ZARZĄDZANIE AUTOBUSAMI</button>
                 <button className="przyciskAdminPanel">ZARZĄDZANIE KURSAMI</button>
                 <Link to="/AdminPanelprzyst">
