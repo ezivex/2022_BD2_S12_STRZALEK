@@ -468,7 +468,8 @@ End - BusDriverGrafik
   width: 224px;
   margin: 10px;
   background-color: #C33142;
-  color: #FFFFFF;
+  color: #ffffff;
+  border: none;
   font-size: 40px;
   font-weight: bolder;
 }
