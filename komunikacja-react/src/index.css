@@ -485,14 +485,107 @@ End - BusDriverGrafik
 .stopkaAdminPanel{
   display: flex;
   justify-content: center;
+  
 }
 .copyrightAdminPanel{
   font-size: 20px;
   font-weight: lighter;
+  clear: both;
 }
 /*
 End - AdminMainPage 
  */
+ /*AdminPanelprzyst:*/
+ .containerAdminPanelprzyst{
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.powrotAdminPanelprzyst{
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+.przyciskpowrotAdminPanelprzyst{
+  height: 81px;
+  width: 180px;
+  background-color: #C33142;
+  color: #FFFFFF;
+  font-size: 40px;
+  font-weight: bolder;
+  border: none;
+}
+.stronaAdminPanelprzyst{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+.listaprzystAdminPanelprzyst{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.przystanktytulAdminPanelprzyst{
+  margin-bottom: 70px;
+  color: #C33142;
+  font-size: 40px;
+  font-weight: bolder;
+}
+.ulprzystnkiAdminPanelprzyst{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.liprzystankiAdminPanelprzyst{
+  margin-bottom: 20px;
+  padding-top: auto;
+  text-align: center;
+  background-color:#C33142;
+  color: #FFFFFF;
+  height: 57px;
+  width: 374px;
+  font-size: 40px;
+  font-weight: bolder;
+}
+.dodajprzystAdminPanelprzyst{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputAdminPanelprzyst{
+  background-color:#FFFFFF;
+  color: #C33142;
+  width: 270px;
+  height: 81px;
+  margin-top: 70px;
+}
+.dodAdminPanelprzyst, .usuAdminPanelprzyst{
+  background-color:#C33142;
+  color: #FFFFFF;
+  border: none;
+  width: 374px;
+  height: 124px;
+}
+.inputAdminPanelprzyst, .dodAdminPanelprzyst, .usuAdminPanelprzyst{
+  margin-bottom: 20px;
+  padding-top: auto;
+  text-align: center;
+  background-color:#C33142;
+  color: #FFFFFF;
+  height: 57px;
+  width: 374px;
+  font-size: 40px;
+  font-weight: bolder;
+}
+ /*End - AdminPanelprzyst*/
 
 /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
 DispatcherPanel
