@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link } from "react-router-dom";
 
-function AdminPanellinia() {
+function AdminPanellinia2() {
     return (
         <div className="containerAdminPanellinia2">
             <div className="powrotAdminPanellinia2">
@@ -35,4 +35,4 @@ function AdminPanellinia() {
     );
 }
 
-export default AdminPanellinia;
+export default AdminPanellinia2;

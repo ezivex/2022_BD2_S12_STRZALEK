@@ -809,6 +809,118 @@ End - AdminMainPage
 }
 
     /*End - AdminPanellinia2*/
+
+ /*AdminPanelautobusy:*/
+ .containerAdminPanelautobusy{
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.powrotAdminPanelautobusy{
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+.przyciskpowrotAdminPanelautobusy{
+  height: 81px;
+  width: 180px;
+  background-color: #C33142;
+  color: #FFFFFF;
+  font-size: 40px;
+  font-weight: bolder;
+  border: none;
+}
+.powrotAdminPanelautobusy a{
+  text-decoration: none;
+}
+.stronaAdminPanelautobusy{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+.listaautobusowAdminPanelautobusy{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.autobustytulAdminPanelautobusy{
+  margin-bottom: 70px;
+  color: #C33142;
+  font-size: 40px;
+  font-weight: bolder;
+}
+.ulautobusyAdminPanelautobusy{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.liautobusyAdminPanelautobusy{
+  margin-bottom: 20px;
+  padding-top: auto;
+  text-align: center;
+  background-color:#C33142;
+  color: #FFFFFF;
+  height: 57px;
+  width: 374px;
+  font-size: 40px;
+  font-weight: bolder;
+}
+.dodajautobusAdminPanelautobusy{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputAdminPanelautobusy{
+  background-color:#FFFFFF;
+  color: #C33142;
+  width: 270px;
+  height: 81px;
+  margin-top: 70px;
+}
+.dodAdminPanelautobusy{
+  background-color:#C33142;
+  color: #ffffff;
+  border: none;
+  width: 374px;
+  height: 124px;
+  margin-top: 80px;
+}
+.usuAdminPanelautobusy{
+  background-color:#C33142;
+  color: #ffffff;
+  border: none;
+  width: 374px;
+  height: 124px;
+}
+.inputAdminPanelautobusy, .dodAdminPanelautobusy, .usuAdminPanelautobusy{
+  margin-bottom: 20px;
+  padding-top: auto;
+  text-align: center;
+  background-color:#C33142;
+  color: #FFFFFF;
+  height: 57px;
+  width: 374px;
+  font-size: 40px;
+  font-weight: bolder;
+}
+ /*End - AdminPanelautobusy*/
+
+
+
+
+
+
+
+
+
 /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
 DispatcherPanel
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

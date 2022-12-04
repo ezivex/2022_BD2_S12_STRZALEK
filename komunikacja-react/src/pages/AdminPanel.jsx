@@ -12,7 +12,9 @@ function AdminPanel() {
                 <Link to="/AdminPanellinia">
                     <button className="przyciskAdminPanel">ZARZĄDZANIE LINIAMI</button>
                 </Link>
-                <button className="przyciskAdminPanel">ZARZĄDZANIE AUTOBUSAMI</button>
+                <Link to="/AdminPanelautobusy">
+                    <button className="przyciskAdminPanel">ZARZĄDZANIE AUTOBUSAMI</button>
+                </Link>
                 <button className="przyciskAdminPanel">ZARZĄDZANIE KURSAMI</button>
                 <Link to="/AdminPanelprzyst">
                     <button className="przyciskAdminPanel">ZARZĄDZANIE PRZYSTANKAMI</button>
