@@ -12,6 +12,7 @@ import BusDriverGrafik from './pages/BusDriverGrafik';
 import AdminPanel from './pages/AdminPanel';
 import AdminPanelprzyst from './pages/AdminPanelprzyst';
 import AdminPanellinia from './pages/AdminPanellinia';
+import AdminPanellinia2 from './pages/AdminPanellinia2';
 import DispatcherPanel from './pages/DispatcherPanel';
 import PrzystankiPage from './pages/PrzystankiPage';
 import LiniePage from './pages/LiniePage';
@@ -32,6 +33,7 @@ function App() {
         <Route path="AdminPanel" element={<AdminPanel />} />
         <Route path="AdminPanelprzyst" element={<AdminPanelprzyst />} />
         <Route path="AdminPanellinia" element={<AdminPanellinia />} />
+        <Route path="AdminPanellinia2" element={<AdminPanellinia2 />} />
         <Route path="DispatcherPanel" element={<DispatcherPanel />} />
         <Route path="LoginPage" element={<LoginPage />} />
         <Route path="*" element={<NoPage />} />

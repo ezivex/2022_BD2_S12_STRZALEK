@@ -19,7 +19,9 @@ function AdminPanellinia() {
                 <div className="listaliniiAdminPanellinia">
                     <p className="liniatytulAdminPanellinia">Linie</p>
                     <ul className="ullinieAdminPanellinia">
-                        <li className="lilinieAdminPanellinia">linia 1</li>
+                        <Link to="/AdminPanellinia2">
+                            <li className="lilinieAdminPanellinia">linia 1</li>
+                        </Link>
                         <li className="lilinieAdminPanellinia">linia 2</li>
                         <li className="lilinieAdminPanellinia">linia 3</li>
                     </ul>
