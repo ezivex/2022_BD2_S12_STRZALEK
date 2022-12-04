@@ -448,6 +448,9 @@ End - BusDriverGrafik
   flex-wrap: wrap;
   justify-content: center;
 }
+.przyciskiAdminPanel a{
+  text-decoration: none;
+}
 .przyciskAdminPanel{
   height: 149px;
   width: 374px;
@@ -457,11 +460,15 @@ End - BusDriverGrafik
   border: none;
   font-size: 40px;
   font-weight: bolder;
+  display: block;
 }
 .wylogujAdminPanel{
   display: flex;
   justify-content: flex-end;
   align-content: center;
+}
+.wylogujAdminPanel a{
+  text-decoration: none;
 }
 .przyciskwylogujAdminPanel{
   height: 81px;
@@ -472,6 +479,8 @@ End - BusDriverGrafik
   border: none;
   font-size: 40px;
   font-weight: bolder;
+  text-align: center;
+  display: block;
 }
 .stopkaAdminPanel{
   display: flex;

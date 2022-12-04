@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from "react-router-dom";
 
 function AdminPanel() {
     return (
@@ -11,12 +12,16 @@ function AdminPanel() {
                 <button className="przyciskAdminPanel">ZARZĄDZANIE LINIAMI</button>
                 <button className="przyciskAdminPanel">ZARZĄDZANIE AUTOBUSAMI</button>
                 <button className="przyciskAdminPanel">ZARZĄDZANIE KURSAMI</button>
-                <button className="przyciskAdminPanel">ZARZĄDZANIE PRZYSTANKAMI</button>
+                <Link to="/AdminPanelprzyst">
+                    <button className="przyciskAdminPanel">ZARZĄDZANIE PRZYSTANKAMI</button>
+                </Link>
                 <button className="przyciskAdminPanel">ZARZĄDZANIE KIEROWCAMI</button>
                 <button className="przyciskAdminPanel">ZARZĄDZANIE UŻYTKOWNIKAMI</button>
             </div>
             <div className="wylogujAdminPanel">
-                <button className="przyciskwylogujAdminPanel">Wyloguj</button>
+                <Link to="/LoginPage">
+                    <p className="przyciskwylogujAdminPanel">Wyloguj</p>
+                </Link>
             </div>  
             <div className="stopkaAdminPanel">
                 <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
