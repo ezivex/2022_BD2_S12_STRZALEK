@@ -14,13 +14,13 @@ function DispatcherMainPanel() {
         </div>
 
         <div className="menuDispatcherMainPanel">
-                <Link to="/DispatcherZarzadzanieKursami">
+                {/* <Link to="/DispatcherZarzadzanieKursami">
                 <button className="leftButtonMainPanel">ZARZĄDZANIE KURSAMI</button>
                 </Link>
     
                 <Link to="/DispatcherEdycjaKursow">
                 <button className="rightButtonMainPanel">EDYCJA KURSÓW</button>
-                </Link>
+                </Link> */}
         </div>
 
         <footer className="PageFooter buttonSettings"> 
