@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/2022_BD2_S12_STRZALEK/precache-manifest.b6973a1d6d0fa7374049e9f190527e5c.js"
+  "/2022_BD2_S12_STRZALEK/komunikacja-react/precache-manifest.760a37ab9b66a9f1df954d24d18a725b.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/2022_BD2_S12_STRZALEK/index.html", {
+workbox.routing.registerNavigationRoute("/2022_BD2_S12_STRZALEK/komunikacja-react/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
