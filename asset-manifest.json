@@ -1,7 +1,7 @@
 {
   "main.css": "/2022_BD2_S12_STRZALEK/static/css/main.ffbccccd.chunk.css",
-  "main.js": "/2022_BD2_S12_STRZALEK/static/js/main.93b33e29.chunk.js",
-  "main.js.map": "/2022_BD2_S12_STRZALEK/static/js/main.93b33e29.chunk.js.map",
+  "main.js": "/2022_BD2_S12_STRZALEK/static/js/main.f1a3eca1.chunk.js",
+  "main.js.map": "/2022_BD2_S12_STRZALEK/static/js/main.f1a3eca1.chunk.js.map",
   "static/js/1.c9c42146.chunk.js": "/2022_BD2_S12_STRZALEK/static/js/1.c9c42146.chunk.js",
   "static/js/1.c9c42146.chunk.js.map": "/2022_BD2_S12_STRZALEK/static/js/1.c9c42146.chunk.js.map",
   "runtime~main.js": "/2022_BD2_S12_STRZALEK/static/js/runtime~main.6be5c94b.js",
@@ -9,6 +9,6 @@
   "static/media/index.css": "/2022_BD2_S12_STRZALEK/static/media/btn_linie.31cb4648.svg",
   "static/css/main.ffbccccd.chunk.css.map": "/2022_BD2_S12_STRZALEK/static/css/main.ffbccccd.chunk.css.map",
   "index.html": "/2022_BD2_S12_STRZALEK/index.html",
-  "precache-manifest.3519df08679bc05e36cae6b5fe95d949.js": "/2022_BD2_S12_STRZALEK/precache-manifest.3519df08679bc05e36cae6b5fe95d949.js",
+  "precache-manifest.a31813f130d846695e4d4b0e83b973f1.js": "/2022_BD2_S12_STRZALEK/precache-manifest.a31813f130d846695e4d4b0e83b973f1.js",
   "service-worker.js": "/2022_BD2_S12_STRZALEK/service-worker.js"
 }
