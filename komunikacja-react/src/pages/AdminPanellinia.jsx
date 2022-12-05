@@ -1,35 +1,35 @@
 import React from 'react';
 import {Link } from "react-router-dom";
-
+import NavbarClean from '../NavbarClean';
 function AdminPanellinia() {
     return (
-        <div className="containerAdminPanellinia">
-            <div className="powrotAdminPanellinia">
-                <Link to="/AdminPanel">
-                    <button className="przyciskpowrotAdminPanellinia">powrót</button>
-                </Link>
-            </div>
-            <div className="stronaAdminPanellinia">
-                <div className="dodajlinieAdminPanellinia">
-                    <input className="inputAdminPanellinia"></input>
-                    <button className="dodAdminPanellinia">dodaj linie</button>
-                    <input className="inputAdminPanellinia"></input>
-                    <button className="usuAdminPanellinia">usuń linie</button>
+        <div className="containerGrafik">
+              <NavbarClean>
+                <Link to="/AdminPanel" className='linkSettings'>
+                    <button className="btnBack"> POWRÓT </button>
+                    </Link>
+                </NavbarClean>
+            <div className="liniaAdmin">
+                <div className="formLinieAdmin">
+                    <input className="inLinieAdmin"></input>
+                    <button className="btnAddLinieAdmin">dodaj linie</button>
+                    <input className="inLinieAdmin"></input>
+                    <button className="btnDelLinieAdmin">usuń linie</button>
                 </div>
-                <div className="listaliniiAdminPanellinia">
-                    <p className="liniatytulAdminPanellinia">Linie</p>
-                    <ul className="ullinieAdminPanellinia">
+                <div className="listLinieAdmin">
+                    <p className="linieTitle">Linie</p>
+                    <ul className="ulLinieAdmin">
                         <Link to="/AdminPanellinia2">
-                            <li className="lilinieAdminPanellinia">linia 1</li>
+                            <li className="liLinieAdmin">linia 1</li>
                         </Link>
-                        <li className="lilinieAdminPanellinia">linia 2</li>
-                        <li className="lilinieAdminPanellinia">linia 3</li>
+                        <li className="liLinieAdmin">linia 2</li>
+                        <li className="liLinieAdmin">linia 3</li>
                     </ul>
                 </div>
             </div>
-            <div className="stopkaAdminPanel">
-                <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
-            </div>
+            <footer className="PageFooter"> 
+                <p>2022 BD2 Projekt</p>
+            </footer>
         </div>
     );
 }

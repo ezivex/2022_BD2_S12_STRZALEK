@@ -1,36 +1,39 @@
 import React from 'react';
 import {Link } from "react-router-dom";
+import NavbarClean from '../NavbarClean';
 function AdminPanelautobusy() {
     return (
-        <div className="containerAdminPanelautobusy">
-            <div className="powrotAdminPanelautobusy">
-                <Link to="/AdminPanel">
-                    <button className="przyciskpowrotAdminPanelautobusy">powrót</button>
+        <div className="containerGrafik">
+        <NavbarClean>
+            <Link to="/AdminPanel" className='linkSettings'>
+                <button className="btnBack"> POWRÓT </button>
                 </Link>
-            </div>
-            <div className="stronaAdminPanelautobusy">
-                <div className="listaautobusowAdminPanelautobusy">
-                    <p className="autobustytulAdminPanelautobusy">Autobusy</p>
-                    <ul className="ulautobusyAdminPanelautobusy">
-                        <Link to="/AdminPanelautobusy3">
-                            <li className="liautobusyAdminPanelautobusy">autobus1</li>
-                        </Link>
-                        <li className="liautobusyAdminPanelautobusy">autobus2</li>
-                        <li className="liautobusyAdminPanelautobusy">autobus3</li>
-                    </ul>
-                </div>
-                <div className="dodajautobusAdminPanelautobusy">
-                    <Link to="/AdminPanelautobusy2">
-                        <button className="dodAdminPanelautobusy">dodaj autobus</button>
+            </NavbarClean>
+        <div className="liniaAdmin">
+            <div className="listLinieAdmin">
+                <p className="linieTitle">Autobusy</p>
+                <ul className="ulLinieAdmin">
+                    <Link to="/AdminPanelautobusy3" className='linkSettings'>               
+                        <li className="liLinieAdmin">autobus1</li>
                     </Link>
-                    <input className="inputAdminPanelautobusy"></input>
-                    <button className="usuAdminPanelautobusy">usuń autobus</button>
-                </div>
+                    <Link to="/AdminPanelautobusy3" className='linkSettings'>
+                        <li className="liLinieAdmin">autobus2</li>
+                    </Link>
+                    <Link to="/AdminPanelautobusy3" className='linkSettings'>
+                        <li className="liLinieAdmin">autobus3</li>
+                    </Link>
+                </ul>
             </div>
-            <div className="stopkaAdminPanel">
-                <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
+            <div className="formLinieAdmin">
+            <Link to="/AdminPanelautobusy2" className='linkSettings'>
+                <button className="btnAddLinieAdmin">dodaj autobus</button>
+              </Link>  
+                <input className="inLinieAdmin"></input>
+                <button className="btnDelLinieAdmin">usuń autobus</button>
             </div>
         </div>
+        <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>
+    </div>
     );
 }
 export default AdminPanelautobusy;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function LoginPage() {
 
@@ -87,13 +87,13 @@ const renderForm = (
 
     return (
         <div className="loginContainer">
-             <div className="logoLogin"><h2>logo busy.pl</h2></div>
+             <div className="logoLogin"><Link to="/" className='logoLink'><h2>logo busy.pl</h2></Link></div>
              
         <div className="loginForm">
              <h2 className="loginTitle">Zaloguj sie</h2>
              {isSubmitted ? console.log('done') : renderForm}
          </div>
-         <footer className="PageFooter loginFooter"><p>2022 BD2 Projekt</p></footer>
+         <footer className="PageFooter adminFooterSettings"><p>2022 BD2 Projekt</p></footer>
         </div>
     );
 }

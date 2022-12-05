@@ -1,36 +1,36 @@
 import React from 'react';
 import {Link } from "react-router-dom";
-
+import NavbarClean from '../NavbarClean';
 function AdminPanellinia2() {
     return (
-        <div className="containerAdminPanellinia2">
-            <div className="powrotAdminPanellinia2">
-                <Link to="/AdminPanellinia">
-                    <button className="przyciskpowrotAdminPanellinia2">powrót</button>
+        <div className="containerGrafik">
+          <NavbarClean>
+                <Link to="/AdminPanelLinia" className='linkSettings'>
+                    <button className="btnBack"> POWRÓT </button>
                 </Link>
+            </NavbarClean>
+            <div className="liniaNameFetch">
+                <p>Linia A4</p>
             </div>
-            <div className="nazwadanejliniiAdminPanellinia2">
-                <p className="nazdanejliniiAdminPanellinia2">Linia A4</p>
-            </div>
-            <div className="stronaAdminPanellinia2">
-                <div className="dodajlinieAdminPanellinia2">
-                    <input className="inputAdminPanellinia2"></input>
-                    <button className="dodAdminPanellinia2">dodaj przystanek</button>
-                    <input className="inputAdminPanellinia2"></input>
-                    <button className="usuAdminPanellinia2">usuń przystanek</button>
+            <div className="liniaAdmin">
+                <div className="formLinieAdmin">
+                    <input className="inLinieAdmin"></input>
+                    <button className="btnAddLinieAdmin">dodaj przystanek</button>
+                    <input className="inLinieAdmin"></input>
+                    <button className="btnDelLinieAdmin">usuń przystanek</button>
                 </div>
-                <div className="listaliniiAdminPanellinia2">
-                    <p className="liniatytulAdminPanellinia2">Przystanki w lini</p>
-                    <ol className="ullinieAdminPanellinia2">
-                        <li className="lilinieAdminPanellinia2">przystanek 1</li>
-                        <li className="lilinieAdminPanellinia2">przystanek 2</li>
-                        <li className="lilinieAdminPanellinia2">przystanek 3</li>
+                <div className="listLinieAdmin">
+                    <p className="linieTitle">Przystanki w lini</p>
+                    <ol className="ulLinieAdmin">
+                        <li className="liLinieAdmin">przystanek 1</li>
+                        <li className="liLinieAdmin">przystanek 2</li>
+                        <li className="liLinieAdmin">przystanek 3</li>
                     </ol>
                 </div>
             </div>
-            <div className="stopkaAdminPanel">
-                <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
-            </div>
+            <footer className="PageFooter"> 
+                <p>2022 BD2 Projekt</p>
+            </footer>
         </div>
     );
 }

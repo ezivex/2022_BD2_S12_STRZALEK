@@ -1,15 +1,14 @@
 import React from 'react';
 import {Link } from "react-router-dom";
+import NavbarClean from '../NavbarClean';
 function BusDriverGrafik() {
     return (
             <div className="containerGrafik">
-
-                <div className="logoGrafik">
-                    LOGO BUSY.PL
-                    <Link to="/BusDriverMainPage">
-                    <button className="backButton"> POWRÓT </button>
+                <NavbarClean>
+                <Link to="/BusDriverMainPage" className='linkSettings'>
+                    <button className="btnBack"> POWRÓT </button>
                     </Link>
-                </div>
+                </NavbarClean>
                 <div className="currentDate">
                         DATA: 00/00/2022
                         GODZINA: 13:54:33

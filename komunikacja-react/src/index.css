@@ -21,9 +21,9 @@
   font-weight: bold;
 }
 .logoNav a{
-display: block;
-text-decoration: none;
-color: white;
+  display: block;
+  text-decoration: none;
+  color: white;
 }
 .linksNav{
   flex-basis: 40%;
@@ -45,6 +45,7 @@ color: white;
   display: flex;
   column-gap: 5rem;
   justify-items: center;
+  font-size: 1.4rem;
 }
 /* --------------------- end of nav ------------------- */
 
@@ -214,29 +215,6 @@ input[type="submit"]:hover {
 *****************************************************************************************************
 */
 
-.containerBusDriverMainPage {
-  background-color: #C33142;
-  text-align: center;
-  color: #fff;
-  width: 99vw;
-  height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  align-content: space-between;
-  flex-direction: column;
-}
-
-.logoBusDriverMainPage {
-  flex-basis: 100%;
-}
-
-.navbarBusDriverMainPage {
-  padding-top: 80px;
-  padding-bottom: 40px;
-  flex-basis: 100%;
-}
 
 .menuBusDriverMainPage {
   display: flex;
@@ -244,14 +222,6 @@ input[type="submit"]:hover {
   margin-bottom: 20%;
 }
 
-.footerBusDriverMainPage {
-  padding-top: 25%; 
-  flex-basis: 100%;
-}
-.logoMainPage {
-  font-size: 30px;
-  flex-basis: 100%;
-}
 .leftButtonMainPage, .rightButtonMainPage {
   height: 105px;
   color:#C33142;
@@ -327,8 +297,19 @@ End - BusDriverMainPage
   
 }
 
-
-
+.linkSettings{
+display: block;
+cursor: pointer;
+text-decoration: none;
+color: #C33142;
+}
+.linkSettings:hover{
+  color: #FFFFFF;
+}
+.logoLink{
+  color: #fff;
+  text-decoration: none;
+}
 /*
 End - BusDriverDyzpozycja
  */
@@ -352,30 +333,27 @@ End - BusDriverDyzpozycja
   
 }
 
-.logoGrafik{        /* to samo dla dyspozycji */
-  background-color: #C33142;
-  color: #fff;
-  height: 5%;
-  text-align: center;
-  
-}
 
-.backButton{        /* to samo dla dyspozycji */
+.btnBack{        /* to samo dla dyspozycji */
   background-color: #C33142;
   color: #fff;
   border: none;
   font-size: 15px;
-  padding: 10px;
-  
+  padding: 15px;
 }
 
-.backButton a{
-  text-decoration: none;
-  color: #fff;
+.btnPlacement{
+display: flex;
+justify-content: center;
+align-items:center;
+margin-right: 5rem;
 }
-
-.backButton:hover{
+.btnMainPosition{
+  margin-top: 10rem;
+}
+.btnBack:hover{
   background: #892430;
+  cursor: pointer;
 }
 
 
@@ -389,11 +367,18 @@ End - BusDriverDyzpozycja
 
   background-color:#C33142;
   color: #fff;
-  width: 10%;
   display: flex;
-  margin-left: 80%;
-  justify-content: center;
-
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 200px;
+  align-self: flex-end;
+  margin-right: 5rem;
+  margin-top: 5rem;
+  
+}
+.datePi{
+  padding: 10px;
 }
 
 .displayGrafik{
@@ -443,24 +428,28 @@ End - BusDriverGrafik
   flex-direction: column;
   height: 100%;
 }
-.logoAdminPanel, .titleAdminPanel{
-  text-align: center;
-  font-size: 64px;
-  font-weight: bolder;
-  margin-bottom: 20px;
+.adminSettings{
+  background-color: #C33142;
+  color: #FFFFFF;
 }
-.przyciskiAdminPanel{
+.mainPanel{
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: 60vh;
 }
-.przyciskiAdminPanel a{
-  text-decoration: none;
+.mainPanelKierowca{
+  align-items: center;
+  column-gap: 20rem;
 }
-.przyciskAdminPanel{
-  height: 149px;
-  width: 374px;
+.adminFooterSettings{
+  padding: 20px;
+  color: #FFFFFF;
+}
+.btnMainPanel{
+  height: 150px;
+  width: 360px;
   margin: 50px;
   color: #C33142;
   background-color: #FFFFFF;
@@ -469,777 +458,117 @@ End - BusDriverGrafik
   font-weight: bolder;
   display: block;
 }
-.wylogujAdminPanel{
-  display: flex;
-  justify-content: flex-end;
-  align-content: center;
-}
-.wylogujAdminPanel a{
-  text-decoration: none;
-}
-.przyciskwylogujAdminPanel{
-  height: 81px;
-  width: 224px;
-  margin: 10px;
-  background-color: #C33142;
-  color: #ffffff;
-  border: none;
-  font-size: 40px;
-  font-weight: bolder;
-  text-align: center;
-  display: block;
-}
-.stopkaAdminPanel{
-  display: flex;
-  justify-content: center;
-  
-}
-.copyrightAdminPanel{
-  font-size: 20px;
-  font-weight: lighter;
-  
+.btnMainPanel:hover{
+  cursor: pointer;
+  color: #fff;
+  background-color: #9a212f;
 }
 /*
 End - AdminMainPage 
  */
- /*AdminPanelprzyst:*/
- .containerAdminPanelprzyst{
-  background-color: #ffffff;
-  padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-}
-.powrotAdminPanelprzyst{
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-}
-.przyciskpowrotAdminPanelprzyst{
-  height: 81px;
-  width: 180px;
-  background-color: #C33142;
-  color: #FFFFFF;
-  font-size: 40px;
-  font-weight: bolder;
-  border: none;
-}
-.powrotAdminPanelprzyst a{
-  text-decoration: none;
-}
-.stronaAdminPanelprzyst{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  
-}
-.listaprzystAdminPanelprzyst{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.przystanktytulAdminPanelprzyst{
-  margin-bottom: 70px;
-  color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.ulprzystnkiAdminPanelprzyst{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-.liprzystankiAdminPanelprzyst{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.dodajprzystAdminPanelprzyst{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.inputAdminPanelprzyst{
-  background-color:#FFFFFF;
-  color: #C33142;
-  width: 270px;
-  height: 81px;
-  margin-top: 70px;
-}
-.dodAdminPanelprzyst{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-}
-.usuAdminPanelprzyst{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-}
-.inputAdminPanelprzyst, .dodAdminPanelprzyst, .usuAdminPanelprzyst{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
- /*End - AdminPanelprzyst*/
+
  /*AdminPanellinia:*/
- .containerAdminPanellinia{
-  background-color: #ffffff;
-  padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-}
-.powrotAdminPanellinia{
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-}
-.przyciskpowrotAdminPanellinia{
-  height: 81px;
-  width: 180px;
-  background-color: #C33142;
-  color: #FFFFFF;
-  font-size: 40px;
-  font-weight: bolder;
-  border: none;
-}
-.przyciskpowrotAdminPanellinia a{
-  text-decoration: none;
-}
-.stronaAdminPanellinia{
-  display: flex;
-  flex-direction: row;
+
+.liniaAdmin{
+  display: flex;  
   align-items: center;
   justify-content: space-around;
-  
+  height: 80vh;
 }
-.listaliniiAdminPanellinia{
+.listLinieAdmin{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.liniatytulAdminPanellinia{
+.linieTitle{
   margin-bottom: 70px;
   color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
+  font-size: 3rem;
+  font-weight: bold;
 }
-.ullinieAdminPanellinia{
+.ulLinieAdmin{
   list-style: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  padding: 0;
+  row-gap: 2rem;
 }
-.ullinieAdminPanellinia a{
+.ulLinieAdmin a{
   text-decoration: none;
 }
-.lilinieAdminPanellinia{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
+.liLinieAdmin{
   background-color:#C33142;
   color: #FFFFFF;
   height: 57px;
   width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.dodajlinieAdminPanellinia{
+.formLinieAdmin{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.inputAdminPanellinia{
-  background-color:#FFFFFF;
-  color: #C33142;
-  width: 270px;
-  height: 81px;
-  margin-top: 70px;
-}
-.dodAdminPanellinia{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-}
-.usuAdminPanellinia{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-}
-.inputAdminPanellinia, .dodAdminPanellinia, .usuAdminPanellinia{
+.inLinieAdmin, .btnAddLinieAdmin, .btnDelLinieAdmin{
   margin-bottom: 20px;
-  padding-top: auto;
   text-align: center;
   background-color:#C33142;
   color: #FFFFFF;
+  border: none;
   height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
+  width: 350px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.inLinieAdmin{
+  background-color:#c24452;
+}
+.inPlacement{
+margin-left: 1rem;
+margin-right: 2rem;
+}
+.btnAddLinieAdmin:hover, .btnDelLinieAdmin:hover,.liLinieAdmin:hover{
+  background: #892430;
+  cursor: pointer;
 }
   /*End - AdminPanellinia*/
 
  /*AdminPanellinia2:*/
 
- .containerAdminPanellinia2{
-  background-color: #ffffff;
+.liniaNameFetch{
+  text-align: center;
+  color: #C33142;
+  font-size: 3rem;
+  font-weight: bold;
   padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
 }
-.powrotAdminPanellinia2{
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-}
-.przyciskpowrotAdminPanellinia2{
-  height: 81px;
-  width: 180px;
-  background-color: #C33142;
-  color: #FFFFFF;
-  font-size: 40px;
-  font-weight: bolder;
-  border: none;
-}
-.przyciskpowrotAdminPanellinia2 a{
-  text-decoration: none;
-}
-.nazwadanejliniiAdminPanellinia2{
-  text-align: center;
-  color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.stronaAdminPanellinia2{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  
-}
-.listaliniiAdminPanellinia2{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.liniatytulAdminPanellinia2{
-  margin-bottom: 70px;
-  color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.ullinieAdminPanellinia2{
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-.lilinieAdminPanellinia2{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.dodajlinieAdminPanellinia2{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.inputAdminPanellinia2{
-  background-color:#FFFFFF;
-  color: #C33142;
-  width: 270px;
-  height: 81px;
-  margin-top: 70px;
-}
-.dodAdminPanellinia2{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-}
-.usuAdminPanellinia2{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-}
-.inputAdminPanellinia2, .dodAdminPanellinia2, .usuAdminPanellinia2{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
-
     /*End - AdminPanellinia2*/
 
  /*AdminPanelautobusy:*/
- .containerAdminPanelautobusy{
-  background-color: #ffffff;
-  padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-}
-.powrotAdminPanelautobusy{
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-}
-.przyciskpowrotAdminPanelautobusy{
-  height: 81px;
-  width: 180px;
-  background-color: #C33142;
-  color: #FFFFFF;
-  font-size: 40px;
-  font-weight: bolder;
-  border: none;
-}
-.powrotAdminPanelautobusy a{
-  text-decoration: none;
-}
-.stronaAdminPanelautobusy{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  
-}
-.listaautobusowAdminPanelautobusy{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.autobustytulAdminPanelautobusy{
-  margin-bottom: 70px;
-  color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.ulautobusyAdminPanelautobusy{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-.ulautobusyAdminPanelautobusy a{
-  text-decoration: none;
-}
-.liautobusyAdminPanelautobusy{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.dodajautobusAdminPanelautobusy{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.inputAdminPanelautobusy{
-  background-color:#FFFFFF;
-  color: #C33142;
-  width: 270px;
-  height: 81px;
-  margin-top: 70px;
-}
-.dodAdminPanelautobusy{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-  margin-top: 80px;
-}
-.usuAdminPanelautobusy{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-}
-.inputAdminPanelautobusy, .dodAdminPanelautobusy, .usuAdminPanelautobusy{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
+ 
  /*End - AdminPanelautobusy*/
 
  /*AdminPanelautobusy2:*/
- .containerAdminPanelautobusy2{
-  background-color: #ffffff;
-  padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-}
-.powrotAdminPanelautobusy2{
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-}
-.przyciskpowrotAdminPanelautobusy2{
-  height: 81px;
-  width: 180px;
-  background-color: #C33142;
-  color: #FFFFFF;
-  font-size: 40px;
-  font-weight: bolder;
-  border: none;
-}
-.powrotAdminPanelautobusy2 a{
-  text-decoration: none;
-}
-.nazwadanejautobusuAdminPanelautobusy2{
-  text-align: center;
-  color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.stronaAdminPanelautobusy2{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  
-}
-.dodajautobusAdminPanelautobusy2{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.inputAdminPanelautobusy2{
-  background-color:#FFFFFF;
-  color: #C33142;
-  width: 270px;
-  height: 81px;
-  margin-top: 70px;
-}
-.dodAdminPanelautobusy2{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 274px;
-  height: 107px;
-  margin-top: 50px;
-  margin-bottom: 100px;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.inputAdminPanelautobusy2, .dodAdminPanelautobusy{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
+
  /*End - AdminPanelautobusy2*/
 
 
 /*AdminPanelautobusy3:*/
-.containerAdminPanelautobusy3{
-  background-color: #ffffff;
-  padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-}
-.powrotAdminPanelautobusy3{
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-}
-.przyciskpowrotAdminPanelautobusy3{
-  height: 81px;
-  width: 180px;
-  background-color: #C33142;
-  color: #FFFFFF;
-  font-size: 40px;
-  font-weight: bolder;
-  border: none;
-}
-.powrotAdminPanelautobusy2 a{
-  text-decoration: none;
-}
-.nazwadanejautobusuAdminPanelautobusy3{
-  text-align: center;
-  color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.stronaAdminPanelautobusy3{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  
-}
-.specaautobusowAdminPanelautobusy3{
+
+.busStatusAdmin{
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.spectytulAdminPanelautobusy3{
-  margin-bottom: 70px;
-  color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.ulspecAdminPanelautobusy3{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-.lispecAdminPanelautobusy3{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.stanaautobusowAdminPanelautobusy3{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.stantytulAdminPanelautobusy3{
-  margin-bottom: 70px;
-  color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.ulstanAdminPanelautobusy3{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-.listanAdminPanelautobusy3{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
 }
 
-.dodajstanAdminPanelautobusy3{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.inputAdminPanelautobusy3{
-  background-color:#FFFFFF;
-  color: #C33142;
-  width: 270px;
-  height: 81px;
-  margin-top: 70px;
-}
-.dodstanPanelautobusy3{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 274px;
-  height: 81px;
-  margin-top: 50px;
-  margin-bottom: 100px;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.inputAdminPanelautobusy3, .dodstanPanelautobusy3{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
  /*End - AdminPanelautobusy3*/
 
 /*AdminPanelkurs:*/
-.containerAdminPanelkurs{
-  background-color: #ffffff;
-  padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-}
-.powrotAdminPanelkurs{
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-}
-.przyciskpowrotAdminPanelkurs{
-  height: 81px;
-  width: 180px;
-  background-color: #C33142;
-  color: #FFFFFF;
-  font-size: 40px;
-  font-weight: bolder;
-  border: none;
-}
-.powrotAdminPanelkurs a{
-  text-decoration: none;
-}
-.stronaAdminPanelkurs{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  
-}
-.listakursowAdminPanelkurs{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.kurstytulAdminPanelkurs{
-  margin-bottom: 70px;
-  color: #C33142;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.ulkursyAdminPanelkurs{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-.ulkursyAdminPanelkurs a{
-  text-decoration: none;
-}
-.likursyAdminPanelkurs{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
-.dodajkursAdminPanelkurs{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.inputAdminPanelkurs{
-  background-color:#FFFFFF;
-  color: #C33142;
-  width: 270px;
-  height: 81px;
-  margin-top: 70px;
-}
-.dodAdminPanelkurs{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-  margin-top: 80px;
-}
-.usuAdminPanelkurs{
-  background-color:#C33142;
-  color: #ffffff;
-  border: none;
-  width: 374px;
-  height: 124px;
-}
-.inputAdminPanelkurs, .dodAdminPanelkurs, .usuAdminPanelkurs{
-  margin-bottom: 20px;
-  padding-top: auto;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 40px;
-  font-weight: bolder;
-}
+
  /*End - AdminPanelkurs*/
 
 

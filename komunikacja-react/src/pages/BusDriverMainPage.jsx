@@ -1,30 +1,28 @@
 import React from 'react';
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 function BusDriverMainPage() {
     return (
         
-        <div className='containerBusDriverMainPage'>
+        <div className='containerGrafik adminSettings'>
+  <div className="logoLogin">  
+    <Link to="/" className='logoLink'>
+        <h2>logo busy.pl</h2>
+    </Link>
+    </div>
 
-            <div className="logoBusDriverMainPage">
-                <p className="logoMainPage">LOGO BUSY.PL</p>
-            </div>
+    <h2 className="AdminTitle">Panel Kierowcy</h2>
 
-            <div className="navbarBusDriverMainPage">
-                <h2>Witaj, kierowco</h2>
-            </div>
-
-            <div className="menuBusDriverMainPage">
-                <Link to="/BusDriverDyspozycja">
-                <button className="leftButtonMainPage">DYSPOZYCJA</button>
-                </Link>
-    
-                <Link to="/BusDriverGrafik">
-                <button className="rightButtonMainPage">SPRAWDŹ GRAFIK</button>
-                </Link>
+            <div className="mainPanel mainPanelKierowca">
+            <button className="btnMainPanel btnMainPosition">
+                    <Link to="/BusDriverDyspozycja" className='linkSettings'>DYSPOZYCJA</Link>
+                </button>
+                <button className="btnMainPanel btnMainPosition">
+                    <Link to="/BusDriverGrafik" className='linkSettings'>SPRAWDŹ GRAFIK</Link>
+                </button>
             </div>
             
             
-            <footer className="PageFooter buttonSettings"> 
+            <footer className="PageFooter buttonSettings adminFooterSettings"> 
                 
                 <button className="buttonLogout"><Link to="/LoginPage"> WYLOGUJ </Link></button>
                 <p>2022 BD2 Projekt</p>

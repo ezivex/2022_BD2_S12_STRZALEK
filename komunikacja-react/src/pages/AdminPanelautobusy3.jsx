@@ -1,42 +1,42 @@
 import React from 'react';
 import {Link } from "react-router-dom";
+import NavbarClean from '../NavbarClean';
 function AdminPanelautobusy3() {
     return (
-        <div className="containerAdminPanelautobusy3">
-            <div className="powrotAdminPanelautobusy3">
-                <Link to="/AdminPanelautobusy">
-                    <button className="przyciskpowrotAdminPanelautobusy3">powrót</button>
-                </Link>
+        <div className="containerGrafik">
+         <NavbarClean>
+                <Link to="/AdminPanelautobusy" className='linkSettings'>
+                    <button className="btnBack"> POWRÓT </button>
+                    </Link>
+                </NavbarClean>
+            <div className="linieTitle">
+                <p className="liniaNameFetch">autobus 1</p>
             </div>
-            <div className="nazwadanejautobusuAdminPanelautobusy3">
-                <p className="nazdanejautobusuAdminPanelautobusy3">autobus 1</p>
-            </div>
-            <div className="stronaAdminPanelautobusy3">
-                <div className="specaautobusowAdminPanelautobusy3">
-                    <p className="spectytulAdminPanelautobusy3">specyfikacja</p>
-                    <ul className="ulspecAdminPanelautobusy3">
-                        <li className="lispecAdminPanelautobusy3">marka</li>
-                        <li className="lispecAdminPanelautobusy3">rejestracja</li>
-                        <li className="lispecAdminPanelautobusy3">typ</li>
+            <div className="liniaAdmin">
+                <div className="busStatusAdmin">
+                    <p className="linieTitle">specyfikacja</p>
+                    <ul className="ulLinieAdmin">
+                        <li className="liLinieAdmin">marka</li>
+                        <li className="liLinieAdmin">rejestracja</li>
+                        <li className="liLinieAdmin">typ</li>
                     </ul>
                 </div>
-                <div className="stanaautobusowAdminPanelautobusy3">
-                    <p className="stantytulAdminPanelautobusy3">Stan techniczny</p>
-                    <ul className="ulstanAdminPanelautobusy3">
-                        <li className="listanAdminPanelautobusy3">ostatni przegląd</li>
-                        <li className="listanAdminPanelautobusy3">następny przegląd</li>
-                        <li className="listanAdminPanelautobusy3">dopuszczony</li>
+                <div className="busStatusAdmin">
+                    <p className="linieTitle">Stan techniczny</p>
+                    <ul className="ulLinieAdmin">
+                        <li className="liLinieAdmin">ostatni przegląd</li>
+                        <li className="liLinieAdmin">następny przegląd</li>
+                        <li className="liLinieAdmin">dopuszczony</li>
                     </ul>
                 </div>
             </div>
             <div className="dodajstanAdminPanelautobusy3">
-                    <input className="inputAdminPanelautobusy3"></input>
-                    <input className="inputAdminPanelautobusy3"></input>
-                    <button className="dodstanPanelautobusy3">Zapisz</button>
+                    <input className="inLinieAdmin"></input>
+                    <input className="inLinieAdmin inPlacement"></input>
+                    <button className="btnAddLinieAdmin">Zapisz</button>
                 </div>
-            <div className="stopkaAdminPanel">
-                <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
-            </div>
+                <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>
+
         </div>
     );
 }

@@ -3,41 +3,37 @@ import {Link } from "react-router-dom";
 
 function AdminPanel() {
     return (
-        <div className="containerAdminPanel">
-                     <div className="logoGrafik">
-                    LOGO BUSY.PL
-                    <Link to="/BusDriverMainPage">
-                    <button className="backButton"> POWRÓT </button>
-                    </Link>
-                </div>
-            <div className="logoAdminPanel">
-                <p className="logografikaAdminPanel">LOGO BUSY.PL</p>
-                <p className="titleAdminPanel">Panel Administratora</p>
+        <div className="containerGrafik adminSettings">
+             <div className="logoLogin">  <Link to="/AdminPanellinia" className='logoLink'><h2>logo busy.pl</h2></Link></div>
+             <h2 className="AdminTitle">Panel Administratora</h2>
+            <div className="mainPanel">
+                
+                <button className="btnMainPanel">
+                    <Link to="/AdminPanellinia" className='linkSettings'>ZARZĄDZANIE LINIAMI</Link>
+                </button>
+                <button className="btnMainPanel">
+                    <Link to="/AdminPanelautobusy" className='linkSettings'>ZARZĄDZANIE AUTOBUSAMI</Link>
+                </button>
+                <button className="btnMainPanel">
+                    <Link to="/AdminPanelkurs" className='linkSettings'>ZARZĄDZANIE KURSAMI</Link>
+                </button>
+                <button className="btnMainPanel">
+                    <Link to="/AdminPanelprzyst" className='linkSettings'>ZARZĄDZANIE PRZYSTANKAMI</Link>
+                    </button>
+                <button className="btnMainPanel">
+                    <Link to="/" className='linkSettings'>ZARZĄDZANIE KIEROWCAMI</Link>
+                </button>
+                <button className="btnMainPanel">
+                    <Link to="/" className='linkSettings'>ZARZĄDZANIE UŻYTKOWNIKAMI</Link>
+                </button>
             </div>
-            <div className="przyciskiAdminPanel">
-                <Link to="/AdminPanellinia">
-                    <button className="przyciskAdminPanel">ZARZĄDZANIE LINIAMI</button>
-                </Link>
-                <Link to="/AdminPanelautobusy">
-                    <button className="przyciskAdminPanel">ZARZĄDZANIE AUTOBUSAMI</button>
-                </Link>
-                <Link to="/AdminPanelkurs">
-                    <button className="przyciskAdminPanel">ZARZĄDZANIE KURSAMI</button>
-                </Link>
-                <Link to="/AdminPanelprzyst">
-                    <button className="przyciskAdminPanel">ZARZĄDZANIE PRZYSTANKAMI</button>
-                </Link>
-                <button className="przyciskAdminPanel">ZARZĄDZANIE KIEROWCAMI</button>
-                <button className="przyciskAdminPanel">ZARZĄDZANIE UŻYTKOWNIKAMI</button>
-            </div>
-            <div className="wylogujAdminPanel">
-                <Link to="/LoginPage">
-                    <p className="przyciskwylogujAdminPanel">Wyloguj</p>
-                </Link>
-            </div>  
-            <div className="stopkaAdminPanel">
-                <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
-            </div>
+             
+            <footer className="PageFooter buttonSettings adminFooterSettings"> 
+                
+                <button className="buttonLogout"><Link to="/LoginPage"> WYLOGUJ </Link></button>
+                <p>2022 BD2 Projekt</p>
+                
+            </footer>
         </div>
     );
 }

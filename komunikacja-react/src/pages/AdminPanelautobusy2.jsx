@@ -1,27 +1,26 @@
 import React from 'react';
 import {Link } from "react-router-dom";
+import NavbarClean from '../NavbarClean';
 function AdminPanelautobusy2() {
     return (
-        <div className="containerAdminPanelautobusy2">
-            <div className="powrotAdminPanelautobusy2">
-                <Link to="/AdminPanelautobusy">
-                    <button className="przyciskpowrotAdminPanelautobusy2">powrót</button>
-                </Link>
+        <div className="containerGrafik">
+          <NavbarClean>
+                <Link to="/AdminPanelautobusy" className='linkSettings'>
+                    <button className="btnBack"> POWRÓT </button>
+                    </Link>
+                </NavbarClean>
+            <div className="linieTitle">
+                <p>Dodaj autobus</p>
             </div>
-            <div className="nazwadanejautobusuAdminPanelautobusy2">
-                <p className="nazdanejautobusuAdminPanelautobusy2">Dodaj autobus</p>
-            </div>
-            <div className="stronaAdminPanelautobusy2">
-                <div className="dodajautobusAdminPanelautobusy2">
-                    <input className="inputAdminPanelautobusy2"></input>
-                    <input className="inputAdminPanelautobusy2"></input>
-                    <input className="inputAdminPanelautobusy2"></input>
-                    <button className="dodAdminPanelautobusy2">Dodaj autobus</button>
+            <div className="liniaAdmin">
+                <div className="formLinieAdmin">
+                    <input className="inLinieAdmin"></input>
+                    <input className="inLinieAdmin"></input>
+                    <input className="inLinieAdmin"></input>
+                    <button className="btnAddLinieAdmin">Dodaj autobus</button>
                 </div>
             </div>
-            <div className="stopkaAdminPanel">
-                <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
-            </div>
+            <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>
         </div>
     );
 }

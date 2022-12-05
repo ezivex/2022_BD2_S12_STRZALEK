@@ -1,32 +1,31 @@
 import React from 'react';
 import {Link } from "react-router-dom";
+import NavbarClean from '../NavbarClean';
 function AdminPanelprzyst() {
     return (
-        <div className="containerAdminPanelprzyst">
-            <div className="powrotAdminPanelprzyst">
-                <Link to="/AdminPanel">
-                    <button className="przyciskpowrotAdminPanelprzyst">powrót</button>
-                </Link>
-            </div>
-            <div className="stronaAdminPanelprzyst">
-                <div className="listaprzystAdminPanelprzyst">
-                    <p className="przystanktytulAdminPanelprzyst">Przystanki</p>
-                    <ul className="ulprzystnkiAdminPanelprzyst">
-                        <li className="liprzystankiAdminPanelprzyst">przystanek1</li>
-                        <li className="liprzystankiAdminPanelprzyst">przystanek2</li>
-                        <li className="liprzystankiAdminPanelprzyst">przystanek3</li>
+        <div className="containerGrafik">
+            <NavbarClean>
+                <Link to="/AdminPanel" className='linkSettings'>
+                    <button className="btnBack"> POWRÓT </button>
+                    </Link>
+                </NavbarClean>
+            <div className="liniaAdmin">
+                <div className="listLinieAdmin">
+                    <p className="linieTitle">Przystanki</p>
+                    <ul className="ulLinieAdmin">
+                        <li className="liLinieAdmin">przystanek1</li>
+                        <li className="liLinieAdmin">przystanek2</li>
+                        <li className="liLinieAdmin">przystanek3</li>
                     </ul>
                 </div>
-                <div className="dodajprzystAdminPanelprzyst">
-                    <input className="inputAdminPanelprzyst"></input>
-                    <button className="dodAdminPanelprzyst">dodaj przystanek</button>
-                    <input className="inputAdminPanelprzyst"></input>
-                    <button className="usuAdminPanelprzyst">usuń przystanek</button>
+                <div className="formLinieAdmin">
+                    <input className="inLinieAdmin"></input>
+                    <button className="btnAddLinieAdmin">dodaj przystanek</button>
+                    <input className="inLinieAdmin"></input>
+                    <button className="btnDelLinieAdmin">usuń przystanek</button>
                 </div>
             </div>
-            <div className="stopkaAdminPanel">
-                <p className="copyrightAdminPanel">2022 @COPYRIGHT</p>
-            </div>
+            <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>
         </div>
     );
 }
