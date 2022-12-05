@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
@@ -26,9 +25,9 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="ExamplePage" element={<ExamplePage />} />
+      <Route path="/" element={<Home/>}>
+        <Route index element={<Home />} /> 
+         <Route path="ExamplePage" element={<ExamplePage />} /> 
         <Route path="PrzystankiPage" element={<PrzystankiPage />} />
         <Route path="LiniePage" element={<LiniePage />} />
         <Route path="BusDriverMainPage" element={<BusDriverMainPage />} />
@@ -43,8 +42,8 @@ function App() {
         <Route path="AdminPanelautobusy3" element={<AdminPanelautobusy3 />} />
         <Route path="AdminPanelkurs" element={<AdminPanelkurs />} />
         <Route path="DispatcherMainPanel" element={<DispatcherMainPanel />} />
-        <Route path="LoginPage" element={<LoginPage />} />
-        <Route path="*" element={<NoPage />} /> 
+        <Route path="LoginPage" element={<LoginPage />} /> 
+         <Route path="*" element={<NoPage />} /> 
       </Route>
     </Routes>
   </BrowserRouter>
