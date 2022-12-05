@@ -50,7 +50,7 @@ const handleSubmit = (e)=> {
                else if(userData.username==='kierowca1'){
                 navigate('/BusDriverMainPage');
                }else if(userData.username==='dyspozytor1'){
-                navigate('/DispacherPanel');
+                navigate('/DispatcherMainPanel');
                }
           }
         } else {
