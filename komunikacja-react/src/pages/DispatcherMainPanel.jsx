@@ -14,16 +14,16 @@ function DispatcherMainPanel() {
         </div>
 
         <div className="menuDispatcherMainPanel">
-                {/* <Link to="/DispatcherZarzadzanieKursami">
-                <button className="leftButtonMainPanel">ZARZĄDZANIE KURSAMI</button>
+                <Link to="/DispatcherZarzadzanieKursami">
+                <button className="leftButtonDispatcherMainPanel">ZARZĄDZANIE KURSAMI</button>
                 </Link>
     
                 <Link to="/DispatcherEdycjaKursow">
-                <button className="rightButtonMainPanel">EDYCJA KURSÓW</button>
-                </Link> */}
+                <button className="rightButtonDispatcherMainPanel">EDYCJA KURSÓW</button>
+                </Link>
         </div>
 
-        <footer className="PageFooter buttonSettings"> 
+        <footer className="buttonSettings"> 
                 
                 <button className="buttonLogout"><Link to="/LoginPage"> WYLOGUJ </Link></button>
                 <p>2022 BD2 Projekt</p>
