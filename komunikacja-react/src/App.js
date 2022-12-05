@@ -44,7 +44,7 @@ function App() {
         <Route path="AdminPanelkurs" element={<AdminPanelkurs />} />
         <Route path="DispatcherMainPanel" element={<DispatcherMainPanel />} />
         <Route path="LoginPage" element={<LoginPage />} />
-        <Route path="*" element={<NoPage />} />
+        <Route path="*" element={<NoPage />} /> 
       </Route>
     </Routes>
   </BrowserRouter>
