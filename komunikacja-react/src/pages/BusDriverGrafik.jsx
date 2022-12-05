@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
+import TimeAndDate from '../TimeAndDate';
 function BusDriverGrafik() {
     return (
             <div className="containerGrafik">
@@ -9,16 +10,10 @@ function BusDriverGrafik() {
                     <button className="btnBack"> POWRÓT </button>
                     </Link>
                 </NavbarClean>
-                <div className="currentDate">
-                        DATA: 00/00/2022
-                        GODZINA: 13:54:33
-                </div>
-                <div className="navbarGrafik">
-                <p className="napisGrafik">Twój grafik, kierowco</p>
-                
-                </div>    
+                <TimeAndDate/>
+                <h2 className="liniaNameFetch">Kierowca</h2>     
 
-            <div className="displayGrafik">
+            <div className="liniaAdmin">
                 <table className="tableGrafik">
 		            <thead>
 			            <tr>

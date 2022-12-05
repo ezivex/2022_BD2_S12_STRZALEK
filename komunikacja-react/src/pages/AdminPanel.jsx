@@ -4,7 +4,11 @@ import {Link } from "react-router-dom";
 function AdminPanel() {
     return (
         <div className="containerGrafik adminSettings">
-             <div className="logoLogin">  <Link to="/AdminPanellinia" className='logoLink'><h2>logo busy.pl</h2></Link></div>
+             <div className="logoLogin">  
+                <Link to="/AdminPanellinia" className='logoLink'>
+                    <h2>logo busy.pl</h2>
+                    </Link>
+                </div>
              <h2 className="AdminTitle">Panel Administratora</h2>
             <div className="mainPanel">
                 

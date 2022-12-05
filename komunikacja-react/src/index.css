@@ -254,7 +254,6 @@ input[type="submit"]:hover {
 .buttonSettings{
   display: flex;
   flex-direction: column;
-
 }
 
 
@@ -269,34 +268,6 @@ End - BusDriverMainPage
  BusDriverDyspozycja
 *****************************************************************************************************
 */
-.menuDyspozycja {
-  background-color:#fff;
-  padding-top: 5%;
-}
-
-.ulMenuDyspozycja{
-  color: #fff;
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  justify-items: space-between;
-  row-gap: 75px;
-  padding-bottom: 3vw;
-  margin-left: 15%;
-
-  
-}
-
-.ulMenuDyspozycja li{
-  background-color:#C33142;
-  width: 10%;
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-
 .linkSettings{
 display: block;
 cursor: pointer;
@@ -333,7 +304,6 @@ End - BusDriverDyzpozycja
   
 }
 
-
 .btnBack{        /* to samo dla dyspozycji */
   background-color: #C33142;
   color: #fff;
@@ -341,7 +311,6 @@ End - BusDriverDyzpozycja
   font-size: 15px;
   padding: 15px;
 }
-
 .btnPlacement{
 display: flex;
 justify-content: center;
@@ -355,8 +324,6 @@ margin-right: 5rem;
   background: #892430;
   cursor: pointer;
 }
-
-
 .napisGrafik{     /* to samo dla dyspozycji */
   color: #C33142;
   font-size: 25px;
@@ -380,7 +347,12 @@ margin-right: 5rem;
 .datePi{
   padding: 10px;
 }
-
+.liPosition{
+  display: flex;
+  justify-content: space-between;
+  width: 30vw;
+  align-items: center;
+}
 .displayGrafik{
   height: 20vh;
   display: flex;
@@ -389,9 +361,10 @@ margin-right: 5rem;
 }​
 
 table.tableGrafik {
-  border:px solid #C33142;
+  border:1px solid #C33142;
   border-collapse:collapse;
   padding:5px;
+  height: 20vh;
 }
 table.tableGrafik th{
   border:1px solid #C33142;
@@ -454,14 +427,22 @@ End - BusDriverGrafik
   color: #C33142;
   background-color: #FFFFFF;
   border: none;
-  font-size: 40px;
-  font-weight: bolder;
+  font-size: 2rem;
+  font-weight: bold;
   display: block;
 }
 .btnMainPanel:hover{
   cursor: pointer;
   color: #fff;
   background-color: #9a212f;
+}
+.btnDyspo{
+  color: #fff;
+  background-color: #C33142;
+  width: 300px;
+  height: 100px;
+  font-size: 1.5rem;
+  border: none;
 }
 /*
 End - AdminMainPage 
@@ -493,6 +474,18 @@ End - AdminMainPage
   align-items: center;
   flex-direction: column;
   row-gap: 2rem;
+}
+.ulDyspo{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  height: 45vh;
+  width: 100vw;
+  align-items: flex-start;
+  margin-left: 10rem;
 }
 .ulLinieAdmin a{
   text-decoration: none;
