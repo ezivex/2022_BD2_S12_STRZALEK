@@ -353,13 +353,6 @@ margin-right: 5rem;
   width: 30vw;
   align-items: center;
 }
-.displayGrafik{
-  height: 20vh;
-  display: flex;
-  justify-content: center;
- 
-}​
-
 table.tableGrafik {
   border:1px solid #C33142;
   border-collapse:collapse;
@@ -379,7 +372,6 @@ table.tableGrafik td{
   background: #ffffff;
   color: #C33142;
 }
-
 /*
 End - BusDriverGrafik
  */
