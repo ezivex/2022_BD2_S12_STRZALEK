@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link } from "react-router-dom";
-
+import Navbar from "../Navbar";
 function Home() {
     return (
         <div className='HomeContainer'>
+            <Navbar/>
             <div className="HomeTop"></div>
             <div className="HomeButtons">
             <Link to="/PrzystankiPage">

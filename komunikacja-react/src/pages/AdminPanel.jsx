@@ -4,6 +4,12 @@ import {Link } from "react-router-dom";
 function AdminPanel() {
     return (
         <div className="containerAdminPanel">
+                     <div className="logoGrafik">
+                    LOGO BUSY.PL
+                    <Link to="/BusDriverMainPage">
+                    <button className="backButton"> POWRÓT </button>
+                    </Link>
+                </div>
             <div className="logoAdminPanel">
                 <p className="logografikaAdminPanel">LOGO BUSY.PL</p>
                 <p className="titleAdminPanel">Panel Administratora</p>

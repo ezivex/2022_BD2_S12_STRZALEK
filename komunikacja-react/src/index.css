@@ -11,6 +11,7 @@
   justify-content: space-between;
   color: #fff;
   height: 7vh;
+  width: 100vw;
 }
 .logoNav{
   flex-basis:20% ;
@@ -19,10 +20,16 @@
   align-items: center;
   font-weight: bold;
 }
+.logoNav a{
+display: block;
+text-decoration: none;
+color: white;
+}
 .linksNav{
   flex-basis: 40%;
   display: flex;
   justify-content:center;
+  align-items: center;
 }
 .linksNav a{
   text-decoration: none;
