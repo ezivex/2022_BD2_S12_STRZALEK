@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "d5b1130585dfb2b08238",
-    "url": "/2022_BD2_S12_STRZALEK/static/css/main.7b287bc7.chunk.css"
+    "revision": "58868a224d00734a2af2",
+    "url": "/2022_BD2_S12_STRZALEK/static/css/main.bea1514a.chunk.css"
   },
   {
-    "revision": "d5b1130585dfb2b08238",
-    "url": "/2022_BD2_S12_STRZALEK/static/js/main.d5b11305.chunk.js"
+    "revision": "58868a224d00734a2af2",
+    "url": "/2022_BD2_S12_STRZALEK/static/js/main.58868a22.chunk.js"
   },
   {
-    "revision": "d9a9361b93564cda0aea",
-    "url": "/2022_BD2_S12_STRZALEK/static/js/1.d9a9361b.chunk.js"
+    "revision": "59b111a605cfe338feb4",
+    "url": "/2022_BD2_S12_STRZALEK/static/js/1.59b111a6.chunk.js"
   },
   {
     "revision": "6be5c94b9bc759ebcf7b",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/2022_BD2_S12_STRZALEK/static/media/btn_linie.6aeaacab.svg"
   },
   {
-    "revision": "4c03ac3df41de1ef80c17a97e5a39ca6",
+    "revision": "25e51b36e03f07159dfe4bec72fb0d99",
     "url": "/2022_BD2_S12_STRZALEK/index.html"
   }
 ];
