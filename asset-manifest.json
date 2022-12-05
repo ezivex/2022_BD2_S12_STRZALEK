@@ -1,14 +1,15 @@
 {
-  "main.css": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/css/main.c71d6242.chunk.css",
-  "main.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/main.ddfea516.chunk.js",
-  "main.js.map": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/main.ddfea516.chunk.js.map",
-  "static/js/1.9b86f8e2.chunk.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/1.9b86f8e2.chunk.js",
-  "static/js/1.9b86f8e2.chunk.js.map": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/1.9b86f8e2.chunk.js.map",
-  "runtime~main.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/runtime~main.b2957090.js",
-  "runtime~main.js.map": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/runtime~main.b2957090.js.map",
-  "static/media/index.css": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/media/btn_linie.6aeaacab.svg",
-  "static/css/main.c71d6242.chunk.css.map": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/css/main.c71d6242.chunk.css.map",
-  "index.html": "/2022_BD2_S12_STRZALEK/komunikacja-react/index.html",
-  "precache-manifest.760a37ab9b66a9f1df954d24d18a725b.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/precache-manifest.760a37ab9b66a9f1df954d24d18a725b.js",
-  "service-worker.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/service-worker.js"
+  "files": {
+    "main.css": "/2022_BD2_S12_STRZALEK/static/css/main.839649f0.css",
+    "main.js": "/2022_BD2_S12_STRZALEK/static/js/main.7d5f2c48.js",
+    "static/media/btn_linie.svg": "/2022_BD2_S12_STRZALEK/static/media/btn_linie.8c1df8e65efb0f10103f.svg",
+    "static/media/btn_przystanki.svg": "/2022_BD2_S12_STRZALEK/static/media/btn_przystanki.f99b808b885e8ba35ffa.svg",
+    "index.html": "/2022_BD2_S12_STRZALEK/index.html",
+    "main.839649f0.css.map": "/2022_BD2_S12_STRZALEK/static/css/main.839649f0.css.map",
+    "main.7d5f2c48.js.map": "/2022_BD2_S12_STRZALEK/static/js/main.7d5f2c48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.839649f0.css",
+    "static/js/main.7d5f2c48.js"
+  ]
 }
