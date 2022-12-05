@@ -1,14 +1,14 @@
 {
-  "main.css": "/2022_BD2_S12_STRZALEK/static/css/main.ffbccccd.chunk.css",
-  "main.js": "/2022_BD2_S12_STRZALEK/static/js/main.053c2beb.chunk.js",
-  "main.js.map": "/2022_BD2_S12_STRZALEK/static/js/main.053c2beb.chunk.js.map",
-  "static/js/1.c9c42146.chunk.js": "/2022_BD2_S12_STRZALEK/static/js/1.c9c42146.chunk.js",
-  "static/js/1.c9c42146.chunk.js.map": "/2022_BD2_S12_STRZALEK/static/js/1.c9c42146.chunk.js.map",
-  "runtime~main.js": "/2022_BD2_S12_STRZALEK/static/js/runtime~main.6be5c94b.js",
-  "runtime~main.js.map": "/2022_BD2_S12_STRZALEK/static/js/runtime~main.6be5c94b.js.map",
-  "static/media/index.css": "/2022_BD2_S12_STRZALEK/static/media/btn_linie.31cb4648.svg",
-  "static/css/main.ffbccccd.chunk.css.map": "/2022_BD2_S12_STRZALEK/static/css/main.ffbccccd.chunk.css.map",
-  "index.html": "/2022_BD2_S12_STRZALEK/index.html",
-  "precache-manifest.55d37bd370ec9058fdcbd57ea80d7994.js": "/2022_BD2_S12_STRZALEK/precache-manifest.55d37bd370ec9058fdcbd57ea80d7994.js",
-  "service-worker.js": "/2022_BD2_S12_STRZALEK/service-worker.js"
+  "main.css": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/css/main.15b8ee8e.chunk.css",
+  "main.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/main.707e7fc3.chunk.js",
+  "main.js.map": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/main.707e7fc3.chunk.js.map",
+  "static/js/1.c9c42146.chunk.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/1.c9c42146.chunk.js",
+  "static/js/1.c9c42146.chunk.js.map": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/1.c9c42146.chunk.js.map",
+  "runtime~main.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/runtime~main.b2957090.js",
+  "runtime~main.js.map": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/js/runtime~main.b2957090.js.map",
+  "static/media/index.css": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/media/btn_linie.31cb4648.svg",
+  "static/css/main.15b8ee8e.chunk.css.map": "/2022_BD2_S12_STRZALEK/komunikacja-react/static/css/main.15b8ee8e.chunk.css.map",
+  "index.html": "/2022_BD2_S12_STRZALEK/komunikacja-react/index.html",
+  "precache-manifest.25e7dea3d0d09b5900cd5336a0d84424.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/precache-manifest.25e7dea3d0d09b5900cd5336a0d84424.js",
+  "service-worker.js": "/2022_BD2_S12_STRZALEK/komunikacja-react/service-worker.js"
 }
