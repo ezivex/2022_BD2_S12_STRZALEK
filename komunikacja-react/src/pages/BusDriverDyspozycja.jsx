@@ -3,7 +3,7 @@ import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import TimeAndDate from '../TimeAndDate';
 
-import Select from 'react-select'
+import Select from 'react-select';
 
 const shift = [
   { value: 'I', label: 'I' },
