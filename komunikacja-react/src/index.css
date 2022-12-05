@@ -573,12 +573,81 @@ margin-right: 2rem;
 
 
 /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
-DispatcherPanel
+DispatcherMainPanel
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 */
 
-.titleDispatcherPanel{
-  color:  rgb(38, 173, 49) ;
+.containerDispatcherMainPanel {
+  background-color: #C33142;
+  text-align: center;
+  color: #fff;
+  width: 99vw;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+  flex-direction: column;
+}
+
+.logoDispatcherMainPanel {
+  flex-basis: 100%;
+}
+
+.navbarDispatcherMainPanel {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  flex-basis: 100%;
+}
+
+.menuDispatcherMainPanel {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20%;
+}
+
+.footerDispatcherMainPanel {
+  padding-top: 25%; 
+  flex-basis: 100%;
+}
+.logoDispatcherMainPanel {
+  font-size: 30px;
+  flex-basis: 100%;
+}
+.leftButtonDispatcherMainPanel, .rightButtonDispatcherMainPanel {
+  height: 105px;
+  color:#C33142;
+  font-size: 20px;
+  padding: 15px 40px;
+  text-align: center;
+  border: none; 
+  flex-basis: 100%;
+}
+
+.buttonLogout {
+  background-color: #C33142;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  align-self: flex-end;
+  margin-right: 20%;
+}
+
+.buttonLogout a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+}
+
+.buttonLogout a:hover{
+  background: #892430;
+}
+
+.buttonSettings{
+  display: flex;
+  flex-direction: column;
+
 }
 
 /*
