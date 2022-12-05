@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/2022_BD2_S12_STRZALEK/precache-manifest.a31813f130d846695e4d4b0e83b973f1.js"
+  "/2022_BD2_S12_STRZALEK/precache-manifest.55d37bd370ec9058fdcbd57ea80d7994.js"
 );
 
 workbox.clientsClaim();

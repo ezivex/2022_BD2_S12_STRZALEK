@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "f1a3eca1a3dffa305c77",
+    "revision": "053c2beb968b3a17e4c5",
     "url": "/2022_BD2_S12_STRZALEK/static/css/main.ffbccccd.chunk.css"
   },
   {
-    "revision": "f1a3eca1a3dffa305c77",
-    "url": "/2022_BD2_S12_STRZALEK/static/js/main.f1a3eca1.chunk.js"
+    "revision": "053c2beb968b3a17e4c5",
+    "url": "/2022_BD2_S12_STRZALEK/static/js/main.053c2beb.chunk.js"
   },
   {
     "revision": "c9c4214621cf532e2ace",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/2022_BD2_S12_STRZALEK/static/media/btn_linie.31cb4648.svg"
   },
   {
-    "revision": "d405c34ce332a0f5e4ce0565a7d569c8",
+    "revision": "0e5ee6129d654f3890d7deb7e10fe0d7",
     "url": "/2022_BD2_S12_STRZALEK/index.html"
   }
 ];
