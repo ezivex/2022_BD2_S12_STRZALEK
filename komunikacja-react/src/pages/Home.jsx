@@ -4,7 +4,7 @@ import Navbar from "../Navbar";
 
 function Home() {
     return (
-        <div className='HomeContainer'>
+        <div className="HomeContainer">
             <Navbar/>
             <div className="HomeTop"></div>
             <div className="HomeButtons">
