@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/2022_BD2_S12_STRZALEK/static/css/main.839649f0.css",
-    "main.js": "/2022_BD2_S12_STRZALEK/static/js/main.7d5f2c48.js",
+    "main.css": "/2022_BD2_S12_STRZALEK/static/css/main.3776c043.css",
+    "main.js": "/2022_BD2_S12_STRZALEK/static/js/main.2cde019a.js",
     "static/media/btn_linie.svg": "/2022_BD2_S12_STRZALEK/static/media/btn_linie.8c1df8e65efb0f10103f.svg",
     "static/media/btn_przystanki.svg": "/2022_BD2_S12_STRZALEK/static/media/btn_przystanki.f99b808b885e8ba35ffa.svg",
     "index.html": "/2022_BD2_S12_STRZALEK/index.html",
-    "main.839649f0.css.map": "/2022_BD2_S12_STRZALEK/static/css/main.839649f0.css.map",
-    "main.7d5f2c48.js.map": "/2022_BD2_S12_STRZALEK/static/js/main.7d5f2c48.js.map"
+    "main.3776c043.css.map": "/2022_BD2_S12_STRZALEK/static/css/main.3776c043.css.map",
+    "main.2cde019a.js.map": "/2022_BD2_S12_STRZALEK/static/js/main.2cde019a.js.map"
   },
   "entrypoints": [
-    "static/css/main.839649f0.css",
-    "static/js/main.7d5f2c48.js"
+    "static/css/main.3776c043.css",
+    "static/js/main.2cde019a.js"
   ]
 }
