@@ -5,7 +5,7 @@ import React from "react";
 const NavbarClean = (props) => {
     return ( 
     <nav className="Navbar">
-        <div className="logoNav">
+        <div className="logoNavbar">
         <Link to="/">  <p>LOGO BUSY.PL</p></Link>
         </div>
         <div className="btnPlacement">

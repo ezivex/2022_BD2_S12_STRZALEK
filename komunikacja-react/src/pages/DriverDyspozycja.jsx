@@ -29,43 +29,33 @@ import TimeAndDate from '../TimeAndDate';
 //     classNamePrefix="select"
 //   />
 // )
-function BusDriverDyspozycja() {
+function DriverDyspozycja() {
     return (
         
-        <div className="containerGrafik">
+        <div className="mainContainer">
 
             <NavbarClean>
-                <Link to="/BusDriverMainPage" className='linkSettings'>
+                <Link to="/DriverPanel" className='linkSettings'>
                     <button className="btnBack"> POWRÓT </button>
                 </Link>
                 </NavbarClean>
                 <TimeAndDate/>
-                <h2 className="liniaNameFetch">Kierowca</h2>   
-            <div className='liniaAdmin'>
-                <ul className="ulDyspo">
-
-                <li className='liPosition'>
-                <button className="btnDyspo">
-                    ZMIANA
-                </button>
-                {/* <SelectSomething/> */}
-                </li>
-
-                <li className='liPosition'>
-                <button className="btnDyspo">
-                    WYBIERZ DNI
-                </button>
-                {/* <MultiSelection/> */}
-                </li>
-
-                </ul>
+            <h2 className="nameFetchTitle">Kierowca</h2>   
+            <div className='mainPanels'>
+            <form className='loging'>
+                        <div className="input-container">
+                            <label>Wybierz zmiane </label>
+                            <input type="text" name="nazwaZmiany" required />
+                        </div>
+                        <div className="input-container">
+                            <label>Wybierz dzien </label>
+                            <input type="text" name="nazwadnia" required />
+                        </div>
+                        <div className="button-container">
+                            <input type="submit" value="Dodaj zmiane" />
+                        </div>
+                    </form>
             </div>
-            <div className="btnSave">
-                    <Link to="/BusDriverMainPage" className="linkSettings"> 
-                        <button className="btnBack"> ZAPISZ </button>
-                    </Link>
-             </div>
-
             <footer className="PageFooter">   
                 <p>2022 BD2 Projekt</p>
             </footer>
@@ -75,4 +65,4 @@ function BusDriverDyspozycja() {
     );
 }
 
-export default BusDriverDyspozycja;
+export default DriverDyspozycja;

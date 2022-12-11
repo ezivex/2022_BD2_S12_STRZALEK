@@ -5,23 +5,21 @@ import React from "react";
 const Navbar = () => {
     return ( 
     <nav className="Navbar">
-        <div className="logoNav">
-        <Link to="/">  <p>LOGO BUSY.PL</p></Link>
+        <div className="logoNavbar">
+              <Link to="/">  <p>LOGO BUSY.PL</p></Link>
         </div>
-        <div className="linksNav">
-          <ul className="ulLinksNav">
+        <div className="linksNavbar">
+          <ul className="ulLinksNavbar">
            <li>
-             <Link to="/">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/ExamplePage">ExamplePage</Link>
-            </li>
-            <li>
-             <Link to="/LoginPage">LoginPage</Link>
+              <Link to="/LoginPage">Logowanie</Link>
             </li>
           </ul>
         </div>
-    </nav> );
+    </nav>
+    );
 }
  
 export default Navbar;

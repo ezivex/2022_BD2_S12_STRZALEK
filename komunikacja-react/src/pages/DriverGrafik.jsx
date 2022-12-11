@@ -2,18 +2,18 @@ import React from 'react';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import TimeAndDate from '../TimeAndDate';
-function BusDriverGrafik() {
+function DriverGrafik() {
     return (
             <div className="containerGrafik">
                 <NavbarClean>
-                <Link to="/BusDriverMainPage" className='linkSettings'>
+                <Link to="/DriverPanel" className='linkSettings'>
                     <button className="btnBack"> POWRÓT </button>
                     </Link>
                 </NavbarClean>
                 <TimeAndDate/>
-                <h2 className="liniaNameFetch">Kierowca</h2>     
+                <h2 className="nameFetchTitle">Kierowca</h2>     
 
-            <div className="liniaAdmin">
+            <div className="mainPanels">
                 <table className="tableGrafik">
 		            <thead>
 			            <tr>
@@ -54,4 +54,4 @@ function BusDriverGrafik() {
     );
 }
 
-export default BusDriverGrafik;
+export default DriverGrafik;

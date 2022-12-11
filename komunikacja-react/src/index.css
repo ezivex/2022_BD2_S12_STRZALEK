@@ -1,598 +1,392 @@
 *{
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
-/* navbar */
-.Navbar{
-  padding: 0.5rem;
-  background-color: #C33142;
-  display: flex;
-  justify-content: space-between;
-  color: #fff;
-  height: 7vh;
-  width: 100vw;
-}
-.logoNav{
-  flex-basis:20% ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-}
-.logoNav a{
-  display: block;
-  text-decoration: none;
-  color: white;
-}
-.linksNav{
-  flex-basis: 40%;
-  display: flex;
-  justify-content:center;
-  align-items: center;
-}
-.linksNav a{
-  text-decoration: none;
-  display: block;
-  color: #fff;
-  padding: 10px;
-}
-.linksNav a:hover{
-  background: #892430;
-}
-.ulLinksNav{
-  list-style-type: none;
-  display: flex;
-  column-gap: 5rem;
-  justify-items: center;
-  font-size: 1.4rem;
-}
-/* --------------------- end of nav ------------------- */
-
-/* home */
+/* ---------------------- home ------------------------------- */
 .HomeContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 90vh;
-  width: 99vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
 }
 .HomeButtons{
-  display: flex;
-  justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
 }
 .btn_przystanki, .btn_linie {
-  width: 443px;
-  height: 212px;
-  border-style: none;
+    width: 443px;
+    height: 212px;
+    border-style: none;
 }
 .btn_przystanki:hover, .btn_linie:hover{
-  cursor: pointer;
+    cursor: pointer;
 }
 .btn_przystanki{
-  background-image: url("./graphics/btn_przystanki.svg");
+    background-image: url("./graphics/btn_przystanki.svg");
 }
 .btn_linie{
-  background-image: url("./graphics/btn_linie.svg");
+    background-image: url("./graphics/btn_linie.svg");
 }
 .PageFooter{
-  display: flex;
-  justify-content: center;
-  width:100%;
-  font-size: 2rem;
-  color: #892430;
-  padding: 1rem;
+    display: flex;
+    justify-content: center;
+    width:100%;
+    font-size: 2rem;
+    color: #892430;
+    padding: 1rem;
 }
-/* --------------------- end of home ------------------- */
-/* login Page */
+/* ----------------------------------------------------------- */
+
+/*------------------------- login Page ----------------------- */
 .loginContainer{
-  background-color: #C33142;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  justify-content: space-between;
-}
-.logoLogin{
-  font-size: 3rem;
-  align-self: start;
-  margin-left: 5rem;
-  padding: 4rem;
+    background-color: #C33142;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
 }
 .loginFooter{
-  background-color: #fff;
+    background-color: #fff;
 }
-/* ------------------input form----------------------- */
+  /* ==================== input form ========================== */
 .loginForm {
-  background-color: #C33142;
-  padding: 2rem;
-  border: 5px solid rgb(255, 255, 255);
-  color: white;
-  width: 30vw;
-  height: 40vh;
-  margin-bottom: 4rem;
+    background-color: #C33142;
+    padding: 2rem;
+    border: 5px solid rgb(255, 255, 255);
+    color: white;
+    width: 30vw;
+    height: 40vh;
+    margin-bottom: 4rem;
 }
 input[type="text"],
 input[type="password"] {
-  height: 25px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 input[type="submit"] {
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  background: #fff;
-  border: 1px solid #C33142;
-  color: #C33142;
-  padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #fff;
+    border: 1px solid #C33142;
+    color: #C33142;
+    padding: 10px 20px;
 }
 input[type="submit"]:hover {
-  background: #8d1724;
-  color: white;
+    background: #8d1724;
+    color: white;
 }
 .button-container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 .list-container {
-  display: flex;
+    display: flex;
 }
 .error {
-  color: rgb(255, 20, 20);
-  font-size: 1rem;
-  font-weight: bold;
-  background: rgb(255, 255, 255);
-  padding: 0.5rem;
-  text-align: center;
-  margin-top: 1rem;
+    color: rgb(255, 20, 20);
+    font-size: 1rem;
+    font-weight: bold;
+    background: rgb(255, 255, 255);
+    padding: 0.5rem;
+    text-align: center;
+    margin-top: 1rem;
 }
 .input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
 }
 /* --------------------- end of Login ------------------- */
-/* Linie Page */
-.containerLinie{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-.btnPowrot{
-  background-color:#C33142;
-  align-self: flex-start;
-  margin-left: 10rem;
-  margin-top: 5rem;
-}
-.btnPowrot a{
-  text-decoration: none;
-  display: block;
-  padding: 1rem 2rem;
-  color: #fff;
-}
-.btnPowrot:hover{
-  background-color:#86222e;
-  cursor: pointer;
-}
-.linieLista{
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 40vw;
-  margin: 5vh auto;
-}
-.linieTitle{
-  color: #8d1724;
-  font-size: 3rem;
-  padding: 2rem;
-}
-.listaLiniData{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-.btnLinia{
-  background-color:#C33142;
-  color: white;
-  padding: 2rem 5rem;
-  margin-bottom: 2rem;
-  font-size: 4rem;
-}
-.liniaBtn:hover{
-  background-color:#86222e;
-  cursor: pointer;
-}
-/* --------------------- end of Linie Page ------------------- */
-/*  */
-/*
-*****************************************************************************************************
- BusDriverMainPage
-*****************************************************************************************************
-*/
 
-
-
-/*
-End - BusDriverMainPage 
- */
-
-/*
-*****************************************************************************************************
- BusDriverDyspozycja
-*****************************************************************************************************
-*/
+/* --------------------- DriverPanel ------------------- */
+.mainPanel{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 60vh;
+}
+.btn_panels{
+    height: 150px;
+    width: 360px;
+    margin: 50px;
+    color: #C33142;
+    background-color: #FFFFFF;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+.btn_panels a{
+    display: block;
+}
+.btn_panels a:hover{
+    color: #86222e;
+}
+.btn_panels:hover{
+    cursor: pointer;
+}
+/* button for logging of - footer */
+.btn_footer{
+    display: flex;
+    flex-direction: column;
+  }
+.btn_footer p{
+    width: 100%;
+    color: #fff;
+}
+.btn_log{
+    border: none;
+    background: none;
+    font-size: 1.4rem;
+    align-self: flex-end;
+    margin-right: 100px;
+}
+.btn_log a{
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    align-self: flex-end;
+}
+.btn_log a:hover{
+    text-decoration: none;
+    color: #fff;
+    background-color: #8d1724;
+}
+/* ------------------------------------------------- */
+/* //////////////////// common ///////////////////// */
+.mainContainer{ 
+    background-color: #fff;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.panelsSettings{
+    background-color: #C33142;
+    color: #FFFFFF;
+}
+/* -------------- */
 .linkSettings{
-display: block;
-cursor: pointer;
-text-decoration: none;
-color: #C33142;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    color: #C33142;
 }
 .linkSettings:hover{
-  color: #FFFFFF;
+    color: #FFFFFF;
+}
+.logoPanel{
+    font-size: 3rem;
+    align-self: start;
+    margin-left: 5rem;
+    padding: 4rem;
 }
 .logoLink{
-  color: #fff;
-  text-decoration: none;
-}
-/*
-End - BusDriverDyzpozycja
- */
-
-
-/*
-*****************************************************************************************************
- BusDriverGrafik
-*****************************************************************************************************
-*/
-
-
-.containerGrafik{     /* to samo dla dyspozycji */
-  background-color: #fff;
-  height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+    color: #fff;
+    text-decoration: none;
 }
 
-.btnBack{        /* to samo dla dyspozycji */
-  background-color: #C33142;
-  color: #fff;
-  border: none;
-  font-size: 15px;
-  padding: 15px;
-}
-.btnSave{
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btnPlacement{
-display: flex;
-justify-content: center;
-align-items:center;
-margin-right: 5rem;
-}
-.btnMainPosition{
-  margin-top: 10rem;
+.btnBack{  
+    background-color: #C33142;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    padding: 15px;
 }
 .btnBack:hover{
-  background: #892430;
-  cursor: pointer;
+    background: #892430;
+    cursor: pointer;
+  }
+.mainPanels{ 
+    display: flex;  
+    align-items: center;
+    justify-content: space-around;
+    height: 65vh;
 }
-.currentDate{     /* to samo dla dyspozycji */
+.formPanels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.listPanels{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.listPanelsTitle{  
+    margin-bottom: 70px;
+    color: #C33142;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.listPanelsUl{ 
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+.listPanelsUl a{
+    text-decoration: none;
+}
+.listPanelsLi{
+    background-color:#C33142;
+    color: #FFFFFF;
+    height: 57px;
+    width: 374px;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listPanelsLi:hover{
+    background: #892430;
+    cursor: pointer;
+}
+.nameFetchTitle{
+    text-align: center;
+    color: #C33142;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 20px;
+}
 
-  background-color:#C33142;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-  width: 200px;
-  align-self: flex-end;
-  margin-right: 5rem;
-  margin-top: 5rem;
-  
+/* --------- */
+.btn_panelsAdmin:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #9a212f;
 }
-.datePi{
-  padding: 10px;
+/* ----------------- */
+.liBusOut{
+    border: 3px solid #86222e;
+    background-color: #fff;
+    color: #86222e;
 }
-.liPosition{
-  display: flex;
-  justify-content: space-between;
-  width: 50vw;
-  align-items: center;
+.liBusOut:hover,.liBusMod:hover{
+  cursor:default ;
 }
-table.tableGrafik {
-  border:1px solid #C33142;
-  border-collapse:collapse;
-  padding:5px;
-  height: 20vh;
+.liBusOut:hover{
+    background-color: #fff;
 }
-table.tableGrafik th{
-  border:1px solid #C33142;
-  padding:5px;
-  background: #ffffff;
-  color: #C33142;
+.liBusMod:hover{
+    background-color: #C33142 ;
 }
-table.tableGrafik td{
-  border:1px solid #C33142;
-  text-align:center;
-  padding:5px;
-  background: #ffffff;
-  color: #C33142;
+.aut_settings{
+    height: 130vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
-/*
-End - BusDriverGrafik
- */
-
- /*
-123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
- AdminMainPage
-123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
-*/
-/*AdminPanel:*/
-.containerAdminPanel{
-  background-color: #C33142;
-  color: #FFFFFF;
-  padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-}
-.adminSettings{
-  background-color: #C33142;
-  color: #FFFFFF;
-}
-.mainPanel{
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 60vh;
-}
-.mainPanelKierowca{
-  align-items: center;
-  column-gap: 20rem;
-}
-.adminFooterSettings{
-  padding: 20px;
-  color: #FFFFFF;
-}
-.btnMainPanel{
-  height: 150px;
-  width: 360px;
-  margin: 50px;
-  color: #C33142;
-  background-color: #FFFFFF;
-  border: none;
-  font-size: 2rem;
-  font-weight: bold;
-  display: block;
-}
-.btnMainPanel:hover{
-  cursor: pointer;
-  color: #fff;
-  background-color: #9a212f;
-}
-.btnDyspo{
-  color: #fff;
-  background-color: #C33142;
-  width: 300px;
-  height: 100px;
-  font-size: 1.5rem;
-  border: none;
-}
-/*
-End - AdminMainPage 
- */
-
- /*AdminPanellinia:*/
-
-.liniaAdmin{
-  display: flex;  
-  align-items: center;
-  justify-content: space-around;
-  height: 80vh;
-  
-}
-.listLinieAdmin{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.linieTitle{
-  margin-bottom: 70px;
-  color: #C33142;
-  font-size: 3rem;
-  font-weight: bold;
-}
-.ulLinieAdmin{
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  row-gap: 2rem;
-}
-.ulDyspo{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-  height: 45vh;
-  width: 75vw;
-  align-items: flex-start;
-  margin-left: 10rem;
-}
-.ulLinieAdmin a{
-  text-decoration: none;
-}
-.liLinieAdmin{
-  background-color:#C33142;
-  color: #FFFFFF;
-  height: 57px;
-  width: 374px;
-  font-size: 2rem;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.formLinieAdmin{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.inLinieAdmin, .btnAddLinieAdmin, .btnDelLinieAdmin{
-  margin-bottom: 20px;
-  text-align: center;
-  background-color:#C33142;
-  color: #FFFFFF;
-  border: none;
-  height: 57px;
-  width: 350px;
-  font-size: 2rem;
-  font-weight: bold;
-}
-.inLinieAdmin{
-  background-color:#c24452;
-}
-.inPlacement{
-margin-left: 1rem;
-margin-right: 2rem;
-}
-.btnAddLinieAdmin:hover, .btnDelLinieAdmin:hover,.liLinieAdmin:hover{
-  background: #892430;
-  cursor: pointer;
-}
-  /*End - AdminPanellinia*/
-
- /*AdminPanellinia2:*/
-
-.liniaNameFetch{
-  text-align: center;
-  color: #C33142;
-  font-size: 3rem;
-  font-weight: bold;
-  padding: 20px;
-}
-    /*End - AdminPanellinia2*/
-
- /*AdminPanelautobusy:*/
- 
- /*End - AdminPanelautobusy*/
-
- /*AdminPanelautobusy2:*/
-
- /*End - AdminPanelautobusy2*/
-
-
-/*AdminPanelautobusy3:*/
-
 .busStatusAdmin{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
 }
-
- /*End - AdminPanelautobusy3*/
-
-/*AdminPanelkurs:*/
-
- /*End - AdminPanelkurs*/
-
-
-/* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| 
-DispatcherMainPanel
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-*/
-
-.containerDispatcherMainPanel {
-  background-color: #C33142;
-  text-align: center;
-  color: #fff;
-  width: 99vw;
-  height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  align-content: space-between;
-  flex-direction: column;
+.liBusOut{
+    border: 3px solid #86222e;
+    background-color: #fff;
+    color: #86222e;
 }
-
-.logoDispatcherMainPanel {
-  flex-basis: 100%;
+.liBusOut:hover,.liBusMod:hover{
+  cursor:default ;
 }
-
-.navbarDispatcherMainPanel {
-  padding-top: 80px;
-  padding-bottom: 40px;
-  flex-basis: 100%;
+.liBusOut:hover{
+    background-color: #fff;
 }
-
-.menuDispatcherMainPanel {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 20%;
+.liBusMod:hover{
+    background-color: #C33142 ;
 }
-
-.footerDispatcherMainPanel {
-  padding-top: 25%; 
-  flex-basis: 100%;
+  /* dyspo */
+.mainDispKursy{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    height: auto;
+    margin-bottom: 4rem;
 }
-.logoDispatcherMainPanel {
-  font-size: 30px;
-  flex-basis: 100%;
+.tableDyspozytor{
+    border: 1px solid #8d1724;
+    color: #C33142;
+    width: 80%;
 }
-.leftButtonDispatcherMainPanel, .rightButtonDispatcherMainPanel {
-  height: 105px;
-  color:#C33142;
-  font-size: 20px;
-  padding: 15px 40px;
-  text-align: center;
-  border: none; 
-  flex-basis: 100%;
+.tableDyspozytor td{
+    border-left: 1px solid #86222e;
 }
-
-.buttonLogout {
-  background-color: #C33142;
-  color: #fff;
-  border: none;
-  font-size: 20px;
-  align-self: flex-end;
-  margin-right: 20%;
+.tableDyspozytor td:nth-child(1){
+    border: none;
 }
-
-.buttonLogout a {
-  text-decoration: none;
-  color: #fff;
-  padding: 10px;
+  /* przystanki page */
+.btnListData{
+    background-color:#C33142;
+    color: white;
+    padding: 2rem 5rem;
+    margin-bottom: 2rem;
+    font-size: 4rem;
 }
+  /* -------- */
+  /* date */
+  .currentDate{     
+    background-color:#C33142;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: 200px;
+    align-self: flex-end;
+    margin-right: 5rem;
+    margin-top: 5rem;
+    
+  }
+  .datePi{
+    padding: 10px;
+  }
 
-.buttonLogout a:hover{
-  background: #892430;
+  /* busdruver table */
+  table.tableGrafik {
+    border:1px solid #C33142;
+    border-collapse:collapse;
+    padding:5px;
+    height: 20vh;
+  }
+  table.tableGrafik th{
+    border:1px solid #C33142;
+    padding:5px;
+    background: #ffffff;
+    color: #C33142;
+  }
+  table.tableGrafik td{
+    border:1px solid #C33142;
+    text-align:center;
+    padding:5px;
+    background: #ffffff;
+    color: #C33142;
+  }
+  /* panelautobusy */
+  .btnAddBus{
+    margin-bottom: 20px;
+    text-align: center;
+    background-color:#C33142;
+    color: #FFFFFF;
+    border: none;
+    height: 57px;
+    width: 350px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .btnAddBus:hover{
+    background: #892430;
+    cursor: pointer;
 }
-
-.buttonSettings{
-  display: flex;
-  flex-direction: column;
-
-}
-
-/*
-End - DispatcherPanel
- */
-

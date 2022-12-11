@@ -48,9 +48,9 @@ const handleSubmit = (e)=> {
                 navigate('/AdminPanel');
                }
                else if(userData.username==='kierowca1'){
-                navigate('/BusDriverMainPage');
+                navigate('/DriverPanel');
                }else if(userData.username==='dyspozytor1'){
-                navigate('/DispatcherMainPanel');
+                navigate('/DispatcherPanel');
                }
           }
         } else {
@@ -87,7 +87,7 @@ const renderForm = (
 
     return (
         <div className="loginContainer">
-             <div className="logoLogin"><Link to="/" className='logoLink'><h2>logo busy.pl</h2></Link></div>
+             <div className="logoPanel"><Link to="/" className='logoLink'><h2>logo busy.pl</h2></Link></div>
              
         <div className="loginForm">
              <h2 className="loginTitle">Zaloguj sie</h2>

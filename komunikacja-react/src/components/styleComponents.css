@@ -1,0 +1,47 @@
+/* -------------- Navbar ------------- */
+
+.Navbar{
+    padding: 0.5rem;
+    background-color: #C33142;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    height: 7vh;
+    width: 100vw;
+  }
+  .logoNavbar{
+    flex-basis:20% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  .logoNavbar a{
+    display: block;
+    text-decoration: none;
+    color: white;
+  }
+  .linksNavbar{
+    flex-basis: 40%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  }
+  .linksNavbar a{
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    padding: 10px;
+  }
+  .linksNavbar a:hover{
+    background: #892430;
+  }
+  .ulLinksNavbar{
+    list-style-type: none;
+    display: flex;
+    column-gap: 5rem;
+    justify-items: center;
+    font-size: 1.4rem;
+  }
+
+/* ----------------------------------- */
