@@ -13,10 +13,10 @@ app.use(express.json()); //req.body
 
 app.post("/autobusy", async (req, res) => {
   try {
-    const { rejestracja,marka,sprawnosc,rodzaj_autobusy } = req.body;
+    const { id_bus,rejestracja,marka,sprawnosc,rodzaj_autobusy } = req.body;
     const newTodo = await pool.query(
-      "INSERT INTO autobusy (rejestracja,marka,sprawnosc,rodzaj_autobusy) VALUES($1,$2,$3,$4) RETURNING *",
-      [rejestracja,marka,sprawnosc,rodzaj_autobusy]
+      "INSERT INTO autobusy (id_bus,rejestracja,marka,sprawnosc,rodzaj_autobusy) VALUES($1,$2,$3,$4,$5) RETURNING *",
+      [id_bus,rejestracja,marka,sprawnosc,rodzaj_autobusy]
     );
 
     res.json(newTodo.rows[0]);
