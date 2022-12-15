@@ -63,7 +63,7 @@ const Table = () => {
 function DispatcherKursy() {
     return (
         
-        <div className="containerGrafik">
+        <div className="mainContainer">
 
             <NavbarClean>
                 <Link to="/DispatcherPanel" className='linkSettings'>
@@ -71,7 +71,7 @@ function DispatcherKursy() {
                 </Link>
                 </NavbarClean>
                 <TimeAndDate/>
-                <h2 className="nameFetchTitle">Zarządzanie kursami</h2>   
+                <h2 className="nameFetchTitle">Podgląd kursów</h2>   
             <div className="mainDispKursy">
                 <Table/>
             </div>

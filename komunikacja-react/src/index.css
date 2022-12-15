@@ -320,6 +320,7 @@ input[type="submit"]:hover {
     border: 1px solid #8d1724;
     color: #C33142;
     width: 80%;
+    text-align: center;
 }
 .tableDyspozytor td{
     border-left: 1px solid #86222e;
@@ -389,4 +390,17 @@ input[type="submit"]:hover {
   .btnAddBus:hover{
     background: #892430;
     cursor: pointer;
+}
+.kursModifier{
+    display: flex;
+    border: 1px solid #C33142;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10rem;
+    margin-top: 2rem;
+}
+.AddTitle{
+    width: 100%;
+    color: #C33142;
 }

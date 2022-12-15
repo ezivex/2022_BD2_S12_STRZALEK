@@ -27,21 +27,13 @@ function PanelAutobusy2() {
                             <input type="text" name="rej" required />
                         </div>
                         <div className="input-container">
-                            <label>Typ </label>
-                            <input type="text" name="typ" required />
+                            <label>Rodzaj</label>
+                            <input type="text" name="rodzaj" required />
                         </div>
                         <div className="input-container">
-                            <label>Ostatni przegląd </label>
-                            <input type="text" name="lst_przeg" required />
+                             <label>Sprawnosc </label>
+                            <input type="text" name="sprawnosc" required />
                         </div>
-                        <div className="input-container">
-                             <label>Nastepny przegląd </label>
-                            <input type="text" name="nxt_przeg" required />
-                        </div>
-                        <div className="input-container">
-                            <label>Dopuszczony </label>
-                             <input type="checkbox" name="dop" required />
-                            </div>
                         <div className="button-container">
                             <input type="submit" value="Zapisz" />
                         </div>

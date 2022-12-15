@@ -24,6 +24,8 @@ import PanelKierowcy from './pages/PanelKierowcy';
 
 import DispatcherPanel from './pages/DispatcherPanel';
 import DispatcherKursy from './pages/DispatcherKursy';
+import DispatcherEdycjaKursy from './pages/DispatcherEdycjaKursy';
+
 
 function App() {
   return (
@@ -47,6 +49,7 @@ function App() {
         <Route path="PanelKierowcy" element={<PanelKierowcy />} />
         <Route path="DispatcherPanel" element={<DispatcherPanel />} />
         <Route path="DispatcherKursy" element={<DispatcherKursy />} />
+        <Route path="DispatcherEdycjaKursy" element={<DispatcherEdycjaKursy />} />
         <Route path="LoginPage" element={<LoginPage />} /> 
          <Route path="*" element={<NoPage />} /> 
       </Route>

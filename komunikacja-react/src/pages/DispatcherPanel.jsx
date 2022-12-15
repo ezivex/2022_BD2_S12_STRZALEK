@@ -18,7 +18,7 @@ function DispatcherPanel() {
                     <Link to="/DispatcherKursy" className="linkSettings">ZARZĄDZANIE KURSAMI</Link>
                 </button>
                 <button className="btn_panels">
-                    <Link to="/DispatcherKursyEdit" className="linkSettings">EDYCJA KURSÓW</Link>
+                    <Link to="/DispatcherEdycjaKursy" className="linkSettings">EDYCJA KURSÓW</Link>
                 </button>
             </div>
 
