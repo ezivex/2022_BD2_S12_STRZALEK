@@ -1,15 +1,14 @@
 {
-  "files": {
-    "main.css": "/2022_BD2_S12_STRZALEK/static/css/main.3776c043.css",
-    "main.js": "/2022_BD2_S12_STRZALEK/static/js/main.2cde019a.js",
-    "static/media/btn_linie.svg": "/2022_BD2_S12_STRZALEK/static/media/btn_linie.8c1df8e65efb0f10103f.svg",
-    "static/media/btn_przystanki.svg": "/2022_BD2_S12_STRZALEK/static/media/btn_przystanki.f99b808b885e8ba35ffa.svg",
-    "index.html": "/2022_BD2_S12_STRZALEK/index.html",
-    "main.3776c043.css.map": "/2022_BD2_S12_STRZALEK/static/css/main.3776c043.css.map",
-    "main.2cde019a.js.map": "/2022_BD2_S12_STRZALEK/static/js/main.2cde019a.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.3776c043.css",
-    "static/js/main.2cde019a.js"
-  ]
+  "main.css": "/2022_BD2_S12_STRZALEK/static/css/main.b1042eca.chunk.css",
+  "main.js": "/2022_BD2_S12_STRZALEK/static/js/main.982ff695.chunk.js",
+  "main.js.map": "/2022_BD2_S12_STRZALEK/static/js/main.982ff695.chunk.js.map",
+  "static/js/1.4e4dde25.chunk.js": "/2022_BD2_S12_STRZALEK/static/js/1.4e4dde25.chunk.js",
+  "static/js/1.4e4dde25.chunk.js.map": "/2022_BD2_S12_STRZALEK/static/js/1.4e4dde25.chunk.js.map",
+  "runtime~main.js": "/2022_BD2_S12_STRZALEK/static/js/runtime~main.6be5c94b.js",
+  "runtime~main.js.map": "/2022_BD2_S12_STRZALEK/static/js/runtime~main.6be5c94b.js.map",
+  "static/media/index.css": "/2022_BD2_S12_STRZALEK/static/media/btn_linie.6aeaacab.svg",
+  "static/css/main.b1042eca.chunk.css.map": "/2022_BD2_S12_STRZALEK/static/css/main.b1042eca.chunk.css.map",
+  "index.html": "/2022_BD2_S12_STRZALEK/index.html",
+  "precache-manifest.138b89d1df8e2a55552a26e0cca712d8.js": "/2022_BD2_S12_STRZALEK/precache-manifest.138b89d1df8e2a55552a26e0cca712d8.js",
+  "service-worker.js": "/2022_BD2_S12_STRZALEK/service-worker.js"
 }
