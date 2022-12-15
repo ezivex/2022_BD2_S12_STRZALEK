@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
+import ListDataExample from '../components/ListDataExample';
 function ShowLinie() {
     return (
         <div className="mainContainer">
@@ -13,12 +14,7 @@ function ShowLinie() {
             <div className="mainPanels">
                 
                 <div className="linieLista">
-    
-                    <ul className="listaLiniData">
-                        <li className='btnListData'>A4</li>
-                        <li className='btnListData'>A4N</li>
-                        <li className='btnListData'>699</li>
-                    </ul>
+                {<ListDataExample/>}
                 </div>
             </div>
             <footer className="PageFooter">   

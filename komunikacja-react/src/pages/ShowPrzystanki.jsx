@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
+
 function ShowPrzystanki() {
     return (
             <div className="mainContainer">
