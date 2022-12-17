@@ -9,10 +9,38 @@ app.use(express.json());
 
 //ROUTES//
 
+//------------------------------------- -------------------------------------  HOME PAGE ------------------------------------- ------------------------------------- //
+
+
+
+// ***ShowLinie, ShowLinie2, ShowPrzystanki -> from ADMIN PANEL below
+
+
+// ***ShowPrzystanki2
+
+//GET ROZKLAD JAZDY
+app.get("/rozklad_jazdy", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM rozklad_jazdy ORDER BY id_rj ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
+
+
+//------------------------------------- ------------------------------------- END OF HOME PAGE ------------------------------------- ------------------------------------- //
+
+
+
 //------------------------------------- -------------------------------------  ADMIN PANEL ------------------------------------- ------------------------------------- //
 
 
 // ------------------------------------- AUTOBUSY -------------------------------------  //
+// ***PanelAutobusy, PanelAutobusy2
+
 //ADD AUTOBUS 
 
 app.post("/autobusy", async (req, res) => {
@@ -28,24 +56,6 @@ app.post("/autobusy", async (req, res) => {
     console.error(err.message);
   }
 });
-
-
-//ADD KURS 
-
-// app.post("/kurs", async (req, res) => {
-//   try {
-//     const { nazwaLini_k,rbus_k,czas_odjazdu } = req.body;
-//     const newTodo = await pool.query(
-//       "INSERT INTO kurs (nazwaLini_k,rbus_k,czas_odjazdu) VALUES($1,$2,$3) RETURNING *",
-//       [nazwaLini_k,rbus_k,czas_odjazdu]
-//     );
-
-//     res.json(newTodo.rows[0]);
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// });
-
 
 
 //GET ALL AUTOBUSY
@@ -110,7 +120,7 @@ app.delete("/autobusy/:id", async (req, res) => {
 
 
 // ------------------------------------- PRZYSTANKI -------------------------------------  //
-
+// ***PanelPrzystanki
 
 //ADD PRZYSTANEK
 app.post("/przystanki", async (req, res) => {
@@ -156,20 +166,102 @@ app.delete("/przystanki/:id", async (req, res) => {
 
 // ------------------------------------- END OF PRZYSTANKI -------------------------------------  //
 
+
+
 // ------------------------------------- LINIA -------------------------------------  //
+// ***PanelLinia
+
+//ADD LINIA
+app.post("/linia", async (req, res) => {
+  try {
+    const { nazwaLinii,typ_linii } = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO linia (nazwaLinii,typ_linii) VALUES($1,$2) RETURNING *",
+      [nazwaLinii,typ_linii]
+    );
+
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 
-//TODO
+//GET ALL LINIE
+
+app.get("/linia", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM linia ORDER BY id_linii ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 
+//DELETE LINIA
+
+app.delete("/linia/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTodo = await pool.query("DELETE FROM linia WHERE id_linii = $1", [
+      id
+    ]);
+    res.json("Linia was deleted!");
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+// ***PanelLinia2
+
+//ADD przystanekwLinii
+app.post("/przystanekwLinii", async (req, res) => {
+  try {
+    const { linia,przystanek_id } = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO przystanekwLinii (linia,przystanek_id) VALUES($1,$2) RETURNING *",
+      [linia,przystanek_id]
+    );
+
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
+//GET ALL przystankiwLinii
+
+app.get("/przystanekwLinii", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM przystanekwLinii ORDER BY id_przystLin ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
+//DELETE przystanekwLinii
+
+app.delete("/przystanekwLinii/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTodo = await pool.query("DELETE FROM przystanekwLinii WHERE id_przystLin = $1", [
+      id
+    ]);
+    res.json("Przystanek w linii was deleted!");
+  } catch (err) {
+    console.log(err.message);
+  }
+});
 
 // ------------------------------------- END OF LINIA -------------------------------------  //
+
+
 // ------------------------------------- KURSY -------------------------------------  //
-
-
-
-//TODO //testowanie
-
+// ***PanelKursy
 
 //ADD KURS
 app.post("/kurs", async (req, res) => {
@@ -213,15 +305,84 @@ app.delete("/kurs/:id", async (req, res) => {
   }
 });
 
+// ***PanelKursy2 //TODO // noPage
+
 // ------------------------------------- END OF KURSY -------------------------------------  //
 
 
 
+// ------------------------------------- DOSTEPNOSCI_KIEROWCOW -------------------------------------  //
 
+// ***PanelKierowcy
+
+//GET DOSTEPNOSC
+app.get("/dostepnosci_kierowcow", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT id_uzytk FROM dostepnosci_kierowcow");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
+
+
+
+// ------------------------------------- END OF DOSTEPNOSCI_KIEROWCOW -------------------------------------  //
 
 
 
 //------------------------------------- ------------------------------------- END OF ADMIN PANEL ------------------------------------- ------------------------------------- //
+
+
+//------------------------------------- -------------------------------------  DISPATCHER PANEL ------------------------------------- ------------------------------------- //
+
+
+// ***DispatcherKursy
+
+
+
+//TODO
+
+
+
+
+
+// ***DispatcherEdycjaKursy
+
+
+
+
+//TODO
+
+
+
+
+
+//------------------------------------- ------------------------------------- END OF DISPATCHER PANEL ------------------------------------- ------------------------------------- //
+
+
+//------------------------------------- -------------------------------------  DRIVER PANEL ------------------------------------- ------------------------------------- //
+
+
+
+// ***DriverDyspozycja
+
+
+
+//TODO
+
+
+// ***DriverGrafik
+
+
+//TODO
+
+
+
+
+//------------------------------------- ------------------------------------- END OF DRIVER PANEL ------------------------------------- ------------------------------------- //
 
 
 
