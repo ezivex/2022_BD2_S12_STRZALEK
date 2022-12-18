@@ -11,12 +11,7 @@ function ShowLinie() {
                 </Link>
             </NavbarClean>
             <h2 className="listPanelsTitle">Nasze Linie</h2>
-            <div className="mainPanels">
-                
-                <div className="linieLista">
-                {<ListDataShowLinie/>}
-                </div>
-            </div>
+                <ListDataShowLinie/>
             <footer className="PageFooter">   
                 <p>2022 BD2 Projekt</p>
             </footer>

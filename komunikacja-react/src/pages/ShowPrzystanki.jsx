@@ -15,11 +15,6 @@ function ShowPrzystanki() {
                     
                     <div className="linieLista">
                         <ListDataShowPrzystanki/>
-                        {/* <ul className="listaLiniData">
-                            <li className='btnListData'>A4</li>
-                            <li className='btnListData'>A4N</li>
-                            <li className='btnListData'>699</li>
-                        </ul> */}
                     </div>
                 </div>
                 <footer className="PageFooter">   

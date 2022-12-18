@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from 'react';
 
-const MyListComponent = () => {
+const ListDataShowPrzystanki = () => {
  
-  const [items, setBus] = useState([]);
+  const [items, setPrzystanek] = useState([]);
   
-  const getBus = async () => {
+  const getPrzystanek = async () => {
     try {
       const response = await fetch("http://localhost:5000/przystanki");
       const jsonData = await response.json();
 
-      setBus(jsonData);
+      setPrzystanek(jsonData);
     } catch (err) {
       console.error(err.message);
     }
   };
 
   useEffect(() => {
-    getBus();
+    getPrzystanek();
   }, []);
 
   return (
+    <div className='LinieShow'>
     <ul className="listaLiniData">
       {items.map(item => (
         <li className='btnListData' key={item.id}>{item.nazwaprzystanku}</li>
       ))}
     </ul>
+    </div>
   );
 }
-export default MyListComponent;
+export default ListDataShowPrzystanki;

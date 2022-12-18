@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 
 function PanelAutobusy2() {
-
+// ----------------------------------------------
 const [marka, setMarka] = useState("");
 const [rejestracja, setRejestracja] = useState("");
 const [rodzaj_autobusy, setRodzaj] = useState("");
@@ -23,6 +23,7 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
+//  ---------------------------------------------------
     return (
         <div className="mainContainer">
             <NavbarClean>

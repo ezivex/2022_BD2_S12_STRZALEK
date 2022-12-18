@@ -159,10 +159,10 @@ app.delete("/przystanki/:id", async (req, res) => {
 //ADD LINIA
 app.post("/linia", async (req, res) => {
   try {
-    const { nazwaLinii,typ_linii } = req.body;
+    const { nazwalinii,typ_linii } = req.body;
     const newTodo = await pool.query(
-      "INSERT INTO linia (nazwaLinii,typ_linii) VALUES($1,$2) RETURNING *",
-      [nazwaLinii,typ_linii]
+      "INSERT INTO linia (nazwalinii,typ_linii) VALUES($1,$2) RETURNING *",
+      [nazwalinii,typ_linii]
     );
 
     res.json(newTodo.rows[0]);

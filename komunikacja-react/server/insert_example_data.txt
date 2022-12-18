@@ -1,0 +1,103 @@
+insert into przystanki (nazwaprzystanku) values ('Lipowa');
+insert into przystanki (nazwaprzystanku) values ('Slodka');
+insert into przystanki (nazwaprzystanku) values ('Szkolna');
+insert into przystanki (nazwaprzystanku) values ('Fajna');
+insert into przystanki (nazwaprzystanku) values ('Ziomowa');
+
+select * from przystanki;
+
+insert into dni_tygodnia (dzien) values ('Poniedzialek');
+insert into dni_tygodnia (dzien) values ('Wtorek');
+insert into dni_tygodnia (dzien) values ('Srodek');
+insert into dni_tygodnia (dzien) values ('Czwartek');
+insert into dni_tygodnia (dzien) values ('Piatek');
+insert into dni_tygodnia (dzien) values ('Piatek');
+
+select * from rodzaj_autobusu;
+
+insert into rodzaj_autobusu (nazwarodzaj) values ('niskopodlogowy');
+insert into rodzaj_autobusu (nazwarodzaj) values ('przegubowy');
+insert into rodzaj_autobusu (nazwarodzaj) values ('elektryczny');
+insert into rodzaj_autobusu (nazwarodzaj) values ('spalinowy');
+insert into rodzaj_autobusu (nazwarodzaj) values ('wodorowy');
+
+select * from rodzaj_autobusu;
+
+insert into typ_linii (nazwa_typu) values ('szkolny');
+insert into typ_linii (nazwa_typu) values ('caloroczny');
+insert into typ_linii (nazwa_typu) values ('swiateczny');
+
+select * from typ_linii;
+
+select * from typ_stanowiska;
+
+komunikacjav15=# insert into typ_stanowiska (nazwa_stanowiska) values ('dyspozytor');
+komunikacjav15=# insert into typ_stanowiska (nazwa_stanowiska) values ('admin');
+komunikacjav15=# insert into typ_stanowiska (nazwa_stanowiska) values ('kierowca');
+
+select * from linia;
+
+insert into linia (nazwalinii, typ_linii) values ('A1',1);
+insert into linia (nazwalinii, typ_linii) values ('A2',2);
+insert into linia (nazwalinii, typ_linii) values ('A3',3);
+insert into linia (nazwalinii, typ_linii) values ('A4',1);
+insert into linia (nazwalinii, typ_linii) values ('A5',2);
+insert into linia (nazwalinii, typ_linii) values ('A6',3);
+
+
+                          ^
+insert into kurs (nazwalini_k, rbus_k, czas_odjazdu) values (1,1,8);
+insert into kurs (nazwalini_k, rbus_k, czas_odjazdu) values (2,2,9);
+insert into kurs (nazwalini_k, rbus_k, czas_odjazdu) values (3,3,10);
+insert into kurs (nazwalini_k, rbus_k, czas_odjazdu) values (4,4,10);
+insert into kurs (nazwalini_k, rbus_k, czas_odjazdu) values (5,5,10);
+insert into kurs (nazwalini_k, rbus_k, czas_odjazdu) values (6,1,11);
+
+select * from KURS;
+
+
+
+select * from rodzaj_zmiany;
+
+insert into rodzaj_zmiany (nr_zmiany, g_rozp, g_zakon) values (1,'06:00','14:00');
+insert into rodzaj_zmiany (nr_zmiany, g_rozp, g_zakon) values (2,'14:00','22:00');
+
+
+select * from uzytkownicy;
+insert into uzytkownicy (imie, nazwisko, id_stanowisko, ulica, miasto, wiek) values ('Jan','Duda',3,'Sezamkowa','Pruszcz Mazowiecki', 28);
+insert into uzytkownicy (imie, nazwisko, id_stanowisko, ulica, miasto, wiek) values ('Adam','Patroszek',2,'Szkolna','Grodzisk Mazowiecki', 33);
+insert into uzytkownicy (imie, nazwisko, id_stanowisko, ulica, miasto, wiek) values ('Marian','Szybki',1,'Powstancow','Zabrze', 22);
+
+select * from dostepnosci_kierowcow;
+insert into dostepnosci_kierowcow (id_uzytk, dzien_tyg, rodzaj_zmiany) values (1,1,1);
+insert into dostepnosci_kierowcow (id_uzytk, dzien_tyg, rodzaj_zmiany) values (1,2,1);
+insert into dostepnosci_kierowcow (id_uzytk, dzien_tyg, rodzaj_zmiany) values (1,3,1);
+insert into dostepnosci_kierowcow (id_uzytk, dzien_tyg, rodzaj_zmiany) values (1,4,2);
+insert into dostepnosci_kierowcow (id_uzytk, dzien_tyg, rodzaj_zmiany) values (1,5,2);
+
+
+select * from przystanekwLinii;
+
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (1,1);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (1,2);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (1,3);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (1,4);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (1,5);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (2,1);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (2,2);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (2,3);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (3,4);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (3,5);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (3,1);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (4,5);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (4,4);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (4,3);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (4,2);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (4,1);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (5,3);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (5,2);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (5,1);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (6,1);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (6,5);
+komunikacjav15=# insert into przystanekwLinii (linia, przystanek_id) values (6,4);
+

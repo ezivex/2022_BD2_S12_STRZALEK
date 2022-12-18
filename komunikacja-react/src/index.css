@@ -31,7 +31,6 @@
 .PageFooter{
     display: flex;
     justify-content: center;
-    width:100%;
     font-size: 2rem;
     color: #892430;
     padding: 1rem;
@@ -104,12 +103,12 @@ input[type="submit"]:hover {
 /* --------------------- end of Login ------------------- */
 
 /* --------------------- DriverPanel ------------------- */
-.mainPanel{
+.mainPanels{
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 60vh;
+    min-height: auto;
 }
 .btn_panels{
     height: 150px;
@@ -204,27 +203,32 @@ input[type="submit"]:hover {
     background: #892430;
     cursor: pointer;
   }
-.mainPanels{ 
+.mainPanel{ 
     display: flex;  
     align-items: center;
     justify-content: space-around;
-    height: 65vh;
+    min-height: auto;
+    margin-bottom: 5rem;
 }
 .formPanels {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .listPanels{ 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 1rem;
+
 }
 .listPanelsTitle{  
-    margin-bottom: 70px;
+    margin-top: 1rem;
     color: #C33142;
     font-size: 3rem;
     font-weight: bold;
+    padding: 1rem;
+    text-align: center;
 }
 .listPanelsUl{ 
     list-style: none;
@@ -241,7 +245,7 @@ input[type="submit"]:hover {
     background-color:#C33142;
     color: #FFFFFF;
     height: 57px;
-    width: 374px;
+    width: 350px;
     font-size: 2rem;
     font-weight: bold;
     display: flex;
@@ -328,15 +332,7 @@ input[type="submit"]:hover {
 .tableDyspozytor td:nth-child(1){
     border: none;
 }
-  /* przystanki page */
-.btnListData{
-    background-color:#C33142;
-    color: white;
-    padding: 2rem 5rem;
-    margin-bottom: 2rem;
-    font-size: 4rem;
-}
-  /* -------- */
+
   /* date */
   .currentDate{     
     background-color:#C33142;
@@ -403,4 +399,35 @@ input[type="submit"]:hover {
 .AddTitle{
     width: 100%;
     color: #C33142;
+}
+/* listDataShowLinie */
+.LinieShow{
+    display: flex;
+    justify-content: center;
+    min-width: auto;
+    align-items: center;
+    justify-items: center;
+    padding: 1rem;
+    
+}
+.listaLiniData{
+    display: flex;
+    min-height: auto;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.btnListData{
+    background-color:#C33142;
+    color: white;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    width: 300px;
+}
+.formStyle{
+    border: 1px solid #C33142;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
