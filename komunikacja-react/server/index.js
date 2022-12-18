@@ -16,11 +16,6 @@ app.use(express.json());
 // ***ShowLinie, ShowLinie2, ShowPrzystanki -> from ADMIN PANEL below
 
 
-// ***ShowPrzystanki2
-
-
-
-
 //------------------------------------- ------------------------------------- END OF HOME PAGE ------------------------------------- ------------------------------------- //
 
 
@@ -232,6 +227,16 @@ app.get("/przystanekwLinii", async (req, res) => {
   }
 });
 
+// app.get("/przystanekwLinii", async (req, res) => {
+//   try {
+//     const allTodos = await pool.query("SELECT nazwalinii,nazwaprzystanku FROM przystanekwLinii,linia,przystanki WHERE id_przystanku = przystanek_id AND linia = id_linii" );
+//     res.json(allTodos.rows);
+//   } catch (err) {
+//     console.error(err.message);
+//   }
+// });
+
+
 
 //DELETE przystanekwLinii
 
@@ -320,7 +325,7 @@ app.post("/rozklad_jazdy", async (req, res) => {
 
 app.get("/rozklad_jazdy", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM rozklad_jazdy ORDER BY id_rj ASC");
+    const allTodos = await pool.query("SELECT * FROM rozklad_jazdy ORDER BY id_rj ASC"); //TODO laczenie
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
