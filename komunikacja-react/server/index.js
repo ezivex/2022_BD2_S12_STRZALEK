@@ -18,16 +18,6 @@ app.use(express.json());
 
 // ***ShowPrzystanki2
 
-//GET ROZKLAD JAZDY
-app.get("/rozklad_jazdy", async (req, res) => {
-  try {
-    const allTodos = await pool.query("SELECT * FROM rozklad_jazdy ORDER BY id_rj ASC");
-    res.json(allTodos.rows);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
 
 
 
@@ -279,6 +269,7 @@ app.post("/kurs", async (req, res) => {
 });
 
 
+
 //GET ALL KURSY
 
 app.get("/kurs", async (req, res) => {
@@ -310,15 +301,26 @@ app.delete("/kurs/:id", async (req, res) => {
 // ------------------------------------- END OF KURSY -------------------------------------  //
 
 
+// ------------------------------------- ROZKLAD JAZDY -------------------------------------  //
 
-// ------------------------------------- DOSTEPNOSCI_KIEROWCOW -------------------------------------  //
-
-// ***PanelKierowcy
-
-//GET DOSTEPNOSC
-app.get("/dostepnosci_kierowcow", async (req, res) => {
+app.post("/rozklad_jazdy", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT id_uzytk FROM dostepnosci_kierowcow");
+    const { nazwa_kursu_id,id_przystankiwlini,godzina_odjazdu } = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO rozklad_jazdy (nazwa_kursu_id,id_przystankiwlini,godzina_odjazdu) VALUES($1,$2,$3) RETURNING *",
+      [ nazwa_kursu_id,id_przystankiwlini,godzina_odjazdu ]
+    );
+
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
+app.get("/rozklad_jazdy", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM rozklad_jazdy ORDER BY id_rj ASC");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
@@ -326,10 +328,55 @@ app.get("/dostepnosci_kierowcow", async (req, res) => {
 });
 
 
+// ------------------------------------- END OF ROZKLAD JAZDY -------------------------------------  //
+
+// ------------------------------------- UZYTKOWNICY -------------------------------------  //
+
+//ADD UZYTKOWNIK
+app.post("/uzytkownicy", async (req, res) => {
+  try {
+    const { imie,nazwisko,id_stanowisko,ulica,miasto,wiek } = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO uzytkownicy (imie,nazwisko,id_stanowisko,ulica,miasto,wiek) VALUES($1,$2,$3,$4,$5,$6) RETURNING *",
+      [ imie,nazwisko,id_stanowisko,ulica,miasto,wiek ]
+    );
+
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
+//GET ALL UZYTKOWNICY
+
+app.get("/uzytkownicy", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM uzytkownicy ORDER BY id_uzytkownik ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
+//DELETE UZYTKOWNIK
+
+app.delete("/uzytkownicy/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTodo = await pool.query("DELETE FROM uzytkownicy WHERE id_uzytkownik = $1", [
+      id
+    ]);
+    res.json("Uzytkownik was deleted!");
+  } catch (err) {
+    console.log(err.message);
+  }
+});
 
 
 
-// ------------------------------------- END OF DOSTEPNOSCI_KIEROWCOW -------------------------------------  //
+// ------------------------------------- END OF UZYTKOWNICY -------------------------------------  //
 
 
 
@@ -339,22 +386,46 @@ app.get("/dostepnosci_kierowcow", async (req, res) => {
 //------------------------------------- -------------------------------------  DISPATCHER PANEL ------------------------------------- ------------------------------------- //
 
 
-// ***DispatcherKursy
+// ***DispatcherKursy i DispatcherKursyEdycja
 
+//ADD REALIZACJA
+app.post("/kurs_realizacja", async (req, res) => {
+  try {
+    const { id_kursu,dzien_rel,id_kierowcyrel,id_busurel} = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO kurs_realizacja (id_kursu,dzien_rel,id_kierowcyrel,id_busurel) VALUES($1,$2,$3,$4) RETURNING *",
+      [ id_kursu,dzien_rel,id_kierowcyrel,id_busurel ]
+    );
 
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
-//TODO
+//GET REALIZACJA
+app.get("/kurs_realizacja", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM kurs_realizacja ORDER BY id_realizacji ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
+//DELETE UZYTKOWNIK
 
-
-
-
-// ***DispatcherEdycjaKursy
-
-
-
-
-//TODO
+app.delete("/kurs_realizacja/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTodo = await pool.query("DELETE FROM kurs_realizacja WHERE id_realizacji = $1", [
+      id
+    ]);
+    res.json("Realizacja kursu was deleted!");
+  } catch (err) {
+    console.log(err.message);
+  }
+});
 
 
 
@@ -369,15 +440,55 @@ app.get("/dostepnosci_kierowcow", async (req, res) => {
 
 // ***DriverDyspozycja
 
+// ------------------------------------- DOSTEPNOSCI_KIEROWCOW -------------------------------------  //
+
+// ***PanelKierowcy
+
+//ADD DOSTEPNOSC
+app.post("/dostepnosci_kierowcow", async (req, res) => {
+  try {
+    const { id_uzytk,dzien_tyg,rodzaj_zmiany } = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO dostepnosci_kierowcow (id_uzytk,dzien_tyg,rodzaj_zmiany) VALUES($1,$2,$3) RETURNING *",    //TODO co z id kierowcy?
+      [id_uzytk,dzien_tyg,rodzaj_zmiany]
+    );
+
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 
-//TODO
+//DELETE DOSTEPNOSC
+
+app.delete("/dostepnosci_kierowcow/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTodo = await pool.query("DELETE FROM dostepnosci_kierowcow WHERE id_dostkier = $1", [
+      id
+    ]);
+    res.json("Dostepnosc was deleted!");
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+// ------------------------------------- END OF DOSTEPNOSCI_KIEROWCOW -------------------------------------  //
+
 
 
 // ***DriverGrafik
 
-
-//TODO
+//GET DOSTEPNOSC
+app.get("/dostepnosci_kierowcow", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM dostepnosci_kierowcow");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 
 

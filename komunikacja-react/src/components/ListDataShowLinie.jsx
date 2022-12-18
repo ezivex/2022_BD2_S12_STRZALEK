@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react';
 
 const MyListComponent = () => {
  
-  const [items, setBus] = useState([]);
+  const [items, setLinia] = useState([]);
   
-  const getBus = async () => {
+  const getLinia = async () => {
     try {
       const response = await fetch("http://localhost:5000/linia");
       const jsonData = await response.json();
 
-      setBus(jsonData);
+      setLinia(jsonData);
     } catch (err) {
       console.error(err.message);
     }
   };
 
   useEffect(() => {
-    getBus();
+    getLinia();
   }, []);
 
   return (
