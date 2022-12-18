@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
-import ListDataExample from '../components/ListDataExample';
+import ListDataShowLinie from '../components/ListDataShowLinie';
 function ShowLinie() {
     return (
         <div className="mainContainer">
@@ -10,11 +10,11 @@ function ShowLinie() {
                 <button className="btnBack"> POWRÓT </button>
                 </Link>
             </NavbarClean>
-            <h2 className="listPanelsTitle">Nasze Przystanki</h2>
+            <h2 className="listPanelsTitle">Nasze Linie</h2>
             <div className="mainPanels">
                 
                 <div className="linieLista">
-                {<ListDataExample/>}
+                {<ListDataShowLinie/>}
                 </div>
             </div>
             <footer className="PageFooter">   

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
+import ListDataShowLinie from '../components/ListDataShowLinie';
 function PanelLinia() {
     return (
         <div className="mainContainer">
@@ -37,7 +38,7 @@ function PanelLinia() {
                     <p className="listPanelsTitle">Linie</p>
                     <ul className="listPanelsUl">
                         <Link to="/PanelLinia2">
-                            <li className="listPanelsLi">linia 1</li>
+                            <ListDataShowLinie/>
                         </Link>
                         <li className="listPanelsLi">linia 2</li>
                         <li className="listPanelsLi">linia 3</li>
