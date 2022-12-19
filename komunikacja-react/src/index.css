@@ -170,6 +170,7 @@ input[type="submit"]:hover {
 .panelsSettings{
     background-color: #C33142;
     color: #FFFFFF;
+    height: 100vh;
 }
 /* -------------- */
 .linkSettings{
