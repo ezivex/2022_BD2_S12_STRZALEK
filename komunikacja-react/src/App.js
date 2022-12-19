@@ -20,7 +20,8 @@ import PanelAutobusy from './pages/PanelAutobusy';
 import PanelAutobusy2 from './pages/PanelAutobusy2';
 import PanelAutobusy3 from './pages/PanelAutobusy3';
 import PanelKursy from './pages/PanelKursy';
-import PanelKierowcy from './pages/PanelKierowcy';
+import PanelUser from './pages/PanelUser';
+import PanelUser2 from './pages/PanelUser2';
 
 import DispatcherPanel from './pages/DispatcherPanel';
 import DispatcherKursy from './pages/DispatcherKursy';
@@ -46,7 +47,8 @@ function App() {
         <Route path="PanelAutobusy2" element={<PanelAutobusy2 />} />
         <Route path="PanelAutobusy3" element={<PanelAutobusy3 />} />
         <Route path="PanelKursy" element={<PanelKursy />} />
-        <Route path="PanelKierowcy" element={<PanelKierowcy />} />
+        <Route path="PanelUser" element={<PanelUser />} />
+        <Route path="PanelUser2" element={<PanelUser2 />} />
         <Route path="DispatcherPanel" element={<DispatcherPanel />} />
         <Route path="DispatcherKursy" element={<DispatcherKursy />} />
         <Route path="DispatcherEdycjaKursy" element={<DispatcherEdycjaKursy />} />

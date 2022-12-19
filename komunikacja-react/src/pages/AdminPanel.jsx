@@ -12,7 +12,7 @@ function AdminPanel() {
 
             <h2 className="AdminTitle">Panel Administratora</h2>
 
-            <div className="mainPanel">
+            <div className="mainPanel adminSite">
                 
                 <button className="btn_panels btn_panelsAdmin">
                     <Link to="/PanelLinia" className='linkSettings'>ZARZĄDZANIE LINIAMI</Link>
@@ -27,10 +27,7 @@ function AdminPanel() {
                     <Link to="/PanelPrzystanki" className='linkSettings'>ZARZĄDZANIE PRZYSTANKAMI</Link>
                     </button>
                 <button className="btn_panels btn_panelsAdmin">
-                    <Link to="/PanelKierowcy" className='linkSettings'>ZARZĄDZANIE KIEROWCAMI</Link>
-                </button>
-                <button className="btn_panels btn_panelsAdmin">
-                    <Link to="/" className='linkSettings'>ZARZĄDZANIE UŻYTKOWNIKAMI</Link>
+                    <Link to="/PanelUser" className='linkSettings'>ZARZĄDZANIE UŻYTKOWNIKAMI</Link>
                 </button>
             </div>
              

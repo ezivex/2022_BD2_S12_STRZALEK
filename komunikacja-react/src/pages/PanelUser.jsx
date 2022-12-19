@@ -1,9 +1,9 @@
 import React,{ useEffect, useState } from "react";
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
-import TableDelete from '../components/TableDelete';
+import TableUser from '../components/TableUser';
 
-function PanelAutobusy() {
+function PanelUser() {
     return (
         <div className="mainContainer">
             <NavbarClean>
@@ -13,13 +13,13 @@ function PanelAutobusy() {
             </NavbarClean>
             <div className="mainPanels AutobusyModif">
                 <div className="listPanels">
-                    <p className="listPanelsTitle">Autobusy</p>
-                    <TableDelete/>
+                    <p className="listPanelsTitle">Użytkownicy</p>
+                    <TableUser/>
                 </div>
             <div className="formPanels AutModif">
 
-                <Link to="/PanelAutobusy2" className="linkSettings">
-                    <button className="btnAddBus">dodaj autobus</button>
+                <Link to="/PanelUser2" className="linkSettings">
+                    <button className="btnAddBus">dodaj użytkownika</button>
                 </Link> 
             </div>
         </div>
@@ -27,4 +27,4 @@ function PanelAutobusy() {
     </div>
     );
 }
-export default PanelAutobusy;
+export default PanelUser;

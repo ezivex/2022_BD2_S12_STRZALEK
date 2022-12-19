@@ -431,3 +431,87 @@ input[type="submit"]:hover {
     padding: 1rem;
     margin-bottom: 1rem;
 }
+.adminSite{
+    display: flex;
+    flex-wrap: wrap;
+}
+.listDataModif{
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+}
+.delBtn{
+    background-color:  #C33142;
+    border: 1px solid #FFFFFF;
+    margin-left: 80px;
+    color: #fff;
+}
+.delBtn:hover{
+    cursor: pointer;
+    background-color: #8d1724;
+}
+.AutobusyModif{
+    min-height: 80vh;
+    display: flex;
+    justify-content: space-around;
+}
+.AutModif{
+    display: flex;
+    justify-content: center;
+}
+.tableData {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-size: 1.2rem;
+}
+.tableData thead tr {
+    background-color:#8d1724;
+    color: #ffffff;
+    text-align: left;
+}
+.tableData th,
+.tableData td {
+    padding: 12px 15px;
+}
+.tableData tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.tableData tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.tableData tbody tr:last-of-type {
+    border-bottom: 2px solid #8d1724;
+}
+.btnDel{
+    background-color:  #8d1724;
+    border: 1px solid #FFFFFF;
+    color: #fff;
+    padding: 10px;
+}
+.btnDel:hover{
+    cursor: pointer;
+    background-color: #5a0f18;
+}
+.KursyModif{
+    display: flex;
+    justify-content: space-around;
+    min-height: 80vh;
+}
+.kursyFormTitle{
+    background-color:  #8d1724;
+    color: #fff;
+    padding: 1rem;
+}
+.kursyForm{
+    border: 4px solid #8d1724;
+    margin-top: 100px;
+    padding: 1.5rem;
+}
+.kursyMod{
+    width: 55vw;
+}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import ListDataShowLinie from '../components/ListDataShowLinie';
-
+import TableLinie from '../components/TableLinie';
 
 function PanelLinia() {
 
@@ -52,21 +52,12 @@ const onSubmitForm = async e => {
                             <input type="submit" value="Dodaj" />
                         </div>
                     </form>
-                    {/* drugi formularz */}
-                    <form className='loging formStyle'>
-                        <div className="input-container">
-                            <label>Nazwa Linii </label>
-                            <input type="text" name="nazwaLini" required />
-                        </div>
-                        <div className="button-container">
-                            <input type="submit" value="Usun" />
-                        </div>
-                    </form>
+        
                 </div>
 
                 <div className="listPanels">
                     <p className="listPanelsTitle">Linie</p>
-                            <ListDataShowLinie/>
+                           <TableLinie/>
                 </div>
             </div>
 

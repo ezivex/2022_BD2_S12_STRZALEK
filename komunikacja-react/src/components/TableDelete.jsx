@@ -32,10 +32,15 @@ const TableDelete = () => {
   }, []);
 
   return (
-    <table>
+    <table className='tableData'>
     <thead>
       <tr>
         <th>Rejestracja</th>
+        <th>Marka</th>
+        <th>Rodzaj Autobusu</th>
+        <th>Ostatni Przegląd</th>
+        <th>Następny Przegląd</th>
+        <th>Sprawność</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -43,8 +48,13 @@ const TableDelete = () => {
       {items.map(item => (
         <tr key={item.id_bus}>
           <td>{item.rejestracja}</td>
+          <td>{item.marka}</td>
+          <td>{item.rodzaj_autobusy}</td>
+          <td>{item.ostatni_przeglad}</td>
+          <td>{item.nastepny_przeglad}</td>
+          <td>{String(item.sprawnosc)}</td>
           <td>
-            <button
+            <button className='btnDel'
               onClick={() => deleteBus(item.id_bus)}
             >
               Delete

@@ -30,10 +30,10 @@ app.use(express.json());
 
 app.post("/autobusy", async (req, res) => {
   try {
-    const { rejestracja,marka,sprawnosc,rodzaj_autobusy } = req.body;
+    const { rejestracja,marka,sprawnosc,rodzaj_autobusy,ostatni_przeglad,nastepny_przeglad } = req.body;
     const newTodo = await pool.query(
-      "INSERT INTO autobusy (rejestracja,marka,sprawnosc,rodzaj_autobusy) VALUES($1,$2,$3,$4) RETURNING *",
-      [rejestracja,marka,sprawnosc,rodzaj_autobusy]
+      "INSERT INTO autobusy (rejestracja,marka,sprawnosc,rodzaj_autobusy,ostatni_przeglad,nastepny_przeglad) VALUES($1,$2,$3,$4,$5,$6) RETURNING *",
+      [rejestracja,marka,sprawnosc,rodzaj_autobusy,ostatni_przeglad,nastepny_przeglad]
     );
 
     res.json(newTodo.rows[0]);
@@ -261,10 +261,10 @@ app.delete("/przystanekwLinii/:id", async (req, res) => {
 //ADD KURS
 app.post("/kurs", async (req, res) => {
   try {
-    const { nazwaLini_k,rbus_k,czas_odjazdu } = req.body;
+    const { nazwalini_k,rbus_k,czas_odjazdu } = req.body;
     const newTodo = await pool.query(
-      "INSERT INTO kurs (nazwaLini_k,rbus_k,czas_odjazdu) VALUES($1,$2,$3) RETURNING *",
-      [ nazwaLini_k,rbus_k,czas_odjazdu ]
+      "INSERT INTO kurs (nazwalini_k,rbus_k,czas_odjazdu) VALUES($1,$2,$3) RETURNING *",
+      [ nazwalini_k,rbus_k,czas_odjazdu ]
     );
 
     res.json(newTodo.rows[0]);
