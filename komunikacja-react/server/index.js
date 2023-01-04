@@ -9,6 +9,39 @@ app.use(express.json());
 
 //ROUTES//
 
+
+
+//testy=====
+//GET ALL rodzajautobusy
+app.get("/rodzaj_autobusu", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM rodzaj_autobusu ORDER BY id_rodzaj ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+//GET ALL rodzajautobusy
+app.get("/dni_tygodnia", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM dni_tygodnia ORDER BY id_dnityg ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+//GET ALL rodzajautobusy
+app.get("/typ_stanowiska", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM typ_stanowiska ORDER BY id_typstanowiska ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+//===========
+
+
 //------------------------------------- -------------------------------------  HOME PAGE ------------------------------------- ------------------------------------- //
 
 
@@ -70,20 +103,20 @@ app.get("/autobusy/:id", async (req, res) => {
 });
 
 // UPDATE AUTOBUS
-app.put("/autobusy/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { rejestracja,marka,sprawnosc,rodzaj_autobusy } = req.body;
-    const updateTodo = await pool.query(
-      "UPDATE autobusy SET rejestracja = $1, marka = $2, sprawnosc = $3, rodzaj_autobusy = $4  WHERE id_bus = $5",
-      [rejestracja,marka,sprawnosc,rodzaj_autobusy,id]
-    );
+// app.put("/autobusy/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { rejestracja,marka,sprawnosc,rodzaj_autobusy } = req.body;
+//     const updateTodo = await pool.query(
+//       "UPDATE autobusy SET rejestracja = $1, marka = $2, sprawnosc = $3, rodzaj_autobusy = $4  WHERE id_bus = $5",
+//       [rejestracja,marka,sprawnosc,rodzaj_autobusy,id]
+//     );
 
-    res.json("Autobusy was updated!");
-  } catch (err) {
-    console.error(err.message);
-  }
-});
+//     res.json("Autobusy was updated!");
+//   } catch (err) {
+//     console.error(err.message);
+//   }
+// });
 
 //DELETE AUTOBUS
 
