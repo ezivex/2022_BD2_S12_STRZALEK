@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+// BUSY!!!
+
 const TableDelete = () => {
  
   const [items, setBus] = useState([]);
@@ -49,10 +51,20 @@ const TableDelete = () => {
         <tr key={item.id_bus}>
           <td>{item.rejestracja}</td>
           <td>{item.marka}</td>
-          <td>{item.rodzaj_autobusy}</td>
+          {/* <td>{item.rodzaj_autobusy}</td> */}
+          <td>{item.nazwarodzaj}</td>
           <td>{item.ostatni_przeglad}</td>
           <td>{item.nastepny_przeglad}</td>
-          <td>{String(item.sprawnosc)}</td>
+          {/* <td>{(String(item.sprawnosc))}</td> */}
+          <td>
+          {(() => {
+        if (item.sprawnosc === true) {
+          return (<p>tak</p>)
+        }else{
+          return (<p>nie</p>)
+        }
+      })()}
+          </td>
           <td>
             <button className='btnDel'
               onClick={() => deleteBus(item.id_bus)}

@@ -80,7 +80,7 @@ app.post("/autobusy", async (req, res) => {
 
 app.get("/autobusy", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM autobusy ORDER BY id_bus ASC");
+    const allTodos = await pool.query("SELECT * FROM autobusy, rodzaj_autobusu where id_rodzaj = rodzaj_autobusy ORDER BY id_bus ASC");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
@@ -209,7 +209,7 @@ app.post("/linia", async (req, res) => {
 
 app.get("/linia", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM linia ORDER BY id_linii ASC");
+    const allTodos = await pool.query("SELECT * FROM linia, typ_linii where id_typ_linii = typ_linii ORDER BY id_linii ASC");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
@@ -326,7 +326,7 @@ app.post("/kurs", async (req, res) => {
 
 app.get("/kurs", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM kurs ORDER BY id_kurs ASC");
+    const allTodos = await pool.query("SELECT * FROM kurs,linia,rodzaj_autobusu where id_rodzaj = rbus_k and id_linii = nazwalini_k ORDER BY id_kurs ASC");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
@@ -404,7 +404,7 @@ app.post("/uzytkownicy", async (req, res) => {
 
 app.get("/uzytkownicy", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM uzytkownicy ORDER BY id_uzytkownik ASC");
+    const allTodos = await pool.query("SELECT * FROM uzytkownicy,typ_stanowiska where id_typstanowiska = id_stanowisko ORDER BY id_uzytkownik ASC");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);

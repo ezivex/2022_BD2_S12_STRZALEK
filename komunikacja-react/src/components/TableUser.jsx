@@ -49,7 +49,8 @@ const TableUser = () => {
         <tr key={item.id_uzytkownik}>
           <td>{item.imie}</td>
           <td>{item.nazwisko}</td>
-          <td>{item.id_stanowisko}</td>
+          {/* <td>{item.id_stanowisko}</td> */}
+          <td>{item.nazwa_stanowiska}</td>
           <td>{item.ulica}</td>
           <td>{item.miasto}</td>
           <td>{item.wiek}</td>

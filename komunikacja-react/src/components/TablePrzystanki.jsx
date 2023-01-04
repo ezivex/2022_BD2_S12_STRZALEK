@@ -35,7 +35,7 @@ const TablePrzystanki = () => {
     <table className='tableData '>
     <thead>
       <tr>
-        <th>Lp.</th>
+        {/* <th>Lp.</th> */}
         <th>Nazwa przystanku</th>
         <th>Delete</th>
       </tr>
@@ -43,7 +43,7 @@ const TablePrzystanki = () => {
     <tbody>
       {items.map(item => (
         <tr key={item.id_przystanku}>
-          <td>{item.id_przystanku}</td>
+          {/* <td>{item.id_przystanku}</td> */}
           <td>{item.nazwaprzystanku}</td>
           <td>
             <button className='btnDel'

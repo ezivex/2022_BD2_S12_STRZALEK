@@ -44,8 +44,10 @@ const TableKursy = () => {
     <tbody>
       {items.map(item => (
         <tr key={item.id_kurs}>
-          <td>{item.nazwalini_k}</td>
-          <td>{item.rbus_k}</td>
+          {/* <td>{item.nazwalini_k}</td> */}
+          <td>{item.nazwalinii}</td>
+          {/* <td>{item.rbus_k}</td> */}
+          <td>{item.nazwarodzaj}</td>
           <td>{item.czas_odjazdu}</td>
           <td>
             <button className='btnDel'
