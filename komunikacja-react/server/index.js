@@ -184,6 +184,20 @@ app.get("/linia", async (req, res) => {
 });
 
 
+app.get("/linia/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const todo = await pool.query("SELECT * FROM linia WHERE id_linii = $1", [
+      id
+    ]);
+
+    res.json(todo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+
 //DELETE LINIA
 
 app.delete("/linia/:id", async (req, res) => {

@@ -26,7 +26,7 @@ import PanelUser2 from './pages/PanelUser2';
 import DispatcherPanel from './pages/DispatcherPanel';
 import DispatcherKursy from './pages/DispatcherKursy';
 import DispatcherEdycjaKursy from './pages/DispatcherEdycjaKursy';
-
+import EditLinia from './pages/EditLinia';
 
 function App() {
   return (
@@ -37,6 +37,7 @@ function App() {
         <Route path="ShowPrzystanki" element={<ShowPrzystanki />} />
         <Route path="ShowLinie" element={<ShowLinie />} />
         <Route path="DriverPanel" element={<DriverPanel />} />
+        <Route path="EditLinia" element={<EditLinia />} />
         <Route path="DriverDyspozycja" element={<DriverDyspozycja />} />
         <Route path="DriverGrafik" element={<DriverGrafik />} />
         <Route path="AdminPanel" element={<AdminPanel />} />

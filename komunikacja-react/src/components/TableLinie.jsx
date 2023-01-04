@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const TableLinie = () => {
  
@@ -32,30 +33,41 @@ const TableLinie = () => {
   }, []);
 
   return (
+    <div>
     <table className='tableData'>
     <thead>
-      <tr>
-        <th>Nazwa Linii</th>
-        <th>Typ Linii</th>
-        <th>Delete</th>
-      </tr>
+    <tr>
+    <th> Nazwa Linii</th>
+    <th>Typ Linii</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
     </thead>
     <tbody>
-      {items.map(item => (
-        <tr key={item.id_linii}>
-          <td>{item.nazwalinii}</td>
-          <td>{item.typ_linii}</td>
-          <td>
-            <button className='btnDel'
-              onClick={() => deleteLinia(item.id_linii)}
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-      ))}
+    {items.map(item => (
+    <tr key={item.id_linii}>
+    <td>{item.nazwalinii}</td>
+    <td>{item.typ_linii}</td>
+    <td>
+      <Link to={`/EditLinia?id=${item.id_linii}`}>
+        <button className='btnEdit'>
+          Edito
+        </button>
+      </Link>
+    </td>
+    <td>
+    <button className='btnDel'
+    onClick={() => deleteLinia(item.id_linii)}
+    >
+    Delete
+    </button>
+    </td>
+    </tr>
+    ))}
     </tbody>
-  </table>
-  );
-}
+    
+      </table>
+      </div>
+      );
+    }
 export default TableLinie;
