@@ -28,7 +28,7 @@ const TablePrzystankiwLini = () => {
       const jsonData = await response.json();
 
       //setPrzystanekwLinii(jsonData);
-      setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === idk));
+      setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === {idk}));
     } catch (err) {
       console.error(err.message);
     }
