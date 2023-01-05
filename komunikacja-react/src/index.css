@@ -134,10 +134,11 @@ input[type="submit"]:hover {
 .btn_footer{
     display: flex;
     flex-direction: column;
+    background-color: #C33142;
+    color: #fff;
   }
 .btn_footer p{
     width: 100%;
-    color: #fff;
 }
 .btn_log{
     border: none;
@@ -170,6 +171,11 @@ input[type="submit"]:hover {
 .panelsSettings{
     background-color: #C33142;
     color: #FFFFFF;
+    height: auto;
+}
+.panelsSettings2{
+    background-color: #C33142;
+    color: #FFFFFF;
     height: 100vh;
 }
 /* -------------- */
@@ -197,8 +203,10 @@ input[type="submit"]:hover {
     background-color: #C33142;
     color: #fff;
     border: none;
-    font-size: 15px;
-    padding: 15px;
+    font-size: 1rem;
+    margin-right: 1rem;
+    padding: 10px;
+
 }
 .btnBack:hover{
     background: #892430;

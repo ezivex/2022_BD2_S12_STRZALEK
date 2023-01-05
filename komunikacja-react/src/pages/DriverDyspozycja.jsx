@@ -1,35 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import TimeAndDate from '../TimeAndDate';
 
-// import Select from 'react-select';
 
-// const shiftType = [
-//   { value: 'I', label: 'I' },
-//   { value: 'II', label: 'II' }
-// ]
-// const days = [
-//     { value: 'poniedzialek', label: 'poniedzialek' },
-//     { value: 'wtorek', label: 'wtorek' },
-//     { value: 'sroda', label: 'sroda' },
-//     { value: 'czwartek', label: 'czwartek' },
-//     { value: 'piatek', label: 'piatek' }
-//   ]
-// const SelectSomething = () => (
-//   <Select options={shiftType} />
-// )
-
-// const MultiSelection = () => (
-//     <Select
-//     isMulti
-//     name="colors"
-//     options={days}
-//     className="basic-multi-select"
-//     classNamePrefix="select"
-//   />
-// )
 function DriverDyspozycja() {
+
+// ----------------------------------------------
+const [id_uzytk, setIdU] = useState("");
+const [dzien_tyg, setDzienT] = useState("");
+const [rodzaj_zmiany, setRodZmian] = useState("");
+
+const onSubmitForm = async e => {
+    e.preventDefault();
+    try {
+      const body = {  id_uzytk,dzien_tyg,rodzaj_zmiany };
+      const response = await fetch("http://localhost:5000/dostepnosci_kierowcow", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+      window.location = "/DriverPanel";
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+//  ---------------------------------------------------
+
     return (
         
         <div className="mainContainer">
@@ -42,14 +39,18 @@ function DriverDyspozycja() {
                 <TimeAndDate/>
             <h2 className="nameFetchTitle">Kierowca</h2>   
             <div className='mainPanels'>
-            <form className='loging'>
+            <form className='loging' onSubmit={onSubmitForm}>
                         <div className="input-container">
-                            <label>Wybierz zmiane </label>
-                            <input type="text" name="nazwaZmiany" required />
+                            <label>Wybierz swój idendyfikator </label>
+                            <input type="text" name="idU" onChange={e => setIdU(e.target.value) } required />
                         </div>
                         <div className="input-container">
                             <label>Wybierz dzien </label>
-                            <input type="text" name="nazwadnia" required />
+                            <input type="text" name="nazwadnia" onChange={e => setDzienT(e.target.value) } required />
+                        </div>
+                        <div className="input-container">
+                            <label>Rodzaj zmiany </label>
+                            <input type="text" name="rodzaj_zmiany" onChange={e => setRodZmian(e.target.value) } required />
                         </div>
                         <div className="button-container">
                             <input type="submit" value="Dodaj zmiane" />

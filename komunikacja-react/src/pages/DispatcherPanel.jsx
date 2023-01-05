@@ -4,7 +4,7 @@ import {Link } from "react-router-dom";
 function DispatcherPanel() {
     return (
         
-        <div className="mainContainer panelsSettings">
+        <div className="mainContainer panelsSettings2">
             <div className="logoPanel">  
                 <Link to="/" className="logoLink">
                     <h2>logo busy.pl</h2>
@@ -14,9 +14,9 @@ function DispatcherPanel() {
             <h2 className="AdminTitle">Panel Dyspozytora</h2>
     
             <div className="mainPanel">
-                <button className="btn_panels">
+                {/* <button className="btn_panels">
                     <Link to="/DispatcherKursy" className="linkSettings">ZARZĄDZANIE KURSAMI</Link>
-                </button>
+                </button> */}
                 <button className="btn_panels">
                     <Link to="/DispatcherEdycjaKursy" className="linkSettings">EDYCJA KURSÓW</Link>
                 </button>

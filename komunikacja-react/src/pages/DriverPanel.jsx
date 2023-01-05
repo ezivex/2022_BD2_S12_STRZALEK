@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function DriverPanel() {
     return (
         
-    <div className="mainContainer panelsSettings">
+    <div className="mainContainer panelsSettings2">
         <div className="logoPanel">  
             <Link to="/" className="logoLink">
                 <h2>logo busy.pl</h2>

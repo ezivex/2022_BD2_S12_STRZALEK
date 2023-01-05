@@ -261,13 +261,34 @@ app.post("/przystanekwLinii", async (req, res) => {
     console.error(err.message);
   }
 });
+//ADD przystanekwLinii
+app.post("/przystanekwLinii/:linia", async (req, res) => {
+  try {
+    const { linia,przystanek_id } = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO przystanekwLinii (linia,przystanek_id) VALUES($1,$2) RETURNING *",
+      [linia,przystanek_id]
+    );
 
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 //GET ALL przystankiwLinii
 
 app.get("/przystanekwLinii", async (req, res) => {
   try {
     const allTodos = await pool.query("SELECT * FROM przystanekwLinii ORDER BY id_przystLin ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+app.get("/przystanekwLinii/:linia", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM przystanekwLinii ORDER BY linia ASC");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);

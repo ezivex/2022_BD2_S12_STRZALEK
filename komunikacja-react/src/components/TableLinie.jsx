@@ -39,8 +39,8 @@ const TableLinie = () => {
     <tr>
     <th> Nazwa Linii</th>
     <th>Typ Linii</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th>Możliwe</th>
+    <th>Akcje</th>
     </tr>
     </thead>
     <tbody>
@@ -50,8 +50,8 @@ const TableLinie = () => {
     <td>{item.typ_linii}</td>
     <td>
       <Link to={`/EditLinia?id=${item.id_linii}`}>
-        <button className='btnEdit'>
-          Edito
+        <button className='btnDel'>
+          Edit
         </button>
       </Link>
     </td>
