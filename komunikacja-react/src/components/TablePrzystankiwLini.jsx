@@ -7,6 +7,9 @@ const TablePrzystankiwLini = () => {
   const queryParams = new URLSearchParams(location.search);
   const idk = queryParams.get('id');
     console.log(idk);
+
+  const [zmienna, setPgetPrzystanekwLinii] = useState(idk);
+
   const deletePrzystanekwLinii = async id => {
     try {
       const deletePrzystanekwLinii = await fetch(`http://localhost:5000/przystanekwLinii/${id}`, {
@@ -23,12 +26,19 @@ const TablePrzystankiwLini = () => {
     try {
       //const response = await fetch("http://localhost:5000/przystanekwLinii");
       
-      const response = await fetch(`http://localhost:5000/przystanekwLinii/${idk}`);
+      const response = await fetch("http://localhost:5000/przystanekwLinii");
       
       const jsonData = await response.json();
 
       //setPrzystanekwLinii(jsonData);
-      setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === {idk}));
+
+      //const location2 = useLocation();
+      //const queryParams2 = new URLSearchParams(location2.search);
+      //const idk2 = queryParams.get('id');
+      //const search = useLocation().search;  
+      //const name = new URLSearchParams(search).get('id');
+      const xd = parseInt(zmienna);
+      setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === xd));
     } catch (err) {
       console.error(err.message);
     }
