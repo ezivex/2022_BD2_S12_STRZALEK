@@ -21,10 +21,14 @@ const TablePrzystankiwLini = () => {
 
   const getPrzystanekwLinii = async () => {
     try {
+      //const response = await fetch("http://localhost:5000/przystanekwLinii");
+      
       const response = await fetch(`http://localhost:5000/przystanekwLinii/${idk}`);
+      
       const jsonData = await response.json();
 
-      setPrzystanekwLinii(jsonData);
+      //setPrzystanekwLinii(jsonData);
+      setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === idk));
     } catch (err) {
       console.error(err.message);
     }

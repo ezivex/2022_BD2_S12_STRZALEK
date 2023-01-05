@@ -47,7 +47,7 @@ const TableLinie = () => {
     {items.map(item => (
     <tr key={item.id_linii}>
     <td>{item.nazwalinii}</td>
-    <td>{item.typ_linii}</td>
+    <td>{item.nazwa_typu}</td>
     <td>
       <Link to={`/EditLinia?id=${item.id_linii}`}>
         <button className='btnDel'>
