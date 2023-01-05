@@ -28,6 +28,8 @@ import DispatcherKursy from './pages/DispatcherKursy';
 import DispatcherEdycjaKursy from './pages/DispatcherEdycjaKursy';
 import EditLinia from './pages/EditLinia';
 
+import HelpPage from './pages/HelpPage';
+
 function App() {
   return (
     <BrowserRouter>
@@ -41,6 +43,7 @@ function App() {
         <Route path="DriverDyspozycja" element={<DriverDyspozycja />} />
         <Route path="DriverGrafik" element={<DriverGrafik />} />
         <Route path="AdminPanel" element={<AdminPanel />} />
+        <Route path="HelpPage" element={<HelpPage />} />
         <Route path="PanelPrzystanki" element={<PanelPrzystanki />} />
         <Route path="PanelLinia" element={<PanelLinia />} />
         <Route path="PanelLinia2" element={<PanelLinia2 />} />

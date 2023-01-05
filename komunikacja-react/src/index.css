@@ -524,3 +524,65 @@ input[type="submit"]:hover {
 .kursyMod{
     width: 55vw;
 }
+
+/* /////////////////////////// HelpDropDownList ///////////////////////// */
+.helpContainer{
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.dropdownHolder{
+    display: flex;
+    justify-content: center;
+    min-height: 60%;
+    padding: 1.5vh;
+    align-items: center;
+}
+.dropdownContainer{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.dropdownTitle:hover{
+    background-color: #8d2430;
+    cursor: pointer;
+}
+.dropdownTitle{
+    background-color: #C33142;
+    color: #FFFFFF;
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+.dropdownOptionsContainer{
+    background-color: #de3c4f;
+    padding: 5px;
+}
+.dropdownOptionsName{
+    padding: 10px;
+    font-size: 1.4rem;
+    color: #FFFFFF;
+}
+.dropdownOptionsName:hover{
+    cursor: pointer;
+    background-color: #ca2337;
+}
+
+.dropdownDescriptions{
+    border: 1px solid blue;
+    padding: 5px;
+    background-color: #fff;
+}
+.dropdownDescriptions li{
+ list-style: none;
+ padding: 5px;
+ color: #C33142;
+}
+.contentText{
+    text-align: left;
+    color: black;
+    padding: 5px;
+    font-size: 1.2rem;
+}

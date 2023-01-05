@@ -35,6 +35,9 @@ function AdminPanel() {
                 <button className="btn_log">
                     <Link to="/LoginPage"> WYLOGUJ </Link>
                 </button>
+                <button className="btn_log">
+                    <Link to="/HelpPage">Pomoc</Link>
+                </button>
                 <p>2022 BD2 Projekt</p> 
             </footer>
 

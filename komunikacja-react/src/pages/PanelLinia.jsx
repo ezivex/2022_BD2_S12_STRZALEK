@@ -36,6 +36,8 @@ const onSubmitForm = async e => {
                 <Link to="/AdminPanel" className='linkSettings'>
                     <button className="btnBack"> POWRÓT </button>
                 </Link>
+
+                
             </NavbarClean>
 
             <div className="mainPanel">
@@ -64,6 +66,7 @@ const onSubmitForm = async e => {
 
             <footer className="PageFooter"> 
                 <p>2022 BD2 Projekt</p>
+                
             </footer>
             
         </div>
