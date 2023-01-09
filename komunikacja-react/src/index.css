@@ -544,7 +544,7 @@ input[type="submit"]:hover {
     width: 50vw;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
 }
 .dropdownTitle:hover{
     background-color: #8d2430;
@@ -571,14 +571,13 @@ input[type="submit"]:hover {
 }
 
 .dropdownDescriptions{
-    border: 1px solid blue;
     padding: 5px;
     background-color: #fff;
 }
 .dropdownDescriptions li{
  list-style: none;
  padding: 5px;
- color: #C33142;
+ color: #000;
 }
 .contentText{
     text-align: left;

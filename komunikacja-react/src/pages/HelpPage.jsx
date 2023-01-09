@@ -10,7 +10,7 @@ function HelpPage() {
         <div className="helpContainer">
 
             <NavbarClean>
-                <Link to="/Home" className="linkSettings">
+                <Link to="/" className="linkSettings">
                     <button className="btnBack"> POWRÓT </button>
                 </Link>
             </NavbarClean>
