@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import { Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import TableKursy from '../components/TableKursy';
+
+import AsyncSelect from "react-select/async";
 function PanelKursy() {
 
 // ----------------------------------------------
@@ -23,11 +25,50 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
+//===============================================================================================================================================
+// select dropdown list jak cos jakies tam testy
+const options = [
+    {value: 30, label: "699"},
+    {value: 31, label: "128"},
+];
+//const options = [];
+//====
+const [items, setLinia] = useState([]);
+const getLinia = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/linia");
+      const jsonData = await response.json();
+
+      setLinia(jsonData);
+      console.log(jsonData);
+      options.push({value: items.id_linii, label: items.nazwalinii});
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getLinia();
+  }, []);
+//=================
+
+    
+    const handleChange = (selectedOption) => {
+        console.log(selectedOption.value);
+        setNazwalini_k(selectedOption.value);
+        return selectedOption.value;
+    };
+    const loadOptions = (searchValue, callback) => {
+        setTimeout(() => {
+            const filteredOptions = options.filter(option => option.label.includes(searchValue))
+            callback(filteredOptions);
+        })
+    }
+    
+ 
 //  ---------------------------------------------------
-
-
-
     return (
+        
         <div className="containerGrafik">
             <NavbarClean>
                 <Link to="/AdminPanel" className='linkSettings'>
@@ -41,7 +82,9 @@ const onSubmitForm = async e => {
                     <h2 className='kursyFormTitle'>Dodaj Kurs</h2>
                         <div className="input-container">
                             <label>Nazwa linii </label>
-                            <input type="number" name="nazwaLinii" onChange={e => setNazwalini_k(e.target.value) }required />
+                            {/* <input type="number" name="nazwaLinii" onChange={e => setNazwalini_k(e.target.value) }required /> */}
+                           <AsyncSelect loadOptions={loadOptions} defaultOptions onChange={handleChange } />;
+                           <input type="number" name="nazwaLinii" onChange={e => setNazwalini_k(e.target.selectedOption.value) } hidden />
                         </div>
                         <div className="input-container">
                             <label>Rodzaj autobusu </label>
@@ -60,5 +103,8 @@ const onSubmitForm = async e => {
             <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>
         </div>
     );
-}
+};
+
+
+
 export default PanelKursy;
