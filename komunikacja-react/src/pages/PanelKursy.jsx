@@ -4,6 +4,7 @@ import NavbarClean from '../NavbarClean';
 import TableKursy from '../components/TableKursy';
 
 import AsyncSelect from "react-select/async";
+import CreatableSelect from "react-select/creatable";
 function PanelKursy() {
 
 // ----------------------------------------------
@@ -27,11 +28,12 @@ const onSubmitForm = async e => {
   };
 //===============================================================================================================================================
 // select dropdown list jak cos jakies tam testy
-const options = [
-    {value: 30, label: "699"},
-    {value: 31, label: "128"},
-];
+// const options = [
+//     {value: 30, label: "699"},
+//     {value: 31, label: "128"},
+// ];
 //const options = [];
+const testyy = [];
 //====
 const [items, setLinia] = useState([]);
 const getLinia = async () => {
@@ -41,35 +43,107 @@ const getLinia = async () => {
 
       setLinia(jsonData);
       console.log(jsonData);
-      options.push({value: items.id_linii, label: items.nazwalinii});
+      //options.push({value: items.id_linii, label: items.nazwalinii});
+
+
+    //   console.log("zapisywanie do options");
+    //   jsonData.forEach((element) => {
+    //     console.log(element.id_linii);
+    //     console.log(typeof element.id_linii);
+    //     //testyy = `${element.nazwalinii}`;
+    //     console.log(typeof '${element.nazwalinii}');
+    //     options.push({
+    //         value: element.id_linii,
+    //         label: `${element.nazwalinii}`,
+    //     });
+    //     console.log(options);
+    //     console.log(options[0]);
+    //     return options;
+    //   });
+    // console.log(jsonData.id_linii);
+    //     options.push({
+    //         value: 99,
+    //         label: `siemka`,
+    //     });
+    //     console.log(options);
+        //=============
+      
     } catch (err) {
       console.error(err.message);
     }
   };
 
+  
+
   useEffect(() => {
     getLinia();
+
+
+    
   }, []);
 //=================
 
+const getData = async () => {
+        let result = items;
+      result.map((user) => {
+        return testyy.push({value: user.id_linii, label: user.nazwalinii});
+      });
+    };
+  getData();
+
+
+const options = [];
     
+   const xd = () => {
+    console.log("zapisywanie do options");
+    items.forEach((element) => {
+      console.log(element.id_linii);
+      console.log(typeof element.id_linii);
+      //testyy = `${element.nazwalinii}`;
+      console.log(typeof '${element.nazwalinii}');
+      options.push({
+          value: element.id_linii,
+          label: `${element.nazwalinii}`,
+      });
+      console.log(options);
+      console.log(options[0]);
+      //return options;
+    });
+
+   };
+
+   const delay = ms => new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
+
     const handleChange = (selectedOption) => {
+        //xd();
         console.log(selectedOption.value);
         setNazwalini_k(selectedOption.value);
         return selectedOption.value;
     };
     const loadOptions = (searchValue, callback) => {
+        //await delay(1000);
+        xd();
         setTimeout(() => {
+            console.log("loadOptions");
+            console.log(options);
+            console.log(testyy);
+
             const filteredOptions = options.filter(option => option.label.includes(searchValue))
             callback(filteredOptions);
         })
     }
     
+
  
 //  ---------------------------------------------------
     return (
         
-        <div className="containerGrafik">
+        
+
+        <div className="containerGrafik" >
+
             <NavbarClean>
                 <Link to="/AdminPanel" className='linkSettings'>
                     <button className="btnBack"> POWRÓT </button>
@@ -83,7 +157,8 @@ const getLinia = async () => {
                         <div className="input-container">
                             <label>Nazwa linii </label>
                             {/* <input type="number" name="nazwaLinii" onChange={e => setNazwalini_k(e.target.value) }required /> */}
-                           <AsyncSelect loadOptions={loadOptions} defaultOptions onChange={handleChange } />;
+                           <CreatableSelect options={testyy} defaultOptions onChange={handleChange} />;
+                           {/* <AsyncSelect loadOptions={loadOptions} defaultOptions onChange={handleChange} />; */}
                            <input type="number" name="nazwaLinii" onChange={e => setNazwalini_k(e.target.selectedOption.value) } hidden />
                         </div>
                         <div className="input-container">
