@@ -2,10 +2,78 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
-
-
 app.use(cors());
 app.use(express.json()); 
+
+// 
+const session = require('express-session');
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+
+// Session middleware
+app.use(session({
+    secret: '1234',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
+
+const loginCred = [
+    {
+        username: 'admin1',
+        password: 'admin'
+    },
+    {
+        username: 'kierowca1',
+        password: 'kierowca'
+    },
+    {
+        username: 'dyspozytor1',
+        password: 'dyspozytor'
+    }
+];
+
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    const userData = loginCred.find((user) => user.username === username);
+
+    if (userData) {
+        if (userData.password !== password) {
+            res.status(401).json({ message: 'Invalid password'});
+        } else {
+        req.session.user = userData;
+        res.status(200).json({ message: 'Login successful' });
+        console.log('kutas');
+        }
+        } else {
+        // Username not found
+        res.status(404).json({ message: 'Username not found' });
+        }
+        });
+        
+        app.get('/tables', (req, res) => {
+        if (req.session.user) {
+        } else {
+        res.redirect('/login');
+        }
+        });
+        
+        app.get('/logout', (req, res) => {
+        req.session.destroy((error) => {
+        if (error) {
+        console.log(error);
+        } else {
+        res.redirect('/login');
+        }
+        });
+        });
+        
+        app.listen(5000, () => {
+        console.log('Server started on port 5000');
+        });  
+        
 
 //ROUTES//
 
@@ -597,12 +665,3 @@ app.get("/dostepnosci_kierowcow", async (req, res) => {
 
 
 //------------------------------------- ------------------------------------- END OF DRIVER PANEL ------------------------------------- ------------------------------------- //
-
-
-
-
-
-// CHECK IF SERVER WORKS
-app.listen(5000, () => {
-  console.log("Server has started on port 5000")
-});
