@@ -53,9 +53,12 @@ app.post('/login', (req, res) => {
         }
         });
         
+        
         app.get('/tables', (req, res) => {
         if (req.session.user) {
-        } else {
+          console.log("xd");
+        } 
+        else {
         res.redirect('/login');
         }
         });
