@@ -43,6 +43,54 @@ const TablePrzystankiwLini = () => {
       console.error(err.message);
     }
   };
+  const testyy2 = [];
+  const getData = async () => {
+    let result = items;
+  result.map((user) => {
+    return testyy2.push({value: user.id_linii, label: user.nazwalinii});
+  });
+};
+getData();
+const options = [];
+    
+   const xd = () => {
+    console.log("zapisywanie do options");
+    items.forEach((element) => {
+      console.log(element.id_linii);
+      console.log(typeof element.id_linii);
+      //testyy = `${element.nazwalinii}`;
+      console.log(typeof '${element.nazwalinii}');
+      options.push({
+          value: element.id_linii,
+          label: `${element.nazwalinii}`,
+      });
+      console.log(options);
+      console.log(options[0]);
+      //return options;
+    });
+
+   };
+const handleChange = (selectedOption) => {
+  //xd();
+  console.log(selectedOption.value);
+  setPrzystanekwLinii(selectedOption.value);
+  return selectedOption.value;
+};
+const loadOptions = (searchValue, callback) => {
+  //await delay(1000);
+  xd();
+  setTimeout(() => {
+      console.log("loadOptions");
+      console.log(options);
+      console.log(testyy2);
+
+      const filteredOptions = options.filter(option => option.label.includes(searchValue))
+      callback(filteredOptions);
+  })
+}
+
+
+
 
   useEffect(() => {
     getPrzystanekwLinii();
@@ -60,7 +108,7 @@ const TablePrzystankiwLini = () => {
             <tbody>
                 {items.map(item => (
                     <tr key={item.id_przystlin}>
-                        <td>{item.przystanek_id}</td>
+                        <td>{item.nazwaprzystanku}</td>
                         <td>
                             <button className='btnDel'onClick={() => deletePrzystanekwLinii(item.id_przystlin)}>
                                 Delete

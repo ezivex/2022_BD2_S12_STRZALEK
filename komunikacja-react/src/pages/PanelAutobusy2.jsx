@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
+
+import CreatableSelect from "react-select/creatable";
 
 function PanelAutobusy2() {
 // ----------------------------------------------
@@ -24,6 +26,92 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
+  const [items, setPrzystanek] = useState([]);
+  const getautobustyp = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/rodzaj_autobusu");
+      const jsonData = await response.json();
+
+      setPrzystanek(jsonData);
+      //setPrzystanek(jsonData.filter(jsonData => jsonData.linia === xd));
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  useEffect(() => {
+    getautobustyp();
+  }, []);
+//====
+const testyy2 = [];
+const getData = async () => {
+  let result = items;
+result.map((user) => {
+  return testyy2.push({value: user.id_rodzaj, label: user.nazwarodzaj});
+});
+};
+getData();
+console.log("testyy2");
+console.log(testyy2);
+const options = [];
+  
+ const xd = () => {
+  console.log("zapisywanie do options");
+  items.forEach((element) => {
+    console.log(element.id_rodzaj);
+    console.log(typeof element.id_rodzaj);
+    //testyy = `${element.nazwalinii}`;
+    console.log(typeof '${element.nazwalinii}');
+    options.push({
+        value: element.id_rodzaj,
+        label: `${element.nazwarodzaj}`,
+    });
+    console.log(options);
+    console.log(options[0]);
+    //return options;
+  });
+
+ };
+const handleChange = (selectedOption) => {
+//xd();
+console.log(selectedOption.value);
+setRodzaj(selectedOption.value);
+return selectedOption.value;
+};
+const loadOptions = (searchValue, callback) => {
+xd();
+setTimeout(() => {
+    console.log("loadOptions");
+    console.log(options);
+    console.log(testyy2);
+
+    const filteredOptions = options.filter(option => option.label.includes(searchValue))
+    callback(filteredOptions);
+})
+}
+//===============
+const optionstf = [
+    {value: true, label: "tak"},
+    {value: false, label: "nie"},
+];
+const handleChange2 = (selectedOption2) => {
+    //xd();
+    console.log(selectedOption2.value);
+    setSprawnosc(selectedOption2.value);
+    return selectedOption2.value;
+    };
+    const loadOptions2 = (searchValue, callback) => {
+    xd();
+    setTimeout(() => {
+        console.log("loadOptions");
+        console.log(optionstf);
+        console.log(testyy2);
+    
+        const filteredOptions = optionstf.filter(optiontf => optiontf.label.includes(searchValue))
+        callback(filteredOptions);
+    })
+    }
+
+
 //  ---------------------------------------------------
     return (
         <div className="mainContainer">
@@ -51,7 +139,9 @@ const onSubmitForm = async e => {
                         </div>
                         <div className="input-container">
                             <label>Rodzaj</label>
-                            <input type="number" name="rodzaj" onChange={e => setRodzaj(e.target.value) } required />
+                            <CreatableSelect options={testyy2} defaultOptions onChange={handleChange} />
+                            <input type="number" name="nazwarodzaj" onChange={e => setRodzaj(e.target.selectedOption.value) } hidden />
+                            {/* <input type="number" name="rodzaj" onChange={e => setRodzaj(e.target.value) } required /> */}
                         </div>
                         <div className="input-container">
                              <label>Ostatni Przeglad </label>
@@ -63,7 +153,10 @@ const onSubmitForm = async e => {
                         </div>
                         <div className="input-container">
                              <label>Sprawnosc </label>
-                            <input type="text" name="sprawnosc" onChange={e => setSprawnosc(e.target.value) } />
+                             <CreatableSelect options={optionstf} defaultOptions onChange={handleChange2} />
+                            <input type="text" name="sprawnosc" onChange={e => setSprawnosc(e.target.selectedOption2.value) } hidden />
+
+                            {/* <input type="text" name="sprawnosc" onChange={e => setSprawnosc(e.target.value) } /> */}
                         </div>
                         <div className="button-container">
                             <input type="submit" value="Zapisz" />

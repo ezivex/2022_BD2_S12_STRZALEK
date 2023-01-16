@@ -3,6 +3,9 @@ import { useLocation } from 'react-router-dom';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import TablePrzystankiwLini from '../components/TablePrzystankiwLini';
+
+
+import CreatableSelect from "react-select/creatable";
 //const EditLinia = () => {
 function EditLinia() {
   
@@ -12,6 +15,9 @@ function EditLinia() {
   const idk = queryParams.get('id');
   const [linia2, setLinia2] = useState([]);
   const [linia, setLinia] = useState(idk);
+
+  const [items, setPrzystanek] = useState([]);
+
     console.log("siema");
     console.log(idk);
 
@@ -25,12 +31,74 @@ function EditLinia() {
           console.error(err.message);
         }
       };
+      const getPrzystanek = async () => {
+        try {
+          const response = await fetch("http://localhost:5000/przystanki");
+          const jsonData = await response.json();
     
+          setPrzystanek(jsonData);
+          //setPrzystanek(jsonData.filter(jsonData => jsonData.linia === xd));
+        } catch (err) {
+          console.error(err.message);
+        }
+      };
+    
+      useEffect(() => {
+        getPrzystanek();
+      }, []);
+
       useEffect(() => {
         getLinia2();
       }, []);
 
+//====
+const testyy2 = [];
+const getData = async () => {
+  let result = items;
+result.map((user) => {
+  return testyy2.push({value: user.id_przystanku, label: user.nazwaprzystanku});
+});
+};
+getData();
+console.log("testyy2");
+console.log(testyy2);
+const options = [];
+  
+ const xd = () => {
+  console.log("zapisywanie do options");
+  items.forEach((element) => {
+    console.log(element.id_przystanku);
+    console.log(typeof element.id_przystanku);
+    //testyy = `${element.nazwalinii}`;
+    console.log(typeof '${element.nazwalinii}');
+    options.push({
+        value: element.id_przystanku,
+        label: `${element.nazwaprzystanku}`,
+    });
+    console.log(options);
+    console.log(options[0]);
+    //return options;
+  });
 
+ };
+const handleChange = (selectedOption) => {
+//xd();
+console.log(selectedOption.value);
+SetPrzystanek_id(selectedOption.value);
+return selectedOption.value;
+};
+const loadOptions = (searchValue, callback) => {
+xd();
+setTimeout(() => {
+    console.log("loadOptions");
+    console.log(options);
+    console.log(testyy2);
+
+    const filteredOptions = options.filter(option => option.label.includes(searchValue))
+    callback(filteredOptions);
+})
+}
+//===============  
 // ----------------------------------------------
 const [przystanek_id, SetPrzystanek_id] = useState("");
 //const [linia, SetLinia_id] = useState("");
@@ -61,14 +129,6 @@ const onSubmitForm = async e => {
     </Link>
 </NavbarClean>
 
-
-{/* <div>
-      <h1>Edit Linia</h1>
-      <p>Nazwa Linii: {linia.nazwalinii}</p>
-      <p> Typ Linii: {linia.typ_linii}</p>
-    </div> */}
-
-
 <div className="nameFetchTitle">
     <p>Linia: {linia2.nazwalinii}</p>
 </div>
@@ -78,8 +138,12 @@ const onSubmitForm = async e => {
         <form className='loging' onSubmit={onSubmitForm}>
             <div className="input-container">
                 <label>Identyfikator przystanku </label>
+
+                <CreatableSelect options={testyy2} defaultOptions onChange={handleChange} />
+                <input type="number" name="nazwaprzystanku" onChange={e => SetPrzystanek_id(e.target.selectedOption.value) } hidden />
+
                 <input type="text" name="linia" onChange={e => setLinia(e.target.value)} hidden />
-                <input type="number" name="przystanek_id" onChange={e => SetPrzystanek_id(e.target.value)} required />
+                {/* <input type="number" name="przystanek_id" onChange={e => SetPrzystanek_id(e.target.value)} required /> */}
             </div>
             <div className="button-container">
                 <input type="submit" value="Dodaj przystanek dla linii" />

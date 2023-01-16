@@ -45,7 +45,7 @@ app.post('/login', (req, res) => {
         } else {
         req.session.user = userData;
         res.status(200).json({ message: 'Login successful' });
-        console.log('kutas');
+        console.log('ok');
         }
         } else {
         // Username not found
@@ -102,6 +102,15 @@ app.get("/dni_tygodnia", async (req, res) => {
 app.get("/typ_stanowiska", async (req, res) => {
   try {
     const allTodos = await pool.query("SELECT * FROM typ_stanowiska ORDER BY id_typstanowiska ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+//GET ALL rodzajautobusy
+app.get("/typ_linii", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM typ_linii ORDER BY id_typ_linii ASC");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
@@ -348,7 +357,7 @@ app.post("/przystanekwLinii", async (req, res) => {
 
 app.get("/przystanekwLinii", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM przystanekwLinii ORDER BY id_przystLin ASC");
+    const allTodos = await pool.query("SELECT * FROM przystanekwLinii, przystanki where id_przystanku = przystanek_id ORDER BY id_przystLin ASC");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);

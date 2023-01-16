@@ -80,6 +80,73 @@ const getLinia = async () => {
     
   }, []);
 //=================
+//typautobus
+const [items2, setPrzystanek] = useState([]);
+const getautobustyp = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/rodzaj_autobusu");
+    const jsonData = await response.json();
+
+    setPrzystanek(jsonData);
+    //setPrzystanek(jsonData.filter(jsonData => jsonData.linia === xd));
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+useEffect(() => {
+  getautobustyp();
+}, []);
+//====
+const testyy2 = [];
+const getData2 = async () => {
+let result = items2;
+result.map((user) => {
+return testyy2.push({value: user.id_rodzaj, label: user.nazwarodzaj});
+});
+};
+getData2();
+console.log("testyy2");
+console.log(testyy2);
+const options2 = [];
+
+const xd2 = () => {
+console.log("zapisywanie do options");
+items2.forEach((element) => {
+  console.log(element.id_rodzaj);
+  console.log(typeof element.id_rodzaj);
+  //testyy = `${element.nazwalinii}`;
+  console.log(typeof '${element.nazwalinii}');
+  options.push({
+      value: element.id_rodzaj,
+      label: `${element.nazwarodzaj}`,
+  });
+  console.log(options2);
+  console.log(options2[0]);
+  //return options;
+});
+
+};
+const handleChange2 = (selectedOption2) => {
+//xd();
+console.log(selectedOption2.value);
+setRbus_k(selectedOption2.value);
+return selectedOption2.value;
+};
+const loadOptions2 = (searchValue, callback) => {
+xd2();
+setTimeout(() => {
+  console.log("loadOptions");
+  console.log(options2);
+  console.log(testyy2);
+
+  const filteredOptions = options.filter(option => option.label.includes(searchValue))
+  callback(filteredOptions);
+})
+}
+//===============
+
+
+//=================
 
 const getData = async () => {
         let result = items;
@@ -161,7 +228,9 @@ const options = [];
                         </div>
                         <div className="input-container">
                             <label>Rodzaj autobusu </label>
-                            <input type="number" name="rodzajAutobusu" onChange={e => setRbus_k(e.target.value) } required />
+                            <CreatableSelect options={testyy2} defaultOptions onChange={handleChange2} />
+                            <input type="number" name="rodzajAutobusu" onChange={e => setRbus_k(e.target.selectedOption2.value) } hidden />
+                            {/* <input type="number" name="rodzajAutobusu" onChange={e => setRbus_k(e.target.value) } required /> */}
                         </div>
                         <div className="input-container">
                             <label>Czas odjazdu </label>

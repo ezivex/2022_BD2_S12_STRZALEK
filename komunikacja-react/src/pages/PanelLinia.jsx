@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import ListDataShowLinie from '../components/ListDataShowLinie';
 import TableLinie from '../components/TableLinie';
+
+import CreatableSelect from "react-select/creatable";
+
+
+
+
 
 function PanelLinia() {
 
 // ----------------------------------------------
 const [nazwalinii, SetNazwalinii] = useState("");
 const [typ_linii, setTyp_linii] = useState("");
+
+
 
 
 const onSubmitForm = async e => {
@@ -25,6 +33,71 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
+//----select
+  const [items, setLinia] = useState([]);
+  const gettyp_linii = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/typ_linii");
+      const jsonData = await response.json();
+
+      setLinia(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    gettyp_linii();
+  }, []);
+//====
+const testyy2 = [];
+const getData = async () => {
+  let result = items;
+result.map((user) => {
+  return testyy2.push({value: user.id_typ_linii, label: user.nazwa_typu});
+});
+};
+getData();
+console.log("testyy2");
+console.log(testyy2);
+const options = [];
+  
+ const xd = () => {
+  console.log("zapisywanie do options");
+  items.forEach((element) => {
+    console.log(element.id_typ_linii);
+    console.log(typeof element.id_typ_linii);
+    //testyy = `${element.nazwalinii}`;
+    console.log(typeof '${element.nazwa_typu}');
+    options.push({
+        value: element.id_typ_linii,
+        label: `${element.nazwa_typu}`,
+    });
+    console.log(options);
+    console.log(options[0]);
+    //return options;
+  });
+
+ };
+const handleChange = (selectedOption) => {
+//xd();
+console.log(selectedOption.value);
+setTyp_linii(selectedOption.value);
+return selectedOption.value;
+};
+const loadOptions = (searchValue, callback) => {
+xd();
+setTimeout(() => {
+    console.log("loadOptions");
+    console.log(options);
+    console.log(testyy2);
+
+    const filteredOptions = options.filter(option => option.label.includes(searchValue))
+    callback(filteredOptions);
+})
+}
+//===============  
+
 
 //  ---------------------------------------------------
 
@@ -49,7 +122,10 @@ const onSubmitForm = async e => {
                         </div>
                         <div className="input-container">
                             <label>Typ Linii </label>
-                            <input type="number" name="typ_linii" onChange={e => setTyp_linii(e.target.value) } required />
+                            <CreatableSelect options={testyy2} defaultOptions onChange={handleChange} />
+                             <input type="number" name="nazwa_typu" onChange={e => setTyp_linii(e.target.selectedOption.value) } hidden />
+
+                            {/* <input type="number" name="typ_linii" onChange={e => setTyp_linii(e.target.value) } required /> */}
                         </div>
                         <div className="button-container">
                             <input type="submit" value="Dodaj" />
