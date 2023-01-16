@@ -2,8 +2,6 @@ import React, { useEffect,useState } from 'react';
 import { Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import TableKursy from '../components/TableKursy';
-
-import AsyncSelect from "react-select/async";
 import CreatableSelect from "react-select/creatable";
 function PanelKursy() {
 
@@ -157,7 +155,7 @@ const options = [];
                         <div className="input-container">
                             <label>Nazwa linii </label>
                             {/* <input type="number" name="nazwaLinii" onChange={e => setNazwalini_k(e.target.value) }required /> */}
-                           <CreatableSelect options={testyy} defaultOptions onChange={handleChange} />;
+                           <CreatableSelect options={testyy} defaultOptions onChange={handleChange} />
                            {/* <AsyncSelect loadOptions={loadOptions} defaultOptions onChange={handleChange} />; */}
                            <input type="number" name="nazwaLinii" onChange={e => setNazwalini_k(e.target.selectedOption.value) } hidden />
                         </div>
