@@ -9,35 +9,84 @@ const TableEditKursy = () => {
   const idk = queryParams.get('id');
 
   const [zmienna, setPgetPrzystanekwLinii] = useState(idk);
+  const xd = parseInt(zmienna);//id kursu to jest
 
-  const getPrzystanekwLinii = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/przystanekwLinii");
-      const jsonData = await response.json();
-      const xd = parseInt(zmienna);//id kursu to jest
-      console.log(xd);
-      //setPrzystanekwLinii(jsonData);
-      setPrzystanekwLinii(jsonData.filter(
-        jsonData => jsonData.id_kurs === xd
-        ));
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-  const getPrzystanekwLinii2 = async () => {
-    try {
-      const response = await fetch(`http://localhost:5000/kurs/${id}`);
-      const jsonData = await response.json();
-      const xd = parseInt(zmienna);//id kursu to jest
-      console.log(xd);
-      //setPrzystanekwLinii(jsonData);
-      setPrzystanekwLinii(jsonData.filter(
-        jsonData => jsonData.id_kurs === xd
-        ));
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+//same kursy
+const [items2, setKurs] = useState([]);
+const getKurs = async () => {
+  try {
+    const xd = parseInt(zmienna);
+    const response2 = await fetch("http://localhost:5000/kurs");
+    const jsonDatakurs = await response2.json();
+
+    //setKurs(jsonDatakurs);
+    //setKurs(jsonDatakurs.filter(item => item.id_kurs === xd));//takie cos nam daje konkretny kurs z czego mamy konkretna linie
+    setKurs(jsonDatakurs.filter(item => item.id_kurs === xd));
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+console.log("co tam dizal?");
+console.log(items2);
+
+
+
+  //tutaj z tego wyzej item z przystenkwlinii get to wykorzystac
+  let result = items2;
+  let poka = [];
+  result.map((user) => {
+    //linianazwa = user.nazwalinii;
+    console.log(typeof user.id_linii);
+    console.log(user.id_linii)
+    poka = user.id_linii;
+    return poka;
+  });
+  console.log("poka:");
+  console.log("to jest to: " + poka);//tutaj jest linia która jest w tym danym kursie
+  console.log(typeof poka);
+  const xd2 = parseInt(poka);
+
+//i teraz tutaj wykorzystujac to wyzej
+const [kupa, nictonieznaczy] = useState(poka);
+//console.log((kupa));
+const getPrzystanekwLinii = async () => {
+  try {
+    //const xd2 = 29;
+    const response = await fetch("http://localhost:5000/przystanekwLinii");
+    const jsonData = await response.json();
+    //const xd = parseInt(zmienna);//id kursu to jest
+    //console.log(xd);
+    //setPrzystanekwLinii(jsonData);
+    // setKurs(jsonDatakurs.filter(item => item.id_kurs === xd))
+    console.log("hehehe");
+    console.log("siemka jestem ti   " + xd2);
+    setPrzystanekwLinii(jsonData.filter(item => item.id_linii === xd2));//dziala przez chwile potem juz przestaje xDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+
+
+
+  //testowanie!!!:
+  // const getPrzystanekwLinii = async () => {
+  //   try {
+  //     const response = await fetch(`http://localhost:5000/przystanekwLinii/${idk}`);
+  //     const jsonData = await response.json();
+  //     const xd = parseInt(zmienna);//id kursu to jest
+  //     console.log(xd);
+  //     //setPrzystanekwLinii(jsonData);
+  //     setPrzystanekwLinii(jsonData.filter(
+  //       jsonData => jsonData.id_kurs === xd
+  //       ));
+  //   } catch (err) {
+  //     console.error(err.message);
+  //   }
+  // };
+
+
 
   const getHours = async () => {
     try {
@@ -51,6 +100,9 @@ const TableEditKursy = () => {
 
   useEffect(() => {
     getPrzystanekwLinii();
+
+    getKurs();
+
     getHours();
   }, []);
 

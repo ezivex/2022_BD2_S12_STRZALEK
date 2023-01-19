@@ -50,9 +50,6 @@ const TablePrzystankiwLini = () => {
     }
   };
 
-
-
-
   useEffect(() => {
     getPrzystanekwLinii();
   }, []);

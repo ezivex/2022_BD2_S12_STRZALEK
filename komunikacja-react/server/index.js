@@ -373,10 +373,11 @@ app.get("/przystanekwLinii", async (req, res) => {
 });
 
 
+
 app.get("/przystanekwLinii/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await pool.query("SELECT * FROM przystanekwLinii WHERE linia = $1", [
+    const todo = await pool.query("select * from kurs k, przystanekwlinii p, linia l where k.nazwalini_k = l.id_linii and l.id_linii = p.linia and k.id_kurs = $1", [
       id
     ]);
 
@@ -470,7 +471,7 @@ app.get("/kurs", async (req, res) => {
 });
 app.get("/kurs/:id", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM kurs,linia,przystanekwlinii where id_kurs = $1 and nazwalini_k = id_linii and id_linii = linia ORDER BY id_kurs ASC");
+    const allTodos = await pool.query("SELECT * FROM kurs,linia,przystanekwlinii where id_kurs = $1");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
