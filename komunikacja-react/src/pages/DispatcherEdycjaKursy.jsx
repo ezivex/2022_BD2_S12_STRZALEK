@@ -28,7 +28,9 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
-//  ---------------------------------------------------
+//=========================
+// Wybor kursu
+//=========================
 const [items, setPrzystanek] = useState([]);
 const getautobustyp = async () => {
   try {
@@ -89,6 +91,8 @@ setTimeout(() => {
     callback(filteredOptions);
 })
 }
+//=========================
+// Dni Tygodnia
 //=========================
 
 const [items1, setPrzystanek1] = useState([]);
@@ -153,8 +157,137 @@ setTimeout(() => {
 
 
 
+//=========================
+// Wybor kierowcy
+//=========================
+
+
+const [items2, setPrzystanek2] = useState([]);
+const getautobustyp2 = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/uzytkownicy");
+    const jsonData = await response.json();
+
+    setPrzystanek2(jsonData);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+useEffect(() => {
+  getautobustyp2();
+}, []);
+const testyy22 = [];
+const getData2 = async () => {
+  let result = items2;
+result.map((user) => {
+  return testyy22.push({value: user.id_uzytkownik, label: user.nazwisko + " " + user.imie});
+});
+};
+getData2();
+console.log("testyy22");
+console.log(testyy22);
+const options2 = [];
+  
+ const xd2 = () => {
+  console.log("zapisywanie do options");
+  items2.forEach((element) => {
+    console.log(element.id_uzytkownik);
+    console.log(typeof element.nazwisko);
+    console.log(typeof '${element.nazwisko}');
+    options2.push({
+        value: element.id_uzytkownik,
+        label: `${element.nazwisko}`,
+    });
+    console.log(options2);
+    console.log(options2[0]);
+    //return options;
+  });
+
+ };
+const handleChange2 = (selectedOption) => {
+//xd();
+console.log(selectedOption.value);
+setKier(selectedOption.value);
+return selectedOption.value;
+};
+const loadOptions2 = (searchValue, callback) => {
+xd3();
+setTimeout(() => {
+    console.log("loadOptions");
+    console.log(options2);
+    console.log(testyy22);
+
+    const filteredOptions = options2.filter(option => option.label.includes(searchValue))
+    callback(filteredOptions);
+})
+}
+
+
+
 
 //=========================
+// Wybor autobusu
+//=========================
+
+const [items3, setPrzystanek3] = useState([]);
+const getautobustyp3 = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/autobusy");
+    const jsonData = await response.json();
+
+    setPrzystanek3(jsonData);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+useEffect(() => {
+  getautobustyp3();
+}, []);
+const testyy23 = [];
+const getData3 = async () => {
+  let result = items3;
+result.map((user) => {
+  return testyy23.push({value: user.id_bus, label: "Marka: " + user.marka + " " + "Rejestracja: " +user.rejestracja});
+});
+};
+getData3();
+console.log("testyy23");
+console.log(testyy23);
+const options3 = [];
+  
+ const xd3 = () => {
+  console.log("zapisywanie do options");
+  items3.forEach((element) => {
+    console.log(element.id_bus);
+    console.log(typeof element.rejestracja);
+    console.log(typeof '${element.rejestracja}');
+    options3.push({
+        value: element.id_bus,
+        label: `${element.rejestracja}`,
+    });
+    console.log(options3);
+    console.log(options3[0]);
+    //return options;
+  });
+
+ };
+const handleChange3 = (selectedOption) => {
+//xd();
+console.log(selectedOption.value);
+setBusr(selectedOption.value);
+return selectedOption.value;
+};
+const loadOptions3 = (searchValue, callback) => {
+xd3();
+setTimeout(() => {
+    console.log("loadOptions");
+    console.log(options3);
+    console.log(testyy23);
+
+    const filteredOptions = options3.filter(option => option.label.includes(searchValue))
+    callback(filteredOptions);
+})
+}
 
     return (
         
@@ -187,11 +320,15 @@ setTimeout(() => {
                         </div>
                         <div className="input-container">
                             <label>Kierowca </label>
-                            <input type="number" name="kierowca" onChange={e => setKier(e.target.value) } required />
+                            {/* <input type="number" name="kierowca" onChange={e => setKier(e.target.value) } required /> */}
+                            <CreatableSelect options={testyy22} defaultOptions onChange={handleChange2} />
+                            <input type="number" name="nazwisko" onChange={e => setKier(e.target.selectedOption.value) } hidden />
                         </div>
                         <div className="input-container">
                             <label>Autobus </label>
-                            <input type="number" name="autobus"  onChange={e => setBusr(e.target.value) } required />
+                            {/* <input type="number" name="autobus"  onChange={e => setBusr(e.target.value) } required /> */}
+                            <CreatableSelect options={testyy23} defaultOptions onChange={handleChange3} />
+                            <input type="number" name="rejestracja" onChange={e => setBusr(e.target.selectedOption.value) } hidden />
                         </div>
                         <div className="button-container">
                             <input type="submit" value="Dodaj"  />
