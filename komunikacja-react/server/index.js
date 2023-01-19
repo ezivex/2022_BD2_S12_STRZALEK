@@ -1,22 +1,16 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const cors = require("cors");
-const pool = require("./db");
-app.use(cors());
-app.use(express.json()); 
-
-// 
 const session = require('express-session');
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
+app.use(cors());
 app.use(bodyParser.json());
-
+const pool = require("./db");
 // Session middleware
 app.use(session({
     secret: '1234',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    saveUninitialized: true
 }));
 
 const loginCred = [
@@ -34,6 +28,16 @@ const loginCred = [
     }
 ];
 
+app.get('/login', (req, res) => {
+  if (req.session.user) {
+      res.status(200).json({ message: 'You are already logged in' });
+      console.log('logged');
+  } else {
+      res.status(200).json({ message: 'Please log in' });
+  }
+});
+
+
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
@@ -43,40 +47,38 @@ app.post('/login', (req, res) => {
         if (userData.password !== password) {
             res.status(401).json({ message: 'Invalid password'});
         } else {
-        req.session.user = userData;
-        res.status(200).json({ message: 'Login successful' });
-        console.log('ok');
+            req.session.user = userData;
+            res.status(200).json({ message: 'Login successful' });
         }
-        } else {
+    } else {
         // Username not found
         res.status(404).json({ message: 'Username not found' });
-        }
-        });
-        
-        
-        app.get('/tables', (req, res) => {
-        if (req.session.user) {
-          console.log("xd");
-        } 
-        else {
-        res.redirect('/login');
-        }
-        });
-        
-        app.get('/logout', (req, res) => {
-        req.session.destroy((error) => {
+    }
+});
+
+app.get('/tables', (req, res) => {
+    if (req.session.user) {
+        res.status(200).json({ message: 'Access granted' });
+    } 
+    else {
+        res.status(401).json({ message: 'Access denied' });
+    }
+});
+
+app.get('/logout', (req, res) => {
+    req.session.destroy((error) => {
         if (error) {
-        console.log(error);
+            console.log(error);
+            res.status(500).json({ message: 'Error logging out' });
         } else {
-        res.redirect('/login');
+            res.status(200).json({ message: 'Logout successful' });
         }
-        });
-        });
-        
-        app.listen(5000, () => {
-        console.log('Server started on port 5000');
-        });  
-        
+    });
+});
+
+app.listen(5000, () => {
+    console.log('Server started on port 5000');
+});
 
 //ROUTES//
 
