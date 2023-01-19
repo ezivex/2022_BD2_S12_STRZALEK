@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import TimeAndDate from '../TimeAndDate';
 import TableRealizacja from '../components/TableRealizacja';
+
+import CreatableSelect from "react-select/creatable";
 
 function DispatcherEdycjaKursy() {
 
@@ -27,7 +29,68 @@ const onSubmitForm = async e => {
     }
   };
 //  ---------------------------------------------------
+const [items, setPrzystanek] = useState([]);
+const getautobustyp = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/kurs");
+    const jsonData = await response.json();
 
+    setPrzystanek(jsonData);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+useEffect(() => {
+  getautobustyp();
+}, []);
+const testyy2 = [];
+const getData = async () => {
+  let result = items;
+result.map((user) => {
+  return testyy2.push({value: user.id_kurs, label: user.nazwalinii});
+});
+};
+getData();
+console.log("testyy2");
+console.log(testyy2);
+const options = [];
+  
+ const xd = () => {
+  console.log("zapisywanie do options");
+  items.forEach((element) => {
+    console.log(element.id_kurs);
+    console.log(typeof element.id_kurs);
+    //testyy = `${element.nazwalinii}`;
+    console.log(typeof '${element.nazwalinii}');
+    options.push({
+        value: element.id_kurs,
+        label: `${element.nazwalinii}`,
+    });
+    console.log(options);
+    console.log(options[0]);
+    //return options;
+  });
+
+ };
+const handleChange = (selectedOption) => {
+//xd();
+console.log(selectedOption.value);
+setKurs(selectedOption.value);
+return selectedOption.value;
+};
+const loadOptions = (searchValue, callback) => {
+xd();
+setTimeout(() => {
+    console.log("loadOptions");
+    console.log(options);
+    console.log(testyy2);
+
+    const filteredOptions = options.filter(option => option.label.includes(searchValue))
+    callback(filteredOptions);
+})
+}
+//===============
+//=========================
 
     return (
         
@@ -48,7 +111,9 @@ const onSubmitForm = async e => {
                 <form className='loging kursModifier' onSubmit={onSubmitForm}>
                         <div className="input-container">
                             <label>Kurs </label>
-                            <input type="number" name="kurs" onChange={e => setKurs(e.target.value) } required />
+                            <CreatableSelect options={testyy2} defaultOptions onChange={handleChange} />
+                            <input type="number" name="nazwarodzaj" onChange={e => setKurs(e.target.selectedOption.value) } hidden />
+                            {/* <input type="number" name="kurs" onChange={e => setKurs(e.target.value) } required /> */}
                         </div>
                         <div className="input-container">
                             <label>Dzień </label>
