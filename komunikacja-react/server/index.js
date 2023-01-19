@@ -362,7 +362,10 @@ app.post("/przystanekwLinii", async (req, res) => {
 
 app.get("/przystanekwLinii", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM przystanekwLinii, przystanki where id_przystanku = przystanek_id ORDER BY id_przystLin ASC");
+    const allTodos = await pool.query("SELECT * FROM przystanekwLinii, przystanki,linia where id_przystanku = przystanek_id and id_linii = linia ORDER BY id_przystLin ASC");
+
+    // const allTodos = await pool.query("SELECT * FROM przystanekwLinii, przystanki, linia, kurs where id_przystanku = przystanek_id and id_linii = linia and nazwalini_k = id_linii  ORDER BY id_kurs ASC");
+
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
@@ -465,10 +468,17 @@ app.get("/kurs", async (req, res) => {
     console.error(err.message);
   }
 });
+app.get("/kurs/:id", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM kurs,linia,przystanekwlinii where id_kurs = $1 and nazwalini_k = id_linii and id_linii = linia ORDER BY id_kurs ASC");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 
 //DELETE KURS
-
 app.delete("/kurs/:id", async (req, res) => {
   try {
     const { id } = req.params;

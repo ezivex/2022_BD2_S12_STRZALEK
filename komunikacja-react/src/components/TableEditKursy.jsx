@@ -14,8 +14,26 @@ const TableEditKursy = () => {
     try {
       const response = await fetch("http://localhost:5000/przystanekwLinii");
       const jsonData = await response.json();
-      const xd = parseInt(zmienna);
-      setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === xd));
+      const xd = parseInt(zmienna);//id kursu to jest
+      console.log(xd);
+      //setPrzystanekwLinii(jsonData);
+      setPrzystanekwLinii(jsonData.filter(
+        jsonData => jsonData.id_kurs === xd
+        ));
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  const getPrzystanekwLinii2 = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/kurs/${id}`);
+      const jsonData = await response.json();
+      const xd = parseInt(zmienna);//id kursu to jest
+      console.log(xd);
+      //setPrzystanekwLinii(jsonData);
+      setPrzystanekwLinii(jsonData.filter(
+        jsonData => jsonData.id_kurs === xd
+        ));
     } catch (err) {
       console.error(err.message);
     }
@@ -62,21 +80,23 @@ const TableEditKursy = () => {
         <table className='tableData'>
             <thead>
                 <tr>
-                    <th>Przystanki w linii</th>
-                    <th>Godzina odjazdu</th>
+                    <th>Przystanki w linii nazwalini</th>
+                    <th>Przystanki w linii nazwa przystanku</th>
+                    {/* <th>Godzina odjazdu</th> */}
                     <th>Zaktualizuj</th>
                 </tr>
             </thead>
             <tbody>
                 {items.map(item => (
                     <tr key={item.id_przystlin}>
+                        <td>{item.nazwalinii}</td>
                         <td>{item.nazwaprzystanku}</td>
-                        <td>
+                        {/* <td>
                             {hours.find(hour => hour.id_przystanekwlini === item.id_przystlin) ?
                                 hours.find(hour => hour.id_przystanekwlini === item.id_przystlin).godzina_odjazdu :
                                 <input type="number" onChange={(e) => handleChange(e, item.id_przystlin)} placeholder="Godzina odjazdu" />
                             }
-                        </td>
+                        </td> */}
                         <td>
                             <button onClick={() => handleUpdate(item.id_przystlin)}>Zaktualizuj</button>
                         </td>

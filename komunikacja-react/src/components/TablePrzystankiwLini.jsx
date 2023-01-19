@@ -26,6 +26,7 @@ const TablePrzystankiwLini = () => {
     try {
       //const response = await fetch("http://localhost:5000/przystanekwLinii");
       
+      //const response = await fetch("http://localhost:5000/przystanekwLinii");
       const response = await fetch("http://localhost:5000/przystanekwLinii");
       
       const jsonData = await response.json();
@@ -38,56 +39,16 @@ const TablePrzystankiwLini = () => {
       //const search = useLocation().search;  
       //const name = new URLSearchParams(search).get('id');
       const xd = parseInt(zmienna);
+
       setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === xd));
+
+      // setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia !== xd).filter((jsonData, index, self) => self.findIndex(t => t.linia === jsonData.linia) === index));
+      // setPrzystanekwLinii(jsonData.filter(jsonData => new Set(jsonData.linia).has(xd) === false));
+      // console.log(jsonData.filter(jsonData => new Set(jsonData.linia).has(xd) === false));
     } catch (err) {
       console.error(err.message);
     }
   };
-  const testyy2 = [];
-  const getData = async () => {
-    let result = items;
-  result.map((user) => {
-    return testyy2.push({value: user.id_linii, label: user.nazwalinii});
-  });
-};
-getData();
-const options = [];
-    
-   const xd = () => {
-    console.log("zapisywanie do options");
-    items.forEach((element) => {
-      console.log(element.id_linii);
-      console.log(typeof element.id_linii);
-      //testyy = `${element.nazwalinii}`;
-      console.log(typeof '${element.nazwalinii}');
-      options.push({
-          value: element.id_linii,
-          label: `${element.nazwalinii}`,
-      });
-      console.log(options);
-      console.log(options[0]);
-      //return options;
-    });
-
-   };
-const handleChange = (selectedOption) => {
-  //xd();
-  console.log(selectedOption.value);
-  setPrzystanekwLinii(selectedOption.value);
-  return selectedOption.value;
-};
-const loadOptions = (searchValue, callback) => {
-  //await delay(1000);
-  xd();
-  setTimeout(() => {
-      console.log("loadOptions");
-      console.log(options);
-      console.log(testyy2);
-
-      const filteredOptions = options.filter(option => option.label.includes(searchValue))
-      callback(filteredOptions);
-  })
-}
 
 
 

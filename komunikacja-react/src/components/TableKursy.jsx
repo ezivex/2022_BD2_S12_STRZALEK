@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import {Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+
 const TableKursy = () => {
  
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const idk = queryParams.get('id');
+  console.log(idk);
+  const [zmienna, setPgetPrzystanekwLinii] = useState(idk);
+
+
   const [items, setKurs] = useState([]);
   
   const deleteKurs = async id => {
@@ -18,6 +27,7 @@ const TableKursy = () => {
 
   const getKurs = async () => {
     try {
+      const xd = parseInt(zmienna);
       const response = await fetch("http://localhost:5000/kurs");
       const jsonData = await response.json();
 
@@ -46,9 +56,9 @@ const TableKursy = () => {
       {items.map(item => (
         <tr key={item.id_kurs}>
           {/* <td>{item.nazwalini_k}</td> */}
-          <td>{item.nazwalini_k}</td>
+          <td>{item.nazwalinii}</td>
           {/* <td>{item.rbus_k}</td> */}
-          <td>{item.rbus_k}</td>
+          <td>{item.nazwarodzaj}</td>
           <td>{item.czas_odjazdu}</td>
           <td>
       <Link to={`/EditKurs?id=${item.id_kurs}`}>

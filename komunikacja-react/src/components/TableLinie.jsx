@@ -33,17 +33,17 @@ const TableLinie = () => {
     getLinia();
   }, []);
 
-  const addRozkladJazdy = async (nazwa_kursu_id, id_przystankiwlini) => {
-    try {
-      const addRozkladJazdy = await fetch("http://localhost:5000/rozklad_jazdy", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id_rj: null, nazwa_kursu_id: nazwa_kursu_id, id_przystankiwlini: id_przystankiwlini })
-      });
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+  // const addRozkladJazdy = async (nazwa_kursu_id, id_przystankiwlini) => {
+  //   try {
+  //     const addRozkladJazdy = await fetch("http://localhost:5000/rozklad_jazdy", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ id_rj: null, nazwa_kursu_id: nazwa_kursu_id, id_przystankiwlini: id_przystankiwlini })
+  //     });
+  //   } catch (err) {
+  //     console.error(err.message);
+  //   }
+  // };
 
   return (
     <div>
@@ -63,7 +63,8 @@ const TableLinie = () => {
     <td>{item.nazwa_typu}</td>
     <td>
       <Link to={`/EditLinia?id=${item.id_linii}`}>
-        <button className='btnDel' onClick={() => addRozkladJazdy(item.nazwalinii, item.id_przystankiwlini)}>
+        <button className='btnDel'>
+          {/* onClick={() => addRozkladJazdy(item.nazwalinii, item.id_przystankiwlini)} */}
           Edit
         </button>
       </Link>
