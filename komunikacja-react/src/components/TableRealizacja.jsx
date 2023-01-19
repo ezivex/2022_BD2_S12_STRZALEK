@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 const TableRealizacja = () => {
  
   const [items, setKurs] = useState([]);
@@ -39,6 +38,7 @@ const TableRealizacja = () => {
         <th>Dzień realizacji</th>
         <th>Kierowca</th>
         <th>Autobus</th>
+        <th>Edycja</th>
         <th>Delete</th>
       </tr>
     </thead>

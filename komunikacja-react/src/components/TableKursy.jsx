@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import {Link } from "react-router-dom";
 const TableKursy = () => {
  
   const [items, setKurs] = useState([]);
@@ -38,17 +38,23 @@ const TableKursy = () => {
         <th>Nazwa linii</th>
         <th>Rodzaj Autobusu</th>
         <th>Czas odjazdu</th>
+        <th>Zarządzanie</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       {items.map(item => (
         <tr key={item.id_kurs}>
-          {/* <td>{item.nazwalini_k}</td> */}
           <td>{item.nazwalinii}</td>
-          {/* <td>{item.rbus_k}</td> */}
           <td>{item.nazwarodzaj}</td>
           <td>{item.czas_odjazdu}</td>
+          <td>
+      <Link to={`/EditKurs?id=${item.id_kurs}`}>
+        <button className='btnDel'>
+          Edit
+        </button>
+      </Link>
+    </td>
           <td>
             <button className='btnDel'
               onClick={() => deleteKurs(item.id_kurs)}
