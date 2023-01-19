@@ -45,8 +45,10 @@ const TableKursy = () => {
     <tbody>
       {items.map(item => (
         <tr key={item.id_kurs}>
-          <td>{item.nazwalinii}</td>
-          <td>{item.nazwarodzaj}</td>
+          {/* <td>{item.nazwalini_k}</td> */}
+          <td>{item.nazwalini_k}</td>
+          {/* <td>{item.rbus_k}</td> */}
+          <td>{item.rbus_k}</td>
           <td>{item.czas_odjazdu}</td>
           <td>
       <Link to={`/EditKurs?id=${item.id_kurs}`}>
