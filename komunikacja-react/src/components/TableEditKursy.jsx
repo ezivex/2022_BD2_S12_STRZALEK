@@ -57,8 +57,8 @@ const TableEditKursy = () => {
   <td>{item.nazwaprzystanku}</td>
   <td>
   <form onSubmit={onSubmitForm}>
-  <input type="number" name="przyst" value={item.id_kurs} onChange={e => SetRozkladjazdykursid(e.target.value) }/>
-  <input type="number" name="przyst" value={item.id_przystlin} onChange={e => SetRozkladjazdyprzyst(e.target.value) }/>
+  <input type="number" name="przyst" value={item.id_kurs} onChange={e => SetRozkladjazdykursid(e.target.value) }hidden/>
+  <input type="number" name="przyst" value={item.id_przystlin} onChange={e => SetRozkladjazdyprzyst(e.target.value) }hidden/>
   <input type="number" placeholder="godzina odjazdu" onChange={e => SetRozkladjazdygodzina(e.target.value)} required />
   <button type="submit">Zaktualizuj</button>
   </form>
