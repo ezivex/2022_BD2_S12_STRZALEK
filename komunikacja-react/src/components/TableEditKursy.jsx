@@ -7,9 +7,9 @@ const TableEditKursy = () => {
   const queryParams = new URLSearchParams(location.search);
   const idk = queryParams.get('id');
   
-  const [godzina_odjazdu, SetRozkladjazdygodzina] = useState("");
-  const [id_przystankiwlini, SetRozkladjazdyprzyst] = useState("");
-  const [nazwa_kursu_id, SetRozkladjazdykursid] = useState(idk);
+  const [godzina_odjazdu, SetRozkladjazdygodzina] = useState(0);
+  const [id_przystankiwlini, SetRozkladjazdyprzyst] = useState(0);
+  const [nazwa_kursu_id, SetRozkladjazdykursid] = useState(parseInt(idk));
   
   const getPrzystanekwLinii = async () => {
   try {
