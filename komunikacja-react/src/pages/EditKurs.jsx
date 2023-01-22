@@ -12,18 +12,14 @@ function EditKurs() {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const id_param = queryParams.get('id');
+  const idk = queryParams.get('id');
   const [linia2, setLinia2] = useState([]);
-  const [linia, setLinia] = useState(id_param);
 
   const [items, setPrzystanek] = useState([]);
 
-    console.log("siema");
-    console.log(id_param);
-
     const getLinia2 = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/linia/${id_param}`);
+          const response = await fetch(`http://localhost:5000/linia/${idk}`);
           const jsonData = await response.json();
     
           setLinia2(jsonData);
@@ -45,12 +41,8 @@ function EditKurs() {
     
       useEffect(() => {
         getPrzystanek();
-      }, []);
-
-      useEffect(() => {
         getLinia2();
       }, []);
-
 
 //===============  
 // ----------------------------------------------
@@ -68,7 +60,7 @@ function EditKurs() {
 </NavbarClean>
 
 <div className="nameFetchTitle">
-    <p>Kurs: {linia2.nazwalinii}</p>
+    <p>Kurs</p>
 </div>
 
 <div className="mainPanels">
