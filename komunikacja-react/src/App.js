@@ -7,6 +7,8 @@ import NoPage from './pages/NoPage';
 import ShowPrzystanki from './pages/ShowPrzystanki';
 import ShowLinie from './pages/ShowLinie';
 import LoginPage from './pages/LoginPage';
+import TimeTablePage from './pages/TimeTablePage';
+
 
 import DriverPanel from "./pages/DriverPanel";
 import DriverDyspozycja from './pages/DriverDyspozycja';
@@ -38,6 +40,7 @@ function App() {
       <Route path="/" element={<Layout/>}>
         <Route index element={<Home />} />  
         <Route path="ShowPrzystanki" element={<ShowPrzystanki />} />
+        <Route path="TimeTablePage" element={<TimeTablePage />} />
         <Route path="ShowLinie" element={<ShowLinie />} />
         <Route path="DriverPanel" element={<DriverPanel />} />
         <Route path="EditLinia" element={<EditLinia />} />
