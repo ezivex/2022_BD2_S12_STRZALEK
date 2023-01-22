@@ -19,7 +19,7 @@ function EditKurs() {
 
     const getLinia2 = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/linia/${idk}`);
+          const response = await fetch(`http://localhost:5000/kurs/${idk}`);
           const jsonData = await response.json();
     
           setLinia2(jsonData);
@@ -44,6 +44,15 @@ function EditKurs() {
         getLinia2();
       }, []);
 
+const testyy2 = [];
+const getData = async () => {
+  let result = linia2;
+result.map((user) => {
+  testyy2 = user.nazwalinii;
+});
+};
+getData();
+console.log("nazwa linii: " + testyy2);
 //===============  
 // ----------------------------------------------
 
@@ -54,13 +63,14 @@ function EditKurs() {
 <div className="mainContainer">
 
 <NavbarClean>
-    <Link to="/PanelLinia" className='linkSettings'>
+    <Link to="/PanelKursy" className='linkSettings'>
         <button className="btnBack"> POWRÓT </button>
     </Link>
 </NavbarClean>
 
 <div className="nameFetchTitle">
-    <p>Kurs</p>
+    <p>Kurs {idk}</p>
+    <p>Nazwa linii: {testyy2}</p>
 </div>
 
 <div className="mainPanels">

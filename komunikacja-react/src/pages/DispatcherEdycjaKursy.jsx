@@ -165,7 +165,7 @@ setTimeout(() => {
 const [items2, setPrzystanek2] = useState([]);
 const getautobustyp2 = async () => {
   try {
-    const response = await fetch("http://localhost:5000/uzytkownicy");
+    const response = await fetch("http://localhost:5000/dostepnosci_kierowcow");
     const jsonData = await response.json();
 
     setPrzystanek2(jsonData);
@@ -180,7 +180,7 @@ const testyy22 = [];
 const getData2 = async () => {
   let result = items2;
 result.map((user) => {
-  return testyy22.push({value: user.id_uzytkownik, label: user.nazwisko + " " + user.imie});
+  return testyy22.push({value: user.id_dostkier, label: user.nazwisko + " " + user.imie});
 });
 };
 getData2();
@@ -191,11 +191,11 @@ const options2 = [];
  const xd2 = () => {
   console.log("zapisywanie do options");
   items2.forEach((element) => {
-    console.log(element.id_uzytkownik);
+    console.log(element.id_dostkier);
     console.log(typeof element.nazwisko);
     console.log(typeof '${element.nazwisko}');
     options2.push({
-        value: element.id_uzytkownik,
+        value: element.id_dostkier,
         label: `${element.nazwisko}`,
     });
     console.log(options2);
