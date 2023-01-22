@@ -585,3 +585,55 @@ input[type="submit"]:hover {
     padding: 5px;
     font-size: 1.2rem;
 }
+/*  */
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1rem solid #C33142;
+    width: 85vw;
+    min-height: 60vh;
+    }
+    
+    .schedule-title {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    text-align: left;
+    color: #C33142;
+    }
+    
+    .schedule-details-container {
+    display: flex;
+    border-top: 4px solid #9a2835;
+    }
+    
+    .schedule-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 1rem;
+    width: 100%;
+    padding: 1rem;
+    }
+    
+    .schedule-stop-id {
+    font-size: 1.6rem;
+    font-weight: bold;
+    width: 30%;
+    color: #86222e;
+    }
+    
+    .schedule-departure-time {
+    font-size: 1.3rem;
+    padding: 1rem;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    }
+    .schedule-departure-text{
+        border: 2px solid pink;
+        font-weight: bold;
+        font-size: 1.4rem;
+        padding: 1rem;
+        color: #86222e;
+    }

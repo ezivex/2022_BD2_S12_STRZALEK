@@ -2,6 +2,7 @@ import React from 'react';
 import {Link } from "react-router-dom";
 import NavbarClean from '../NavbarClean';
 import TimeTable from '../components/TimeTable';
+
 function TimeTablePage() {
     return (
             <div className="mainContainer">
@@ -10,7 +11,7 @@ function TimeTablePage() {
                     <button className="btnBack"> POWRÓT </button>
                     </Link>
                 </NavbarClean>
-                <h2 className="listPanelsTitle">Nasze Przystanki</h2>
+                <h2 className="listPanelsTitle">Rozkład jazdy</h2>
                 <div className="mainPanels">
                     
                     <div className="linieLista">
