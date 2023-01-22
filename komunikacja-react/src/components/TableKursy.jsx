@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import {Link } from "react-router-dom";
-import { useLocation } from 'react-router-dom';
+//import { useLocation } from 'react-router-dom';
 
 const TableKursy = () => {
  
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const idk = queryParams.get('id');
-  console.log(idk);
-  const [zmienna, setPgetPrzystanekwLinii] = useState(idk);
+  //const location = useLocation();
+  //const queryParams = new URLSearchParams(location.search);
+  //const idk = queryParams.get('id');
+  //console.log(idk);
+ // const [zmienna, setPgetPrzystanekwLinii] = useState(idk);
 
 
   const [items, setKurs] = useState([]);
@@ -27,7 +27,7 @@ const TableKursy = () => {
 
   const getKurs = async () => {
     try {
-      const xd = parseInt(zmienna);
+      //const xd = parseInt(zmienna);
       const response = await fetch("http://localhost:5000/kurs");
       const jsonData = await response.json();
 

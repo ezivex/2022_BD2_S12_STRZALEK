@@ -373,11 +373,12 @@ app.get("/przystanekwLinii", async (req, res) => {
 });
 
 
-
+//=====
+//testowanie czy to dziala wogole
 app.get("/przystanekwLinii/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await pool.query("select * from kurs k, przystanekwlinii p, linia l where k.nazwalini_k = l.id_linii and l.id_linii = p.linia and k.id_kurs = $1", [
+    const todo = await pool.query("SELECT * FROM przystanekwLinii, przystanki, linia, kurs where id_przystanku = przystanek_id and id_linii = linia and nazwalini_k = id_linii and id_kurs = $1", [
       id
     ]);
 
@@ -386,6 +387,21 @@ app.get("/przystanekwLinii/:id", async (req, res) => {
     console.error(err.message);
   }
 });
+// app.get("/przystanekwLinii/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const todo = await pool.query("select * from kurs k, przystanekwlinii p, linia l where k.nazwalini_k = l.id_linii and l.id_linii = p.linia and k.id_kurs = $1", [
+//       id
+//     ]);
+
+//     res.json(todo.rows[0]);
+//   } catch (err) {
+//     console.error(err.message);
+//   }
+// });
+//===
+
+
 /*
 app.get("/linia/:id", async (req, res) => {
   try {
@@ -469,14 +485,19 @@ app.get("/kurs", async (req, res) => {
     console.error(err.message);
   }
 });
+//pobiera tylko jeden rekord 
 app.get("/kurs/:id", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM kurs,linia,przystanekwlinii where id_kurs = $1");
-    res.json(allTodos.rows);
+    const { id } = req.params;
+    const todo = await pool.query("SELECT * FROM kurs,linia,przystanekwlinii,przystanki where id_linii = nazwalini_k and id_linii = linia and przystanek_id = id_przystanku and id_kurs = $1", [
+      id
+    ]);
+    res.json(todo.rows);
   } catch (err) {
     console.error(err.message);
   }
 });
+
 
 
 //DELETE KURS
