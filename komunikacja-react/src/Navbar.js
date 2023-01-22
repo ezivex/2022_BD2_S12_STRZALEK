@@ -17,6 +17,9 @@ const Navbar = () => {
               <Link to="/HelpPage">Pomoc</Link>
             </li>
             <li>
+              <Link to="/TimeTablePage">Rozklad</Link>
+            </li>
+            <li>
               <Link to="/LoginPage">Logowanie</Link>
             </li>
           </ul>
