@@ -691,6 +691,8 @@ app.delete("/dostepnosci_kierowcow/:id", async (req, res) => {
   }
 });
 
+
+
 // ------------------------------------- END OF DOSTEPNOSCI_KIEROWCOW -------------------------------------  //
 
 
@@ -700,7 +702,7 @@ app.delete("/dostepnosci_kierowcow/:id", async (req, res) => {
 //GET DOSTEPNOSC
 app.get("/dostepnosci_kierowcow", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM dostepnosci_kierowcow");
+    const allTodos = await pool.query("SELECT * FROM dostepnosci_kierowcow, dni_tygodnia, uzytkownicy WHERE id_dnityg = dzien_tyg AND id_uzytk = id_uzytkownik;");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);

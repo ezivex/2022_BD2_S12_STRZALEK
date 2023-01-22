@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link } from "react-router-dom";
+import TableDriverGrafik from '../components/TableDriverGrafik';
 import NavbarClean from '../NavbarClean';
 import TimeAndDate from '../TimeAndDate';
 function DriverGrafik() {
@@ -11,10 +12,12 @@ function DriverGrafik() {
                     </Link>
                 </NavbarClean>
                 <TimeAndDate/>
-                <h2 className="nameFetchTitle">Kierowca</h2>     
+                <h2 className="nameFetchTitle">Grafik</h2>     
 
             <div className="mainPanels">
-                <table className="tableGrafik">
+            <TableDriverGrafik/>
+
+                {/* <table className="tableGrafik">
 		            <thead>
 			            <tr>
                             <th>ZMIANA</th>
@@ -43,7 +46,7 @@ function DriverGrafik() {
                             <td>&nbsp;</td>
 			            </tr>
 		            </tbody>
-	            </table>
+	            </table> */}
             </div>
 
                 <footer className="PageFooter buttonSettings">   
