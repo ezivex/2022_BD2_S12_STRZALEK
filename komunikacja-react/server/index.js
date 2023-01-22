@@ -378,7 +378,7 @@ app.get("/przystanekwLinii", async (req, res) => {
 app.get("/przystanekwLinii/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await pool.query("SELECT * FROM przystanekwLinii, przystanki, linia, kurs where id_przystanku = przystanek_id and id_linii = linia and nazwalini_k = id_linii and id_kurs = $1", [
+    const todo = await pool.query("SELECT * FROM przystanekwlinii, przystanki, linia, kurs where id_przystanku = przystanek_id and id_linii = linia and nazwalini_k = id_linii and id_kurs = $1", [
       id
     ]);
 
