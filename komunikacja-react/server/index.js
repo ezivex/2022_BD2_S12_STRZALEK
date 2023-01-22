@@ -711,3 +711,18 @@ app.get("/dostepnosci_kierowcow", async (req, res) => {
 
 
 //------------------------------------- ------------------------------------- END OF DRIVER PANEL ------------------------------------- ------------------------------------- //
+
+
+//------------------------------------- ------------------------------------- RODZAJ ZMIANY ------------------------------------- ------------------------------------- //
+
+
+
+//GET ZMIANA
+app.get("/rodzaj_zmiany", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM rodzaj_zmiany");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
