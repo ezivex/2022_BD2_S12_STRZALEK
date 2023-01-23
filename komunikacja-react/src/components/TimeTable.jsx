@@ -1,17 +1,9 @@
 import React, { useState, useEffect } from "react";
-import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
+
 const TimeTable = () => {
-
-function generatePDF() {
-  const scheduleContainer = document.querySelector('.schedule-container');
-  const pdf = new jsPDF();
-  pdf.addHTML(scheduleContainer, () => {
-    pdf.save("schedule.pdf");
-  });
-}
-
-  
-    const [schedule, setSchedule] = useState([]);
+  const [schedule, setSchedule] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/rozklad_jazdy")
@@ -19,9 +11,27 @@ function generatePDF() {
       .then((data) => setSchedule(data));
   }, []);
 
+  const printRef = React.useRef();
+
+  const generatePDF = async () => {
+    const element = printRef.current;
+    const canvas = await html2canvas(element);
+    const data = canvas.toDataURL('image/png');
+
+    const pdf = new jsPDF();
+    const imgProperties = pdf.getImageProperties(data);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight =
+      (imgProperties.height * pdfWidth) / imgProperties.width;
+
+    pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('print.pdf');
+  };
+
   return (
-    <div>  <button onClick={generatePDF}>Generuj PDF</button>
-<div className="schedule-container" id="scheduleContainer">
+    <div>
+      <button onClick={generatePDF}>Generuj PDF</button>
+      <div className="schedule-container" ref={printRef}>
         {schedule.reduce((unique, item) => {
             if (!unique.some(x => x.id_przystankiwlini === item.id_przystankiwlini)) {
                 unique.push(item);
@@ -39,9 +49,9 @@ function generatePDF() {
                     </div>
                 </div>
             </div>
-))}
-</div>
-</div>
+        ))}
+      </div>
+    </div>
   );
 };
 
