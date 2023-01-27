@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {Link } from "react-router-dom";
-import NavbarClean from '../NavbarClean';
-import TimeAndDate from '../TimeAndDate';
+import NavbarClean from '../components/NavbarClean';
+import TimeAndDate from '../components/TimeAndDate';
 import TableRealizacja from '../components/TableRealizacja';
-
 import CreatableSelect from "react-select/creatable";
 
 function DispatcherEdycjaKursy() {
 
-// ----------------------------------------------
-const [id_kursu, setKurs] = useState("");
+const [id_kursu, setKursId] = useState("");
 const [dzien_rel, setDzien] = useState("");
 const [id_kierowcyrel, setKier] = useState("");
 const [id_busurel, setBusr] = useState("");
@@ -28,320 +26,184 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
-//=========================
-// Wybor kursu
-//=========================
-const [items, setPrzystanek] = useState([]);
-const getautobustyp = async () => {
+//========================= Wybor kursu =========================
+const [kurs, setKurs] = useState([]);
+const getKurs = async () => {
   try {
     const response = await fetch("http://localhost:5000/kurs");
     const jsonData = await response.json();
-
-    setPrzystanek(jsonData);
+    setKurs(jsonData);
   } catch (err) {
     console.error(err.message);
   }
 };
+
 useEffect(() => {
-  getautobustyp();
+  getKurs();
 }, []);
-const testyy2 = [];
-const getData = async () => {
-  let result = items;
-result.map((user) => {
-  return testyy2.push({value: user.id_kurs, label: user.id_kurs + "." + user.nazwalinii});
-});
-};
-getData();
-console.log("testyy2");
-console.log(testyy2);
-const options = [];
-  
- const xd = () => {
-  console.log("zapisywanie do options");
-  items.forEach((element) => {
-    console.log(element.id_kurs);
-    console.log(typeof element.id_kurs);
-    //testyy = `${element.nazwalinii}`;
-    console.log(typeof '${element.nazwalinii}');
-    options.push({
-        value: element.id_kurs,
-        label: `${element.nazwalinii}`,
-    });
-    console.log(options);
-    console.log(options[0]);
-    //return options;
+
+const KursData = [];
+const getKursData = async () => {
+  let result = kurs;
+  result.map((kurs) => {
+    return KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii});
   });
-
- };
-const handleChange = (selectedOption) => {
-//xd();
-console.log(selectedOption.value);
-setKurs(selectedOption.value);
-return selectedOption.value;
 };
-const loadOptions = (searchValue, callback) => {
-xd();
-setTimeout(() => {
-    console.log("loadOptions");
-    console.log(options);
-    console.log(testyy2);
+getKursData();
+  
+const handleChangeKurs = (selectedOption) => {
+  setKursId(selectedOption.value);
+  return selectedOption.value;
+};
+//========================= End Of Wybor kursu =========================
 
-    const filteredOptions = options.filter(option => option.label.includes(searchValue))
-    callback(filteredOptions);
-})
-}
-//=========================
-// Dni Tygodnia
-//=========================
 
-const [items1, setPrzystanek1] = useState([]);
-const getautobustyp1 = async () => {
+//============================ Dni Tygodnia ============================
+const [dniTyg, setDniTyg] = useState([]);
+const getDniTyg = async () => {
   try {
     const response = await fetch("http://localhost:5000/dni_tygodnia");
     const jsonData = await response.json();
-
-    setPrzystanek1(jsonData);
+    setDniTyg(jsonData);
   } catch (err) {
     console.error(err.message);
   }
 };
-useEffect(() => {
-  getautobustyp1();
-}, []);
-const testyy21 = [];
-const getData1 = async () => {
-  let result = items1;
-result.map((user) => {
-  return testyy21.push({value: user.id_dnityg, label: user.dzien});
-});
-};
-getData1();
-console.log("testyy21");
-console.log(testyy21);
-const options1 = [];
-  
- const xd1 = () => {
-  console.log("zapisywanie do options");
-  items1.forEach((element) => {
-    console.log(element.id_dnityg);
-    console.log(typeof element.id_dnityg);
-    console.log(typeof '${element.dzien}');
-    options1.push({
-        value: element.id_dnityg,
-        label: `${element.dzien}`,
-    });
-    console.log(options1);
-    console.log(options1[0]);
-    //return options;
-  });
 
- };
-const handleChange1 = (selectedOption) => {
-//xd();
-console.log(selectedOption.value);
+useEffect(() => {
+  getDniTyg();
+}, []);
+
+const DniTygData = [];
+const getDniTygData = async () => {
+  let result = dniTyg;
+  result.map((dniTyg) => {
+    return DniTygData.push({value: dniTyg.id_dnityg, label: dniTyg.dzien});
+  });
+};
+getDniTygData();
+
+const handleChangeDniTyg = (selectedOption) => {
 setDzien(selectedOption.value);
 return selectedOption.value;
 };
-const loadOptions1 = (searchValue, callback) => {
-xd1();
-setTimeout(() => {
-    console.log("loadOptions");
-    console.log(options1);
-    console.log(testyy21);
+//=========================End of Dni Tygodnia =========================
 
-    const filteredOptions = options1.filter(option => option.label.includes(searchValue))
-    callback(filteredOptions);
-})
-}
-
-
-
-//=========================
-// Wybor kierowcy
-//=========================
-
-
-const [items2, setPrzystanek2] = useState([]);
-const getautobustyp2 = async () => {
+//========================= Wybor kierowcy =============================
+const [dostKier, setDostKier] = useState([]);
+const getDostKier = async () => {
   try {
     const response = await fetch("http://localhost:5000/dostepnosci_kierowcow");
     const jsonData = await response.json();
-
-    setPrzystanek2(jsonData);
+    setDostKier(jsonData);
   } catch (err) {
     console.error(err.message);
   }
 };
 useEffect(() => {
-  getautobustyp2();
+  getDostKier();
 }, []);
-const testyy22 = [];
-const getData2 = async () => {
-  let result = items2;
-result.map((user) => {
-  return testyy22.push({value: user.id_dostkier, label: user.nazwisko + " " + user.imie});
-});
-};
-getData2();
-console.log("testyy22");
-console.log(testyy22);
-const options2 = [];
-  
- const xd2 = () => {
-  console.log("zapisywanie do options");
-  items2.forEach((element) => {
-    console.log(element.id_dostkier);
-    console.log(typeof element.nazwisko);
-    console.log(typeof '${element.nazwisko}');
-    options2.push({
-        value: element.id_dostkier,
-        label: `${element.nazwisko}`,
-    });
-    console.log(options2);
-    console.log(options2[0]);
-    //return options;
+
+let dostKierData = [];
+const getDostKierData = async () => {
+  let result = dostKier;
+  result.map((dostepnosc) => {
+    return dostKierData.push({value: dostepnosc.id_dostkier, label: dostepnosc.nazwisko + " " + dostepnosc.imie});
   });
-
- };
-const handleChange2 = (selectedOption) => {
-//xd();
-console.log(selectedOption.value);
-setKier(selectedOption.value);
-return selectedOption.value;
 };
-const loadOptions2 = (searchValue, callback) => {
-xd3();
-setTimeout(() => {
-    console.log("loadOptions");
-    console.log(options2);
-    console.log(testyy22);
+getDostKierData();
+  
+const handleChangeDostKier = (selectedOption) => {
+  setKier(selectedOption.value);
+  return selectedOption.value;
+};
+//========================= End of Wybor kierowcy =========================
 
-    const filteredOptions = options2.filter(option => option.label.includes(searchValue))
-    callback(filteredOptions);
-})
-}
+//============================= Wybor autobusu ============================
 
-
-
-
-//=========================
-// Wybor autobusu
-//=========================
-
-const [items3, setPrzystanek3] = useState([]);
-const getautobustyp3 = async () => {
+const [Busy, setBus] = useState([]);
+const getBusyTyp = async () => {
   try {
     const response = await fetch("http://localhost:5000/autobusy");
     const jsonData = await response.json();
-
-    setPrzystanek3(jsonData);
+    setBus(jsonData);
   } catch (err) {
     console.error(err.message);
   }
 };
 useEffect(() => {
-  getautobustyp3();
+  getBusyTyp();
 }, []);
-const testyy23 = [];
-const getData3 = async () => {
-  let result = items3;
-result.map((user) => {
-  return testyy23.push({value: user.id_bus, label: "Marka: " + user.marka + " " + "Rejestracja: " +user.rejestracja});
-});
-};
-getData3();
-console.log("testyy23");
-console.log(testyy23);
-const options3 = [];
-  
- const xd3 = () => {
-  console.log("zapisywanie do options");
-  items3.forEach((element) => {
-    console.log(element.id_bus);
-    console.log(typeof element.rejestracja);
-    console.log(typeof '${element.rejestracja}');
-    options3.push({
-        value: element.id_bus,
-        label: `${element.rejestracja}`,
-    });
-    console.log(options3);
-    console.log(options3[0]);
-    //return options;
+
+let busyData = [];
+const getBusyData = async () => {
+  let result = Busy;
+  result.map((bus) => {
+    return busyData.push({value: bus.id_bus, label: "Marka: " + bus.marka + " " + "Rejestracja: " +bus.rejestracja});
   });
-
- };
-const handleChange3 = (selectedOption) => {
-//xd();
-console.log(selectedOption.value);
-setBusr(selectedOption.value);
-return selectedOption.value;
 };
-const loadOptions3 = (searchValue, callback) => {
-xd3();
-setTimeout(() => {
-    console.log("loadOptions");
-    console.log(options3);
-    console.log(testyy23);
+getBusyData();
+  
+const handleChangeBusy = (selectedOption) => {
+    setBusr(selectedOption.value);
+    return selectedOption.value;
+};
+//=========================== End of Wybór Autobusu =============================
 
-    const filteredOptions = options3.filter(option => option.label.includes(searchValue))
-    callback(filteredOptions);
-})
-}
-
-    return (
-        
+    return ( 
         <div className="mainContainer">
 
             <NavbarClean>
-                <Link to="/DispatcherPanel" className='linkSettings'>
-                    <button className="btnBack"> POWRÓT </button>
-                </Link>
-                </NavbarClean>
-                <TimeAndDate/>
-                <h2 className="nameFetchTitle">Zarządzanie kursami</h2>   
-            <div className="mainDispKursy">
-                <TableRealizacja/>
-            </div>
-            <div className="formPanels">
-            <h2 className='AddTitle'>Zrealizuj kurs</h2>
-                <form className='loging kursModifier' onSubmit={onSubmitForm}>
-                        <div className="input-container">
-                            <label>Kurs </label>
-                            <CreatableSelect options={testyy2} defaultOptions onChange={handleChange} />
-                            <input type="number" name="nazwarodzaj" onChange={e => setKurs(e.target.selectedOption.value) } hidden />
-                            {/* <input type="number" name="kurs" onChange={e => setKurs(e.target.value) } required /> */}
-                        </div>
-                        <div className="input-container">
-                            <label>Dzień </label>
-                            {/* <input type="number" name="dzien" onChange={e => setDzien(e.target.value) } required /> */}
-                            <CreatableSelect options={testyy21} defaultOptions onChange={handleChange1} />
-                            <input type="number" name="dzien" onChange={e => setDzien(e.target.selectedOption.value) } hidden />
-                        </div>
-                        <div className="input-container">
-                            <label>Kierowca </label>
-                            {/* <input type="number" name="kierowca" onChange={e => setKier(e.target.value) } required /> */}
-                            <CreatableSelect options={testyy22} defaultOptions onChange={handleChange2} />
-                            <input type="number" name="nazwisko" onChange={e => setKier(e.target.selectedOption.value) } hidden />
-                        </div>
-                        <div className="input-container">
-                            <label>Autobus </label>
-                            {/* <input type="number" name="autobus"  onChange={e => setBusr(e.target.value) } required /> */}
-                            <CreatableSelect options={testyy23} defaultOptions onChange={handleChange3} />
-                            <input type="number" name="rejestracja" onChange={e => setBusr(e.target.selectedOption.value) } hidden />
-                        </div>
-                        <div className="button-container">
-                            <input type="submit" value="Dodaj"  />
-                        </div>
-                    </form>
-                </div>
-            <footer className="PageFooter">   
-                <p>2022 BD2 Projekt</p>
-            </footer>
-        </div>
+              <Link to="/DispatcherPanel" className='linkSettings'><button className="btnBack"> POWRÓT </button></Link>
+            </NavbarClean>
 
-        
+            <TimeAndDate/>
+
+            <h2 className="nameFetchTitle">Zarządzanie kursami</h2>  
+
+            <div className="mainDispKursy"><TableRealizacja/></div>
+
+            <div className="formPanels">
+
+              <h2 className='AddTitle'>Zrealizuj kurs</h2>
+
+              <form className='loging kursModifier' onSubmit={onSubmitForm}>
+
+                  <div className="input-container">
+                    <label>Kurs </label>
+                    <CreatableSelect options={KursData} defaultOptions onChange={handleChangeKurs} />
+                    <input type="number" name="nazwarodzaj" onChange={e => setKursId(e.target.selectedOption.value) } hidden />
+                  </div>
+
+                  <div className="input-container">
+                    <label>Dzień </label>
+                    <CreatableSelect options={DniTygData} defaultOptions onChange={handleChangeDniTyg} />
+                    <input type="number" name="dzien" onChange={e => setDzien(e.target.selectedOption.value) } hidden />
+                  </div>
+                  
+                  <div className="input-container">
+                    <label>Kierowca </label>
+                    <CreatableSelect options={dostKierData} defaultOptions onChange={handleChangeDostKier} />
+                    <input type="number" name="nazwisko" onChange={e => setKier(e.target.selectedOption.value) } hidden />
+                  </div>
+
+                  <div className="input-container">
+                    <label>Autobus </label>
+                    <CreatableSelect options={busyData} defaultOptions onChange={handleChangeBusy} />
+                    <input type="number" name="rejestracja" onChange={e => setBusr(e.target.selectedOption.value) } hidden />
+                  </div>
+
+                  <div className="button-container">
+                    <input type="submit" value="Dodaj"  />
+                  </div>
+
+              </form>
+
+            </div>
+
+            <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>
+
+        </div>
     );
 }
-
 export default DispatcherEdycjaKursy;

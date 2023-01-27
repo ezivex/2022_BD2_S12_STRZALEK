@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import {Link } from "react-router-dom";
-import NavbarClean from '../NavbarClean';
+import { Link } from "react-router-dom";
+import NavbarClean from '../components/NavbarClean';
 import TablePrzystanki from '../components/TablePrzystanki';
+
 function PanelPrzystanki() {
 
 // ----------------------------------------------
 const [nazwaprzystanku, SetNazwaprzystanku] = useState("");
-
 
 const onSubmitForm = async e => {
     e.preventDefault();
@@ -24,30 +24,33 @@ const onSubmitForm = async e => {
   };
 //  ---------------------------------------------------
 
-
     return (
         <div className="mainContainer">
-            <NavbarClean>
-                <Link to="/AdminPanel" className='linkSettings'>
-                    <button className="btnBack"> POWRÓT </button>
-                </Link>
-                </NavbarClean>
+
+            <NavbarClean><Link to="/AdminPanel" className='linkSettings'><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
+            
             <div className="mainPanels KursyModif">
-               <TablePrzystanki/>
+                <TablePrzystanki/>
+
                 <div className="formPanels">
-                <form className='loging kursyForm' onSubmit={onSubmitForm}>
+
+                    <form className='loging kursyForm' onSubmit={onSubmitForm}>
+
                         <div className="input-container">
                             <label>Nazwa Przystanku </label>
                             <input type="text" name="nazwaPrzystanku" onChange={e => SetNazwaprzystanku(e.target.value)} required />
                         </div>
-                        <div className="button-container">
-                            <input type="submit" value="Dodaj przystanek" />
-                        </div>
+
+                        <div className="button-container"><input type="submit" value="Dodaj przystanek" /></div>
+
                     </form>
-                    {/* drugi formularz */}
+
                 </div>
+
             </div>
-            <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>
+
+        <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>
+
         </div>
     );
 }

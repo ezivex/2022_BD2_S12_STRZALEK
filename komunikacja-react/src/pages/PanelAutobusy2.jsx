@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
-import NavbarClean from '../NavbarClean';
-
+import NavbarClean from '../components/NavbarClean';
 import CreatableSelect from "react-select/creatable";
 
 function PanelAutobusy2() {
@@ -12,6 +11,7 @@ const [rodzaj_autobusy, setRodzaj] = useState("");
 const [sprawnosc, setSprawnosc] = useState("");
 const [ostatni_przeglad, setOstatni] = useState("");
 const [nastepny_przeglad, setNastepny] = useState("");
+
 const onSubmitForm = async e => {
     e.preventDefault();
     try {
@@ -26,145 +26,100 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
-  const [items, setPrzystanek] = useState([]);
-  const getautobustyp = async () => {
+
+  const [rodzBusu, setRodzBusu] = useState([]);
+  const getRodzBusu = async () => {
     try {
       const response = await fetch("http://localhost:5000/rodzaj_autobusu");
       const jsonData = await response.json();
-
-      setPrzystanek(jsonData);
-      //setPrzystanek(jsonData.filter(jsonData => jsonData.linia === xd));
+      setRodzBusu(jsonData);
     } catch (err) {
       console.error(err.message);
     }
   };
+
   useEffect(() => {
-    getautobustyp();
+    getRodzBusu();
   }, []);
-//====
-const testyy2 = [];
-const getData = async () => {
-  let result = items;
-result.map((user) => {
-  return testyy2.push({value: user.id_rodzaj, label: user.nazwarodzaj});
-});
-};
-getData();
-console.log("testyy2");
-console.log(testyy2);
-const options = [];
-  
- const xd = () => {
-  console.log("zapisywanie do options");
-  items.forEach((element) => {
-    console.log(element.id_rodzaj);
-    console.log(typeof element.id_rodzaj);
-    //testyy = `${element.nazwalinii}`;
-    console.log(typeof '${element.nazwalinii}');
-    options.push({
-        value: element.id_rodzaj,
-        label: `${element.nazwarodzaj}`,
-    });
-    console.log(options);
-    console.log(options[0]);
-    //return options;
+
+let rodzBusuData = [];
+const getRodzBusuData = async () => {
+  let result = rodzBusu;
+  result.map((rodzBusu) => {
+    return rodzBusuData.push({value: rodzBusu.id_rodzaj, label: rodzBusu.nazwarodzaj});
   });
-
- };
-const handleChange = (selectedOption) => {
-//xd();
-console.log(selectedOption.value);
-setRodzaj(selectedOption.value);
-return selectedOption.value;
 };
-const loadOptions = (searchValue, callback) => {
-xd();
-setTimeout(() => {
-    console.log("loadOptions");
-    console.log(options);
-    console.log(testyy2);
+getRodzBusuData();
 
-    const filteredOptions = options.filter(option => option.label.includes(searchValue))
-    callback(filteredOptions);
-})
-}
-//===============
-const optionstf = [
+const handleChangeRodzBusu = (selectedOption) => {  
+    setRodzaj(selectedOption.value);
+    return selectedOption.value;
+};
+
+//=================================================================
+const sprawnosc_boolean = [
     {value: true, label: "tak"},
     {value: false, label: "nie"},
 ];
-const handleChange2 = (selectedOption2) => {
-    //xd();
-    console.log(selectedOption2.value);
-    setSprawnosc(selectedOption2.value);
-    return selectedOption2.value;
-    };
-    const loadOptions2 = (searchValue, callback) => {
-    xd();
-    setTimeout(() => {
-        console.log("loadOptions");
-        console.log(optionstf);
-        console.log(testyy2);
-    
-        const filteredOptions = optionstf.filter(optiontf => optiontf.label.includes(searchValue))
-        callback(filteredOptions);
-    })
-    }
-
-
-//  ---------------------------------------------------
+const handleChangeSprawnosc = (selectedOption2) => {
+        setSprawnosc(selectedOption2.value);
+        return selectedOption2.value;
+};
+//=================================================================
     return (
         <div className="mainContainer">
-            <NavbarClean>
-                <Link to="/PanelAutobusy" className='linkSettings'>
-                    <button className="btnBack"> POWRÓT </button>
-                </Link>
-            </NavbarClean>
+
+            <NavbarClean><Link to="/PanelAutobusy" className='linkSettings'><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
             
-            <div className="listPanelsTitle">
-                <p>Dodaj autobus</p>
-            </div>
+            <div className="listPanelsTitle"><p>Dodaj autobus</p></div>
    
             <div className="mainPanels">
 
                 <div className="formPanels">
+
                     <form className='loging' onSubmit={onSubmitForm}>
+
                         <div className="input-container">
                             <label>Marka </label>
                             <input type="text" name="marka" onChange={e => setMarka(e.target.value) } required />
                         </div>
+
                         <div className="input-container">
                             <label>Rejestracja </label>
                             <input type="text" name="rej" onChange={e => setRejestracja(e.target.value) } required />
                         </div>
+
                         <div className="input-container">
                             <label>Rodzaj</label>
-                            <CreatableSelect options={testyy2} defaultOptions onChange={handleChange} />
+                            <CreatableSelect options={rodzBusuData} defaultOptions onChange={handleChangeRodzBusu} />
                             <input type="number" name="nazwarodzaj" onChange={e => setRodzaj(e.target.selectedOption.value) } hidden />
-                            {/* <input type="number" name="rodzaj" onChange={e => setRodzaj(e.target.value) } required /> */}
                         </div>
+
                         <div className="input-container">
-                             <label>Ostatni Przeglad </label>
+                            <label>Ostatni Przeglad </label>
                             <input type="date" name="ostatni_przeglad" onChange={e => setOstatni(e.target.value) } required />
                         </div>
+
                         <div className="input-container">
-                             <label>Nastepny Przeglad </label>
+                            <label>Nastepny Przeglad </label>
                             <input type="date" name="nastepny_przeglad" onChange={e => setNastepny(e.target.value) } required />
                         </div>
+
                         <div className="input-container">
                              <label>Sprawnosc </label>
-                             <CreatableSelect options={optionstf} defaultOptions onChange={handleChange2} />
+                             <CreatableSelect options={sprawnosc_boolean} defaultOptions onChange={handleChangeSprawnosc} />
                             <input type="text" name="sprawnosc" onChange={e => setSprawnosc(e.target.selectedOption2.value) } hidden />
+                        </div>
 
-                            {/* <input type="text" name="sprawnosc" onChange={e => setSprawnosc(e.target.value) } /> */}
-                        </div>
-                        <div className="button-container">
-                            <input type="submit" value="Zapisz" />
-                        </div>
+                        <div className="button-container"><input type="submit" value="Zapisz" /></div>
                     </form>
+
                 </div>
+
             </div>
+
             <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>
+
         </div>
     );
 }

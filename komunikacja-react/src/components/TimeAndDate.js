@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 
 function TimeAndDate() {
     const [dateState, setDateState] = useState(new Date());
+
     useEffect(() => {
            setInterval(() => setDateState(new Date()), 3);
     }, []);
+
     return (
         <div className="currentDate">
 
             <p className='datePi'>
               {' '}
-              {dateState.toLocaleDateString('en-GB', {
+              {dateState.toLocaleDateString('pl-PL', {
                  day: 'numeric',
                  month: 'short',
                  year: 'numeric',
@@ -18,14 +20,14 @@ function TimeAndDate() {
             </p>
             
             <p className='datePi'>
-             {dateState.toLocaleString('en-US', {
+             {dateState.toLocaleString('pl-PL', {
                 hour: 'numeric',
                 minute: 'numeric',
-                hour12: true,
+                second: 'numeric',
+                hour12: false,
             })}
             </p>
         </div>
     );
 }
-
 export default TimeAndDate;

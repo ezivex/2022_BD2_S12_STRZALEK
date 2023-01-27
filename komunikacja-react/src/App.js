@@ -9,7 +9,6 @@ import ShowLinie from './pages/ShowLinie';
 import LoginPage from './pages/LoginPage';
 import TimeTablePage from './pages/TimeTablePage';
 
-
 import DriverPanel from "./pages/DriverPanel";
 import DriverDyspozycja from './pages/DriverDyspozycja';
 import DriverGrafik from './pages/DriverGrafik';
@@ -17,10 +16,8 @@ import DriverGrafik from './pages/DriverGrafik';
 import AdminPanel from './pages/AdminPanel';
 import PanelPrzystanki from './pages/PanelPrzystanki';
 import PanelLinia from './pages/PanelLinia';
-import PanelLinia2 from './pages/PanelLinia2';
 import PanelAutobusy from './pages/PanelAutobusy';
 import PanelAutobusy2 from './pages/PanelAutobusy2';
-import PanelAutobusy3 from './pages/PanelAutobusy3';
 import PanelKursy from './pages/PanelKursy';
 import PanelUser from './pages/PanelUser';
 import PanelUser2 from './pages/PanelUser2';
@@ -50,10 +47,8 @@ function App() {
         <Route path="HelpPage" element={<HelpPage />} />
         <Route path="PanelPrzystanki" element={<PanelPrzystanki />} />
         <Route path="PanelLinia" element={<PanelLinia />} />
-        <Route path="PanelLinia2" element={<PanelLinia2 />} />
         <Route path="PanelAutobusy" element={<PanelAutobusy />} />
         <Route path="PanelAutobusy2" element={<PanelAutobusy2 />} />
-        <Route path="PanelAutobusy3" element={<PanelAutobusy3 />} />
         <Route path="EditKurs" element={<EditKurs />} />
         <Route path="PanelKursy" element={<PanelKursy />} />
         <Route path="PanelUser" element={<PanelUser />} />
@@ -62,11 +57,10 @@ function App() {
         <Route path="DispatcherKursy" element={<DispatcherKursy />} />
         <Route path="DispatcherEdycjaKursy" element={<DispatcherEdycjaKursy />} />
         <Route path="LoginPage" element={<LoginPage />} /> 
-         <Route path="*" element={<NoPage />} /> 
+        <Route path="*" element={<NoPage />} /> 
       </Route>
     </Routes>
   </BrowserRouter>
   );
 }
-
 export default App;

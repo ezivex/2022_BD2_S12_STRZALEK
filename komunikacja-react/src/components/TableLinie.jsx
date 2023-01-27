@@ -64,7 +64,6 @@ const TableLinie = () => {
     <td>
       <Link to={`/EditLinia?id=${item.id_linii}`}>
         <button className='btnDel'>
-          {/* onClick={() => addRozkladJazdy(item.nazwalinii, item.id_przystankiwlini)} */}
           Edit
         </button>
       </Link>

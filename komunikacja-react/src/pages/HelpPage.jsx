@@ -1,30 +1,20 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import HelpDropdownList from '../components/HelpDropdownList';
-import NavbarClean from '../NavbarClean';
-
+import NavbarClean from '../components/NavbarClean';
 
 function HelpPage() {
     return (
         
-        <div className="helpContainer">
+    <div className="helpContainer">
 
-            <NavbarClean>
-                <Link to="/" className="linkSettings">
-                    <button className="btnBack"> POWRÓT </button>
-                </Link>
-            </NavbarClean>
+        <NavbarClean><Link to="/" className="linkSettings"><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
 
-            <div className="dropdownHolder">
-            <HelpDropdownList/>
-            </div>
+        <div className="dropdownHolder"><HelpDropdownList/></div>
 
-            <footer className="PageFooter btn_footer">
-                <p>2022 BD2 Projekt</p>   
-            </footer> 
+        <footer className="PageFooter btn_footer"><p>2022 BD2 Projekt</p></footer> 
 
-        </div>
+    </div>
     );
 }
-
 export default HelpPage;

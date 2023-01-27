@@ -51,11 +51,9 @@ const TableDelete = () => {
         <tr key={item.id_bus}>
           <td>{item.rejestracja}</td>
           <td>{item.marka}</td>
-          {/* <td>{item.rodzaj_autobusy}</td> */}
           <td>{item.nazwarodzaj}</td>
           <td>{item.ostatni_przeglad}</td>
           <td>{item.nastepny_przeglad}</td>
-          {/* <td>{(String(item.sprawnosc))}</td> */}
           <td>
           {(() => {
         if (item.sprawnosc === true) {

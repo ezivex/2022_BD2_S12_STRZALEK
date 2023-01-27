@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import {Link } from "react-router-dom";
-import NavbarClean from '../NavbarClean';
-import ListDataShowLinie from '../components/ListDataShowLinie';
+import { Link } from "react-router-dom";
+import NavbarClean from '../components/NavbarClean';
 import TableLinie from '../components/TableLinie';
-
 import CreatableSelect from "react-select/creatable";
-
-
-
-
 
 function PanelLinia() {
 
-// ----------------------------------------------
 const [nazwalinii, SetNazwalinii] = useState("");
 const [typ_linii, setTyp_linii] = useState("");
-
-
-
 
 const onSubmitForm = async e => {
     e.preventDefault();
@@ -33,120 +23,72 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
+
 //----select
-  const [items, setLinia] = useState([]);
-  const gettyp_linii = async () => {
+  const [typLinii, setTypLinii] = useState([]);
+  const getTypLinii = async () => {
     try {
       const response = await fetch("http://localhost:5000/typ_linii");
       const jsonData = await response.json();
-
-      setLinia(jsonData);
+      setTypLinii(jsonData);
     } catch (err) {
       console.error(err.message);
     }
   };
 
   useEffect(() => {
-    gettyp_linii();
+    getTypLinii();
   }, []);
+
 //====
-const testyy2 = [];
-const getData = async () => {
-  let result = items;
-result.map((user) => {
-  return testyy2.push({value: user.id_typ_linii, label: user.nazwa_typu});
-});
-};
-getData();
-console.log("testyy2");
-console.log(testyy2);
-const options = [];
-  
- const xd = () => {
-  console.log("zapisywanie do options");
-  items.forEach((element) => {
-    console.log(element.id_typ_linii);
-    console.log(typeof element.id_typ_linii);
-    //testyy = `${element.nazwalinii}`;
-    console.log(typeof '${element.nazwa_typu}');
-    options.push({
-        value: element.id_typ_linii,
-        label: `${element.nazwa_typu}`,
-    });
-    console.log(options);
-    console.log(options[0]);
-    //return options;
+let typLiniiData = [];
+const getTypLiniiData = async () => {
+  let result = typLinii;
+  result.map((typLini) => {
+    return typLiniiData.push({value: typLini.id_typ_linii, label: typLini.nazwa_typu});
   });
-
- };
-const handleChange = (selectedOption) => {
-//xd();
-console.log(selectedOption.value);
-setTyp_linii(selectedOption.value);
-return selectedOption.value;
 };
-const loadOptions = (searchValue, callback) => {
-xd();
-setTimeout(() => {
-    console.log("loadOptions");
-    console.log(options);
-    console.log(testyy2);
+getTypLiniiData();
 
-    const filteredOptions = options.filter(option => option.label.includes(searchValue))
-    callback(filteredOptions);
-})
-}
-//===============  
-
-
-//  ---------------------------------------------------
-
-
+const handleChangeTypLinii = (selectedOption) => {
+    return selectedOption.value;
+};
 
     return (
-        <div className="mainContainer">
-            <NavbarClean>
-                <Link to="/AdminPanel" className='linkSettings'>
-                    <button className="btnBack"> POWRÓT </button>
-                </Link>
+      <div className="mainContainer">
 
-                
-            </NavbarClean>
+          <NavbarClean><Link to="/AdminPanel" className='linkSettings'><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
 
-            <div className="mainPanel">
-                <div className="formPanels">
-                    <form className='loging formStyle' onSubmit={onSubmitForm}>
-                        <div className="input-container">
-                            <label>Nazwa Linii </label>
-                            <input type="text" name="nazwalinii" onChange={e => SetNazwalinii(e.target.value) } required />
-                        </div>
-                        <div className="input-container">
-                            <label>Typ Linii </label>
-                            <CreatableSelect options={testyy2} defaultOptions onChange={handleChange} />
-                             <input type="number" name="nazwa_typu" onChange={e => setTyp_linii(e.target.selectedOption.value) } hidden />
+          <div className="mainPanel">
 
-                            {/* <input type="number" name="typ_linii" onChange={e => setTyp_linii(e.target.value) } required /> */}
-                        </div>
-                        <div className="button-container">
-                            <input type="submit" value="Dodaj" />
-                        </div>
-                    </form>
+              <div className="formPanels">
+                    
+                  <form className='loging formStyle' onSubmit={onSubmitForm}>
+
+                      <div className="input-container">
+                          <label>Nazwa Linii </label>
+                          <input type="text" name="nazwalinii" onChange={e => SetNazwalinii(e.target.value) } required />
+                      </div>
+
+                      <div className="input-container">
+                          <label>Typ Linii </label>
+                          <CreatableSelect options={typLiniiData} defaultOptions onChange={handleChangeTypLinii} />
+                          <input type="number" name="nazwa_typu" onChange={e => setTyp_linii(e.target.selectedOption.value) } hidden />
+                      </div>
+
+                      <div className="button-container"><input type="submit" value="Dodaj" /></div>
+
+                  </form>
         
                 </div>
 
-                <div className="listPanels">
-                    <p className="listPanelsTitle">Linie</p>
-                           <TableLinie/>
-                </div>
-            </div>
+                <div className="listPanels"><p className="listPanelsTitle">Linie</p><TableLinie/></div>
 
-            <footer className="PageFooter"> 
-                <p>2022 BD2 Projekt</p>
-                
-            </footer>
+          </div>
+
+          <footer className="PageFooter"> <p>2022 BD2 Projekt</p></footer>
             
-        </div>
-    );
+      </div>
+  );
 }
-
 export default PanelLinia;
