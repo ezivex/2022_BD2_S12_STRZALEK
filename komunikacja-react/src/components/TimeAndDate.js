@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 function TimeAndDate() {
-    const [dateState, setDateState] = useState(new Date());
 
-    useEffect(() => {
-           setInterval(() => setDateState(new Date()), 3);
-    }, []);
+const [dateState, setDateState] = useState(new Date());
 
-    return (
+useEffect(() => {
+    setInterval(() => setDateState(new Date()), 3);
+}, []);
+
+return (
+        
         <div className="currentDate">
 
             <p className='datePi'>
@@ -27,7 +29,9 @@ function TimeAndDate() {
                 hour12: false,
             })}
             </p>
+            
         </div>
+
     );
 }
 export default TimeAndDate;

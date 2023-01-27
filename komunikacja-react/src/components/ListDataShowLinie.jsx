@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 const ListDataShowLinie = () => {
  
@@ -8,9 +9,7 @@ const ListDataShowLinie = () => {
     try {
       const response = await fetch("http://localhost:5000/linia");
       const jsonData = await response.json();
-
       setLinia(jsonData);
-
     } catch (err) {
       console.error(err.message);
     }
@@ -21,13 +20,17 @@ const ListDataShowLinie = () => {
   }, []);
 
   return (
+
     <div className='LinieShow'>
-    <ul className="listaLiniData">
-      {items.map(item => (
-        <li className='btnListData listDataModif' key={item.id}>{item.nazwalinii} </li>
-      ))}
-    </ul>
+
+        <ul className="listaLiniData">
+          {items.map(item => (
+          <Link className='linkLinia' to={`/CheckLinia?id=${item.id_linii}`}><li className='btnListData listDataModif listData' key={item.id}>{item.nazwalinii} </li></Link>  
+          ))}
+        </ul>
+
     </div>
+    
   );
 }
 export default ListDataShowLinie;

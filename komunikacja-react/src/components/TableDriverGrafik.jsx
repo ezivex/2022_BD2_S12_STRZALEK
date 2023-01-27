@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react';
 
 const TableDriverGrafik = () => {
  
-  const [items, setDostepnosc] = useState([]);
+const [items, setDostepnosc] = useState([]);
   
-  const deleteDostepnosc = async id => {
+const deleteDostepnosc = async id => {
     try {
       const deleteDostepnosc = await fetch(`http://localhost:5000/dostepnosci_kierowcow/${id}`, {
         method: "DELETE"
       });
-
       setDostepnosc(items.filter(item => item.id_dostkier !== id));
     } catch (err) {
       console.error(err.message);
     }
-  };
+};
 
-  const getDostepnosc = async () => {
+const getDostepnosc = async () => {
     try {
       const response = await fetch("http://localhost:5000/dostepnosci_kierowcow");
       const jsonData = await response.json();
@@ -25,23 +24,29 @@ const TableDriverGrafik = () => {
     } catch (err) {
       console.error(err.message);
     }
-  };
+};
 
-  useEffect(() => {
+useEffect(() => {
     getDostepnosc();
-  }, []);
+}, []);
 
-  return (
+return (
+
     <table className='tableData'>
+
     <thead>
+
       <tr>
         <th>Użytkownik</th>
         <th>Dzień</th>
         <th>Rodzaj zmiany</th>
         <th>Usuń dyspozycje</th>
       </tr>
+
     </thead>
+
     <tbody>
+
       {items.map(item => (
         <tr key={item.id_dostkier}>
           <td>{item.nazwisko}, {item.imie}</td>
@@ -56,8 +61,11 @@ const TableDriverGrafik = () => {
           </td> 
         </tr>
       ))}
+      
     </tbody>
+
   </table>
+
   );
 }
 export default TableDriverGrafik;

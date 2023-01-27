@@ -4,6 +4,7 @@ import React from "react";
 const Navbar = () => {
 
     return ( 
+      
       <nav className="Navbar">
 
           <div className="logoNavbar"><Link to="/">  <p>LOGO BUSY.PL</p></Link></div>
@@ -20,6 +21,7 @@ const Navbar = () => {
         </div>
 
     </nav>
+
   );
 }
 export default Navbar;

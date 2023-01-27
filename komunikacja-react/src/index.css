@@ -587,13 +587,13 @@ input[type="submit"]:hover {
 }
 /*  */
 .schedule-container {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    border: 1rem solid #C33142;
-    width: 85vw;
-    min-height: 60vh;
-    }
+ display: flex;
+flex-direction: column;
+padding: 2rem;
+border: 1rem solid #C33142;
+width: 85vw;
+min-height: 60vh;
+}
     
     .schedule-title {
     font-size: 2.5rem;
@@ -629,11 +629,18 @@ input[type="submit"]:hover {
     width: 80%;
     display: flex;
     justify-content: space-evenly;
-    }
-    .schedule-departure-text{
-        border: 2px solid pink;
-        font-weight: bold;
-        font-size: 1.4rem;
-        padding: 1rem;
-        color: #86222e;
-    }
+}
+.schedule-departure-text{
+border: 2px solid pink;
+font-weight: bold;
+font-size: 1.4rem;
+padding: 1rem;
+color: #86222e;
+}
+.linkLinia{
+    text-decoration: none;
+}
+.listData:hover{
+    cursor: pointer;
+    background-color: #86222e;
+}

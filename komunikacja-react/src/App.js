@@ -8,7 +8,7 @@ import ShowPrzystanki from './pages/ShowPrzystanki';
 import ShowLinie from './pages/ShowLinie';
 import LoginPage from './pages/LoginPage';
 import TimeTablePage from './pages/TimeTablePage';
-
+import CheckLinia from './pages/CheckLinia';
 import DriverPanel from "./pages/DriverPanel";
 import DriverDyspozycja from './pages/DriverDyspozycja';
 import DriverGrafik from './pages/DriverGrafik';
@@ -39,6 +39,7 @@ function App() {
         <Route path="ShowPrzystanki" element={<ShowPrzystanki />} />
         <Route path="TimeTablePage" element={<TimeTablePage />} />
         <Route path="ShowLinie" element={<ShowLinie />} />
+        <Route path="CheckLinia" element={<CheckLinia />} />
         <Route path="DriverPanel" element={<DriverPanel />} />
         <Route path="EditLinia" element={<EditLinia />} />
         <Route path="DriverDyspozycja" element={<DriverDyspozycja />} />
