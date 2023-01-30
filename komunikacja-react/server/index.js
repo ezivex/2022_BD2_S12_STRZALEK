@@ -623,12 +623,21 @@ app.post("/kurs_realizacja", async (req, res) => {
 //GET REALIZACJA
 app.get("/kurs_realizacja", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM kurs_realizacja ORDER BY id_realizacji ASC");
+    const allTodos = await pool.query("SELECT * FROM kurs_realizacja k, dni_tygodnia d, autobusy a, uzytkownicy u, dostepnosci_kierowcow dost, kurs ku, linia l where k.dzien_rel = d.id_dnityg and k.id_kierowcyrel = dost.id_dostkier and dost.id_uzytk = u.id_uzytkownik and k.id_busurel = a.id_bus and k.id_kursu = ku.id_kurs and ku.nazwalini_k = l.id_linii ORDER BY id_realizacji ASC");
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
   }
 });
+// //GET REALIZACJA (stare)
+// app.get("/kurs_realizacja", async (req, res) => {
+//   try {
+//     const allTodos = await pool.query("SELECT * FROM kurs_realizacja ORDER BY id_realizacji ASC");
+//     res.json(allTodos.rows);
+//   } catch (err) {
+//     console.error(err.message);
+//   }
+// });
 
 //DELETE UZYTKOWNIK
 

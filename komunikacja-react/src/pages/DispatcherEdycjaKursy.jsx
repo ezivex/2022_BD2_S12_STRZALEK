@@ -46,7 +46,7 @@ const KursData = [];
 const getKursData = async () => {
   let result = kurs;
   result.map((kurs) => {
-    return KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii});
+    return KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
   });
 };
 getKursData();

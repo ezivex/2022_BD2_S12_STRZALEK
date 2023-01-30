@@ -52,10 +52,10 @@ useEffect(() => {
 
           {items.map(item => (
             <tr key={item.id_realizacji}>
-              <td>{item.id_kursu}</td>
-              <td>{item.dzien_rel}</td>
-              <td>{item.id_kierowcyrel}</td>
-              <td>{item.id_busurel}</td>
+              <td>{item.id_kursu + ". " + item.nazwalinii + " (" + item.czas_odjazdu + ")"}</td>
+              <td>{item.dzien}</td>
+              <td>{item.imie + " " + item.nazwisko}</td>
+              <td>{item.marka + " (" + item.rejestracja + ")"}</td>
               <td>
               <button className='btnDel'onClick={() => deleteKurs(item.id_realizacji)}>
                   Delete
