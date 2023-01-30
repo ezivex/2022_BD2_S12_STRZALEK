@@ -79,83 +79,30 @@ return (
                     <td><input type="radio" name="przyst" value={item.id_przystlin} onChange={e => setIdPrzystankiwlini(e.target.value) }/>
                         {item.nazwaprzystanku}
                     </td>
-
                     {items2.reduce((reducedTable, item2) => {
-                      if (!reducedTable.length && item2.id_przystankiwlini === item.id_przystlin) {
-                          reducedTable.push(
-                            <td key={item2.id_rj}>
-                              <p>{item2.godzina_odjazdu}</p>
-                            </td>
-                          );
-                    }
+                    if (!reducedTable.length && item2.id_przystankiwlini === item.id_przystlin) {
+                        reducedTable.push(
+                          <td key={item2.id_rj}>
+                            <p>{item2.godzina_odjazdu}</p>
+                          </td>
+                        );
+                      }
                     return reducedTable;
-                    }, [])[0] || <td><p>nie przypisano</p></td>}
-
-                    <td>
+                    }, [])[0] || (
+                    <>
+                      <td><p>nie przypisano</p></td>
+                      <td>
                         <form onSubmit={onSubmitForm}>
-                        <input type="number" onChange={e => setGodzinaOdjazdu(e.target.value)} required />
-                        <button type="submit" className='btnDel'>Zaktualizuj</button>
-                        </form> 
-                    </td>
-                   
-                  </tr>
-                 ))}
-              </tbody>
-{/* -=------------------------------------------------------------------------ */}
-{/* wersja co dziala jest spoko nawet xD: */}
-{/* <tbody>
-              
-
-              
-                {items.map(item => (
-                  <tr key={item.id_kurs}>
-                    <td>{item.nazwalinii}</td>
-                    <td><input type="radio" name="przyst" value={item.id_przystlin} onChange={e => setIdPrzystankiwlini(e.target.value) }/>
-                        {item.nazwaprzystanku}
-                    </td>
-
-                    {items2.map(item2 => (                 
-                    <td key={item2.id_rj}>
-                      {item2.id_przystankiwlini === item.id_przystlin &&
-                      <p>godzina{item2.godzina_odjazdu}</p>
-                    }
-                    </td>
-                    ))}
-
-                    <td>
-                      <form onSubmit={onSubmitForm}>
-                          <input type="number" placeholder="godzina odjazdu" onChange={e => setGodzinaOdjazdu(e.target.value)} required />
-                          <button type="submit">Zaktualizuj</button>
-                      </form>
-                    </td>
+                          <input type="number" onChange={e => setGodzinaOdjazdu(e.target.value)} required />
+                          <button type="submit" className='btnDel'>Zaktualizuj</button>
+                        </form>
+                      </td>
+                    </>
+                  )}
                   </tr>
                  ))}
                  
-              </tbody> */}
-{/* -=------------------------------------------------------------------------ */}
-{/* Jakaś stara wersja coś tam: */}
-              {/* <tbody>
-                {items.map(item => (
-                  <tr key={item.id_kurs}>
-                    <td>{item.nazwalinii}</td>
-                    <td><input type="radio" name="przyst" value={item.id_przystlin} onChange={e => setIdPrzystankiwlini(e.target.value) }/>
-                        {item.nazwaprzystanku}
-                    </td>
-                    {items2.map(item2 => (                 
-                    <td key={item2.id_rj}>
-                      <p>godzina{item2.godzina_odjazdu}</p>
-                    </td>
-                    ))}
-                    <td>
-                      <form onSubmit={onSubmitForm}>
-                          <input type="number" placeholder="godzina odjazdu" onChange={e => setGodzinaOdjazdu(e.target.value)} required />
-                          <button type="submit">Zaktualizuj</button>
-                      </form>
-                    </td>
-                  </tr>
-                 ))}
-
-              </tbody> */}
+              </tbody>
 
           </table>
 
