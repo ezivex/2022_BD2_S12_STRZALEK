@@ -79,11 +79,13 @@ return (
                         {item.nazwaprzystanku}
                     </td>
 
+                    
+                
+
                     {items2.map(item2 => (                 
                     <td key={item2.id_rj}>
-                      {item2.id_przystankiwlini === item.id_przystlin &&
-                      <p>godzina{item2.godzina_odjazdu}</p>
-                    }
+                      {(items2.filter(item2 => item2.id_przystankiwlini === item.id_przystlin) ? <p>godzina{item2.godzina_odjazdu}</p> : <p>nie</p>
+                    )}
                     </td>
                     ))}
 
