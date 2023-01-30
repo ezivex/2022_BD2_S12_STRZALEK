@@ -68,6 +68,7 @@ return (
                 <th>Przystanki w linii nazwalini</th>
                 <th>Przystanki w linii nazwa przystanku</th>
                 <th>Godzina odjazdu</th>
+                <th>Wpisz godzine</th>
               </tr>
             </thead>
             
@@ -79,26 +80,22 @@ return (
                         {item.nazwaprzystanku}
                     </td>
 
-                    
-                
-
-                    {items2.map(item2 => (                 
-                    <td key={item2.id_rj}>
-                      {(items2.filter(item2 => item2.id_przystankiwlini === item.id_przystlin) ? <p>godzina{item2.godzina_odjazdu}</p> : <p>nie</p>
-                    )}
-                    </td>
-                    ))}
-
+                    {items2.reduce((reducedTable, item2) => {
+                      if (!reducedTable.length && item2.id_przystankiwlini === item.id_przystlin) {
+                          reducedTable.push(
+                            <td key={item2.id_rj}>
+                              <p>{item2.godzina_odjazdu}</p>
+                            </td>
+                          );
+                    }
+                    return reducedTable;
+                    }, [])[0] || <td><p>nie przypisano</p></td>}
 
                     <td>
-                      
-                        
                         <form onSubmit={onSubmitForm}>
-                        <input type="number" placeholder="godzina odjazdu" onChange={e => setGodzinaOdjazdu(e.target.value)} required />
-                        <button type="submit">Zaktualizuj</button>
-                        </form>
-                      
-                      
+                        <input type="number" onChange={e => setGodzinaOdjazdu(e.target.value)} required />
+                        <button type="submit" className='btnDel'>Zaktualizuj</button>
+                        </form> 
                     </td>
                    
                   </tr>
