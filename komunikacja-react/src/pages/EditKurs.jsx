@@ -37,15 +37,22 @@ function EditKurs() {
       }, []);
 
 let LiniaData = [];
+let LiniaDatagodz = [];
 
 const getLiniaData = async () => {
   let result = linia;
   result.map((linia) => {
     LiniaData = linia.nazwalinii;
   });
+};const getLiniaDatagodz = async () => {
+  let result = linia;
+  result.map((linia) => {
+    LiniaDatagodz = linia.czas_odjazdu;
+  });
 };
 
 getLiniaData();
+getLiniaDatagodz();
 
   return (
 
@@ -53,7 +60,7 @@ getLiniaData();
 
       <NavbarClean><Link to="/PanelKursy" className='linkSettings'><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
 
-      <div className="nameFetchTitle"><p>Kurs {idk}</p><p>Nazwa linii: {LiniaData}</p></div>
+      <div className="nameFetchTitle"><p>Kurs {idk}</p><p>Nazwa linii: {LiniaData}</p><p>Godzina odjazdu(z bazy):{LiniaDatagodz}</p></div>
 
       <div className="mainPanels"><div className="listPanels"><TableEditKursy/></div></div>
 
