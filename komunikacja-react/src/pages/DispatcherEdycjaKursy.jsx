@@ -83,27 +83,76 @@ const KursData = [];
 const getKursData = async () => {
   let result = kurs;
   var i = 0;
+  // for(i;i<nazywkursrealziacja.length;i++)
+  // {
+    result.map((kurs) => {
+      //nazywkursrealziacja.forEach((data) => {
+      
+        // if(kurs.id_kurs !== nazywkursrealziacja[i])
+        // {
+          // if(!KursData.includes(kurs.id_kurs))
+          // {
+          //   KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
+          // }
+          // if(parseInt(kurs.id_kurs) === KursData.find(element => element.value === kurs.id_kurs)){
+          //   console.log("sxd");
+          // }
+          
+        //}    
+      KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
+      //usuwanie tego co juz jest:
+      //for(i;i<nazywkursrealziacja.length;i++){
+        console.log(i);
+        console.log(KursData);
+
+        console.log("======================");
+        nazywkursrealziacja.forEach(element => {
+          console.log("hej");
+          //console.log(element);
+          let index = KursData.findIndex(eleme => eleme.value === element);
+        console.log("to jest index:  " + index);
+        
+        if (index !== -1) {
+          KursData.splice(index,1);
+        }
+        });
+        console.log("======================");
+        // var index = KursData.findIndex(eleme => eleme.value === nazywkursrealziacja[0]);
+        // console.log("to jest index:  "+index);
+        // if (index !== -1) {
+        //   KursData.splice(index,1);
+        // }
+        // var index = KursData.findIndex(eleme => eleme.value === nazywkursrealziacja[1]);
+        // console.log("to jest index:  "+index);
+        
+        // if (index !== -1) {
+        //   KursData.splice(index,1);
+        // }
+
+
+
+      //}
+      
+      //})
+      return KursData
+      // if(kurs.id_kurs !== nazywkursrealziacja[0])
+      // {
+      //   return KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
+      // }
+     
+    });
+  //}
   
-  result.map((kurs) => {
-    //nazywkursrealziacja.forEach((data) => {
-    
-      if(kurs.id_kurs !== nazywkursrealziacja[0])
-      {
-        KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
-      }    
-  
-    //})
-    return KursData
-    // if(kurs.id_kurs !== nazywkursrealziacja[0])
-    // {
-    //   return KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
-    // }
-   
-  });
   console.log("result");
   console.log(result.czas_odjazdu);
+  console.log("wynik wazny");
+  console.log(KursData[0].value);
 };
 getKursData();
+
+
+
+
 let czasodjazdukursu = [];
 const handleChangeKurs = (selectedOption) => {
   setKursId(selectedOption.value);

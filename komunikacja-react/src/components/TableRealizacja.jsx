@@ -11,6 +11,7 @@ const deleteKurs = async id => {
       });
 
       setKurs(items.filter(item => item.id_realizacji !== id));
+      window.location.reload(false);
     } catch (err) {
       console.error(err.message);
     }
