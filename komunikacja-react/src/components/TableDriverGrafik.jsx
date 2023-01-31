@@ -49,7 +49,7 @@ return (
 
       {items.map(item => (
         <tr key={item.id_dostkier}>
-          <td>{item.nazwisko}, {item.imie}</td>
+          <td>{item.nazwisko} {item.imie}</td>
           <td>{item.dzien}</td>
           <td>{item.rodzaj_zmiany}</td>
            <td>

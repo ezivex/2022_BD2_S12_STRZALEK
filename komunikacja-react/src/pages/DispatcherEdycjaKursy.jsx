@@ -8,13 +8,14 @@ import CreatableSelect from "react-select/creatable";
 function DispatcherEdycjaKursy() {
 
 const [id_kursu, setKursId] = useState("");
-const [dzien_rel, setDzien] = useState("");
+//const [dzien_rel, setDzien] = useState("");
 const [id_kierowcyrel, setKier] = useState("");
 const [id_busurel, setBusr] = useState("");
 
 const onSubmitForm = async e => {
     e.preventDefault();
     try {
+      let dzien_rel = 1
       const body = { id_kursu,dzien_rel,id_kierowcyrel,id_busurel };
       const response = await fetch("http://localhost:5000/kurs_realizacja", {
         method: "POST",
@@ -48,45 +49,82 @@ const getKursData = async () => {
   result.map((kurs) => {
     return KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
   });
+  console.log("result");
+  console.log(result.czas_odjazdu);
 };
 getKursData();
-  
+let czasodjazdukursu = [];
 const handleChangeKurs = (selectedOption) => {
   setKursId(selectedOption.value);
+  console.log("siema");
+  console.log(selectedOption.value);
   return selectedOption.value;
 };
+//moje
+console.log("id_kursu");
+console.log("id_kursu: " + id_kursu);
+
+const kursgodzinastartu = [];
+const kursrodzajbus = [];
+const mojafun = async () => {
+  let result2 = kurs;
+  result2.map((kurs) => {
+    if(kurs.id_kurs === id_kursu)
+    {
+      //kursgodzinastartu = kurs.czas_odjazdu;
+      kursgodzinastartu.push(kurs.czas_odjazdu);
+      kursrodzajbus.push(kurs.rbus_k);
+    }
+    // kursgodzinastartu = kurs.filter(item => item.id_kurs === id_kursu).push(kurs.czas_odjazdu);
+    // return kursgodzinastartu.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
+  });
+  return kursgodzinastartu
+  console.log("kursgodzinastartu");
+  console.log(kursgodzinastartu);
+};
+mojafun();
+console.log("kursgodzinastartu");
+console.log(kursgodzinastartu);
+console.log("kursrodzajbus");
+console.log(kursrodzajbus);
+
+
 //========================= End Of Wybor kursu =========================
 
+//if (KursData.id_kurs === id_kurs) console.log("dobrze");;
+//console.log("czas_odjazdu: " + KursData);
+//console.log(kurs);
+// console.log("czas odjazduuu:  " + czasodjazdukursu);
 
 //============================ Dni Tygodnia ============================
-const [dniTyg, setDniTyg] = useState([]);
-const getDniTyg = async () => {
-  try {
-    const response = await fetch("http://localhost:5000/dni_tygodnia");
-    const jsonData = await response.json();
-    setDniTyg(jsonData);
-  } catch (err) {
-    console.error(err.message);
-  }
-};
+// const [dniTyg, setDniTyg] = useState([]);
+// const getDniTyg = async () => {
+//   try {
+//     const response = await fetch("http://localhost:5000/dni_tygodnia");
+//     const jsonData = await response.json();
+//     setDniTyg(jsonData);
+//   } catch (err) {
+//     console.error(err.message);
+//   }
+// };
 
-useEffect(() => {
-  getDniTyg();
-}, []);
+// useEffect(() => {
+//   getDniTyg();
+// }, []);
 
-const DniTygData = [];
-const getDniTygData = async () => {
-  let result = dniTyg;
-  result.map((dniTyg) => {
-    return DniTygData.push({value: dniTyg.id_dnityg, label: dniTyg.dzien});
-  });
-};
-getDniTygData();
+// const DniTygData = [];
+// const getDniTygData = async () => {
+//   let result = dniTyg;
+//   result.map((dniTyg) => {
+//     return DniTygData.push({value: dniTyg.id_dnityg, label: dniTyg.dzien});
+//   });
+// };
+// getDniTygData();
 
-const handleChangeDniTyg = (selectedOption) => {
-setDzien(selectedOption.value);
-return selectedOption.value;
-};
+// const handleChangeDniTyg = (selectedOption) => {
+// setDzien(selectedOption.value);
+// return selectedOption.value;
+// };
 //=========================End of Dni Tygodnia =========================
 
 //========================= Wybor kierowcy =============================
@@ -96,6 +134,7 @@ const getDostKier = async () => {
     const response = await fetch("http://localhost:5000/dostepnosci_kierowcow");
     const jsonData = await response.json();
     setDostKier(jsonData);
+    // setDostKier(jsonData.filter(item => (parseInt(item.rodzaj_zmiany) * 10) < 10));
   } catch (err) {
     console.error(err.message);
   }
@@ -107,8 +146,29 @@ useEffect(() => {
 let dostKierData = [];
 const getDostKierData = async () => {
   let result = dostKier;
+  //filtrowanie
+  let gs = [];
+  let gz = [];
+  
+  // if(dostepnosc.rodzaj_zmiany === 1) ? gs === 6 :  ;
   result.map((dostepnosc) => {
-    return dostKierData.push({value: dostepnosc.id_dostkier, label: dostepnosc.nazwisko + " " + dostepnosc.imie});
+    // {dostepnosc.rodzaj_zmiany === 1
+    //   ? gs = 8 && gz = 16
+    //   : gs = 16
+    // }
+    if(dostepnosc.rodzaj_zmiany === 1)
+    {
+      gs = 8;
+      gz = 16;
+    }else{
+      gs = 16;
+      gz = 24;
+    }
+    let x = kursgodzinastartu;//tutaj czas odjazdu wartosc ma byc
+    if(gs < x && gz > x){
+      dostKierData.push({value: dostepnosc.id_dostkier, label: dostepnosc.nazwisko + " " + dostepnosc.imie});
+    }
+    return dostKierData;
   });
 };
 getDostKierData();
@@ -139,7 +199,17 @@ let busyData = [];
 const getBusyData = async () => {
   let result = Busy;
   result.map((bus) => {
-    return busyData.push({value: bus.id_bus, label: "Marka: " + bus.marka + " " + "Rejestracja: " +bus.rejestracja});
+
+    let x = kursrodzajbus;
+    console.log(typeof x);
+    if(parseInt(bus.rodzaj_autobusy) === parseInt(x))
+    {
+      busyData.push({value: bus.id_bus, label: "Marka: " + bus.marka + " " + "Rejestracja: " +bus.rejestracja});
+    }
+    return busyData;
+    
+
+
   });
 };
 getBusyData();
@@ -149,6 +219,8 @@ const handleChangeBusy = (selectedOption) => {
     return selectedOption.value;
 };
 //=========================== End of Wybór Autobusu =============================
+// console.log("id_kursu");
+// console.log("id_kursu: " + id_kursu);
 
     return ( 
         <div className="mainContainer">
@@ -175,11 +247,11 @@ const handleChangeBusy = (selectedOption) => {
                     <input type="number" name="nazwarodzaj" onChange={e => setKursId(e.target.selectedOption.value) } hidden />
                   </div>
 
-                  <div className="input-container">
+                  {/* <div className="input-container">
                     <label>Dzień </label>
                     <CreatableSelect options={DniTygData} defaultOptions onChange={handleChangeDniTyg} />
                     <input type="number" name="dzien" onChange={e => setDzien(e.target.selectedOption.value) } hidden />
-                  </div>
+                  </div> */}
                   
                   <div className="input-container">
                     <label>Kierowca </label>

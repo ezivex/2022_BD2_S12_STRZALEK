@@ -9,9 +9,26 @@ const queryParams = new URLSearchParams(location.search);
 const idk = queryParams.get('id');
 const [zmienna, setPgetPrzystanekwLinii] = useState(idk);
 
+// const getPrzystanekwLinii = async () => {
+//     try {
+//         const response = await fetch("http://localhost:5000/przystanekwLinii");
+//         const jsonData = await response.json();
+//         const xd = parseInt(zmienna);
+//         setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === xd));
+//     } catch (err) {
+//         console.error(err.message);
+//     }
+// };
+  
+// useEffect(() => {
+//     getPrzystanekwLinii();
+// }, []);
+
+
+
 const getPrzystanekwLinii = async () => {
     try {
-        const response = await fetch("http://localhost:5000/przystanekwLinii");
+        const response = await fetch("http://localhost:5000/rozklad_jazdy");
         const jsonData = await response.json();
         const xd = parseInt(zmienna);
         setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === xd));
@@ -23,6 +40,7 @@ const getPrzystanekwLinii = async () => {
 useEffect(() => {
     getPrzystanekwLinii();
 }, []);
+
   
  return (
 
@@ -40,7 +58,7 @@ useEffect(() => {
 
               <tbody>
                   {items.map(item => (
-                      <tr key={item.id_przystlin}>
+                      <tr key={item.id_rj}>
                           <td>{item.nazwaprzystanku}</td>
                           <td>Godzina</td>
                       </tr>

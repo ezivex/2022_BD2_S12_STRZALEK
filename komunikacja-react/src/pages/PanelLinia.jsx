@@ -51,6 +51,7 @@ const getTypLiniiData = async () => {
 getTypLiniiData();
 
 const handleChangeTypLinii = (selectedOption) => {
+    setTyp_linii(selectedOption.value);
     return selectedOption.value;
 };
 
