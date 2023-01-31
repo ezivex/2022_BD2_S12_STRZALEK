@@ -23,18 +23,24 @@ const getKursrealizacjaa = async () => {
 useEffect(() => {
   getKursrealizacjaa();
 }, []);
+let nazywkursrealziacjakierowcy = [];
+let nazywkursrealziacjabus = [];
 const mojafun2 = async () => {
   let result3 = kursrealizacjaDanee;
   result3.map((kurs) => {
       nazywkursrealziacja.push(kurs.id_kursu);
+      nazywkursrealziacjakierowcy.push(kurs.id_kierowcyrel);
+      nazywkursrealziacjabus.push(kurs.id_busurel);
   });
-  return nazywkursrealziacja
+  return nazywkursrealziacja;
+  return nazywkursrealziacjakierowcy;
+  return nazywkursrealziacjabus;
   console.log("nazywkursrealziacja");
   console.log(nazywkursrealziacja);
 };
 mojafun2();
 console.log("nazywkursrealziacja");
-console.log(nazywkursrealziacja);
+console.log(nazywkursrealziacjabus);
 //--
 
 
@@ -268,6 +274,21 @@ const getDostKierData = async () => {
     if(gs < x && gz > x){
       dostKierData.push({value: dostepnosc.id_dostkier, label: dostepnosc.nazwisko + " " + dostepnosc.imie});
     }
+    //usuwanie tego co juz bylo
+    console.log("======================");
+    nazywkursrealziacjakierowcy.forEach(element => {
+      console.log("hej");
+      //console.log(element);
+      let index = dostKierData.findIndex(eleme => eleme.value === element);
+    console.log("to jest index:  " + index);
+    
+    if (index !== -1) {
+      dostKierData.splice(index,1);
+    }
+    });
+    console.log("======================");
+
+
     return dostKierData;
   });
 };
@@ -306,6 +327,22 @@ const getBusyData = async () => {
     {
       busyData.push({value: bus.id_bus, label: "Marka: " + bus.marka + " " + "Rejestracja: " +bus.rejestracja});
     }
+    //usuwanie tego co juz bylo
+    console.log("======================");
+    nazywkursrealziacjabus.forEach(element => {
+      console.log("hej");
+      //console.log(element);
+      let index = busyData.findIndex(eleme => eleme.value === element);
+    console.log("to jest index:  " + index);
+    
+    if (index !== -1) {
+      busyData.splice(index,1);
+    }
+    });
+    console.log("======================");
+
+
+    
     return busyData;
     
 
