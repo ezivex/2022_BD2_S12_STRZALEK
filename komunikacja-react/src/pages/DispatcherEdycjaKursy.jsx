@@ -7,6 +7,37 @@ import CreatableSelect from "react-select/creatable";
 
 function DispatcherEdycjaKursy() {
 
+//get kurs_realizacja
+let nazywkursrealziacja = [];
+const [kursrealizacjaDanee, setKursrealizacaaa] = useState([]);
+const getKursrealizacjaa = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/kurs_realizacja");
+    const jsonData = await response.json();
+
+    setKursrealizacaaa(jsonData);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+useEffect(() => {
+  getKursrealizacjaa();
+}, []);
+const mojafun2 = async () => {
+  let result3 = kursrealizacjaDanee;
+  result3.map((kurs) => {
+      nazywkursrealziacja.push(kurs.id_kursu);
+  });
+  return nazywkursrealziacja
+  console.log("nazywkursrealziacja");
+  console.log(nazywkursrealziacja);
+};
+mojafun2();
+console.log("nazywkursrealziacja");
+console.log(nazywkursrealziacja);
+//--
+
+
 const [id_kursu, setKursId] = useState("");
 //const [dzien_rel, setDzien] = useState("");
 const [id_kierowcyrel, setKier] = useState("");
@@ -29,11 +60,14 @@ const onSubmitForm = async e => {
   };
 //========================= Wybor kursu =========================
 const [kurs, setKurs] = useState([]);
+
 const getKurs = async () => {
   try {
     const response = await fetch("http://localhost:5000/kurs");
     const jsonData = await response.json();
     setKurs(jsonData);
+    //setKurs(jsonData.filter(jsonData => jsonData.id_kurs !== 10));
+   
   } catch (err) {
     console.error(err.message);
   }
@@ -43,11 +77,28 @@ useEffect(() => {
   getKurs();
 }, []);
 
+
+
 const KursData = [];
 const getKursData = async () => {
   let result = kurs;
+  var i = 0;
+  
   result.map((kurs) => {
-    return KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
+    //nazywkursrealziacja.forEach((data) => {
+    
+      if(kurs.id_kurs !== nazywkursrealziacja[0])
+      {
+        KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
+      }    
+  
+    //})
+    return KursData
+    // if(kurs.id_kurs !== nazywkursrealziacja[0])
+    // {
+    //   return KursData.push({value: kurs.id_kurs, label: kurs.id_kurs + "." + kurs.nazwalinii + " (" + kurs.czas_odjazdu + ")"});
+    // }
+   
   });
   console.log("result");
   console.log(result.czas_odjazdu);
