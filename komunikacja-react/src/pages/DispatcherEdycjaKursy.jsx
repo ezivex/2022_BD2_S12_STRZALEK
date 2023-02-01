@@ -148,7 +148,6 @@ const getKursData = async () => {
      
     });
   //}
-  
   console.log("result");
   console.log(result.czas_odjazdu);
   console.log("wynik wazny");

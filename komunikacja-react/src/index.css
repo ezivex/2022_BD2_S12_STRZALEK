@@ -23,10 +23,10 @@
     cursor: pointer;
 }
 .btn_przystanki{
-    background-image: url("./graphics/btn_przystanki.svg");
+    /* background-image: url("./graphics/btn_przystanki.svg"); */
 }
 .btn_linie{
-    background-image: url("./graphics/btn_linie.svg");
+    /* background-image: url("./graphics/btn_linie.svg"); */
 }
 .PageFooter{
     display: flex;
