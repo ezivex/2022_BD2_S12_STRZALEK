@@ -64,7 +64,6 @@ const generatePDF = async () => {
 //                 godzinyprzystankujednego.push(ele.godzina_odjazdu + "  |  ");
 //                 console.log(godzinyprzystankujednego);
 //             }
-        
 //         });
 //         //teraz to zapisać do mapy już na stałe
 //         daneprzysgodz.push({value: element, label:  godzinyprzystankujednego});
@@ -73,6 +72,8 @@ const generatePDF = async () => {
         
 //   };
 //   mojafun2();
+const tmp4 = [];
+const nazwaprzystankuxd = ["A", "B"];
 const kursyall = [];
 const wszystkiekursyy = [];
 const xdxdxd = [];
@@ -115,30 +116,114 @@ const mojafun2 = async () => {
         //     console.log(godzinyprzystankujednego);
         // }
 
-
+            var nowagodz = [];
         //nazyw przystankow biore
         wszystkiekursyy.forEach(element => {
             if(ele.id_linii === element){
             {
-                if(!nowa.includes(ele.id_przystankiwlini))
-                    nowa.push(ele.id_przystankiwlini);
+                console.log(element);
+                
+                nowa.push(ele.id_przystankiwlini);//id przystanku biore
+                nowagodz.push(ele.godzina_odjazdu);
+                // if(!nowa.includes(ele.id_przystankiwlini))
+                // {
+                //     nowa.push(ele.id_przystankiwlini);
+                // }
+                    
                     //console.log(godzinyprzystankujednego);
+                    
                 }
                 //nowa.push(element);
-                console.log("opopop" + nowa);
+                console.log("opopop " + nowa);
+                przystaneczkikochane.push({value: element, label:  nowa, labelnazwa: ele.nazwaprzystanku, godz: ele.godzina_odjazdu});
+                nowa = [];//reset
             }
             
-            //przystaneczkikochane.push({value: element, label:  nowa});
-            //nowa = [];//reset
+            
     })
     
 
         return kursyall;
     });
-
+    
+    console.log(przystaneczkikochane);//wszystkei przystanki do kurs i ich godz
     console.log("opopop koniec");
+    let nazwyprzystdokazdegokursu = [];//narazie tylko przystanki same bez niczzego zwykly array
+    var jeden = [];
+    var dwa = [];
+    var trzy = [];
+    var cztery = [];
+    przystaneczkikochane.forEach(element => {
+        wszystkiekursyy.forEach(element2 => {
+          //pętla po wszystkich kursach jakie sa (3)
+          if(element2 === element.value)
+          {
+            //teraz tak zeby przystanki sie nie powtarzaly czyli ten label
+            cztery.push({value: element.value, label: element.label});
+          }
+        })
+        dwa = element.value;
+        trzy = element.label;
+        //cztery = element.godz;
+
+        jeden.push({valuekurs: element.value, labelprzyst: element.label, labelgodz: element.godz});
+
+        // if(element.value === 8)
+        // {
+
+        //     nazwyprzystdokazdegokursu.push(element.label);
+        //     // if(!nazwyprzystdokazdegokursu.includes(element.label))
+        //     // {
+        //     //     nazwyprzystdokazdegokursu.push(element.label);
+        //     // }
+        // }
+        // console.log("xd " + nazwyprzystdokazdegokursu);
+        // console.log(nazwyprzystdokazdegokursu);
+
+        //nazwyprzystdokazdegokursu.push(element.label);
 
 
+        // result3.map((ele) => {
+        //     if(ele.id_przystankiwlini === element.label){
+        //         if(!nazwyprzystdokazdegokursu.includes(ele.nazwaprzystanku))
+        //         {
+        //             nazwyprzystdokazdegokursu.push(ele.nazwaprzystanku);
+        //         }
+        //     }
+        // });
+    });
+    console.log("xd " + nazwyprzystdokazdegokursu);
+    console.log(nazwyprzystdokazdegokursu);
+    console.log("czteryy  => " + cztery);
+    console.log(cztery);
+    let piec = [...new Set(cztery.map((el)=>el.label[0]))];
+    console.log(piec);//same przystanki unikalne
+    var tmp3 = [];
+    //var tmp4 = [];
+    var tmp5 = [];
+    var tmp6 = [];
+    piec.forEach(ele2 => {
+        przystaneczkikochane.forEach(element => {
+        
+            if(element.label[0] === ele2){
+                //czyli przystanki sa rowne to zapisujemy godzine
+                tmp3.push(element.godz);
+                tmp5 = element.value;
+                tmp6 = element.labelnazwa;
+                return tmp3;
+                //console.log(tmp3 + " " + element.label);
+            }
+           // console.log(tmp3 + " " + element.label);
+        })
+        console.log(tmp3 );
+        tmp4.push({valuekursid: tmp5, value: ele2, labelnazwaprzyst: tmp6 ,  label : tmp3});//wszystkie przystanki wraz z ich godzinami
+        console.log(tmp4);
+        console.log(tmp5 );
+        tmp3 = [];
+    });
+    console.log("+++++++++++++++++++");
+    console.log(tmp3);
+    console.log("+++++++++++++++++++");
     //teraz do kazdego lini id daje nazwe tej lini
     let nazywkursunormalnie = [];
     wszystkiekursyy.forEach(element => {
@@ -150,8 +235,14 @@ const mojafun2 = async () => {
                 }
             }
         });
+
+
+        // przystaneczkikochane.forEach(element => {
+        //     nazwaprzystankuxd
+        // });
+
         //teraz to zapisać do mapy już na stałe
-        xdxdxd.push({value: element, label:  nazywkursunormalnie, co: "siemani co tam"});
+        xdxdxd.push({value: element, label:  nazywkursunormalnie, co: nazwaprzystankuxd});
         nazywkursunormalnie = [];//reset
     });
 
@@ -174,61 +265,53 @@ console.log(xdxdxd);
 console.log("====");
 };
 mojafun2();
-
+console.log(tmp4);//tutaj wszystko jest kurs jego przystanki i jego godz.
+const i = 0;
 return (
 
     <div>
 
       <button onClick={generatePDF}>Generuj PDF</button>
 
-      <div className="schedule-container" ref={printRef}>
-        {schedule.reduce((unique, item) => {
-            
-            //unique.push(item);
-            unique = xdxdxd;
-            // if (!unique.some(x => x.id_przystankiwlini === item.id_przystankiwlini)) {
-            //     unique.push(item);
-            // }
-         
-            return unique;//to jest shedule
-        }, []).map((item, index) => (
-            <div key={item.id_rj}>
-                {(index === 0 || item.value) && (
-                    // xdxdxd.map((ele) => {
-                    //     <h2 className="schedule-title">Nazwa kursu: {ele.value}</h2>
-                    // })                
-                    <h2 className="schedule-title">Nazwa kursu: {item.label}</h2>
-                    //wyswietlaja sie wszystkie kursy jakie sa git.
-                )}
+      <div>
+      {xdxdxd.map(item => (
+                      <tr key={item.value}>
+                          <td>
+                            {item.label}
+                            <table className='tableData'>
+              <thead>
 
-                <div className="schedule-details-container">
-                    <div className="schedule-details">
-                        <div className="schedule-stop-id">Nazwa przystanku: 
-                        {item.nazwaprzystanku}
-                        </div>
-                        <div className="schedule-departure-time">Godziny odjazdów: 
-                        {/* godziny: */}
-                        <p className="schedule-departure-text">{(schedule.filter(x => x.nazwa_kursu_id === item.nazwa_kursu_id && x.id_przystankiwlini === item.id_przystankiwlini).length > 1 ? schedule.filter(x => x.nazwa_kursu_id === item.nazwa_kursu_id && x.id_przystankiwlini === item.id_przystankiwlini).map(x => x.godzina_odjazdu).join(', ') : item.godzina_odjazdu)}</p>
-                        <p className="schedule-departure-text">da</p>
-                        <p className="schedule-departure-text">da</p>
-                        <p className="schedule-departure-text">da</p>
-                        <p className="schedule-departure-text">da</p>
-                        {/* <p className="schedule-departure-text">{(schedule.filter(x => x.nazwa_kursu_id === item.nazwa_kursu_id && x.id_przystankiwlini === item.id_przystankiwlini).length > 1 ? schedule.filter(x => x.nazwa_kursu_id === item.nazwa_kursu_id && x.id_przystankiwlini === item.id_przystankiwlini).map(x => x.godzina_odjazdu).join(', ') : item.godzina_odjazdu)}</p> */}
-                        </div>
-                    </div>
-                </div>
+                  <tr>
+                      <th>przystanek</th>
+                      <th>godz</th>
+                  </tr>
 
+              </thead>
 
+              {/* <tbody>
+                  {items.map(item => (
+                      <tr key={item.id_rj}>
+                          <td>{item.nazwaprzystanku}</td>
+                          <td>{item.godzina_odjazdu}</td>
+                      </tr>
+                  ))}
+              </tbody> */}
+              <tbody>
+                  {tmp4.map(item2 => (
+                    (item2.valuekursid === item.value) &&
+                        <tr key={item2.value}>
+                        <td>{item2.labelnazwaprzyst}</td>
+                        <td>{item2.label + ""}</td>
+                        </tr>
+                  ))}
+              </tbody>
 
-                {/* <div className="schedule-details-container">
-                    <div className="schedule-details">
-                        <div className="schedule-stop-id">Nazwa przystanku: {item.nazwaprzystanku}</div>
-                        <div className="schedule-departure-time">Godziny odjazdów: <p className="schedule-departure-text">{(schedule.filter(x => x.nazwa_kursu_id === item.nazwa_kursu_id && x.id_przystankiwlini === item.id_przystankiwlini).length > 1 ? schedule.filter(x => x.nazwa_kursu_id === item.nazwa_kursu_id && x.id_przystankiwlini === item.id_przystankiwlini).map(x => x.godzina_odjazdu).join(', ') : item.godzina_odjazdu)}</p></div>
-                    </div>
-                </div> */}
+          </table>
+                          </td>
+                      </tr>
+                  ))}
+          
 
-            </div>
-        ))}
       </div>
 
     </div>
