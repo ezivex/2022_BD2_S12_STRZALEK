@@ -263,11 +263,11 @@ const getDostKierData = async () => {
     // }
     if(dostepnosc.rodzaj_zmiany === 1)
     {
-      gs = 8;
-      gz = 16;
+      gs = "08:00";
+      gz = "16:00";
     }else{
-      gs = 16;
-      gz = 24;
+      gs = "16:00";
+      gz = "24:00";
     }
     let x = kursgodzinastartu;//tutaj czas odjazdu wartosc ma byc
     if(gs < x && gz > x){

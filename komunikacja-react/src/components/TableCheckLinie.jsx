@@ -91,7 +91,7 @@ const mojafun2 = async () => {
     nowa.forEach(element => {
         result3.map((ele) => {
             if(ele.nazwaprzystanku === element){
-                godzinyprzystankujednego.push(ele.godzina_odjazdu + "  |  ");
+                godzinyprzystankujednego.push(ele.godzina_odjazdu);
                 console.log(godzinyprzystankujednego);
             }
         
@@ -136,7 +136,7 @@ console.log(daneprzysgodz);
                   {daneprzysgodz.map(item => (
                       <tr key={item.value}>
                           <td>{item.value}</td>
-                          <td>{item.label}</td>
+                          <td>{item.label + ""}</td>
                       </tr>
                   ))}
               </tbody>

@@ -8,7 +8,7 @@ function PanelKursy() {
 
 const [nazwalini_k, setNazwalini_k] = useState("");
 const [rbus_k, setRbus_k] = useState("");
-const [czas_odjazdu, setCzas_odjazdu] = useState("");
+const [czas_odjazdu, setCzas_odjazdu] = useState(0);
 
 const onSubmitForm = async e => {
     e.preventDefault();
@@ -112,7 +112,7 @@ const handleChangeLiniaData = (selectedOption) => {
 
                       <div className="input-container">
                           <label>Czas odjazdu </label>
-                          <input type="number" name="czasOdjazdu" onChange={e => setCzas_odjazdu(e.target.value) }required />
+                          <input type="time" name="czasOdjazdu" onChange={e => setCzas_odjazdu(e.target.value) }required />
                       </div>
 
                       <div className="button-container"><input type="submit" value="Dodaj" /></div>

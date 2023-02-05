@@ -537,7 +537,7 @@ app.post("/rozklad_jazdy", async (req, res) => {
 
 app.get("/rozklad_jazdy", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM rozklad_jazdy r, kurs k, linia l, przystanekwlinii p, przystanki prz where r.nazwa_kursu_id = k.id_kurs and k.nazwalini_k = l.id_linii and r.id_przystankiwlini = p.id_przystlin and p.przystanek_id = prz.id_przystanku ORDER BY id_rj ASC"); //TODO laczenie
+    const allTodos = await pool.query("SELECT * FROM rozklad_jazdy r, kurs k, linia l, przystanekwlinii p, przystanki prz where r.nazwa_kursu_id = k.id_kurs and k.nazwalini_k = l.id_linii and r.id_przystankiwlini = p.id_przystlin and p.przystanek_id = prz.id_przystanku ORDER BY godzina_odjazdu ASC"); //TODO laczenie
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);

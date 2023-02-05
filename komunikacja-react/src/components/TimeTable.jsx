@@ -73,7 +73,7 @@ const generatePDF = async () => {
 //   };
 //   mojafun2();
 const tmp4 = [];
-const nazwaprzystankuxd = ["A", "B"];
+var nazwaprzystankuxd = [];
 const kursyall = [];
 const wszystkiekursyy = [];
 const xdxdxd = [];
@@ -216,6 +216,8 @@ const mojafun2 = async () => {
            // console.log(tmp3 + " " + element.label);
         })
         console.log(tmp3 );
+        console.log(tmp6 );
+        nazwaprzystankuxd = tmp6;
         tmp4.push({valuekursid: tmp5, value: ele2, labelnazwaprzyst: tmp6 ,  label : tmp3});//wszystkie przystanki wraz z ich godzinami
         console.log(tmp4);
         console.log(tmp5 );
@@ -278,7 +280,8 @@ return (
                       <tr key={item.value}>
                           <td>
                             {item.label}
-                            <table className='tableData'>
+                            
+            <table className='tableData'>
               <thead>
 
                   <tr>

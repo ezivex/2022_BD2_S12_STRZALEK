@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS public.kurs
     id_kurs serial NOT NULL,
     nazwaLini_k integer NOT NULL,
     rbus_k integer NOT NULL,
-    czas_odjazdu integer NOT NULL,
+    czas_odjazdu time without time zone NOT NULL,
     CONSTRAINT kurs_pkey PRIMARY KEY (id_kurs)
 );
 
@@ -92,8 +92,8 @@ CREATE TABLE IF NOT EXISTS public.rodzaj_zmiany
 (
     id_zmiany serial NOT NULL,
     nr_zmiany integer NOT NULL,
-    g_rozp time with time zone NOT NULL,
-    g_zakon time with time zone NOT NULL,
+    g_rozp time without time zone NOT NULL,
+    g_zakon time without time zone NOT NULL,
     CONSTRAINT rodzaj_zmiany_pkey PRIMARY KEY (id_zmiany)
 );
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS public.rozklad_jazdy
     id_rj serial NOT NULL,
     nazwa_kursu_id integer NOT NULL,
     id_przystankiwlini integer NOT NULL,
-    godzina_odjazdu integer NOT NULL,
+    godzina_odjazdu time without time zone NOT NULL,
     CONSTRAINT rozklad_jazdy_pkey PRIMARY KEY (id_rj)
 );
 
@@ -248,7 +248,7 @@ ALTER TABLE IF EXISTS public.rozklad_jazdy
     ADD CONSTRAINT kurs_FK FOREIGN KEY (nazwa_kursu_id)
     REFERENCES public.kurs (id_kurs) MATCH SIMPLE
     ON UPDATE NO ACTION
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     NOT VALID;
 
 
@@ -266,5 +266,38 @@ ALTER TABLE IF EXISTS public.uzytkownicy
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
+
+
+INSERT INTO dni_tygodnia (dzien) VALUES ('poniedzialek');
+INSERT INTO dni_tygodnia (dzien) VALUES ('wtorek');
+INSERT INTO dni_tygodnia (dzien) VALUES ('sroda');
+INSERT INTO dni_tygodnia (dzien) VALUES ('czwartek');
+INSERT INTO dni_tygodnia (dzien) VALUES ('piatek');
+INSERT INTO dni_tygodnia (dzien) VALUES ('sobota');
+INSERT INTO dni_tygodnia (dzien) VALUES ('niedziela');
+
+
+INSERT INTO typ_stanowiska (nazwa_stanowiska) VALUES ('administrator');
+INSERT INTO typ_stanowiska (nazwa_stanowiska) VALUES ('dyspozytor');
+INSERT INTO typ_stanowiska (nazwa_stanowiska) VALUES ('kierowca');
+
+
+INSERT INTO uzytkownicy (imie,nazwisko,id_stanowisko,ulica,miasto,wiek) VALUES ('admin','admin','1','ulica','miasto','1');
+
+
+INSERT INTO rodzaj_zmiany (nr_zmiany,g_rozp,g_zakon) VALUES ('1','8:00','15:00');
+INSERT INTO rodzaj_zmiany (nr_zmiany,g_rozp,g_zakon) VALUES ('2','15:00','22:00');
+
+
+INSERT INTO typ_linii (nazwa_typu) VALUES ('normalna');
+INSERT INTO typ_linii (nazwa_typu) VALUES ('nocna');
+INSERT INTO typ_linii (nazwa_typu) VALUES ('metropolitalna');
+INSERT INTO typ_linii (nazwa_typu) VALUES ('zastepcza');
+
+
+INSERT INTO rodzaj_autobusu (nazwarodzaj) VALUES ('normalny');
+INSERT INTO rodzaj_autobusu (nazwarodzaj) VALUES ('niskopodlogowy');
+INSERT INTO rodzaj_autobusu (nazwarodzaj) VALUES ('elektryczny');
+
 
 END;

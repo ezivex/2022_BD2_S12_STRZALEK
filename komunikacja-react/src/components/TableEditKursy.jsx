@@ -93,7 +93,7 @@ return (
                       <td><p>nie przypisano</p></td>
                       <td>
                         <form onSubmit={onSubmitForm}>
-                          <input type="number" onChange={e => setGodzinaOdjazdu(e.target.value)} required />
+                          <input type="time" onChange={e => setGodzinaOdjazdu(e.target.value)} required />
                           <button type="submit" className='btnDel'>Zaktualizuj</button>
                         </form>
                       </td>

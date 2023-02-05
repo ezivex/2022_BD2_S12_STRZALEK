@@ -40,10 +40,10 @@ useEffect(() => {
 
         <tr>
           <th>Kurs</th>
-          <th>Dzień realizacji</th>
+          {/* <th>Dzień realizacji</th> */}
           <th>Kierowca</th>
           <th>Autobus</th>
-          <th>Edycja</th>
+          {/* <th>Edycja</th> */}
           <th>Delete</th>
         </tr>
 
@@ -54,7 +54,7 @@ useEffect(() => {
           {items.map(item => (
             <tr key={item.id_realizacji}>
               <td>{item.id_kursu + ". " + item.nazwalinii + " (" + item.czas_odjazdu + ")"}</td>
-              <td>{item.dzien}</td>
+              {/* <td>{item.dzien}</td> */}
               <td>{item.imie + " " + item.nazwisko}</td>
               <td>{item.marka + " (" + item.rejestracja + ")"}</td>
               <td>
