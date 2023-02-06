@@ -40,7 +40,7 @@ getLiniaData();
 
     <div className="mainContainer">
 
-      <NavbarClean><Link to="/" className='linkSettings'><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
+      <NavbarClean><Link to="/ShowLinie" className='linkSettings'><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
 
 
       <div className="nameFetchTitle"><p>Numer Linii {idk}</p><p>Nazwa linii: {LiniaData}</p></div>

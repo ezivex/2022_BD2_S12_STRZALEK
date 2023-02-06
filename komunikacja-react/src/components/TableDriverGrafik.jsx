@@ -29,10 +29,6 @@ const getDostepnosc = async () => {
       const jsonData = await response.json();
 
       setDostepnosc(jsonData.filter(item => item.imie === id));
-
-
-
-      //setDostepnosc(items.filter(item => item.id_dostkier !== id));
     } catch (err) {
       console.error(err.message);
     }
