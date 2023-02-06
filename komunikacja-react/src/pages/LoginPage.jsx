@@ -113,11 +113,18 @@ const handleSubmit = (e)=> {
     
     };
 
+    const renderErrMsg = (name) =>
+    name === errMsg.name && (<div className='error'>{errMsg.message}</div>);
+
 const renderForm = (
   
     <form className='loging' onSubmit={ handleSubmit }>
-        <div className="input-container"><label>Username </label><input type="text" name="uname" required /></div>
-        <div className="input-container"><label>Password </label><input type="password" name="pass" required /></div>
+        <div className="input-container"><label>Imie </label><input type="text" name="uname" required />
+        {renderErrMsg("uname")}
+        </div>
+        <div className="input-container"><label>Nazwisko </label><input type="password" name="pass" required />
+        {renderErrMsg("pass")} 
+        </div>
         <div className="button-container"><input type="submit" value="Dalej" /></div>
     </form>
 

@@ -224,7 +224,7 @@ ALTER TABLE IF EXISTS public.przystanekwLinii
     ADD CONSTRAINT linia_FK FOREIGN KEY (linia)
     REFERENCES public.linia (id_linii) MATCH SIMPLE
     ON UPDATE NO ACTION
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     NOT VALID;
 
 

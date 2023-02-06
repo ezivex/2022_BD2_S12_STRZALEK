@@ -82,7 +82,7 @@ const mojafun2 = async () => {
         let tmp6 = [];
         wszystkiePrzystanki.forEach(element => {  
             if(element.label[0] === ele2){
-                tmp3.push(element.godz);
+                tmp3.push(" " + element.godz);
                 tmp5 = element.value;
                 tmp6 = element.labelnazwa;
                 return tmp3;

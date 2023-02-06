@@ -21,7 +21,6 @@ const id = queryParams.get('id');
         <TimeAndDate/>
             
         <h2 className="nameFetchTitle">Grafik</h2>     
-        <h2>{id}</h2>
         <div className="mainPanels"><TableDriverGrafik/></div>
 
         <footer className="PageFooter buttonSettings"><p>2022 BD2 Projekt</p></footer>

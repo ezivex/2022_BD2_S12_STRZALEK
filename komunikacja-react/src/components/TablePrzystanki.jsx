@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 const TablePrzystanki = () => {
  
 const [items, setPrzystanek] = useState([]);
+const [erre, setErr] = useState("");
   
 const deletePrzystanek = async id => {
     try {
@@ -13,6 +14,7 @@ const deletePrzystanek = async id => {
       setPrzystanek(items.filter(item => item.id_przystanku !== id));
     } catch (err) {
       console.error(err.message);
+      
     }
 };
 
@@ -30,6 +32,9 @@ const getPrzystanek = async () => {
 useEffect(() => {
     getPrzystanek();
 }, []);
+
+
+
 
 return (
   

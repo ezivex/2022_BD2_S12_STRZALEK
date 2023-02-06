@@ -106,7 +106,6 @@ const handleChangeUsers = (selectedOption) => {
             <TimeAndDate/>
 
             <h2 className="nameFetchTitle">Wybierz dyspozycje</h2>  
-            <h2>{id}</h2> 
             <div className='mainPanels'>
               <form className='loging' onSubmit={onSubmitForm}>
                   <div className="input-container">

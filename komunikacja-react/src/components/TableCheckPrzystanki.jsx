@@ -15,7 +15,7 @@ const getPrzystanekwLinii = async () => {
         const response = await fetch("http://localhost:5000/rozklad_jazdy");
         const jsonData = await response.json();
         const xd = parseInt(zmienna);
-        setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === xd));
+        setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.id_przystanku === xd));
     } catch (err) {
         console.error(err.message);
     }
@@ -33,8 +33,8 @@ const mojafun2 = async () => {
     console.log(items);
     let godzinyprzystankujednego = [];
     result3.map((ele) => {
-        //zebranie wszystkich przystankow
-        danenazwaprzyst.push(ele.nazwaprzystanku);//wszystkie przystanki co sa w tej linii np 3x wszystkie bo 3 kursy ...
+        //zebranie wszystkich linii(kursy)
+        danenazwaprzyst.push(ele.nazwalinii);//wszystkie przystanki co sa w tej linii np 3x wszystkie bo 3 kursy ...
 
     });
     console.log("==");
@@ -50,8 +50,8 @@ const mojafun2 = async () => {
     //laczenie przyst z godz
     nowa.forEach(element => {
         result3.map((ele) => {
-            if(ele.nazwaprzystanku === element){
-                godzinyprzystankujednego.push(ele.godzina_odjazdu);
+            if(ele.nazwalinii === element){
+                godzinyprzystankujednego.push(" " + ele.godzina_odjazdu);
                 console.log(godzinyprzystankujednego);
             }
         
@@ -65,11 +65,6 @@ const mojafun2 = async () => {
   mojafun2();
   
 console.log(daneprzysgodz);
-
-// const testytakei = [{
-//     value: 1,label: "okok",
-//     value: 2,label: "okaaaaok"
-// }];
  return (
 
       <div>
@@ -78,7 +73,7 @@ console.log(daneprzysgodz);
               <thead>
 
                   <tr>
-                      <th>Przystanki w linii</th>
+                      <th>Nazwa linii</th>
                       <th>Godziny</th>
                   </tr>
 
