@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
+
+export const nazwauseraa = [];
+
+
 function LoginPage() {
 
 const [errMsg, setErrMsg] = useState({});
@@ -75,9 +79,10 @@ const handleSubmit = (e)=> {
         if (userData.password !== pass.value) {
             setErrMsg({ name: "pass", message: errors.pass });
         } else {
-            // const nazwauseraa = userData.username;
-            // console.log(nazwauseraa);
-            // export nazwauseraa;
+            //nazwauseraa = userData.username;
+            nazwauseraa.push(userData.username);
+            console.log(nazwauseraa);
+            //export nazwauseraa;
             setIsSubmitted(true);
             
             

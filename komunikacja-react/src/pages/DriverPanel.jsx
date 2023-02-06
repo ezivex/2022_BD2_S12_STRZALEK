@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import {userData} from './LoginPage';
+import {nazwauseraa} from './LoginPage';
 
+
+const imie = nazwauseraa;
+console.log(nazwauseraa);
 function DriverPanel() {
     return (
         
@@ -9,7 +12,7 @@ function DriverPanel() {
 
         <div className="logoPanel"><Link to="/" className="logoLink"><h2>logo busy.pl</h2></Link></div>
 
-        <h2>Panel Kierowcy</h2>
+        <h2>Panel Kierowcy: {nazwauseraa}</h2>
 
         <div className="mainPanel">
             <button className="btn_panels"><Link to="/DriverDyspozycja" className="linkSettings">DYSPOZYCJA</Link></button>
