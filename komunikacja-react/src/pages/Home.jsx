@@ -8,8 +8,8 @@ function Home() {
             <Navbar/>
 
             <div className="HomeButtons">
-                <Link to="/ShowPrzystanki"><button className="btn_przystanki"></button></Link>
-                <Link to="/ShowLinie"><button className="btn_linie"></button></Link>
+                <Link to="/ShowPrzystanki"><button className="btn_przystanki">Przystanki</button></Link>
+                <Link to="/ShowLinie"><button className="btn_linie">Linie</button></Link>
             </div>
 
             <footer className="PageFooter"><p>2022 BD2 Projekt</p></footer>

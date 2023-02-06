@@ -9,6 +9,9 @@ import ShowLinie from './pages/ShowLinie';
 import LoginPage from './pages/LoginPage';
 import TimeTablePage from './pages/TimeTablePage';
 import CheckLinia from './pages/CheckLinia';
+import CheckPrzystanki from './pages/CheckPrzystanki';
+
+
 import DriverPanel from "./pages/DriverPanel";
 import DriverDyspozycja from './pages/DriverDyspozycja';
 import DriverGrafik from './pages/DriverGrafik';
@@ -37,6 +40,7 @@ function App() {
       <Route path="/" element={<Layout/>}>
         <Route index element={<Home />} />  
         <Route path="ShowPrzystanki" element={<ShowPrzystanki />} />
+        <Route path="CheckPrzystanki" element={<CheckPrzystanki />} />
         <Route path="TimeTablePage" element={<TimeTablePage />} />
         <Route path="ShowLinie" element={<ShowLinie />} />
         <Route path="CheckLinia" element={<CheckLinia />} />

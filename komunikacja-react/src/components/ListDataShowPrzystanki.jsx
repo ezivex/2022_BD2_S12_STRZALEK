@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 const ListDataShowPrzystanki = () => {
  
@@ -24,7 +25,7 @@ return (
     
         <ul className="listaLiniData">
             {items.map(item => (
-              <li className='btnListData' key={item.id}>{item.nazwaprzystanku}</li>
+              <Link className='linkLinia' to={`/CheckPrzystanki?id=${item.id_linii}`}><li className='btnListData' key={item.id}>{item.nazwaprzystanku}</li></Link>
             ))}
         </ul>
 

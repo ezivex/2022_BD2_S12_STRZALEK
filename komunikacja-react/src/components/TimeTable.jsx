@@ -148,14 +148,13 @@ return (
       {xdxdxd.map(item => (
                       <tr key={item.value}>
                           <td>
-                            {item.label}
                             
             <table className='tableData' >
               <thead>
-
+            <tr className="trTitle">  Linia: {item.label}</tr>
                   <tr>
                       <th>przystanek</th>
-                      <th>godz</th>
+                      <th>godziny odjazdów</th>
                   </tr>
 
               </thead>

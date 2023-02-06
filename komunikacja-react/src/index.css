@@ -21,12 +21,17 @@
 }
 .btn_przystanki:hover, .btn_linie:hover{
     cursor: pointer;
+    background-color:#8f2531;
 }
 .btn_przystanki{
-    /* background-image: url("./graphics/btn_przystanki.svg"); */
+    background-color:#ae2d3c;
+    color: #fff;
+    font-size:2.5rem;
 }
 .btn_linie{
-    /* background-image: url("./graphics/btn_linie.svg"); */
+    background-color:#ae2d3c;
+    color: #fff;
+    font-size:2.5rem;
 }
 .PageFooter{
     display: flex;
@@ -643,4 +648,9 @@ color: #86222e;
 .listData:hover{
     cursor: pointer;
     background-color: #86222e;
+}
+.trTitle{
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
