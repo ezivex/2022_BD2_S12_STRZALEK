@@ -31,7 +31,6 @@ const getRozkladJazdy = async () => {
       const response = await fetch("http://localhost:5000/rozklad_jazdy");
       const jsonDataprzystgodz = await response.json();
       setPRozkadJazdy(jsonDataprzystgodz.filter(jsonDataprzystgodz => jsonDataprzystgodz.nazwa_kursu_id === parseInt(idk)));
-      //setPrzystanekwLinii(jsonData.filter(jsonData => jsonData.linia === xd));
   } catch (err) {
       console.error(err.message);
   }

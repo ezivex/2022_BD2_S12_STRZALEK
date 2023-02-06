@@ -22,7 +22,6 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
-//  ---------------------------------------------------
 
     return (
         <div className="mainContainer">

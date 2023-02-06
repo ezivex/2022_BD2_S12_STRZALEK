@@ -14,8 +14,6 @@ const [isSubmitted, setIsSubmitted] = useState(false);
 const navigate = useNavigate();
 
 
-//===========================
-
 const daneuzytkownika = [];
 const [users, setUzytkownicy] = useState([]);
 const getUzytkownicy = async () => {
@@ -31,7 +29,6 @@ const getUzytkownicy = async () => {
 useEffect(() => {
     getUzytkownicy();
 }, []);
-//------------------------------------
 const mojafun = async () => {
     console.log(users);
     let result = users;

@@ -4,7 +4,6 @@ import {nazwauseraa} from './LoginPage';
 
 
 const imie = nazwauseraa;
-console.log(nazwauseraa);
 function DriverPanel() {
     return (
         

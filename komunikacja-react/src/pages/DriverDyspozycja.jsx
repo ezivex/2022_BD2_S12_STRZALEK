@@ -5,15 +5,12 @@ import TimeAndDate from '../components/TimeAndDate';
 import CreatableSelect from "react-select/creatable";
 
 function DriverDyspozycja() {
-// ----------------------------------------------
 const [id_uzytk, setIdU] = useState("");
-//const [dzien_tyg, setDzienT] = useState("");
 const [rodzaj_zmiany, setRodZmian] = useState("");
 
 const onSubmitForm = async e => {
     e.preventDefault();
     try {
-      //const body = {id_uzytk, dzien_tyg, rodzaj_zmiany};
       let dzien_tyg = 1;
       const body = {id_uzytk, dzien_tyg, rodzaj_zmiany};
       const response = await fetch("http://localhost:5000/dostepnosci_kierowcow", {
@@ -26,38 +23,6 @@ const onSubmitForm = async e => {
       console.error(err.message);
     }
   };
-//  ---------------------------------------------------
-
-//========================= Dni Tygodnia =========================
-// const [dzienTyg, setDzienTyg] = useState([]);
-// const getDzienTyg = async () => {
-//   try {
-//     const response = await fetch("http://localhost:5000/dni_tygodnia");
-//     const jsonData = await response.json();
-//     setDzienTyg(jsonData);
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// };
-
-// useEffect(() => {
-//   getDzienTyg();
-// }, []);
-
-// let DzienTygData = [];
-// const getDzienTygData = async () => {
-//   let result = dzienTyg;
-//   result.map((dzienTyg) => {
-//     return DzienTygData.push({value: dzienTyg.id_dnityg, label: dzienTyg.dzien});
-//   });
-// };
-// getDzienTygData();
-
-// const handleChangeDzienTyg = (selectedOption) => {
-//   setDzienT(selectedOption.value);
-//   return selectedOption.value;
-// };
-//=========================End of Dni Tygodnia =========================
 
 //============================ Wybor zmiany ============================
 const [rodzZmian, setrodzZmian] = useState([]);
@@ -135,13 +100,6 @@ const handleChangeUsers = (selectedOption) => {
                       <CreatableSelect options={usersData} defaultOptions onChange={handleChangeUsers} />
                       <input type="number" name="nazwisko" onChange={e => setIdU(e.target.selectedOption.value) } hidden />
                   </div>
-
-                  {/* <div className="input-container">
-                      <label>Wybierz dzień </label>
-                      <CreatableSelect options={DzienTygData} defaultOptions onChange={handleChangeDzienTyg} />
-                      <input type="number" name="dzien" onChange={e => setDzienT(e.target.selectedOption.value) } hidden />
-                  </div> */}
-
                   <div className="input-container">
                       <label>Rodzaj zmiany*</label>
                       <CreatableSelect options={rodzZmianData} defaultOptions onChange={handleChangeRodzZmian} />

@@ -40,7 +40,6 @@ const onSubmitForm = async e => {
     getTypLinii();
   }, []);
 
-//====
 let typLiniiData = [];
 const getTypLiniiData = async () => {
   let result = typLinii;

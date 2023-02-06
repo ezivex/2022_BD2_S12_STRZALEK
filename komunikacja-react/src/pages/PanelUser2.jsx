@@ -43,7 +43,6 @@ const [typStanowiska, setTypStanowiska] = useState([]);
     getTypStanowiska();
   }, []);
 
-//====
 let TypStanowiskaData = [];
 const getTypStanowiskaData = async () => {
   let result = typStanowiska;

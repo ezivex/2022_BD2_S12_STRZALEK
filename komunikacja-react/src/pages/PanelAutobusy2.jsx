@@ -56,7 +56,6 @@ const handleChangeRodzBusu = (selectedOption) => {
     return selectedOption.value;
 };
 
-//=================================================================
 const sprawnosc_boolean = [
     {value: true, label: "tak"},
     {value: false, label: "nie"},
@@ -65,7 +64,6 @@ const handleChangeSprawnosc = (selectedOption2) => {
         setSprawnosc(selectedOption2.value);
         return selectedOption2.value;
 };
-//=================================================================
     return (
         <div className="mainContainer">
 
