@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,41 @@ function LoginPage() {
 const [errMsg, setErrMsg] = useState({});
 const [isSubmitted, setIsSubmitted] = useState(false);
 const navigate = useNavigate();
+
+
+//===========================
+
+const daneuzytkownika = [];
+const [users, setUzytkownicy] = useState([]);
+const getUzytkownicy = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/uzytkownicy");
+    const jsonData = await response.json();
+
+    setUzytkownicy(jsonData);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+useEffect(() => {
+    getUzytkownicy();
+}, []);
+//------------------------------------
+const mojafun = async () => {
+    console.log(users);
+    let result = users;
+    result.map((ele) => {
+        daneuzytkownika.push({username: ele.imie, password: ele.nazwisko, stanowisko: ele.id_stanowisko});
+    });
+};
+mojafun();
+console.log(daneuzytkownika);
+//===========================
+//typy stanowiska:
+//1 - admin
+//2 - dyspozytor
+//3 - kierowca
+
 
 // Users login info
 const loginCred = [
@@ -31,42 +66,33 @@ const errors = {
 };
 
 const handleSubmit = (e)=> {
+    
     e.preventDefault(); 
     let {uname, pass} = document.forms[0];
-    const userData = loginCred.find((user) => user.username === uname.value);
+    const userData = daneuzytkownika.find((user) => user.username === uname.value);
+    //console.log(uname.value);//username
     if (userData) {
         if (userData.password !== pass.value) {
             setErrMsg({ name: "pass", message: errors.pass });
         } else {
+            // const nazwauseraa = userData.username;
+            // console.log(nazwauseraa);
+            // export nazwauseraa;
             setIsSubmitted(true);
-            fetch('http://localhost:5000/login', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username: uname.value,
-                    password: pass.value
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error('Failed to login');
-                    }
-                })
-                .then(() => {
-                    if (userData.username) {
-                        switch (userData.username) {
-                            case 'admin1':
+            
+            
+                    if (userData.stanowisko) {
+                        switch (userData.stanowisko) {
+                            case 1:
                                 navigate('/AdminPanel');
                                 break;
-                            case 'kierowca1':
-                                navigate('/DriverPanel');
-                                break;
-                            case 'dyspozytor1':
+                            case 2:
+                                //console.log(userData.uname);
                                 navigate('/DispatcherPanel');
+                                break;
+                            case 3:
+                                //console.log(userData.stanowisko);
+                                navigate('/DriverPanel');
                                 break;
                             default:
                                 navigate('/');
@@ -75,14 +101,13 @@ const handleSubmit = (e)=> {
                     } else {
                         throw new Error('Invalid login');
                     }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+                
+                
         }
     } else {
         setErrMsg({ name: "uname", message: errors.uname });
     }
+    
     };
 
 const renderForm = (

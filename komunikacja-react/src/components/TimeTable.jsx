@@ -275,13 +275,13 @@ return (
 
       <button onClick={generatePDF}>Generuj PDF</button>
 
-      <div>
+      <div ref={printRef}>
       {xdxdxd.map(item => (
                       <tr key={item.value}>
                           <td>
                             {item.label}
                             
-            <table className='tableData'>
+            <table className='tableData' >
               <thead>
 
                   <tr>
