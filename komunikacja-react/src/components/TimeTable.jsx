@@ -19,162 +19,138 @@ const generatePDF = async () => {
     const canvas = await html2canvas(element);
     const data = canvas.toDataURL('image/png');
 
-    const pdf = new jsPDF();
+    const pdf = new jsPDF({orientation: 'landscape'});
     const imgProperties = pdf.getImageProperties(data);
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight =(imgProperties.height * pdfWidth) / imgProperties.width;
 
     pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    pdf.save('print.pdf');
+    pdf.save('rozklad_jazdy.pdf');
 };
+
 const tmp4 = [];
-var nazwaprzystankuxd = [];
+let nazwaPzyst = [];
 const kursyall = [];
-const wszystkiekursyy = [];
-const xdxdxd = [];
-const przystaneczkikochane = [];
+const wszystkieKursy = [];
+const liniaDane = [];
+const wszystkiePrzystanki = [];
 const mojafun2 = async () => {
     let result3 = schedule;
-    console.log("items:");
-    console.log(schedule);
-    let godzinyprzystankujednego = [];
-    var nowa = [];
+ 
+    let nowa = [];
     result3.map((ele) => {
-        //zebranie wszystkich przystankow / kursów / linie
-        if(!wszystkiekursyy.includes(ele.nazwalini_k))
+        if(!wszystkieKursy.includes(ele.nazwalini_k))
             {
-                wszystkiekursyy.push(ele.nazwalini_k);
+                wszystkieKursy.push(ele.nazwalini_k);
             }   
 
-            var nowagodz = [];
-        //nazyw przystankow biore
-        wszystkiekursyy.forEach(element => {
+            let nowagodz = [];
+        wszystkieKursy.forEach(element => {
             if(ele.id_linii === element){
             {
-                console.log(element);
-                
-                nowa.push(ele.id_przystankiwlini);//id przystanku biore
+                nowa.push(ele.id_przystankiwlini);
                 nowagodz.push(ele.godzina_odjazdu);
             }
-                console.log("opopop " + nowa);
-                przystaneczkikochane.push({value: element, label:  nowa, labelnazwa: ele.nazwaprzystanku, godz: ele.godzina_odjazdu});
-                nowa = [];//reset
-            }
-            
-            
+                wszystkiePrzystanki.push({value: element, label:  nowa, labelnazwa: ele.nazwaprzystanku, godz: ele.godzina_odjazdu});
+                nowa = [];
+            } 
     })
-    
-
         return kursyall;
     });
-    
-    console.log(przystaneczkikochane);//wszystkei przystanki do kurs i ich godz
-    console.log("opopop koniec");
-    let nazwyprzystdokazdegokursu = [];//narazie tylko przystanki same bez niczzego zwykly array
-    var jeden = [];
-    var dwa = [];
-    var trzy = [];
-    var cztery = [];
-    przystaneczkikochane.forEach(element => {
-        wszystkiekursyy.forEach(element2 => {
-          //pętla po wszystkich kursach jakie sa (3)
+    let finalData = [];
+    let elValue = [];
+    let elLabel = [];
+    let valueAndLabel = [];
+    wszystkiePrzystanki.forEach(element => {
+        wszystkieKursy.forEach(element2 => {
           if(element2 === element.value)
           {
-            //teraz tak zeby przystanki sie nie powtarzaly czyli ten label
-            cztery.push({value: element.value, label: element.label});
+            valueAndLabel.push({value: element.value, label: element.label});
           }
         })
-        dwa = element.value;
-        trzy = element.label;
-        //cztery = element.godz;
-
-        jeden.push({valuekurs: element.value, labelprzyst: element.label, labelgodz: element.godz});
+        elValue = element.value;
+        elLabel = element.label;
+        finalData.push({valuekurs: element.value, labelprzyst: element.label, labelgodz: element.godz});
 
     });
-    console.log("xd " + nazwyprzystdokazdegokursu);
-    console.log(nazwyprzystdokazdegokursu);
-    console.log("czteryy  => " + cztery);
-    console.log(cztery);
-    let piec = [...new Set(cztery.map((el)=>el.label[0]))];
-    console.log(piec);//same przystanki unikalne
-    var tmp3 = [];
-    var tmp5 = [];
-    var tmp6 = [];
-    piec.forEach(ele2 => {
-        przystaneczkikochane.forEach(element => {
-        
+
+    let DataSet = [...new Set(valueAndLabel.map((el)=>el.label[0]))];
+
+    DataSet.forEach(ele2 => {
+        let tmp3 = [];
+        let tmp5 = [];
+        let tmp6 = [];
+        wszystkiePrzystanki.forEach(element => {  
             if(element.label[0] === ele2){
-                //czyli przystanki sa rowne to zapisujemy godzine
                 tmp3.push(element.godz);
                 tmp5 = element.value;
                 tmp6 = element.labelnazwa;
                 return tmp3;
             }
         })
-        nazwaprzystankuxd = tmp6;
+        nazwaPzyst = tmp6;
         tmp4.push({valuekursid: tmp5, value: ele2, labelnazwaprzyst: tmp6 ,  label : tmp3});//wszystkie przystanki wraz z ich godzinami
         tmp3 = [];
     });
-    //teraz do kazdego lini id daje nazwe tej lini
-    let nazywkursunormalnie = [];
-    wszystkiekursyy.forEach(element => {
+    let nazwyKursu = [];
+    wszystkieKursy.forEach(element => {
         result3.map((ele) => {
             if(ele.nazwalini_k === element){
-                if(!nazywkursunormalnie.includes(ele.nazwalinii))
+                if(!nazwyKursu.includes(ele.nazwalinii))
                 {
-                    nazywkursunormalnie.push(ele.nazwalinii);
+                    nazwyKursu.push(ele.nazwalinii);
                 }
             }
         });
 
-
-
-        //teraz to zapisać do mapy już na stałe
-        xdxdxd.push({value: element, label:  nazywkursunormalnie, co: nazwaprzystankuxd});
-        nazywkursunormalnie = [];//reset
+        liniaDane.push({value: element, label:  nazwyKursu, co: nazwaPzyst});
+        nazwyKursu = [];
     });
 
 };
 mojafun2();
-console.log(tmp4);//tutaj wszystko jest kurs jego przystanki i jego godz.
-const i = 0;
 return (
-
     <div>
+        <button className="btnDel" onClick={generatePDF}>Generuj PDF</button>
+        
+        <div ref={printRef}>
 
-      <button onClick={generatePDF}>Generuj PDF</button>
+                <h2 className="listPanelsTitle">Rozkład jazdy</h2>
 
-      <div ref={printRef}>
-      {xdxdxd.map(item => (
-                      <tr key={item.value}>
-                          <td>
-                            
-            <table className='tableData' >
-              <thead>
-            <tr className="trTitle">  Linia: {item.label}</tr>
-                  <tr>
-                      <th>przystanek</th>
-                      <th>godziny odjazdów</th>
-                  </tr>
+            <div className="timeTableStyle">
+                {liniaDane.map(item => (
+                    <tr key={item.value}>
+                            <table className='tableData'>
+                                
+                                <thead>
 
-              </thead>
-              <tbody>
-                  {tmp4.map(item2 => (
-                    (item2.valuekursid === item.value) &&
-                        <tr key={item2.value}>
-                        <td>{item2.labelnazwaprzyst}</td>
-                        <td>{item2.label + ""}</td>
-                        </tr>
-                  ))}
-              </tbody>
+                                    <tr>    
+                                        <td className="trTitle" colSpan={2}> Linia: {item.label}</td>
+                                    </tr>
 
-          </table>
-                          </td>
-                      </tr>
-                  ))}
-          
+                                    <tr>
+                                        <th>przystanek</th>
+                                        <th>godziny odjazdów</th>
+                                    </tr>
 
-      </div>
+                                </thead>
+                                
+                                <tbody>
+                                    {tmp4.map(item2 => (
+                                        (item2.valuekursid === item.value) &&
+                                            <tr key={item2.value}>
+                                                <td>{item2.labelnazwaprzyst}</td>
+                                                <td>{item2.label + ""}</td>
+                                            </tr>
+                                    ))}
+                                </tbody>
+
+                            </table>
+                    </tr>
+                ))} 
+            </div>
+
+        </div>
 
     </div>
 

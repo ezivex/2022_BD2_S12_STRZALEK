@@ -9,8 +9,7 @@ function TimeTablePage() {
         <div className="mainContainer">
             
             <NavbarClean><Link to="/" className='linkSettings'><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
-            
-            <h2 className="listPanelsTitle">Rozkład jazdy</h2>
+    
             
             <div className="mainPanels"><div className="linieLista"><TimeTable/></div></div>
 

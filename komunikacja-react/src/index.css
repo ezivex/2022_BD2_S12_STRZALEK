@@ -651,6 +651,16 @@ color: #86222e;
 }
 .trTitle{
     width: 100%;
+    text-align: center;
+    border-bottom: 1px solid white;
+    font-size: 2rem;
+}
+.timeTableStyle{
     display: flex;
-    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 90vw;
+    min-height: fit-content;
+    padding: 1rem;
+    justify-content: center;
 }
