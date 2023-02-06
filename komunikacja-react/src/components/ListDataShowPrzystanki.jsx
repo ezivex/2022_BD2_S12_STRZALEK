@@ -25,7 +25,7 @@ return (
     
         <ul className="listaLiniData">
             {items.map(item => (
-              <Link className='linkLinia' to={`/CheckPrzystanki?id=${item.id_linii}`}><li className='btnListData' key={item.id}>{item.nazwaprzystanku}</li></Link>
+              <Link className='linkLinia' to={`/CheckPrzystanki?id=${item.id_przystanku}`}><li className='btnListData' key={item.id}>{item.nazwaprzystanku}</li></Link>
             ))}
         </ul>
 

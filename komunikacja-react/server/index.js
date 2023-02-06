@@ -216,6 +216,19 @@ app.get("/przystanki", async (req, res) => {
     console.error(err.message);
   }
 });
+//GET 1 przystanek
+app.get("/przystanki/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const przystanki = await pool.query("SELECT * FROM przystanki WHERE id_przystanku = $1", [
+      id
+    ]);
+
+    res.json(przystanki.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 
 //DELETE PRZYSTANEK
