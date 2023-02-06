@@ -72,7 +72,7 @@ const getautobustyp3 = async () => {
     const response = await fetch("http://localhost:5000/uzytkownicy");
     const jsonData = await response.json();
     setUsers(jsonData.filter(item => item.imie === id));
-
+    
 
     //setDostepnosc(items.filter(item => item.id_dostkier !== id));
   } catch (err) {
