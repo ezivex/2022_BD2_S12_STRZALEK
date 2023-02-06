@@ -21,31 +21,17 @@ function CheckLinia() {
           console.error(err.message);
         }
       };
-      // const getPrzystanek = async () => {
-      //   try {
-      //     const response = await fetch("http://localhost:5000/przystanki");
-      //     const jsonData = await response.json();
-      //     setPrzystanek(jsonData);
-      //   } catch (err) {
-      //     console.error(err.message);
-      //   }
-      // };
-    
+      
       useEffect(() => {
-        //getPrzystanek();
         getLinia();
       }, []);
 
 let LiniaData = [];
 const getLiniaData = async () => {
   let result = linia;
-  //console.log("siema");
-  //console.log(result);
   result.map((linia) => {
     LiniaData = linia.nazwalinii;
   });
-  //console.log("siema2");
-  //console.log(LiniaData);
 };
 getLiniaData();
 

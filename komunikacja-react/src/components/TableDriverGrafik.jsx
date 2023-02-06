@@ -38,7 +38,6 @@ return (
 
       <tr>
         <th>Użytkownik</th>
-        {/* <th>Dzień</th> */}
         <th>Rodzaj zmiany</th>
         <th>Usuń dyspozycje</th>
       </tr>
@@ -50,7 +49,6 @@ return (
       {items.map(item => (
         <tr key={item.id_dostkier}>
           <td>{item.nazwisko} {item.imie}</td>
-          {/* <td>{item.dzien}</td> */}
           <td>{item.rodzaj_zmiany}</td>
            <td>
             <button className='btnDel'

@@ -13,9 +13,6 @@ app.use(session({
     saveUninitialized: true
 }));
 
-
-
-
 const loginCred = [
     {
         username: 'admin1',
@@ -85,14 +82,11 @@ app.listen(5000, () => {
 
 //ROUTES//
 
-
-
-//testy=====
 //GET ALL rodzajautobusy
 app.get("/rodzaj_autobusu", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM rodzaj_autobusu ORDER BY id_rodzaj ASC");
-    res.json(allTodos.rows);
+    const rodzAutobusu = await pool.query("SELECT * FROM rodzaj_autobusu ORDER BY id_rodzaj ASC");
+    res.json(rodzAutobusu.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -100,8 +94,8 @@ app.get("/rodzaj_autobusu", async (req, res) => {
 //GET ALL rodzajautobusy
 app.get("/dni_tygodnia", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM dni_tygodnia ORDER BY id_dnityg ASC");
-    res.json(allTodos.rows);
+    const dniTyg = await pool.query("SELECT * FROM dni_tygodnia ORDER BY id_dnityg ASC");
+    res.json(dniTyg.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -109,8 +103,8 @@ app.get("/dni_tygodnia", async (req, res) => {
 //GET ALL rodzajautobusy
 app.get("/typ_stanowiska", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM typ_stanowiska ORDER BY id_typstanowiska ASC");
-    res.json(allTodos.rows);
+    const typStano = await pool.query("SELECT * FROM typ_stanowiska ORDER BY id_typstanowiska ASC");
+    res.json(typStano.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -118,25 +112,12 @@ app.get("/typ_stanowiska", async (req, res) => {
 //GET ALL rodzajautobusy
 app.get("/typ_linii", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM typ_linii ORDER BY id_typ_linii ASC");
-    res.json(allTodos.rows);
+    const typLinii = await pool.query("SELECT * FROM typ_linii ORDER BY id_typ_linii ASC");
+    res.json(typLinii.rows);
   } catch (err) {
     console.error(err.message);
   }
 });
-//===========
-
-
-//------------------------------------- -------------------------------------  HOME PAGE ------------------------------------- ------------------------------------- //
-
-
-
-// ***ShowLinie, ShowLinie2, ShowPrzystanki -> from ADMIN PANEL below
-
-
-//------------------------------------- ------------------------------------- END OF HOME PAGE ------------------------------------- ------------------------------------- //
-
-
 
 //------------------------------------- -------------------------------------  ADMIN PANEL ------------------------------------- ------------------------------------- //
 
@@ -149,12 +130,12 @@ app.get("/typ_linii", async (req, res) => {
 app.post("/autobusy", async (req, res) => {
   try {
     const { rejestracja,marka,sprawnosc,rodzaj_autobusy,ostatni_przeglad,nastepny_przeglad } = req.body;
-    const newTodo = await pool.query(
+    const autobusy = await pool.query(
       "INSERT INTO autobusy (rejestracja,marka,sprawnosc,rodzaj_autobusy,ostatni_przeglad,nastepny_przeglad) VALUES($1,$2,$3,$4,$5,$6) RETURNING *",
       [rejestracja,marka,sprawnosc,rodzaj_autobusy,ostatni_przeglad,nastepny_przeglad]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(autobusy.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -165,8 +146,8 @@ app.post("/autobusy", async (req, res) => {
 
 app.get("/autobusy", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM autobusy, rodzaj_autobusu where id_rodzaj = rodzaj_autobusy ORDER BY id_bus ASC");
-    res.json(allTodos.rows);
+    const autobusy = await pool.query("SELECT * FROM autobusy, rodzaj_autobusu where id_rodzaj = rodzaj_autobusy ORDER BY id_bus ASC");
+    res.json(autobusy.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -177,38 +158,22 @@ app.get("/autobusy", async (req, res) => {
 app.get("/autobusy/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await pool.query("SELECT * FROM autobusy WHERE id_bus = $1", [
+    const autobus = await pool.query("SELECT * FROM autobusy WHERE id_bus = $1", [
       id
     ]);
 
-    res.json(todo.rows[0]);
+    res.json(autobus.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
 });
-
-// UPDATE AUTOBUS
-// app.put("/autobusy/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { rejestracja,marka,sprawnosc,rodzaj_autobusy } = req.body;
-//     const updateTodo = await pool.query(
-//       "UPDATE autobusy SET rejestracja = $1, marka = $2, sprawnosc = $3, rodzaj_autobusy = $4  WHERE id_bus = $5",
-//       [rejestracja,marka,sprawnosc,rodzaj_autobusy,id]
-//     );
-
-//     res.json("Autobusy was updated!");
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// });
 
 //DELETE AUTOBUS
 
 app.delete("/autobusy/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query("DELETE FROM autobusy WHERE id_bus = $1", [
+    const deleteAutobus = await pool.query("DELETE FROM autobusy WHERE id_bus = $1", [
       id
     ]);
     res.json("Bus was deleted!");
@@ -229,12 +194,12 @@ app.delete("/autobusy/:id", async (req, res) => {
 app.post("/przystanki", async (req, res) => {
   try {
     const { nazwaprzystanku } = req.body;
-    const newTodo = await pool.query(
+    const przystanki = await pool.query(
       "INSERT INTO przystanki (nazwaprzystanku) VALUES($1) RETURNING *",
       [nazwaprzystanku]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(przystanki.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -245,8 +210,8 @@ app.post("/przystanki", async (req, res) => {
 
 app.get("/przystanki", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM przystanki ORDER BY id_przystanku ASC");
-    res.json(allTodos.rows);
+    const przystanki = await pool.query("SELECT * FROM przystanki ORDER BY id_przystanku ASC");
+    res.json(przystanki.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -258,7 +223,7 @@ app.get("/przystanki", async (req, res) => {
 app.delete("/przystanki/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query("DELETE FROM przystanki WHERE id_przystanku = $1", [
+    const deletePrzystanki = await pool.query("DELETE FROM przystanki WHERE id_przystanku = $1", [
       id
     ]);
     res.json("Przystanek was deleted!");
@@ -278,12 +243,12 @@ app.delete("/przystanki/:id", async (req, res) => {
 app.post("/linia", async (req, res) => {
   try {
     const { nazwalinii,typ_linii } = req.body;
-    const newTodo = await pool.query(
+    const linia = await pool.query(
       "INSERT INTO linia (nazwalinii,typ_linii) VALUES($1,$2) RETURNING *",
       [nazwalinii,typ_linii]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(linia.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -294,8 +259,8 @@ app.post("/linia", async (req, res) => {
 
 app.get("/linia", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM linia, typ_linii where id_typ_linii = typ_linii ORDER BY id_linii ASC");
-    res.json(allTodos.rows);
+    const linia = await pool.query("SELECT * FROM linia, typ_linii where id_typ_linii = typ_linii ORDER BY id_linii ASC");
+    res.json(linia.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -305,11 +270,11 @@ app.get("/linia", async (req, res) => {
 app.get("/linia/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await pool.query("SELECT * FROM linia WHERE id_linii = $1", [
+    const linia = await pool.query("SELECT * FROM linia WHERE id_linii = $1", [
       id
     ]);
 
-    res.json(todo.rows[0]);
+    res.json(linia.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -321,7 +286,7 @@ app.get("/linia/:id", async (req, res) => {
 app.delete("/linia/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query("DELETE FROM linia WHERE id_linii = $1", [
+    const deleteLinia = await pool.query("DELETE FROM linia WHERE id_linii = $1", [
       id
     ]);
     res.json("Linia was deleted!");
@@ -336,117 +301,47 @@ app.delete("/linia/:id", async (req, res) => {
 app.post("/przystanekwLinii", async (req, res) => {
   try {
     const { linia,przystanek_id } = req.body;
-    const newTodo = await pool.query(
+    const przystanekwLinii = await pool.query(
       "INSERT INTO przystanekwLinii (linia,przystanek_id) VALUES($1,$2) RETURNING *",
       [linia,przystanek_id]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(przystanekwLinii.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
 });
-//ADD przystanekwLinii
-// app.post("/przystanekwLinii/:linia", async (req, res) => {
-//   try {
-//     const { linia,przystanek_id } = req.body;
-//     const newTodo = await pool.query(
-//       "INSERT INTO przystanekwLinii (linia,przystanek_id) VALUES($1,$2) RETURNING *",
-//       [linia,przystanek_id]
-//     );
-
-//     res.json(newTodo.rows[0]);
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// });
 
 //GET ALL przystankiwLinii
 
 app.get("/przystanekwLinii", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM przystanekwLinii, przystanki,linia where id_przystanku = przystanek_id and id_linii = linia ORDER BY id_przystLin ASC");
-
-    // const allTodos = await pool.query("SELECT * FROM przystanekwLinii, przystanki, linia, kurs where id_przystanku = przystanek_id and id_linii = linia and nazwalini_k = id_linii  ORDER BY id_kurs ASC");
-
-    res.json(allTodos.rows);
+    const przystanekWLinii = await pool.query("SELECT * FROM przystanekwLinii, przystanki,linia where id_przystanku = przystanek_id and id_linii = linia ORDER BY id_przystLin ASC");
+    res.json(przystanekWLinii.rows);
   } catch (err) {
     console.error(err.message);
   }
 });
 
-
-//=====
-//testowanie czy to dziala wogole
 app.get("/przystanekwLinii/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await pool.query("SELECT * FROM przystanekwlinii, przystanki, linia, kurs where id_przystanku = przystanek_id and id_linii = linia and nazwalini_k = id_linii and id_kurs = $1", [
+    const przystanekwLinii = await pool.query("SELECT * FROM przystanekwlinii, przystanki, linia, kurs where id_przystanku = przystanek_id and id_linii = linia and nazwalini_k = id_linii and id_kurs = $1", [
       id
     ]);
 
-    res.json(todo.rows[0]);
+    res.json(przystanekwLinii.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
 });
-// app.get("/przystanekwLinii/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const todo = await pool.query("select * from kurs k, przystanekwlinii p, linia l where k.nazwalini_k = l.id_linii and l.id_linii = p.linia and k.id_kurs = $1", [
-//       id
-//     ]);
-
-//     res.json(todo.rows[0]);
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// });
-//===
-
-
-/*
-app.get("/linia/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const todo = await pool.query("SELECT * FROM linia WHERE id_linii = $1", [
-      id
-    ]);
-
-    res.json(todo.rows[0]);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-app.get("/przystanekwLinii/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const allTodos = await pool.query("SELECT * FROM przystanekwLinii where linia = $1");
-    res.json(allTodos.rows);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-*/
-
-
-// app.get("/przystanekwLinii", async (req, res) => {
-//   try {
-//     const allTodos = await pool.query("SELECT nazwalinii,nazwaprzystanku FROM przystanekwLinii,linia,przystanki WHERE id_przystanku = przystanek_id AND linia = id_linii" );
-//     res.json(allTodos.rows);
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// });
-
-
 
 //DELETE przystanekwLinii
 
 app.delete("/przystanekwLinii/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query("DELETE FROM przystanekwLinii WHERE id_przystLin = $1", [
+    const deletePrzystanekwLinii = await pool.query("DELETE FROM przystanekwLinii WHERE id_przystLin = $1", [
       id
     ]);
     res.json("Przystanek w linii was deleted!");
@@ -465,12 +360,12 @@ app.delete("/przystanekwLinii/:id", async (req, res) => {
 app.post("/kurs", async (req, res) => {
   try {
     const { nazwalini_k,rbus_k,czas_odjazdu } = req.body;
-    const newTodo = await pool.query(
+    const kurs = await pool.query(
       "INSERT INTO kurs (nazwalini_k,rbus_k,czas_odjazdu) VALUES($1,$2,$3) RETURNING *",
       [ nazwalini_k,rbus_k,czas_odjazdu ]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(kurs.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -482,8 +377,8 @@ app.post("/kurs", async (req, res) => {
 
 app.get("/kurs", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM kurs,linia,rodzaj_autobusu where id_rodzaj = rbus_k and id_linii = nazwalini_k ORDER BY id_kurs ASC");
-    res.json(allTodos.rows);
+    const kurs = await pool.query("SELECT * FROM kurs,linia,rodzaj_autobusu where id_rodzaj = rbus_k and id_linii = nazwalini_k ORDER BY id_kurs ASC");
+    res.json(kurs.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -492,10 +387,10 @@ app.get("/kurs", async (req, res) => {
 app.get("/kurs/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await pool.query("SELECT * FROM kurs,linia,przystanekwlinii,przystanki where id_linii = nazwalini_k and id_linii = linia and przystanek_id = id_przystanku and id_kurs = $1", [
+    const kurs = await pool.query("SELECT * FROM kurs,linia,przystanekwlinii,przystanki where id_linii = nazwalini_k and id_linii = linia and przystanek_id = id_przystanku and id_kurs = $1", [
       id
     ]);
-    res.json(todo.rows);
+    res.json(kurs.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -507,7 +402,7 @@ app.get("/kurs/:id", async (req, res) => {
 app.delete("/kurs/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query("DELETE FROM kurs WHERE id_kurs = $1", [
+    const deleteKurs = await pool.query("DELETE FROM kurs WHERE id_kurs = $1", [
       id
     ]);
     res.json("Kurs was deleted!");
@@ -516,7 +411,6 @@ app.delete("/kurs/:id", async (req, res) => {
   }
 });
 
-// ***PanelKursy2 //TODO // noPage
 
 // ------------------------------------- END OF KURSY -------------------------------------  //
 
@@ -526,12 +420,12 @@ app.delete("/kurs/:id", async (req, res) => {
 app.post("/rozklad_jazdy", async (req, res) => {
   try {
     const { nazwa_kursu_id,id_przystankiwlini,godzina_odjazdu } = req.body;
-    const newTodo = await pool.query(
+    const rozklad_jazdy = await pool.query(
       "INSERT INTO rozklad_jazdy (nazwa_kursu_id,id_przystankiwlini,godzina_odjazdu) VALUES($1,$2,$3) RETURNING *",
       [ nazwa_kursu_id,id_przystankiwlini,godzina_odjazdu ]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(rozklad_jazdy.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -540,8 +434,8 @@ app.post("/rozklad_jazdy", async (req, res) => {
 
 app.get("/rozklad_jazdy", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM rozklad_jazdy r, kurs k, linia l, przystanekwlinii p, przystanki prz where r.nazwa_kursu_id = k.id_kurs and k.nazwalini_k = l.id_linii and r.id_przystankiwlini = p.id_przystlin and p.przystanek_id = prz.id_przystanku ORDER BY godzina_odjazdu ASC"); //TODO laczenie
-    res.json(allTodos.rows);
+    const rozklad_jazdy = await pool.query("SELECT * FROM rozklad_jazdy r, kurs k, linia l, przystanekwlinii p, przystanki prz where r.nazwa_kursu_id = k.id_kurs and k.nazwalini_k = l.id_linii and r.id_przystankiwlini = p.id_przystlin and p.przystanek_id = prz.id_przystanku ORDER BY godzina_odjazdu ASC"); //TODO laczenie
+    res.json(rozklad_jazdy.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -556,12 +450,12 @@ app.get("/rozklad_jazdy", async (req, res) => {
 app.post("/uzytkownicy", async (req, res) => {
   try {
     const { imie,nazwisko,id_stanowisko,ulica,miasto,wiek } = req.body;
-    const newTodo = await pool.query(
+    const uzytkownicy = await pool.query(
       "INSERT INTO uzytkownicy (imie,nazwisko,id_stanowisko,ulica,miasto,wiek) VALUES($1,$2,$3,$4,$5,$6) RETURNING *",
       [ imie,nazwisko,id_stanowisko,ulica,miasto,wiek ]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(uzytkownicy.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -572,8 +466,8 @@ app.post("/uzytkownicy", async (req, res) => {
 
 app.get("/uzytkownicy", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM uzytkownicy,typ_stanowiska where id_typstanowiska = id_stanowisko ORDER BY id_uzytkownik ASC");
-    res.json(allTodos.rows);
+    const uzytkownicy = await pool.query("SELECT * FROM uzytkownicy,typ_stanowiska where id_typstanowiska = id_stanowisko ORDER BY id_uzytkownik ASC");
+    res.json(uzytkownicy.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -585,7 +479,7 @@ app.get("/uzytkownicy", async (req, res) => {
 app.delete("/uzytkownicy/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query("DELETE FROM uzytkownicy WHERE id_uzytkownik = $1", [
+    const deleteUzytkownik = await pool.query("DELETE FROM uzytkownicy WHERE id_uzytkownik = $1", [
       id
     ]);
     res.json("Uzytkownik was deleted!");
@@ -612,12 +506,12 @@ app.delete("/uzytkownicy/:id", async (req, res) => {
 app.post("/kurs_realizacja", async (req, res) => {
   try {
     const { id_kursu,dzien_rel,id_kierowcyrel,id_busurel} = req.body;
-    const newTodo = await pool.query(
+    const kurs_real = await pool.query(
       "INSERT INTO kurs_realizacja (id_kursu,dzien_rel,id_kierowcyrel,id_busurel) VALUES($1,$2,$3,$4) RETURNING *",
       [ id_kursu,dzien_rel,id_kierowcyrel,id_busurel ]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(kurs_real.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -626,28 +520,19 @@ app.post("/kurs_realizacja", async (req, res) => {
 //GET REALIZACJA
 app.get("/kurs_realizacja", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM kurs_realizacja k, dni_tygodnia d, autobusy a, uzytkownicy u, dostepnosci_kierowcow dost, kurs ku, linia l where k.dzien_rel = d.id_dnityg and k.id_kierowcyrel = dost.id_dostkier and dost.id_uzytk = u.id_uzytkownik and k.id_busurel = a.id_bus and k.id_kursu = ku.id_kurs and ku.nazwalini_k = l.id_linii ORDER BY id_realizacji ASC");
-    res.json(allTodos.rows);
+    const kurs_real = await pool.query("SELECT * FROM kurs_realizacja k, dni_tygodnia d, autobusy a, uzytkownicy u, dostepnosci_kierowcow dost, kurs ku, linia l where k.dzien_rel = d.id_dnityg and k.id_kierowcyrel = dost.id_dostkier and dost.id_uzytk = u.id_uzytkownik and k.id_busurel = a.id_bus and k.id_kursu = ku.id_kurs and ku.nazwalini_k = l.id_linii ORDER BY id_realizacji ASC");
+    res.json(kurs_real.rows);
   } catch (err) {
     console.error(err.message);
   }
 });
-// //GET REALIZACJA (stare)
-// app.get("/kurs_realizacja", async (req, res) => {
-//   try {
-//     const allTodos = await pool.query("SELECT * FROM kurs_realizacja ORDER BY id_realizacji ASC");
-//     res.json(allTodos.rows);
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// });
 
-//DELETE UZYTKOWNIK
+//DELETE KURS REALIZACJA
 
 app.delete("/kurs_realizacja/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query("DELETE FROM kurs_realizacja WHERE id_realizacji = $1", [
+    const deleteKursRealizacja = await pool.query("DELETE FROM kurs_realizacja WHERE id_realizacji = $1", [
       id
     ]);
     res.json("Realizacja kursu was deleted!");
@@ -677,12 +562,12 @@ app.delete("/kurs_realizacja/:id", async (req, res) => {
 app.post("/dostepnosci_kierowcow", async (req, res) => {
   try {
     const { id_uzytk,dzien_tyg,rodzaj_zmiany } = req.body;
-    const newTodo = await pool.query(
-      "INSERT INTO dostepnosci_kierowcow (id_uzytk,dzien_tyg,rodzaj_zmiany) VALUES($1,$2,$3) RETURNING *",    //TODO co z id kierowcy?
+    const dostepnosci = await pool.query(
+      "INSERT INTO dostepnosci_kierowcow (id_uzytk,dzien_tyg,rodzaj_zmiany) VALUES($1,$2,$3) RETURNING *",
       [id_uzytk,dzien_tyg,rodzaj_zmiany]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(dostepnosci.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -694,7 +579,7 @@ app.post("/dostepnosci_kierowcow", async (req, res) => {
 app.delete("/dostepnosci_kierowcow/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query("DELETE FROM dostepnosci_kierowcow WHERE id_dostkier = $1", [
+    const deleteDostepnosci = await pool.query("DELETE FROM dostepnosci_kierowcow WHERE id_dostkier = $1", [
       id
     ]);
     res.json("Dostepnosc was deleted!");
@@ -714,8 +599,8 @@ app.delete("/dostepnosci_kierowcow/:id", async (req, res) => {
 //GET DOSTEPNOSC
 app.get("/dostepnosci_kierowcow", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM dostepnosci_kierowcow, dni_tygodnia, uzytkownicy WHERE id_dnityg = dzien_tyg AND id_uzytk = id_uzytkownik;");
-    res.json(allTodos.rows);
+    const dostepnosci = await pool.query("SELECT * FROM dostepnosci_kierowcow, dni_tygodnia, uzytkownicy WHERE id_dnityg = dzien_tyg AND id_uzytk = id_uzytkownik;");
+    res.json(dostepnosci.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -730,12 +615,11 @@ app.get("/dostepnosci_kierowcow", async (req, res) => {
 //------------------------------------- ------------------------------------- RODZAJ ZMIANY ------------------------------------- ------------------------------------- //
 
 
-
 //GET ZMIANA
 app.get("/rodzaj_zmiany", async (req, res) => {
   try {
-    const allTodos = await pool.query("SELECT * FROM rodzaj_zmiany");
-    res.json(allTodos.rows);
+    const rodzaj_zmiany = await pool.query("SELECT * FROM rodzaj_zmiany");
+    res.json(rodzaj_zmiany.rows);
   } catch (err) {
     console.error(err.message);
   }
