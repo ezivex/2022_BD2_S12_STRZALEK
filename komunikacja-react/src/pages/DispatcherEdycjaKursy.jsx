@@ -222,7 +222,7 @@ const getBusyData = async () => {
 
     let x = kursrodzajbus;
     console.log(typeof x);
-    if(parseInt(bus.rodzaj_autobusy) === parseInt(x))
+    if(parseInt(bus.rodzaj_autobusy) === parseInt(x) && bus.sprawnosc === true)
     {
       busyData.push({value: bus.id_bus, label: "Marka: " + bus.marka + " " + "Rejestracja: " +bus.rejestracja});
     }
