@@ -77,6 +77,7 @@ const handleSubmit = (e)=> {
             setErrMsg({ name: "pass", message: errors.pass });
         } else {
             //nazwauseraa = userData.username;
+            nazwauseraa = [];
             nazwauseraa.push(userData.username);
             console.log(nazwauseraa);
             //export nazwauseraa;

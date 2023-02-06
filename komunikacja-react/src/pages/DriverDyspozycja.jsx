@@ -18,6 +18,9 @@ const [rodzaj_zmiany, setRodZmian] = useState("");
 const onSubmitForm = async e => {
     e.preventDefault();
     try {
+      
+      
+
       let dzien_tyg = 1;
       const body = {id_uzytk, dzien_tyg, rodzaj_zmiany};
       const response = await fetch("http://localhost:5000/dostepnosci_kierowcow", {
@@ -25,7 +28,7 @@ const onSubmitForm = async e => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
-      window.location = "/DriverPanel";
+      window.location = `/DriverPanel?id=${id}`;
     } catch (err) {
       console.error(err.message);
     }
@@ -68,7 +71,10 @@ const getautobustyp3 = async () => {
   try {
     const response = await fetch("http://localhost:5000/uzytkownicy");
     const jsonData = await response.json();
-    setUsers(jsonData);
+    setUsers(jsonData.filter(item => item.imie === id));
+
+
+    //setDostepnosc(items.filter(item => item.id_dostkier !== id));
   } catch (err) {
   }
 };
@@ -112,7 +118,7 @@ const handleChangeUsers = (selectedOption) => {
                       <label>Rodzaj zmiany*</label>
                       <CreatableSelect options={rodzZmianData} defaultOptions onChange={handleChangeRodzZmian} />
                       <input type="number" name="nr_zmiany" onChange={e => setRodZmian(e.target.selectedOption.value) } hidden />
-                      <p style = {{color: "red", fontSize: 14}}> *Zmiana 1: 06:00 - 14:00 <br></br> *Zmiana 2: 14:00 - 22:00 </p>
+                      <p style = {{color: "red", fontSize: 14}}> *Zmiana 1: 08:00 - 15:00 <br></br> *Zmiana 2: 15:00 - 22:00 </p>
                   </div>
 
                   <div className="button-container">

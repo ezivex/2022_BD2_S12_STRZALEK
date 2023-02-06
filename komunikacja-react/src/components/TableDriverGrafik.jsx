@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
+import { Link,useLocation } from "react-router-dom";
+
+
 const TableDriverGrafik = () => {
  
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const id = queryParams.get('id'); 
+  console.log("jes " + id);
+
 const [items, setDostepnosc] = useState([]);
   
 const deleteDostepnosc = async id => {
@@ -20,7 +28,11 @@ const getDostepnosc = async () => {
       const response = await fetch("http://localhost:5000/dostepnosci_kierowcow");
       const jsonData = await response.json();
 
-      setDostepnosc(jsonData);
+      setDostepnosc(jsonData.filter(item => item.imie === id));
+
+
+
+      //setDostepnosc(items.filter(item => item.id_dostkier !== id));
     } catch (err) {
       console.error(err.message);
     }
