@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
 
-export const nazwauseraa = [];
+export let nazwauseraa = [];
 
 
 function LoginPage() {
@@ -80,6 +80,7 @@ const handleSubmit = (e)=> {
             setErrMsg({ name: "pass", message: errors.pass });
         } else {
             //nazwauseraa = userData.username;
+            nazwauseraa =[];
             nazwauseraa.push(userData.username);
             console.log(nazwauseraa);
             //export nazwauseraa;
@@ -97,7 +98,7 @@ const handleSubmit = (e)=> {
                                 break;
                             case 3:
                                 //console.log(userData.stanowisko);
-                                navigate('/DriverPanel');
+                                navigate(`/DriverPanel?id=${nazwauseraa}`);
                                 break;
                             default:
                                 navigate('/');

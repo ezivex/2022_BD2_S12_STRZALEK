@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavbarClean from '../components/NavbarClean';
 import TimeAndDate from '../components/TimeAndDate';
 import CreatableSelect from "react-select/creatable";
+import { useLocation } from 'react-router-dom';
+
 
 function DriverDyspozycja() {
 // ----------------------------------------------
+const location = useLocation();
+const queryParams = new URLSearchParams(location.search);
+const id = queryParams.get('id'); 
+
 const [id_uzytk, setIdU] = useState("");
 //const [dzien_tyg, setDzienT] = useState("");
 const [rodzaj_zmiany, setRodZmian] = useState("");
@@ -123,11 +129,12 @@ const handleChangeUsers = (selectedOption) => {
 
       <div className="mainContainer">
 
-            <NavbarClean><Link to="/DriverPanel" className='linkSettings'><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
+            <NavbarClean><Link to={`/DriverPanel?id=${id}`} className='linkSettings'><button className="btnBack"> POWRÓT </button></Link></NavbarClean>
             
             <TimeAndDate/>
 
-            <h2 className="nameFetchTitle">Wybierz dyspozycje</h2>   
+            <h2 className="nameFetchTitle">Wybierz dyspozycje</h2>  
+            <h2>{id}</h2> 
             <div className='mainPanels'>
               <form className='loging' onSubmit={onSubmitForm}>
                   <div className="input-container">
